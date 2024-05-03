@@ -1,0 +1,1 @@
+This is the latest steam version as of 4/11/24 including a 1.5 update, no anomaly integration. Updates beyond this point includes renamed calibers and a total rebalance that may cause issues for current save games.
