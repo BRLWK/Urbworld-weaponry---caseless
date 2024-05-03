@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!--Adds the created bullets to the existing CE ammosets-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CombatExtended.AmmoSetDef[defName="AmmoSet_65x21mmCaseless"]/ammoTypes</xpath>
+		<value>
+			<Ammo_65x21mmCaseless_APS>Bullet_65x21mmCaseless_APS</Ammo_65x21mmCaseless_APS>
+		</value>
+	</Operation>
+</Patch>

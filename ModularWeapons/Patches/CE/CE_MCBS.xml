@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+<mods>
+	<li>Combat Extended</li>
+</mods>
+<match Class="PatchOperationSequence">
+<operations>
+
+        <li Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="Caseless_MCBS"]/label</xpath>
+			<value>
+				<label>M23</label>
+			</value>
+		</li>
+
+        <li Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="Caseless_MCBS"]/description</xpath>
+			<value>
+				<description>Nicknamed the muffalo, the M23 shotgun fires a wide range of 23mm ammunition from buckshot to explosive slugs.</description>
+			</value>
+		</li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName="Caseless_MCBS"]/statBases</xpath>
+          <value>
+            <statBases>
+              <Mass>3.7</Mass>
+              <RangedWeapon_Cooldown>1.04</RangedWeapon_Cooldown>
+              <SightsEfficiency>1</SightsEfficiency>
+              <ShotSpread>0.14</ShotSpread>
+              <SwayFactor>1.13</SwayFactor>
+              <Bulk>7.92</Bulk>
+              <WorkToMake>21500</WorkToMake>
+            </statBases>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName="Caseless_MCBS"]/verbs</xpath>
+          <value>
+            <verbs>
+              <li Class="CombatExtended.VerbPropertiesCE">
+                <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                <recoilAmount>4.20</recoilAmount>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_23x52mmCS_Buck</defaultProjectile>
+                <warmupTime>0.6</warmupTime>
+                <range>20</range>
+                <burstShotCount>1</burstShotCount>
+                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                <soundCast>Shot_mcbShotgun</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>12</muzzleFlashScale>
+              </li>
+            </verbs>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingDef[defName="Caseless_MCBS"]/comps</xpath>
+          <value>
+            <li Class="ModularWeapons_CEModule.CompProperties_AmmoUserMW">
+              <magazineSize>5</magazineSize>
+              <reloadTime>4.5</reloadTime>
+              <ammoSet>AmmoSet_23x52mmCS</ammoSet>
+            </li>
+            <li Class="ModularWeapons_CEModule.CompProperties_FireModesMW">
+              <aimedBurstShotCount>1</aimedBurstShotCount>
+              <aiUseBurstMode>FALSE</aiUseBurstMode>
+              <aiAimMode>Snapshot</aiAimMode>
+            </li>
+            <li Class="ModularWeapons_CEModule.CompProperties_UnderbarrelMW">
+              <enableDefault>false</enableDefault>
+              <propsUnderBarrel>
+                <magazineSize>1</magazineSize>
+                <reloadTime>3</reloadTime>
+                <ammoSet>AmmoSet_23x52mmCSG</ammoSet>
+              </propsUnderBarrel>
+              <verbPropsUnderBarrel>
+                <recoilAmount>2.71</recoilAmount>
+                <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_23x52mmGrenade_HE</defaultProjectile>
+                <warmupTime>1.1</warmupTime>
+                <range>40</range>
+                <burstShotCount>1</burstShotCount>
+                <soundCast>InfernoCannon_Fire</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>5</muzzleFlashScale>
+              </verbPropsUnderBarrel>
+              <propsFireModesUnderBarrel>
+                <aiUseBurstMode>FALSE</aiUseBurstMode>
+                <aiAimMode>AimedShot</aiAimMode>
+                <aimedBurstShotCount>1</aimedBurstShotCount>
+              </propsFireModesUnderBarrel>
+            </li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName="Caseless_MCBS"]/tools/li[1]</xpath>
+          <value>
+            <li Class="CombatExtended.ToolCE">
+              <label>stock</label>
+              <capacities>
+                <li>Blunt</li>
+              </capacities>
+              <power>8</power>
+              <cooldownTime>1.79</cooldownTime>
+              <armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+              <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+            </li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="Caseless_MCBS"]/costList</xpath>
+			<value>
+				<costList>
+                  <Chemfuel>10</Chemfuel>
+                  <Steel>45</Steel>
+                  <ComponentIndustrial>3</ComponentIndustrial>
+                </costList>
+			</value>
+		</li>
+
+<!-- ======================================== Stats : Removing non-CE stats, barrel melee parent ==== -->
+
+          <!-- Ticks -->
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[
+              defName="MCBS_Barrel_Stub" or
+              defName="MCBS_Barrel_LongCompensator" or
+              defName="MCBS_Barrel_LongChoke" or
+              defName="MCBS_Mag_Ext" or
+              defName="MCBS_Mag_Belt" or
+              defName="MCBS_Action_Automatic" or
+              defName="MCBS_Action_Semi"
+              ]/ticksBetweenShotsFactor</xpath>
+          </li>
+
+          <!-- Warmup time factor -->
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[
+              defName="MCBS_Barrel_Stub" or
+              defName="MCBS_Barrel_LongCompensator" or
+              defName="MCBS_Barrel_LongChoke" or
+              defName="MCBS_Mag_Ext" or
+              defName="MCBS_Mag_Belt" or
+              defName="MCBS_Part_Streetsweeper" or
+              defName="MCBS_Action_Semi" or
+              defName="MCBS_Action_Automatic" or
+              defName="MCBS_Barrel_Accelerator"
+              ]/warmupTimeFactor</xpath>
+          </li>
+
+          <!-- Cooldown factor -->
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[
+              defName="MCBS_Barrel_StandardChoke" or
+              defName="MCBS_Mag_Ext"
+              ]/cooldownFactor</xpath>
+          </li>
+
+          <!-- Burstcount factor -->
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[
+              defName="MCBS_Mag_Ext" or
+              defName="MCBS_Mag_Belt"
+              ]/burstCountFactor</xpath>
+          </li>
+
+          <!-- movespeed factor -->
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[
+              defName="MCBS_Mag_Belt" or
+              defName="MCBS_Part_Streetsweeper"
+              ]/MoveSpeedFactor</xpath>
+          </li>
+
+
+<!-- ======================================== Parts : Barrel ==== -->
+
+          <!-- Stub -->
+
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_Stub"]/description</xpath>
+            <value>
+                <description>Made for firefights in a phonebooth. Increases spread, handling and recoil significantly.</description>
+            </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_Stub"]</xpath>
+            <value>
+                <additionalFactors>
+                    <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                        <shotSpread>0.02</shotSpread>
+                        <swayFactor>-0.2</swayFactor>
+                        <bulk>-1.07</bulk>
+                        <recoilAmount>0.31</recoilAmount>
+                    </li>
+                </additionalFactors>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_Stub"]/massFactor</xpath>
+            <value>
+                <massFactor>-0.49</massFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_Stub"]/rangeFactor</xpath>
+            <value>
+                <rangeFactor>-4</rangeFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_Stub"]/cooldownFactor</xpath>
+            <value>
+                <cooldownFactor>0.01</cooldownFactor>
+            </value>
+        </li>
+
+        <!-- Standard Choke -->
+
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_StandardChoke"]</xpath>
+            <value>
+                <additionalFactors>
+                    <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                        <shotSpread>-0.02</shotSpread>
+                    </li>
+                </additionalFactors>
+            </value>
+        </li>
+
+        <!-- Extended compensator -->
+
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_LongCompensator"]</xpath>
+            <value>
+                <additionalFactors>
+                    <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                        <shotSpread>-0.02</shotSpread>
+                        <swayFactor>0.29</swayFactor>
+                        <bulk>2.28</bulk>
+                        <recoilAmount>-0.40</recoilAmount>
+                    </li>
+                </additionalFactors>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_LongCompensator"]/massFactor</xpath>
+            <value>
+                <massFactor>0.56</massFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_LongCompensator"]/rangeFactor</xpath>
+            <value>
+                <rangeFactor>7</rangeFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_LongCompensator"]/cooldownFactor</xpath>
+            <value>
+                <cooldownFactor>-0.01</cooldownFactor>
+            </value>
+        </li>
+
+        <!-- Extended Choke -->
+
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_LongChoke"]</xpath>
+            <value>
+                <additionalFactors>
+                    <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                        <shotSpread>-0.04</shotSpread>
+                        <swayFactor>0.29</swayFactor>
+                        <bulk>2.28</bulk>
+                        <recoilAmount>-0.22</recoilAmount>
+                    </li>
+                </additionalFactors>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_LongChoke"]/massFactor</xpath>
+            <value>
+                <massFactor>0.56</massFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_LongChoke"]/rangeFactor</xpath>
+            <value>
+                <rangeFactor>7</rangeFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_LongChoke"]/cooldownFactor</xpath>
+            <value>
+                <cooldownFactor>-0.01</cooldownFactor>
+            </value>
+        </li>
+
+        <!-- Accelerator -->
+
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_Accelerator"]</xpath>
+            <value>
+                <additionalFactors>
+                    <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                        <overrideAmmoSet>AmmoSet_23x52mmCSG</overrideAmmoSet>
+                        <shotSpread>-0.02</shotSpread>
+                        <swayFactor>1.29</swayFactor>
+                        <bulk>2.28</bulk>
+                        <recoilAmount>-0.28</recoilAmount>
+                    </li>
+                </additionalFactors>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_Accelerator"]/massFactor</xpath>
+            <value>
+                <massFactor>0.56</massFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_Accelerator"]/rangeFactor</xpath>
+            <value>
+                <rangeFactor>32</rangeFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_Accelerator"]/cooldownFactor</xpath>
+            <value>
+                <cooldownFactor>-0.01</cooldownFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Barrel_Accelerator"]/ticksBetweenShotsFactor</xpath>
+            <value>
+                <ticksBetweenShotsFactor>-8</ticksBetweenShotsFactor>
+            </value>
+        </li>
+
+<!-- ======================================== Parts : Magazine ==== -->
+
+        <!-- Extended mag -->
+
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Mag_Ext"]</xpath>
+            <value>
+                <additionalFactors>
+                    <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                        <bulk>0.08</bulk>
+                        <magazineSize>3</magazineSize>
+                    </li>
+                </additionalFactors>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Mag_Ext"]/massFactor</xpath>
+            <value>
+                <massFactor>0.27</massFactor>
+            </value>
+        </li>
+
+        <!-- Belt feed -->
+
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Mag_Belt"]</xpath>
+            <value>
+                <additionalFactors>
+                    <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                        <shotSpread>-0.03</shotSpread>
+                        <swayFactor>0.16</swayFactor>
+                        <recoilAmount>-0.69</recoilAmount>
+                        <bulk>2</bulk>
+                        <magazineSize>10</magazineSize>
+                        <reloadTime>3.8</reloadTime>
+                    </li>
+                </additionalFactors>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Mag_Belt"]/massFactor</xpath>
+            <value>
+                <massFactor>1.6</massFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Mag_Belt"]/cooldownFactor</xpath>
+            <value>
+                <cooldownFactor>-0.03</cooldownFactor>
+            </value>
+        </li>
+
+        <!-- Streetsweeper -->
+
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Part_Streetsweeper"]</xpath>
+            <value>
+                <additionalFactors>
+                    <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                        <shotSpread>0.02</shotSpread>
+                        <swayFactor>0.01</swayFactor>
+                        <bulk>-0.87</bulk>
+                        <recoilAmount>-0.51</recoilAmount>
+                        <magazineSize>20</magazineSize>
+                        <reloadTime>3.8</reloadTime>
+                        <aimedBurstShotCount>2</aimedBurstShotCount>
+                    </li>
+                </additionalFactors>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Part_Streetsweeper"]/massFactor</xpath>
+            <value>
+                <massFactor>1.1</massFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Part_Streetsweeper"]/cooldownFactor</xpath>
+            <value>
+                <cooldownFactor>-0.02</cooldownFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Part_Streetsweeper"]</xpath>
+            <value>
+                <rangeFactor>-4</rangeFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Part_Streetsweeper"]/burstCountFactor</xpath>
+            <value>
+                <burstCountFactor>5</burstCountFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Part_Streetsweeper"]/ticksBetweenShotsFactor</xpath>
+            <value>
+                <ticksBetweenShotsFactor>-6</ticksBetweenShotsFactor>
+            </value>
+        </li>
+
+<!-- ======================================== Parts : Action ==== -->
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Action_Semi"]/cooldownFactor</xpath>
+            <value>
+                <cooldownFactor>-0.6</cooldownFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Action_Automatic"]</xpath>
+            <value>
+                <additionalFactors>
+                    <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                        <aimedBurstShotCount>1</aimedBurstShotCount>
+                    </li>
+                </additionalFactors>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Action_Automatic"]/cooldownFactor</xpath>
+            <value>
+                <cooldownFactor>-0.6</cooldownFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Action_Automatic"]</xpath>
+            <value>
+                <burstCountFactor>3</burstCountFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+
+                <ModularWeapons.ModularPartDef>
+                    <defName>MCBS_Action_PumpNade</defName>
+                    <label>Pump-action grenade</label>
+                    <description>Standard pump-action with a reinforced grenade-firing reciever.</description>
+                    <kind>MCBS_Action</kind>
+                    <path>Action_Pump</path>
+                    <additionalFactors>
+                        <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                            <overrideAmmoSet>AmmoSet_23x52mmCSG</overrideAmmoSet>
+                        </li>
+                    </additionalFactors>
+                    <costList>
+                        <Steel>5</Steel>
+                        <Plasteel>10</Plasteel>
+                        <Chemfuel>20</Chemfuel>
+                        <ComponentIndustrial>2</ComponentIndustrial>
+                    </costList>
+                    <researchPrerequisites>
+                        <li>CE_Launchers</li>
+                    </researchPrerequisites>
+                </ModularWeapons.ModularPartDef>
+
+                <ModularWeapons.ModularPartDef>
+                    <defName>MCBS_Action_SemiNade</defName>
+                    <label>Semi-automatic grenade action</label>
+                    <description>Semi-automatic action with a reinforced grenade-firing reciever.</description>
+                    <kind>MCBS_Action</kind>
+                    <path>Action_Semi</path>
+                    <!--=====-->
+                    <cooldownFactor>-0.6</cooldownFactor>
+                    <additionalFactors>
+                        <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                            <overrideAmmoSet>AmmoSet_23x52mmCSG</overrideAmmoSet>
+                        </li>
+                    </additionalFactors>
+                    <!--=====-->
+                    <costList>
+                        <Steel>10</Steel>
+                        <Plasteel>10</Plasteel>
+                        <Chemfuel>30</Chemfuel>
+                        <ComponentIndustrial>4</ComponentIndustrial>
+                    </costList>
+                    <researchPrerequisites>
+                        <li>CE_Launchers</li>
+                        <li>GasOperation</li>
+                    </researchPrerequisites>
+                </ModularWeapons.ModularPartDef>
+
+            </value>
+        </li>
+
+<!-- ======================================== Heatshield ==== -->
+
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Attach_Heatshield"]</xpath>
+            <value>
+                <additionalFactors>
+                    <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                        <swayFactor>-0.03</swayFactor>
+                        <recoilAmount>-0.05</recoilAmount>
+                    </li>
+                </additionalFactors>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Attach_Heatshield"]/massFactor</xpath>
+            <value>
+                <massFactor>0.6</massFactor>
+            </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBS_Attach_Heatshield"]/cooldownFactor</xpath>
+            <value>
+                <cooldownFactor>-0.05</cooldownFactor>
+            </value>
+        </li>
+
+<!-- ======================================== Add Actions ==== -->
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBS_Preset_CustomGR"]/requiredParts/li[text()="MCBS_Action_Pump"]</xpath>
+            <value>
+                <li>MCBS_Action_PumpNade</li>
+            </value>
+        </li>
+
+        <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBS_Preset_CustomGR"]/optionalParts/li[text()="MCBS_Action_Semi"]</xpath>
+        </li>
+
+        <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBS_Preset_AdvGrenadeRifle"]/requiredParts/li[text()="MCBS_Action_Pump"]</xpath>
+            <value>
+                <li>MCBS_Action_SemiNade</li>
+            </value>
+        </li>
+
+        <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBS_Preset_AdvGrenadeRifle"]/optionalParts/li[text()="MCBS_Action_Semi"]</xpath>
+        </li>
+
+<!-- ======================================== cleanup ==== -->
+
+        <!-- remove adv ammo -->
+
+        <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[
+                defName="MCBS_Ammo_AdvHEAT" or
+                defName="MCBS_Ammo_AdvAB" or
+                defName="MCBS_Ammo_AdvI"]</xpath>
+        </li>
+
+        <!-- remove ammo -->
+
+        <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[
+                defName="MCBS_Ammo_Buck" or
+                defName="MCBS_Ammo_Bird" or
+                defName="MCBS_Ammo_Slug" or
+                defName="MCBS_Ammo_Riot" or
+                defName="MCBS_Ammo_EX"]</xpath>
+        </li>
+
+        <!-- categories and default -->      
+        <li Class="PatchOperationRemove">
+        	<xpath>Defs/ThingDef[defName="Caseless_MCBS"]/comps/li[@Class="ModularWeapons.CompProperties_ModularParts"]/defaultParts/li[text()="MCBS_Ammo_Buck"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>Defs/ThingDef[defName="Caseless_MCBS"]/comps/li[@Class="ModularWeapons.CompProperties_ModularParts"]/majorKinds/li[text()="MCBS_Ammo"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>Defs/ThingDef[defName="Caseless_MCBS"]/comps/li[@Class="ModularWeapons.CompProperties_ModularParts"]/partKinds/li[text()="MCBS_Ammo"]</xpath>
+        </li>
+
+        <!-- presets -->
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBS_Preset_Custom_Basic"
+                                                       or defName="MCBS_Preset_Custom_Standard"
+                                                       or defName="MCBS_Preset_Custom_Adv"]/requiredParts/li[text()="MCBS_Ammo_Buck"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBS_Preset_Custom_SS"
+                                                       or defName="MCBS_Preset_Streetsweeper"
+                                                       or defName="MCBS_Preset_AdvStreetsweeper"
+                                                       or defName="MCBS_Preset_AdvSS"
+                                                       or defName="MCBS_Preset_AdvSSTwo"]/requiredParts/li[text()="MCBS_Ammo_Bird"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBS_Preset_Custom_SR"
+                                                       or defName="MCBS_Preset_SlugRifle"
+                                                       or defName="MCBS_Preset_AdvSlugRifle"
+                                                       or defName="MCBS_Preset_AcceleratorSR"]/requiredParts/li[text()="MCBS_Ammo_Slug"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBS_Preset_CustomGR"
+                                                       or defName="MCBS_Preset_AdvGrenadeRifle"
+                                                       or defName="MCBS_Preset_AcceleratorGR"]/requiredParts/li[text()="MCBS_Ammo_EX"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBS_Preset_AcceleratorGRTwo"]/requiredParts/li[text()="MCBS_Ammo_AdvHEAT"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBS_Preset_AcceleratorGRTwo"]/optionalParts/li[text()="MCBS_Ammo_AdvAB"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBS_Preset_AcceleratorGRTwo"]/optionalParts/li[text()="MCBS_Ammo_AdvI"]</xpath>
+        </li>
+
+</operations>
+</match>
+</Operation>
+</Patch>

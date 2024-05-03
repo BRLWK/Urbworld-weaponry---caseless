@@ -105,6 +105,9 @@
       <Steel>5</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
+    <researchPrerequisites>
+      <li>Gunsmithing</li>
+    </researchPrerequisites>
   </ModularWeapons.ModularPartDef>
 
   <ModularWeapons.ModularPartDef Name="UWC_AcogHolo_Base" Abstract="True">
@@ -125,7 +128,7 @@
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <researchPrerequisites>
-      <li>MicroelectronicsBasics</li>
+      <li>Gunsmithing</li>
     </researchPrerequisites>
   </ModularWeapons.ModularPartDef>
 
@@ -147,7 +150,7 @@
       <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <researchPrerequisites>
-      <li>MicroelectronicsBasics</li>
+      <li>Gunsmithing</li>
     </researchPrerequisites>
   </ModularWeapons.ModularPartDef>
 
@@ -260,7 +263,7 @@
 
   <ModularWeapons.ModularPartDef Name="UWC_GlitterScope_Base" Abstract="True">
     <label>GlitterScope</label>
-    <description>This rare lightweight optic known simply as a scope is used by common glitterworld forces.</description>
+    <description>This complex lightweight optic known simply as a scope is used by common glitterworld forces. Uses much of the same technology as gunlinks.</description>
     <!--=====-->
     <AccTouchFactor>0.08</AccTouchFactor>
     <AccShortFactor>0.14</AccShortFactor>

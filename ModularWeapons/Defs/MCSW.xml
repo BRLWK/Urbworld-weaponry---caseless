@@ -97,26 +97,12 @@
 
 <!-- ======================================== Parts : Barrels ==== -->
 
-    <ModularWeapons.ModularPartDef Name="UWC_MCSW_BarrelMeleeBase" Abstract="True">
-      <kind>MCSW_Barrel</kind>
-      <!--=====-->
-      <toolFactor>
-        <label>barrel</label>
-        <capacities>
-          <li>Blunt</li>
-          <li>Poke</li>
-        </capacities>
-        <power>9</power>
-        <cooldownTime>2</cooldownTime>
-      </toolFactor>
-      <!--=====-->
-    </ModularWeapons.ModularPartDef>
-
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_BarrelMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
       <defName>MCSW_Barrel_StandardWood</defName>
       <label>standard wood barrel</label>
       <description>Standard barrel with wooden furniture.</description>
       <path>Barrel_Wood_Medium</path>
+      <kind>MCSW_Barrel</kind>
       <!--=====-->
       <rangeFactor>6</rangeFactor>
       <massFactor>0.9</massFactor>
@@ -134,11 +120,12 @@
       </costList>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_BarrelMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
       <defName>MCSW_Barrel_StandardPoly</defName>
       <label>standard polymer barrel</label>
       <description>Standard barrel with polymer furniture.</description>
       <path>Barrel_Poly_Medium</path>
+      <kind>MCSW_Barrel</kind>
       <!--=====-->
       <rangeFactor>6</rangeFactor>
       <massFactor>0.9</massFactor>
@@ -156,11 +143,59 @@
       </costList>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_BarrelMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_StunBarrel_Base">
+      <defName>MCSW_Barrel_StandardEnforcer</defName>
+      <label>standard enforcer barrel</label>
+      <description>Standard barrel with weighted stun tool.</description>
+      <path>Barrel_Enforcer</path>
+      <kind>MCSW_Barrel</kind>
+      <!--=====-->
+      <rangeFactor>6</rangeFactor>
+      <massFactor>1.4</massFactor>
+      <warmupTimeFactor>0.25</warmupTimeFactor>
+      <cooldownFactor>0.5</cooldownFactor>
+      <dmgMultiplierFactor>0.1</dmgMultiplierFactor>
+      <AccTouchFactor>0.1</AccTouchFactor>
+      <AccShortFactor>0.12</AccShortFactor>
+      <AccMediumFactor>0.15</AccMediumFactor>
+      <AccLongFactor>0.16</AccLongFactor>
+      <!--=====-->
+      <costList>
+        <ComponentIndustrial>4</ComponentIndustrial>
+        <Steel>20</Steel>
+        <Chemfuel>10</Chemfuel>
+      </costList>
+    </ModularWeapons.ModularPartDef>
+
+    <ModularWeapons.ModularPartDef ParentName="UWC_BayonetMelee_Base">
+      <defName>MCSW_Barrel_StandardBayonet</defName>
+      <label>standard bayonet barrel</label>
+      <description>Standard barrel with attached bayonet.</description>
+      <path>Barrel_Med_Bayonet</path>
+      <kind>MCSW_Barrel</kind>
+      <!--=====-->
+      <rangeFactor>6</rangeFactor>
+      <massFactor>1.2</massFactor>
+      <warmupTimeFactor>0.25</warmupTimeFactor>
+      <cooldownFactor>0.5</cooldownFactor>
+      <dmgMultiplierFactor>0.1</dmgMultiplierFactor>
+      <AccTouchFactor>0.1</AccTouchFactor>
+      <AccShortFactor>0.12</AccShortFactor>
+      <AccMediumFactor>0.15</AccMediumFactor>
+      <AccLongFactor>0.16</AccLongFactor>
+      <!--=====-->
+      <costList>
+        <Steel>25</Steel>
+        <Chemfuel>10</Chemfuel>
+      </costList>
+    </ModularWeapons.ModularPartDef>
+
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
       <defName>MCSW_Barrel_ShortWood</defName>
       <label>short wood barrel</label>
       <description>Shortened barrel with wooden furniture.</description>
       <path>Barrel_Wood_Short</path>
+      <kind>MCSW_Barrel</kind>
       <!--=====-->
       <massFactor>0.3</massFactor>
       <warmupTimeFactor>0.12</warmupTimeFactor>
@@ -178,11 +213,12 @@
       </costList>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_BarrelMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
       <defName>MCSW_Barrel_ShortPoly</defName>
       <label>short polymer barrel</label>
       <description>Shortened barrel with polymer furniture.</description>
       <path>Barrel_Poly_Short</path>
+      <kind>MCSW_Barrel</kind>
       <!--=====-->
       <massFactor>0.3</massFactor>
       <warmupTimeFactor>0.12</warmupTimeFactor>
@@ -200,11 +236,59 @@
       </costList>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_BarrelMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_BayonetMelee_Base">
+      <defName>MCSW_Barrel_ShortBayo</defName>
+      <label>short bayonet barrel</label>
+      <description>Shortened barrel with attached bayonet.</description>
+      <path>Barrel_Short_Bayonet</path>
+      <kind>MCSW_Barrel</kind>
+      <!--=====-->
+      <massFactor>0.6</massFactor>
+      <warmupTimeFactor>0.12</warmupTimeFactor>
+      <cooldownFactor>0.25</cooldownFactor>
+      <dmgMultiplierFactor>-0.1</dmgMultiplierFactor>
+      <AccTouchFactor>0.22</AccTouchFactor>
+      <AccShortFactor>0.18</AccShortFactor>
+      <AccMediumFactor>0.08</AccMediumFactor>
+      <AccLongFactor>0.05</AccLongFactor>
+      <ticksBetweenShotsFactor>-2</ticksBetweenShotsFactor>
+      <!--=====-->
+      <costList>
+        <Steel>14</Steel>
+        <Chemfuel>6</Chemfuel>
+      </costList>
+    </ModularWeapons.ModularPartDef>
+
+    <ModularWeapons.ModularPartDef ParentName="UWC_StunBarrel_Base">
+      <defName>MCSW_Barrel_ShortEnforcer</defName>
+      <label>short enforcer barrel</label>
+      <description>Shortened barrel with enforcer stun tool.</description>
+      <path>Barrel_Short_Enforcer</path>
+      <kind>MCSW_Barrel</kind>
+      <!--=====-->
+      <massFactor>0.75</massFactor>
+      <warmupTimeFactor>0.12</warmupTimeFactor>
+      <cooldownFactor>0.25</cooldownFactor>
+      <dmgMultiplierFactor>-0.1</dmgMultiplierFactor>
+      <AccTouchFactor>0.22</AccTouchFactor>
+      <AccShortFactor>0.18</AccShortFactor>
+      <AccMediumFactor>0.08</AccMediumFactor>
+      <AccLongFactor>0.05</AccLongFactor>
+      <ticksBetweenShotsFactor>-2</ticksBetweenShotsFactor>
+      <!--=====-->
+      <costList>
+        <ComponentIndustrial>4</ComponentIndustrial>
+        <Steel>20</Steel>
+        <Chemfuel>8</Chemfuel>
+      </costList>
+    </ModularWeapons.ModularPartDef>
+
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
       <defName>MCSW_Barrel_LongWood</defName>
       <label>long wood barrel</label>
       <description>Long barrel with wooden furniture.</description>
       <path>Barrel_Wood_Long</path>
+      <kind>MCSW_Barrel</kind>
       <!--=====-->
       <rangeFactor>8</rangeFactor>
       <massFactor>1.2</massFactor>
@@ -226,11 +310,12 @@
       </researchPrerequisites>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_BarrelMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
       <defName>MCSW_Barrel_LongPoly</defName>
       <label>long polymer barrel</label>
       <description>Long barrel with polymer furniture.</description>
       <path>Barrel_Poly_Long</path>
+      <kind>MCSW_Barrel</kind>
       <!--=====-->
       <rangeFactor>8</rangeFactor>
       <massFactor>1.2</massFactor>
@@ -252,11 +337,12 @@
       </researchPrerequisites>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_BarrelMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
       <defName>MCSW_Barrel_Sharpshooter</defName>
       <label>sharpshooter barrel</label>
       <description>Long barrel with plasteel-lined match barrel.</description>
       <path>Barrel_Poly_Sharpshooter</path>
+      <kind>MCSW_Barrel</kind>
       <!--=====-->
       <burstCountFactor>-9</burstCountFactor>
       <rangeFactor>10</rangeFactor>
@@ -280,11 +366,12 @@
       </researchPrerequisites>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_BarrelMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
       <defName>MCSW_Barrel_MachineGun</defName>
       <label>MG barrel</label>
       <description>Long air-cooled barrel for sustained fire.</description>
       <path>Barrel_Poly_MG</path>
+      <kind>MCSW_Barrel</kind>
       <!--=====-->
       <burstCountFactor>3</burstCountFactor>
       <rangeFactor>6</rangeFactor>
@@ -307,11 +394,12 @@
       </researchPrerequisites>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_BarrelMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
       <defName>MCSW_Barrel_ShortPlasteel</defName>
       <label>short plasteel barrel</label>
       <description>Shortened barrel with plasteel furniture.</description>
       <path>Barrel_Plasteel_Short</path>
+      <kind>MCSW_Barrel</kind>
       <!--=====-->
       <massFactor>0.15</massFactor>
       <rangeFactor>3</rangeFactor>
@@ -333,11 +421,12 @@
       </researchPrerequisites>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_BarrelMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
       <defName>MCSW_Barrel_StandardPlasteel</defName>
       <label>standard plasteel barrel</label>
       <description>Standard barrel with plasteel furniture.</description>
       <path>Barrel_Plasteel_Medium</path>
+      <kind>MCSW_Barrel</kind>
       <!--=====-->
       <rangeFactor>8</rangeFactor>
       <massFactor>0.7</massFactor>
@@ -359,11 +448,12 @@
     </ModularWeapons.ModularPartDef>
 
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_BarrelMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
       <defName>MCSW_Barrel_LongPlasteel</defName>
       <label>long plasteel barrel</label>
       <description>Long barrel with plasteel furniture.</description>
       <path>Barrel_Plasteel_Long</path>
+      <kind>MCSW_Barrel</kind>
       <!--=====-->
       <rangeFactor>10</rangeFactor>
       <massFactor>1</massFactor>
@@ -385,11 +475,12 @@
       </researchPrerequisites>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_BarrelMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
     <defName>MCSW_Barrel_Accelerator</defName>
     <label>accelerator barrel</label>
     <description>Advanced barrel attachment increases damage but decreases range and accruacy.</description>
     <path>Barrel_Accelerator</path>
+    <kind>MCSW_Barrel</kind>
     <!--=====-->
     <dmgMultiplierFactor>0.35</dmgMultiplierFactor>
     <AccTouchFactor>-0.12</AccTouchFactor>
@@ -416,25 +507,12 @@
 
 <!-- ======================================== Parts : Stock ==== -->
 
-    <ModularWeapons.ModularPartDef Name="UWC_MCSW_StockMeleeBase" Abstract="True">
-      <kind>MCSW_Stock</kind>
-      <!--=====-->
-      <toolFactor>
-        <label>stock</label>
-        <capacities>
-          <li>Blunt</li>
-        </capacities>
-        <power>9</power>
-        <cooldownTime>2</cooldownTime>
-      </toolFactor>
-      <!--=====-->
-    </ModularWeapons.ModularPartDef>
-
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_StockMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeStock_Base">
       <defName>MCSW_Stock_Wood</defName>
       <label>standard wood stock</label>
       <description>Standard wooden stock.</description>
       <path>Stock_Wood</path>
+      <kind>MCSW_Stock</kind>
       <!--=====-->
       <rangeFactor>6</rangeFactor>
       <massFactor>0.6</massFactor>
@@ -451,11 +529,12 @@
       </costList>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_StockMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeStock_Base">
       <defName>MCSW_Stock_Ergo_Wood</defName>
       <label>wooden ergonomic stock</label>
       <description>Comfortable adjustable stock furnished from wood.</description>
       <path>Stock_Ergo_Wood</path>
+      <kind>MCSW_Stock</kind>
       <!--=====-->
       <rangeFactor>7</rangeFactor>
       <massFactor>0.5</massFactor>
@@ -473,11 +552,12 @@
       </costList>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_StockMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeStock_Base">
       <defName>MCSW_Stock_Sharpshooter_Wood</defName>
       <label>wooden sharpshooter stock</label>
       <description>Adjustable wooden stock for long range shooting.</description>
       <path>Stock_Sharpshooter_Wood</path>
+      <kind>MCSW_Stock</kind>
       <!--=====-->
       <rangeFactor>9</rangeFactor>
       <massFactor>0.65</massFactor>
@@ -494,11 +574,12 @@
       </costList>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_StockMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeStock_Base">
       <defName>MCSW_Stock_Poly</defName>
       <label>standard polymer stock</label>
       <description>Standard polymer stock.</description>
       <path>Stock_Poly</path>
+      <kind>MCSW_Stock</kind>
       <!--=====-->
       <rangeFactor>6</rangeFactor>
       <massFactor>0.6</massFactor>
@@ -515,11 +596,35 @@
       </costList>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_StockMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_StunStock_Base">
+      <defName>MCSW_Stock_Enforcer</defName>
+      <label>Enforcer stock</label>
+      <description>Simple stock with embedded stun tool.</description>
+      <path>Stock_Enforcer</path>
+      <kind>MCSW_Stock</kind>
+      <!--=====-->
+      <rangeFactor>6</rangeFactor>
+      <massFactor>0.8</massFactor>
+      <warmupTimeFactor>0.25</warmupTimeFactor>
+      <cooldownFactor>0.5</cooldownFactor>
+      <AccTouchFactor>0.04</AccTouchFactor>
+      <AccShortFactor>0.06</AccShortFactor>
+      <AccMediumFactor>0.1</AccMediumFactor>
+      <AccLongFactor>0.12</AccLongFactor>
+      <!--=====-->
+      <costList>
+        <ComponentIndustrial>4</ComponentIndustrial>
+        <Steel>25</Steel>
+        <Chemfuel>22</Chemfuel>
+      </costList>
+    </ModularWeapons.ModularPartDef>
+
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeStock_Base">
       <defName>MCSW_Stock_Ergo</defName>
       <label>ergonomic stock</label>
       <description>Comfortable adjustable stock.</description>
       <path>Stock_Ergo</path>
+      <kind>MCSW_Stock</kind>
       <!--=====-->
       <rangeFactor>7</rangeFactor>
       <massFactor>0.5</massFactor>
@@ -537,11 +642,12 @@
       </costList>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_StockMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeStock_Base">
       <defName>MCSW_Stock_Sharpshooter</defName>
       <label>sharpshooter stock</label>
       <description>Adjustable stock for long range shooting.</description>
       <path>Stock_Sharpshooter</path>
+      <kind>MCSW_Stock</kind>
       <!--=====-->
       <rangeFactor>9</rangeFactor>
       <massFactor>0.65</massFactor>
@@ -558,11 +664,12 @@
       </costList>
     </ModularWeapons.ModularPartDef>
 
-    <ModularWeapons.ModularPartDef ParentName="UWC_MCSW_StockMeleeBase">
+    <ModularWeapons.ModularPartDef ParentName="UWC_MeleeStock_Base">
       <defName>MCSW_Stock_Ergo_Plasteel</defName>
       <label>plasteel ergonomic stock</label>
       <description>Comfortable adjustable stock furnsihed from plasteel.</description>
       <path>Stock_Plasteel</path>
+      <kind>MCSW_Stock</kind>
       <!--=====-->
       <rangeFactor>8</rangeFactor>
       <massFactor>0.38</massFactor>

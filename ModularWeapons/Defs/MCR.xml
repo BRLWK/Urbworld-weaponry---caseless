@@ -62,7 +62,7 @@
       <graphicClass>ModularWeapons.Graphic_Modular</graphicClass>
       <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1.4</drawSize>
     </graphicData>
-    <uiIconScale>1.5</uiIconScale>
+    <uiIconScale>1</uiIconScale>
     <soundInteract>Interact_Revolver</soundInteract>
     <recipeMaker>
       <researchPrerequisite>Gunsmithing</researchPrerequisite>
@@ -500,7 +500,7 @@
       <Steel>20</Steel>
     </costList>
     <researchPrerequisites>
-      <li>PrecisionRifling</li>
+      <li>GasOperation</li>
     </researchPrerequisites>
   </ModularWeapons.ModularPartDef>
 

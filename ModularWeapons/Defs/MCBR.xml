@@ -500,6 +500,9 @@
     <costList>
       <Steel>15</Steel>
     </costList>
+    <researchPrerequisites>
+      <li>PrecisionRifling</li>
+    </researchPrerequisites>
   </ModularWeapons.ModularPartDef>
 
   <ModularWeapons.ModularPartDef>

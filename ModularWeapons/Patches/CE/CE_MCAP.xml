@@ -269,7 +269,7 @@
           <value>
             <additionalFactors>
               <li Class="ModularWeapons_CEModule.MWP_CEStats">
-                <swayFactor>-0.65</swayFactor>
+                <swayFactor>-0.35</swayFactor>
                 <sightsEfficiency>0.3</sightsEfficiency>
                 <bulk>0.3</bulk>
                 <recoilAmount>-0.38</recoilAmount>
@@ -300,7 +300,7 @@
           <value>
             <additionalFactors>
               <li Class="ModularWeapons_CEModule.MWP_CEStats">
-                <swayFactor>-0.65</swayFactor>
+                <swayFactor>-0.35</swayFactor>
                 <sightsEfficiency>0.3</sightsEfficiency>
                 <bulk>3.34</bulk>
                 <recoilAmount>-0.6</recoilAmount>
@@ -638,7 +638,7 @@
             <additionalFactors>
               <li Class="ModularWeapons_CEModule.MWP_CEStats">
                 <shotSpread>-0.04</shotSpread>
-                <swayFactor>-0.73</swayFactor>
+                <swayFactor>-0.53</swayFactor>
                 <bulk>1.52</bulk>
                 <recoilAmount>-0.33</recoilAmount>
                 <oneHandedness>-1.0</oneHandedness>
@@ -686,7 +686,7 @@
               <li Class="ModularWeapons_CEModule.MWP_CEStats">
                 <overrideAmmoSet>AmmoSet_9mmChemrail</overrideAmmoSet>
                 <shotSpread>-0.04</shotSpread>
-                <swayFactor>-0.73</swayFactor>
+                <swayFactor>-0.53</swayFactor>
                 <bulk>1.52</bulk>
                 <recoilAmount>1.7</recoilAmount>
                 <oneHandedness>-1.0</oneHandedness>

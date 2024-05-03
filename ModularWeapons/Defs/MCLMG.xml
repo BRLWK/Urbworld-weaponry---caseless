@@ -217,6 +217,9 @@
     <AccMediumFactor>-0.05</AccMediumFactor>
     <AccLongFactor>-0.03</AccLongFactor>
     <!--=====-->
+    <researchPrerequisites>
+      <li>PrecisionRifling</li>
+    </researchPrerequisites>
     <costList>
       <Steel>10</Steel>
       <Plasteel>15</Plasteel>
@@ -475,6 +478,9 @@
     <costList>
       <Steel>15</Steel>
     </costList>
+    <researchPrerequisites>
+      <li>PrecisionRifling</li>
+    </researchPrerequisites>
   </ModularWeapons.ModularPartDef>
 
   <ModularWeapons.ModularPartDef>

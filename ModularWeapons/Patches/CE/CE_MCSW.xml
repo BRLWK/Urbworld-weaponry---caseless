@@ -45,7 +45,7 @@
                     <verbs>
                       <li Class="CombatExtended.VerbPropertiesCE">
                         <verbClass>CombatExtended.Verb_ShootCE</verbClass>
-                        <recoilAmount>2.49</recoilAmount> <!-- 0.34, 2.15 -->
+                        <recoilAmount>2.49</recoilAmount> <!-- [0.34, 2.15] Stockless values//2.49 -->
                         <hasStandardCommand>true</hasStandardCommand>
                         <defaultProjectile>Bullet_77x49mmPC_FMJ</defaultProjectile>
                         <warmupTime>1.1</warmupTime>
@@ -132,47 +132,6 @@
 		            	</value>
 		            </li>
 
-<!-- ======================================== Tools ==== -->
-
-                <!-- Barrels -->
-
-                <li Class="PatchOperationReplace">
-                  <xpath>/Defs/ModularWeapons.ModularPartDef[@Name="UWC_MCSW_BarrelMeleeBase"]/toolFactor</xpath>
-                  <value>
-                    <toolFactor Class="CombatExtended.ToolCE">
-                      <label>muzzle</label>
-                      <capacities>
-                        <li>Poke</li>
-                      </capacities>
-                      <power>8</power>
-                      <cooldownTime>1.55</cooldownTime>
-                      <armorPenetrationBlunt>2.755</armorPenetrationBlunt>
-                      <linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
-                    </toolFactor>
-                  </value>
-                </li>
-
-                <!-- Stocks -->
-
-                <li Class="PatchOperationReplace">
-                  <xpath>/Defs/ModularWeapons.ModularPartDef[@Name="UWC_MCSW_StockMeleeBase"]/toolFactor</xpath>
-                  <value>
-                    <toolFactor Class="CombatExtended.ToolCE">
-                      <label>stock</label>
-                      <capacities>
-                        <li>Blunt</li>
-                      </capacities>
-                      <power>8</power>
-                      <cooldownTime>1.55</cooldownTime>
-                      <chanceFactor>1.5</chanceFactor>
-                      <armorPenetrationBlunt>2.755</armorPenetrationBlunt>
-                      <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
-                    </toolFactor>
-                  </value>
-                </li>
-
-
-
 <!-- ======================================== Stats : Removing non-CE stats ==== -->
 
                 <!-- Ticks -->
@@ -181,6 +140,8 @@
                   <xpath>/Defs/ModularWeapons.ModularPartDef[
                     defName="MCSW_Barrel_ShortWood" or
                     defName="MCSW_Barrel_ShortPoly" or
+                    defName="MCSW_Barrel_ShortEnforcer" or
+                    defName="MCSW_Barrel_ShortBayo" or
                     defName="MCSW_Barrel_LongWood" or
                     defName="MCSW_Barrel_LongPoly" or
                     defName="MCSW_Barrel_Sharpshooter" or
@@ -196,8 +157,12 @@
                   <xpath>/Defs/ModularWeapons.ModularPartDef[
                     defName="MCSW_Barrel_StandardWood" or
                     defName="MCSW_Barrel_StandardPoly" or
+                    defName="MCSW_Barrel_StandardBayonet" or
+                    defName="MCSW_Barrel_StandardEnforcer" or
                     defName="MCSW_Barrel_ShortWood" or
                     defName="MCSW_Barrel_ShortPoly" or
+                    defName="MCSW_Barrel_ShortEnforcer" or
+                    defName="MCSW_Barrel_ShortBayo" or
                     defName="MCSW_Barrel_LongWood" or
                     defName="MCSW_Barrel_LongPoly" or
                     defName="MCSW_Barrel_Sharpshooter" or
@@ -209,6 +174,7 @@
                     defName="MCSW_Stock_Ergo_Wood" or
                     defName="MCSW_Stock_Sharpshooter_Wood" or
                     defName="MCSW_Stock_Poly" or
+                    defName="MCSW_Stock_Enforcer" or
                     defName="MCSW_Stock_Ergo" or
                     defName="MCSW_Stock_Sharpshooter" or
                     defName="MCSW_Stock_Ergo_Plasteel" or
@@ -227,6 +193,8 @@
                   <xpath>/Defs/ModularWeapons.ModularPartDef[
                     defName="MCSW_Barrel_StandardWood" or
                     defName="MCSW_Barrel_StandardPoly" or
+                    defName="MCSW_Barrel_StandardBayonet" or
+                    defName="MCSW_Barrel_StandardEnforcer" or
                     defName="MCSW_Barrel_LongWood" or
                     defName="MCSW_Barrel_LongPoly" or
                     defName="MCSW_Barrel_Sharpshooter" or
@@ -250,10 +218,13 @@
                   <xpath>/Defs/ModularWeapons.ModularPartDef[
                     defName="MCSW_Barrel_StandardWood" or
                     defName="MCSW_Barrel_StandardPoly" or
+                    defName="MCSW_Barrel_StandardBayonet" or
+                    defName="MCSW_Barrel_StandardEnforcer" or
                     defName="MCSW_Stock_Wood" or
                     defName="MCSW_Stock_Ergo_Wood" or
                     defName="MCSW_Stock_Sharpshooter_Wood" or
                     defName="MCSW_Stock_Poly" or
+                    defName="MCSW_Stock_Enforcer" or
                     defName="MCSW_Stock_Ergo" or
                     defName="MCSW_Stock_Sharpshooter" or
                     defName="MCSW_Stock_Ergo_Plasteel" or
@@ -267,13 +238,19 @@
         <!-- standard -->
 
         <li Class="PatchOperationRemove">
-          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_StandardWood" or defName="MCSW_Barrel_StandardPoly"]/massFactor</xpath>
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_StandardWood"
+          or defName="MCSW_Barrel_StandardPoly"
+          or defName="MCSW_Barrel_StandardEnforcer"
+          or defName="MCSW_Barrel_StandardBayonet"]/massFactor</xpath>
         </li>
 
           <!-- Short -->
 
           <li Class="PatchOperationAdd">
-            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortWood" or defName="MCSW_Barrel_ShortPoly"]</xpath>
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortWood"
+            or defName="MCSW_Barrel_ShortPoly"
+            or defName="MCSW_Barrel_ShortBayo"
+            or defName="MCSW_Barrel_ShortEnforcer"]</xpath>
             <value>
               <additionalFactors>
                 <li Class="ModularWeapons_CEModule.MWP_CEStats">
@@ -287,21 +264,30 @@
           </li>
 
           <li Class="PatchOperationReplace">
-            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortWood" or defName="MCSW_Barrel_ShortPoly"]/massFactor</xpath>
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortWood"
+            or defName="MCSW_Barrel_ShortPoly"
+            or defName="MCSW_Barrel_ShortBayo"
+            or defName="MCSW_Barrel_ShortEnforcer"]/massFactor</xpath>
             <value>
               <massFactor>-0.45</massFactor>
             </value>
           </li>
 
           <li Class="PatchOperationAdd">
-            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortWood" or defName="MCSW_Barrel_ShortPoly"]</xpath>
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortWood"
+            or defName="MCSW_Barrel_ShortPoly"
+            or defName="MCSW_Barrel_ShortBayo"
+            or defName="MCSW_Barrel_ShortEnforcer"]</xpath>
             <value>
               <rangeFactor>-14</rangeFactor>
             </value>
           </li>
 
           <li Class="PatchOperationReplace">
-            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortWood" or defName="MCSW_Barrel_ShortPoly"]/cooldownFactor</xpath>
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortWood"
+            or defName="MCSW_Barrel_ShortPoly"
+            or defName="MCSW_Barrel_ShortBayo"
+            or defName="MCSW_Barrel_ShortEnforcer"]/cooldownFactor</xpath>
             <value>
               <cooldownFactor>0.01</cooldownFactor>
             </value>
@@ -317,7 +303,7 @@
                   <shotSpread>-0.01</shotSpread>
                   <swayFactor>0.08</swayFactor>
                   <bulk>0.45</bulk>
-                  <recoilAmount>-0.10</recoilAmount>
+                  <recoilAmount>-0.15</recoilAmount> <!-- -0.10 -->
                 </li>
               </additionalFactors>
             </value>
@@ -347,7 +333,7 @@
                   <shotSpread>-0.02</shotSpread>
                   <swayFactor>0.11</swayFactor>
                   <bulk>0.54</bulk>
-                  <recoilAmount>-0.16</recoilAmount>
+                  <recoilAmount>-0.2</recoilAmount> <!-- -0.16 -->
                 </li>
               </additionalFactors>
             </value>
@@ -388,7 +374,7 @@
                   <shotSpread>-0.01</shotSpread>
                   <swayFactor>0.11</swayFactor>
                   <bulk>0.55</bulk>
-                  <recoilAmount>-0.18</recoilAmount>
+                  <recoilAmount>-0.25</recoilAmount> <!-- -0.18 -->
                   <bipodEnable>true</bipodEnable>
                 </li>
               </additionalFactors>
@@ -439,7 +425,7 @@
                   <shotSpread>-0.01</shotSpread>
                   <swayFactor>-0.14</swayFactor>
                   <bulk>-0.66</bulk>
-                  <recoilAmount>0.13</recoilAmount>
+                  <recoilAmount>0.07</recoilAmount> <!-- 0.13 -->
                 </li>
               </additionalFactors>
             </value>
@@ -476,7 +462,7 @@
                   <shotSpread>-0.02</shotSpread>
                   <swayFactor>-0.03</swayFactor>
                   <bulk>-0.05</bulk>
-                  <recoilAmount>-0.05</recoilAmount>
+                  <recoilAmount>-0.1</recoilAmount> <!-- -0.05 -->
                 </li>
               </additionalFactors>
             </value>
@@ -506,7 +492,7 @@
                   <shotSpread>-0.03</shotSpread>
                   <swayFactor>0.05</swayFactor>
                   <bulk>0.51</bulk>
-                  <recoilAmount>-0.18</recoilAmount>
+                  <recoilAmount>-0.24</recoilAmount> <!-- -0.18 -->
                 </li>
               </additionalFactors>
             </value>
@@ -550,7 +536,7 @@
                   <overrideAmmoSet>AmmoSet_8mmChemrail</overrideAmmoSet>
                   <swayFactor>0.06</swayFactor>
                   <shotSpread>-0.02</shotSpread>
-                  <recoilAmount>0.58</recoilAmount>
+                  <recoilAmount>0.29</recoilAmount> <!-- 0.58 -->
                   <magazineSize>20</magazineSize>
                   <bulk>0.1</bulk>
                 </li>
@@ -620,7 +606,7 @@
                   <overrideAmmoSet>AmmoSet_8mmChemrail</overrideAmmoSet>
                   <swayFactor>0.27</swayFactor>
                   <shotSpread>-0.03</shotSpread>
-                  <recoilAmount>0.15</recoilAmount>
+                  <recoilAmount>0.08</recoilAmount> <!-- 0.15 -->
                   <magazineSize>20</magazineSize>
                   <bulk>0.45</bulk>
                   <bipodEnable>true</bipodEnable>
@@ -664,7 +650,7 @@
                   <overrideAmmoSet>AmmoSet_8mmChemrail</overrideAmmoSet>
                   <swayFactor>0.27</swayFactor>
                   <shotSpread>-0.03</shotSpread>
-                  <recoilAmount>0.15</recoilAmount>
+                  <recoilAmount>0.08</recoilAmount> <!-- 0.15 -->
                   <magazineSize>120</magazineSize>
                   <bulk>0.45</bulk>
                   <bipodEnable>true</bipodEnable>
@@ -681,27 +667,27 @@
           <!-- Standard Stock -->
 
           <li Class="PatchOperationAdd">
-            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Wood" or defName="MCSW_Stock_Poly"]</xpath>
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Wood" or defName="MCSW_Stock_Poly" or defName="MCSW_Stock_Enforcer"]</xpath>
             <value>
               <additionalFactors>
                 <li Class="ModularWeapons_CEModule.MWP_CEStats">
                   <swayFactor>1.33</swayFactor>
                   <bulk>3.6</bulk>
-                  <recoilAmount>-0.34</recoilAmount>
+                  <recoilAmount>-0.4</recoilAmount> <!-- -0.34 -->
                 </li>
               </additionalFactors>
             </value>
           </li>
 
           <li Class="PatchOperationReplace">
-            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Wood" or defName="MCSW_Stock_Poly"]/massFactor</xpath>
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Wood" or defName="MCSW_Stock_Poly" or defName="MCSW_Stock_Enforcer"]/massFactor</xpath>
             <value>
               <massFactor>0.9</massFactor>
             </value>
           </li>
 
           <li Class="PatchOperationReplace">
-            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Wood" or defName="MCSW_Stock_Poly"]/cooldownFactor</xpath>
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Wood" or defName="MCSW_Stock_Poly" or defName="MCSW_Stock_Enforcer"]/cooldownFactor</xpath>
             <value>
               <cooldownFactor>-0.01</cooldownFactor>
             </value>
@@ -716,7 +702,7 @@
                 <li Class="ModularWeapons_CEModule.MWP_CEStats">
                   <swayFactor>-0.07</swayFactor>
                   <bulk>-3.02</bulk>
-                  <recoilAmount>0.09</recoilAmount>
+                  <recoilAmount>0.04</recoilAmount> <!-- 0.09 -->
                 </li>
               </additionalFactors>
             </value>
@@ -745,7 +731,7 @@
                 <li Class="ModularWeapons_CEModule.MWP_CEStats">
                   <swayFactor>0.15</swayFactor>
                   <bulk>2.52</bulk>
-                  <recoilAmount>-0.18</recoilAmount>
+                  <recoilAmount>-0.22</recoilAmount> <!-- -0.18 -->
                 </li>
               </additionalFactors>
             </value>
@@ -767,7 +753,7 @@
                 <li Class="ModularWeapons_CEModule.MWP_CEStats">
                   <swayFactor>-0.05</swayFactor>
                   <bulk>-3.12</bulk>
-                  <recoilAmount>-0.18</recoilAmount>
+                  <recoilAmount>-0.24</recoilAmount> <!-- -0.18 -->
                 </li>
               </additionalFactors>
             </value>
@@ -784,6 +770,40 @@
             <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Ergo_Plasteel"]/cooldownFactor</xpath>
             <value>
               <cooldownFactor>-0.01</cooldownFactor>
+            </value>
+          </li>
+
+<!-- ======================================== Def : recoil control ==== -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+              <ModularWeapons.ModularPartDef>
+                <defName>MCSW_Attachment_Recoil</defName>
+                <label>Recoil control module</label>
+                <description>Counterweights and gas direction reduces muzzle climb and reduce rate-of-fire.</description>
+                <kind>MCSW_SideAttachment</kind>
+                <path>Recoil_Buffer</path>
+                <!--=====-->
+                <massFactor>0.23</massFactor>
+                <cooldownFactor>-0.02</cooldownFactor>
+                <ticksBetweenShotsFactor>2</ticksBetweenShotsFactor>
+                <!--=====-->
+                <costList>
+                  <Plasteel>15</Plasteel>
+                  <ComponentIndustrial>3</ComponentIndustrial>
+                </costList>
+                <researchPrerequisites>
+                  <li>GasOperation</li>
+                </researchPrerequisites>
+                <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <swayFactor>0.05</swayFactor>
+                  <recoilAmount>-0.75</recoilAmount>
+                  <bulk>0.15</bulk>
+                </li>
+              </additionalFactors>
+              </ModularWeapons.ModularPartDef>
             </value>
           </li>
 
@@ -813,7 +833,7 @@
                   <overrideAmmoSet>AmmoSet_77x49mmPC</overrideAmmoSet>
                   <aimedBurstShotCount>2</aimedBurstShotCount>
                   <swayFactor>0.18</swayFactor>
-                  <recoilAmount>-0.35</recoilAmount>
+                  <recoilAmount>-0.41</recoilAmount> <!-- -0.35 -->
                   <magazineSize>320</magazineSize>
                   <bulk>3</bulk>
                   <reloadTime>3.8</reloadTime>
@@ -849,7 +869,7 @@
                   <overrideAmmoSet>AmmoSet_77x49mmETC</overrideAmmoSet>
                   <aimedBurstShotCount>2</aimedBurstShotCount>
                   <swayFactor>0.18</swayFactor>
-                  <recoilAmount>-0.35</recoilAmount>
+                  <recoilAmount>-0.41</recoilAmount> <!-- -0.35 -->
                   <magazineSize>320</magazineSize>
                   <bulk>3</bulk>
                   <reloadTime>3.8</reloadTime>
@@ -921,7 +941,7 @@
                   <shotSpread>-0.01</shotSpread>
                   <magazineSize>-15</magazineSize>
                   <swayFactor>0.06</swayFactor>
-                  <recoilAmount>-0.16</recoilAmount>
+                  <recoilAmount>-0.22</recoilAmount> <!-- -0.16 -->
                 </li>
               </additionalFactors>
             </value>
@@ -979,7 +999,7 @@
                 <li Class="ModularWeapons_CEModule.MWP_CEStats">
                   <overrideAmmoSet>AmmoSet_77x49mmPC</overrideAmmoSet>
                   <magazineSize>45</magazineSize>
-                  <recoilAmount>-0.12</recoilAmount>
+                  <recoilAmount>-0.2</recoilAmount> <!-- -0.12 -->
                   <bulk>1.1</bulk>
                   <swayFactor>0.07</swayFactor>
                   <reloadTime>0.9</reloadTime>
@@ -1037,7 +1057,7 @@
                   <aimedBurstShotCount>2</aimedBurstShotCount>
                   <magazineSize>70</magazineSize>
                   <swayFactor>0.18</swayFactor>
-                  <recoilAmount>-0.35</recoilAmount>
+                  <recoilAmount>-0.4</recoilAmount> <!-- -0.35 -->
                   <bulk>2</bulk>
                   <reloadTime>3.8</reloadTime>
                 </li>
@@ -1098,7 +1118,7 @@
                   <aimedBurstShotCount>-2</aimedBurstShotCount>
                   <magazineSize>-15</magazineSize>
                   <swayFactor>0.13</swayFactor>
-                  <recoilAmount>-0.24</recoilAmount>
+                  <recoilAmount>-0.31</recoilAmount> <!-- -0.24 -->
                 </li>
               </additionalFactors>
             </value>
@@ -1128,7 +1148,7 @@
           <li Class="PatchOperationReplace">
             <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECShort"]/burstCountFactor</xpath>
             <value>
-              <burstCountFactor>-4</burstCountFactor>
+              <burstCountFactor>-5</burstCountFactor>
             </value>
           </li>
 
@@ -1165,7 +1185,7 @@
                 <li Class="ModularWeapons_CEModule.MWP_CEStats">
                   <overrideAmmoSet>AmmoSet_77x49mmETC</overrideAmmoSet>
                   <swayFactor>0.04</swayFactor>
-                  <recoilAmount>-0.17</recoilAmount>
+                  <recoilAmount>-0.22</recoilAmount> <!-- -0.17 -->
                 </li>
               </additionalFactors>
             </value>
@@ -1211,7 +1231,7 @@
           <li Class="PatchOperationReplace">
             <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECBox"]/burstCountFactor</xpath>
             <value>
-                <burstCountFactor>5</burstCountFactor>
+                <burstCountFactor>4</burstCountFactor>
 				  	</value>
           </li>
 
@@ -1234,7 +1254,7 @@
                   <aimedBurstShotCount>2</aimedBurstShotCount>
                   <magazineSize>70</magazineSize>
                   <swayFactor>0.23</swayFactor>
-                  <recoilAmount>-0.4</recoilAmount>
+                  <recoilAmount>-0.45</recoilAmount> <!-- -0.4 -->
                   <bulk>2</bulk>
                   <reloadTime>3.8</reloadTime>
                 </li>

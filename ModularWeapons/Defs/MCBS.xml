@@ -398,8 +398,10 @@
     </researchPrerequisites>
     <incompatibleKind>
       <li>MCBS_Action</li>
-      <li>MCBS_TopAttachment</li>
     </incompatibleKind>
+    <incompatibleParts>
+      <li>MCBS_Attach_Heatshield</li>
+    </incompatibleParts>
   </ModularWeapons.ModularPartDef>
 
 <!-- ======================================== Parts : Magazine ==== -->

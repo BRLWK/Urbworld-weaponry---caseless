@@ -25,6 +25,7 @@
 				<Ammo_9x18mmEC_FMJ>Bullet_9x18mmEC_FMJ</Ammo_9x18mmEC_FMJ>
 				<Ammo_9x18mmEC_AP>Bullet_9x18mmEC_AP</Ammo_9x18mmEC_AP>
 				<Ammo_9x18mmEC_HP>Bullet_9x18mmEC_HP</Ammo_9x18mmEC_HP>
+				<Ammo_9x18mmEC_APS MayRequire="Safair.ArmorPiercingSpecial">Bullet_9x18mmEC_APS</Ammo_9x18mmEC_APS>
 			</ammoTypes>
 			<similarTo>AmmoSet_Pistol</similarTo>
 		</CombatExtended.AmmoSetDef>
@@ -89,6 +90,20 @@
 			<cookOffProjectile>Bullet_9x18mmEC_HP</cookOffProjectile>
 		</ThingDef>
 
+		<ThingDef MayRequire="Safair.ArmorPiercingSpecial" Class="CombatExtended.AmmoDef" ParentName="9x18mmECBase">
+			<defName>Ammo_9x18mmEC_APS</defName>
+			<label>9x18mm ETC cartridge (AP-S)</label>
+			<graphicData>
+				<texPath>Ammo/APS</texPath>
+				<graphicClass>Graphic_StackCount</graphicClass>
+			</graphicData>
+			<statBases>
+				<MarketValue>0.05</MarketValue>
+			</statBases>
+			<ammoClass>SpecialAP</ammoClass>
+			<cookOffProjectile>Bullet_9x18mmEC_APS</cookOffProjectile>
+		</ThingDef>
+
 		<!-- ================== Projectiles ================== -->
 
 		<ThingDef  Class="CombatExtended.AmmoDef" Name="Base9x18mmECBullet" ParentName="BaseBulletCE" Abstract="true">
@@ -131,6 +146,16 @@
 				<damageAmountBase>19</damageAmountBase>
 				<armorPenetrationSharp>3</armorPenetrationSharp>
 				<armorPenetrationBlunt>25.44</armorPenetrationBlunt>
+			</projectile>
+		</ThingDef>
+
+		<ThingDef MayRequire="Safair.ArmorPiercingSpecial" Class="CombatExtended.AmmoDef" ParentName="Base9x18mmECBullet">
+			<defName>Bullet_9x18mmEC_APS</defName>
+			<label>9x18mm ETC bullet (AP-S)</label>
+			<projectile Class="CombatExtended.ProjectilePropertiesCE">
+				<damageAmountBase>7</damageAmountBase>
+				<armorPenetrationSharp>14</armorPenetrationSharp>
+				<armorPenetrationBlunt>33</armorPenetrationBlunt>
 			</projectile>
 		</ThingDef>
   
@@ -214,6 +239,50 @@
     	    <Ammo_9x18mmEC_HP>500</Ammo_9x18mmEC_HP>
     	  </products>
     	  <workAmount>1200</workAmount>
+    	</RecipeDef>
+
+		<RecipeDef MayRequire="Safair.ArmorPiercingSpecial" ParentName="UWC_ETCAmmoRecipeBase">
+    	  <defName>MakeAmmo_9x18mmEC_APS</defName>
+    	  <label>make 9x18mm ETC (AP-S) cartridge x500</label>
+    	  <description>Craft 500 9x18mm ETC (AP-S) cartridges.</description>
+    	  <jobString>Making 9x18mm ETC (AP-S) cartridges.</jobString>
+    	  <ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>8</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Uranium</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Chemfuel</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>Uranium</li>
+				<li>Chemfuel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+    	  <products>
+    	    <Ammo_9x18mmEC_APS>500</Ammo_9x18mmEC_APS>
+    	  </products>
+    	  <workAmount>1800</workAmount>
     	</RecipeDef>
 
       </value>

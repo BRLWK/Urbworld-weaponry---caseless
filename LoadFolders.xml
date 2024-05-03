@@ -12,5 +12,13 @@
         <li IfModActive="RWNodeTree.RWWeaponModularization">WeaponModularization</li>
         <li IfModActive="kaitorisenkou.ModularWeapons">ModularWeapons</li>
         <li IfModActive="CETeam.CombatExtended">WMCE</li> <!--RWNodeTree.RWWeaponModularization-->
+        <li IfModActive="Safair.ArmorPiercingSpecial">APSAmmo</li>
     </v1.4>
+    <v1.5>
+        <li>/</li>
+        <li>1.5</li>
+        <li IfModActive="Ludeon.Rimworld.Ideology">Ideology</li>
+        <li IfModActive="kaitorisenkou.ModularWeapons">ModularWeapons</li>
+        <li IfModActive="Safair.ArmorPiercingSpecial">APSAmmo</li>
+    </v1.5>
 </loadFolders>

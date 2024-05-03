@@ -203,6 +203,7 @@
               defName="MCIW_Barrel_LongWood" or
               defName="MCIW_Barrel_Trench" or
               defName="MCIW_Barrel_TrenchWood" or
+              defName="MCIW_Barrel_Enforcer" or
               defName="MCIW_Mag_Box"
               ]/ticksBetweenShotsFactor</xpath>
           </li>
@@ -214,6 +215,8 @@
               defName="MCIW_Barrel_Carbine" or
               defName="MCIW_Barrel_CarbineWood" or
               defName="MCIW_Barrel_Short" or
+              defName="MCIW_Barrel_Short_Enforcer" or
+              defName="MCIW_Barrel_Short_Bayonet" or
               defName="MCIW_Barrel_Light_Plasteel" or
               defName="MCIW_Barrel_Medium_Plasteel" or
               defName="MCIW_Barrel_Long_Plasteel" or
@@ -222,6 +225,7 @@
               defName="MCIW_Barrel_Recoil" or
               defName="MCIW_Barrel_Trench" or
               defName="MCIW_Barrel_TrenchWood" or
+              defName="MCIW_Barrel_Enforcer" or
               defName="MCIW_Stock_Folding" or
               defName="MCIW_Stock_CQB" or
               defName="MCIW_Stock_Ergonomic" or
@@ -242,6 +246,8 @@
               defName="MCIW_Barrel_Carbine" or
               defName="MCIW_Barrel_CarbineWood" or
               defName="MCIW_Barrel_Short" or
+              defName="MCIW_Barrel_Short_Enforcer" or
+              defName="MCIW_Barrel_Short_Bayonet" or
               defName="MCIW_Barrel_Light_Plasteel" or
               defName="MCIW_Barrel_Medium_Plasteel" or
               defName="MCIW_Barrel_Long_Plasteel" or
@@ -250,6 +256,7 @@
               defName="MCIW_Barrel_Recoil" or
               defName="MCIW_Barrel_Trench" or
               defName="MCIW_Barrel_TrenchWood" or
+              defName="MCIW_Barrel_Enforcer" or
               defName="MCIW_Stock_Folding" or
               defName="MCIW_Stock_CQB" or
               defName="MCIW_Stock_Ergonomic" or
@@ -307,6 +314,7 @@
             <xpath>/Defs/ModularWeapons.ModularPartDef[
               defName="MCIW_Barrel_Trench" or
               defName="MCIW_Barrel_TrenchWood" or
+              defName="MCIW_Barrel_Enforcer" or
               defName="MCIW_Barrel_Carbine" or
               defName="MCIW_Barrel_CarbineWood"]</xpath>
             <value>
@@ -325,6 +333,7 @@
             <xpath>/Defs/ModularWeapons.ModularPartDef[
               defName="MCIW_Barrel_Trench" or
               defName="MCIW_Barrel_TrenchWood" or
+              defName="MCIW_Barrel_Enforcer" or
               defName="MCIW_Barrel_Carbine" or
               defName="MCIW_Barrel_CarbineWood"]/massFactor</xpath>
             <value>
@@ -336,6 +345,7 @@
             <xpath>/Defs/ModularWeapons.ModularPartDef[
               defName="MCIW_Barrel_Trench" or
               defName="MCIW_Barrel_TrenchWood" or
+              defName="MCIW_Barrel_Enforcer" or
               defName="MCIW_Barrel_Carbine" or
               defName="MCIW_Barrel_CarbineWood"]/rangeFactor</xpath>
             <value>
@@ -346,7 +356,7 @@
           <!-- Short -->
 
           <li Class="PatchOperationAdd">
-            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCIW_Barrel_Short"]</xpath>
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCIW_Barrel_Short" or defName="MCIW_Barrel_Short_Enforcer" or defName="MCIW_Barrel_Short_Bayonet"]</xpath>
             <value>
               <additionalFactors>
                 <li Class="ModularWeapons_CEModule.MWP_CEStats">
@@ -360,14 +370,14 @@
           </li>
 
           <li Class="PatchOperationReplace">
-            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCIW_Barrel_Short"]/massFactor</xpath>
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCIW_Barrel_Short" or defName="MCIW_Barrel_Short_Enforcer" or defName="MCIW_Barrel_Short_Bayonet"]/massFactor</xpath>
             <value>
               <massFactor>-0.41</massFactor>
             </value>
           </li>
 
           <li Class="PatchOperationReplace">
-            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCIW_Barrel_Short"]/rangeFactor</xpath>
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCIW_Barrel_Short" or defName="MCIW_Barrel_Short_Enforcer" or defName="MCIW_Barrel_Short_Bayonet"]/rangeFactor</xpath>
             <value>
               <rangeFactor>-8</rangeFactor>
             </value>
@@ -466,7 +476,7 @@
                   <shotSpread>-0.02</shotSpread>
                   <swayFactor>-0.08</swayFactor>
                   <bulk>-0.35</bulk>
-                  <recoilAmount>-0.08</recoilAmount>
+                  <recoilAmount>-0.24</recoilAmount>
                 </li>
               </additionalFactors>
             </value>
@@ -1068,6 +1078,40 @@
             <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCIW_Mag_ETCext"]/massFactor</xpath>
             <value>
               <massFactor>0.20</massFactor>
+            </value>
+          </li>
+
+<!-- ======================================== Def : recoil control ==== -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+              <ModularWeapons.ModularPartDef>
+                <defName>MCIW_Attachment_Recoil</defName>
+                <label>Recoil control module</label>
+                <description>Counterweights and gas direction reduces muzzle climb and reduce rate-of-fire.</description>
+                <kind>MCIW_TopAttachment</kind>
+                <path>Recoil_Buffer</path>
+                <!--=====-->
+                <massFactor>0.20</massFactor>
+                <cooldownFactor>-0.01</cooldownFactor>
+                <ticksBetweenShotsFactor>2</ticksBetweenShotsFactor>
+                <!--=====-->
+                <costList>
+                  <Plasteel>15</Plasteel>
+                  <ComponentIndustrial>3</ComponentIndustrial>
+                </costList>
+                <researchPrerequisites>
+                  <li>GasOperation</li>
+                </researchPrerequisites>
+                <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <swayFactor>0.05</swayFactor>
+                  <recoilAmount>-0.5</recoilAmount>
+                  <bulk>0.15</bulk>
+                </li>
+              </additionalFactors>
+              </ModularWeapons.ModularPartDef>
             </value>
           </li>
 

@@ -12,9 +12,10 @@
       <graphicClass>ModularWeapons.Graphic_Modular</graphicClass>
       <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1.4</drawSize>
     </graphicData>
+    <uiIconScale>1</uiIconScale>
     <soundInteract>Interact_CPistol</soundInteract>
     <recipeMaker>
-      <researchPrerequisite>BlowbackOperation</researchPrerequisite>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
       <skillRequirements>
         <Crafting>5</Crafting>
       </skillRequirements>
@@ -87,7 +88,7 @@
   <ModularWeapons.ModularPartDef ParentName="UWC_MeleePistolGrip_Base">
     <defName>MCAP_Grip_Standard</defName>
     <label>standard grip</label>
-    <description>Standard bakelite grip</description>
+    <description>Standard grip</description>
     <kind>MCAP_Grip</kind>
     <path>Grip_Standard</path>
     <!--=====-->
@@ -158,7 +159,7 @@
   <ModularWeapons.ModularPartDef ParentName="UWC_StunStock_Base">
     <defName>MCAP_Grip_Enforcer</defName>
     <label>enforcer stock</label>
-    <description>Sturdy polymer stock with a electro-prod embedded in the back.</description>
+    <description>Sturdy polymer stock with an embedded stun tool.</description>
     <kind>MCAP_Grip</kind>
     <path>Grip_Enforcer</path>
     <!--=====-->
@@ -522,7 +523,7 @@
   <ModularWeapons.ModularPartDef ParentName="UWC_StunBarrel_Base">
     <defName>MCAP_Muzzle_Enforcer</defName>
     <label>Enforcer barrel</label>
-    <description>Extended barrel with integrated lightbox and stun prod.</description>
+    <description>Extended barrel with integrated lightbox and stun tool.</description>
     <kind>MCAP_Muzzle</kind>
     <path>Barrel_Enforcer</path>
     <!--=====-->
@@ -543,6 +544,9 @@
       <Chemfuel>25</Chemfuel>
       <ComponentIndustrial>5</ComponentIndustrial>
     </costList>
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
   </ModularWeapons.ModularPartDef>
 
   <ModularWeapons.ModularPartDef ParentName="UWC_BayonetMelee_Base">

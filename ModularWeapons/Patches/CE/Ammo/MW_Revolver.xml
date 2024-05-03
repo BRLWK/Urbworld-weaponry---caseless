@@ -27,6 +27,7 @@
 			<Ammo_9x26mmCM_FMJ>Bullet_9x26mmCM_FMJ</Ammo_9x26mmCM_FMJ>
 			<Ammo_9x26mmCM_AP>Bullet_9x26mmCM_AP</Ammo_9x26mmCM_AP>
 			<Ammo_9x26mmCM_HP>Bullet_9x26mmCM_HP</Ammo_9x26mmCM_HP>
+			<Ammo_9x26mmCM_APS MayRequire="Safair.ArmorPiercingSpecial">Bullet_9x26mmCM_APS</Ammo_9x26mmCM_APS>
 		</ammoTypes>
 		<similarTo>AmmoSet_PistolMagnum</similarTo>
 	</CombatExtended.AmmoSetDef>
@@ -90,6 +91,20 @@
 		<cookOffProjectile>Bullet_9x26mmCM_HP</cookOffProjectile>
 	</ThingDef>
 
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="9x26mmCMBase" MayRequire="Safair.ArmorPiercingSpecial">
+		<defName>Ammo_9x26mmCM_APS</defName>
+		<label>9x26mmCM (AP-S)</label>
+		<graphicData>
+			<texPath>Ammo/APS</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.07</MarketValue>
+		</statBases>
+		<ammoClass>SpecialAP</ammoClass>
+		<cookOffProjectile>Bullet_9x26mmCM_APS</cookOffProjectile>
+	</ThingDef>
+
 	<!-- ==== Projectiles ==== -->
 
 	<ThingDef Name="Base9x26mmCMBullet" ParentName="BaseBulletCE" Abstract="true">
@@ -131,6 +146,17 @@
 			<damageAmountBase>18</damageAmountBase>
 			<armorPenetrationSharp>3.5</armorPenetrationSharp>
 			<armorPenetrationBlunt>24.3</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base9x26mmCMBullet" MayRequire="Safair.ArmorPiercingSpecial">
+		<defName>Bullet_9x26mmCM_APS</defName>
+		<label>9x26mmCM bullet (AP-S)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>6</damageAmountBase>
+			<armorPenetrationSharp>18</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.59</armorPenetrationBlunt>
+			<speed>103</speed>
 		</projectile>
 	</ThingDef>
 
@@ -187,6 +213,51 @@
 		<workAmount>1600</workAmount>
 	</RecipeDef>
 
+	<RecipeDef ParentName="UWC_CaselessAmmoBase" MayRequire="Safair.ArmorPiercingSpecial">
+		<defName>MakeAmmo_9x26mmCM_APS</defName>
+		<label>make 9x26mmCM (AP-S) cartridge x500</label>
+		<description>Craft 500 9x26mmCM (AP-S) cartridges.</description>
+		<jobString>Making 9x26mmCM (AP-S) cartridges.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>17</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Uranium</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Chemfuel</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>Uranium</li>
+				<li>Chemfuel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_9x26mmCM_APS>500</Ammo_9x26mmCM_APS>
+		</products>
+		<workAmount>1600</workAmount>
+    </RecipeDef>
+    
+
 	<!-- ============================================== 5.7 Defender -->
 
     <ThingCategoryDef>
@@ -205,6 +276,7 @@
 			<Ammo_57x26mm_FMJ>Bullet_57x26mm_FMJ</Ammo_57x26mm_FMJ>
 			<Ammo_57x26mm_AP>Bullet_57x26mm_AP</Ammo_57x26mm_AP>
 			<Ammo_57x26mm_HP>Bullet_57x26mm_HP</Ammo_57x26mm_HP>
+			<Ammo_57x26mm_APS MayRequire="Safair.ArmorPiercingSpecial">Bullet_57x26mm_APS</Ammo_57x26mm_APS>
 		</ammoTypes>
 		<similarTo>AmmoSet_Pistol</similarTo>
 	</CombatExtended.AmmoSetDef>
@@ -268,6 +340,20 @@
 		<cookOffProjectile>Bullet_57x26mm_HP</cookOffProjectile>
 	</ThingDef>
 
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="57x26mmBase" MayRequire="Safair.ArmorPiercingSpecial">
+		<defName>Ammo_57x26mm_APS</defName>
+		<label>5.7 Defender (AP-S)</label>
+		<graphicData>
+			<texPath>Ammo/APS</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.04</MarketValue>
+		</statBases>
+		<ammoClass>SpecialAP</ammoClass>
+		<cookOffProjectile>Bullet_57x26mm_APS</cookOffProjectile>
+	</ThingDef>
+
 	<!-- ==== Projectiles ==== -->
 
 	<ThingDef Name="Base57x26mmBullet" ParentName="BaseBulletCE" Abstract="true">
@@ -309,6 +395,16 @@
 			<damageAmountBase>12</damageAmountBase>
 			<armorPenetrationSharp>3</armorPenetrationSharp>
 			<armorPenetrationBlunt>12.02</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base57x26mmBullet" MayRequire="Safair.ArmorPiercingSpecial">
+		<defName>Bullet_57x26mm_APS</defName>
+		<label>5.7 Defender bullet (AP-S)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>4</damageAmountBase>
+			<armorPenetrationSharp>13</armorPenetrationSharp>
+			<armorPenetrationBlunt>14.27</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
 
@@ -365,6 +461,50 @@
 		<workAmount>1000</workAmount>
 	</RecipeDef>
 
+	<RecipeDef MayRequire="Safair.ArmorPiercingSpecial" ParentName="UWC_CaselessAmmoBase">
+		<defName>MakeAmmo_57x26mm_APS</defName>
+		<label>make 5.7 Defender (AP-S) cartridge x500</label>
+		<description>Craft 500 5.7 Defender (AP-S) cartridges.</description>
+		<jobString>Making 5.7 Defender (AP-S) cartridges.</jobString>
+		<products>
+			<Ammo_57x26mm_APS>500</Ammo_57x26mm_APS>
+		</products>
+		<workAmount>1800</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>7</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Uranium</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Chemfuel</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>Uranium</li>
+				<li>Chemfuel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+	</RecipeDef>
+
 	<!-- ============================================== 9x26mmETC -->
 
 		<ThingCategoryDef>
@@ -384,6 +524,7 @@
 				<Ammo_9x26mmETC_AP>Bullet_9x26mmETC_AP</Ammo_9x26mmETC_AP>
 				<Ammo_9x26mmETC_HP>Bullet_9x26mmETC_HP</Ammo_9x26mmETC_HP>
 				<Ammo_9x26mmETC_APHE>Bullet_9x26mmETC_APHE</Ammo_9x26mmETC_APHE>
+				<Ammo_9x26mmETC_APS MayRequire="Safair.ArmorPiercingSpecial">Bullet_9x26mmETC_APS</Ammo_9x26mmETC_APS>
 			</ammoTypes>
 			<similarTo>AmmoSet_PistolMagnum</similarTo>
 		</CombatExtended.AmmoSetDef>
@@ -463,6 +604,20 @@
 			<generateAllowChance>0.6</generateAllowChance>
 		</ThingDef>
 
+		<ThingDef MayRequire="Safair.ArmorPiercingSpecial" Class="CombatExtended.AmmoDef" ParentName="9x26mmETCBase">
+			<defName>Ammo_9x26mmETC_APS</defName>
+			<label>9x26mm ETC cartridge (AP-S)</label>
+			<graphicData>
+				<texPath>Ammo/APS</texPath>
+				<graphicClass>Graphic_StackCount</graphicClass>
+			</graphicData>
+			<statBases>
+				<MarketValue>0.07</MarketValue>
+			</statBases>
+			<ammoClass>SpecialAP</ammoClass>
+			<cookOffProjectile>Bullet_9x26mmETC_APS</cookOffProjectile>
+		</ThingDef>
+
 		<!-- ==== Projectiles ==== -->
 
 		<ThingDef  Class="CombatExtended.AmmoDef" Name="Base9x26mmETCBullet" ParentName="BaseBulletCE" Abstract="true">
@@ -478,7 +633,7 @@
 			</projectile>
 		</ThingDef>
 
-		<ThingDef  Class="CombatExtended.AmmoDef" ParentName="Base9x26mmETCBullet">
+		<ThingDef ParentName="Base9x26mmETCBullet">
 			<defName>Bullet_9x26mmETC_FMJ</defName>
 			<label>9x26mm ETC bullet (FMJ)</label>
 			<projectile Class="CombatExtended.ProjectilePropertiesCE">
@@ -488,7 +643,7 @@
 			</projectile>
 		</ThingDef>
 
-		<ThingDef  Class="CombatExtended.AmmoDef" ParentName="Base9x26mmETCBullet">
+		<ThingDef ParentName="Base9x26mmETCBullet">
 			<defName>Bullet_9x26mmETC_AP</defName>
 			<label>9x26mm ETC bullet (AP)</label>
 			<projectile Class="CombatExtended.ProjectilePropertiesCE">
@@ -498,7 +653,7 @@
 			</projectile>
 		</ThingDef>
 
-		<ThingDef  Class="CombatExtended.AmmoDef" ParentName="Base9x26mmETCBullet">
+		<ThingDef ParentName="Base9x26mmETCBullet">
 			<defName>Bullet_9x26mmETC_HP</defName>
 			<label>9x26mm ETC bullet (HP)</label>
 			<projectile Class="CombatExtended.ProjectilePropertiesCE">
@@ -508,7 +663,7 @@
 			</projectile>
 		</ThingDef>
 
-		<ThingDef  Class="CombatExtended.AmmoDef" ParentName="Base9x26mmETCBullet">
+		<ThingDef ParentName="Base9x26mmETCBullet">
 			<defName>Bullet_9x26mmETC_APHE</defName>
 			<label>9x26mm ETC bullet (AP-HE)</label>
 			<projectile Class="CombatExtended.ProjectilePropertiesCE">
@@ -521,6 +676,16 @@
     			  	<amount>14</amount>
     				</li>
     		  </secondaryDamage>
+			</projectile>
+		</ThingDef>
+
+		<ThingDef ParentName="Base9x26mmETCBullet" MayRequire="Safair.ArmorPiercingSpecial">
+			<defName>Bullet_9x26mmETC_APS</defName>
+			<label>9x26mm ETC bullet (AP-S)</label>
+			<projectile Class="CombatExtended.ProjectilePropertiesCE">
+				<damageAmountBase>10</damageAmountBase>
+				<armorPenetrationSharp>20</armorPenetrationSharp>
+				<armorPenetrationBlunt>118</armorPenetrationBlunt>
 			</projectile>
 		</ThingDef>
   
@@ -641,6 +806,50 @@
     	    <Ammo_9x26mmETC_APHE>500</Ammo_9x26mmETC_APHE>
     	  </products>
     	  <workAmount>5280</workAmount>
+    	</RecipeDef>
+
+		<RecipeDef  ParentName="UWC_ETCAmmoRecipeBase" MayRequire="Safair.ArmorPiercingSpecial">
+    	  <defName>MakeAmmo_9x26mmETC_APS</defName>
+    	  <label>make 9x26mm ETC (AP-S) cartridge x500</label>
+    	  <description>Craft 500 9x26mm ETC (AP-S) cartridges.</description>
+    	  <jobString>Making 9x26mm ETC (AP-S) cartridges.</jobString>
+    	  <ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>11</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Uranium</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Chemfuel</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>Uranium</li>
+				<li>Chemfuel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+    	  <products>
+    	    <Ammo_9x26mmETC_APS>500</Ammo_9x26mmETC_APS>
+    	  </products>
+    	  <workAmount>2880</workAmount>
     	</RecipeDef>
 
 </value>

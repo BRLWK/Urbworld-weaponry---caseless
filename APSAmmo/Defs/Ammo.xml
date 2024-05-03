@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- ========== 6.5x21mm Caseless ========== -->
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="65x21mmCaselessBase">
+		<defName>Ammo_65x21mmCaseless_APS</defName>
+		<label>6.5x21mm Caseless cartridge (AP-S)</label>
+		<graphicData>
+			<texPath>Ammo/APS</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.04</MarketValue>
+		</statBases>
+		<ammoClass>SpecialAP</ammoClass>
+		<cookOffProjectile>Bullet_65x21mmCaseless_AP</cookOffProjectile>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base65x21mmCaselessBullet">
+		<defName>Bullet_65x21mmCaseless_APS</defName>
+		<label>6.5x21mm Caseless bullet (AP-S)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>5</damageAmountBase>
+			<armorPenetrationSharp>14</armorPenetrationSharp>
+			<armorPenetrationBlunt>18.2</armorPenetrationBlunt>
+            <speed>170</speed>
+		</projectile>
+	</ThingDef>
+
+    <RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_65x21mmCaseless_APS</defName>
+		<label>make 6.5x21mm caseless (AP-S) cartridge x500</label>
+		<description>Craft 500 6.5x21mm caseless (AP-S) cartridges.</description>
+		<jobString>Making 6.5x21mm caseless (AP-S) cartridges.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>6</count>
+			</li>
+            <li>
+				<filter>
+					<thingDefs>
+						<li>Uranium</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Chemfuel</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>Uranium</li>
+				<li>Chemfuel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_65x21mmCaseless_AP>500</Ammo_65x21mmCaseless_AP>
+		</products>
+		<workAmount>1200</workAmount>
+	</RecipeDef>
+
+<!-- ========== 5.7 Defender ========== -->
+
+
+</Defs>

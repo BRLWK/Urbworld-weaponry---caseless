@@ -517,6 +517,13 @@
             </incompatibleKind>
           </value>
         </li>
+        
+        <li Class="PatchOperationReplace">
+		    	<xpath>Defs/ModularWeapons.ModularPartDef[defName="MCRev_Barrel_Accelerator"]/path</xpath>
+		    	<value>
+		    		<path>CE_Accelerator</path>
+		    	</value>
+		    </li>
 
 <!-- ======================================== Presets  ==== -->
 

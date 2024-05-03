@@ -217,6 +217,53 @@
     </costList>
   </ModularWeapons.ModularPartDef>
 
+  <ModularWeapons.ModularPartDef ParentName="UWC_StunBarrel_Base">
+    <defName>MCIW_Barrel_Short_Enforcer</defName>
+    <label>short enforcer barrel</label>
+    <description>Short barrel with stun tool.</description>
+    <path>Barrel_Short_Enforcer</path>
+    <kind>MCIW_Barrel</kind>
+    <!--=====-->
+    <dmgMultiplierFactor>-0.2</dmgMultiplierFactor>
+    <AccTouchFactor>0.08</AccTouchFactor>
+    <AccShortFactor>0.03</AccShortFactor>
+    <AccMediumFactor>-0.03</AccMediumFactor>
+    <AccLongFactor>-0.06</AccLongFactor>
+    <rangeFactor>-4</rangeFactor>
+    <massFactor>-0.4</massFactor>
+    <warmupTimeFactor>-0.2</warmupTimeFactor>
+    <cooldownFactor>-0.2</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>14</Steel>
+      <Chemfuel>8</Chemfuel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_BayonetMelee_Base">
+    <defName>MCIW_Barrel_Short_Bayonet</defName>
+    <label>short bayonet barrel</label>
+    <description>Short barrel with standard bayonet.</description>
+    <path>Barrel_Short_Bayonet</path>
+    <kind>MCIW_Barrel</kind>
+    <!--=====-->
+    <dmgMultiplierFactor>-0.2</dmgMultiplierFactor>
+    <AccTouchFactor>0.08</AccTouchFactor>
+    <AccShortFactor>0.03</AccShortFactor>
+    <AccMediumFactor>-0.03</AccMediumFactor>
+    <AccLongFactor>-0.06</AccLongFactor>
+    <rangeFactor>-4</rangeFactor>
+    <massFactor>-0.4</massFactor>
+    <warmupTimeFactor>-0.2</warmupTimeFactor>
+    <cooldownFactor>-0.2</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>18</Steel>
+      <Chemfuel>8</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
   <ModularWeapons.ModularPartDef ParentName="UWC_MCIW_MeleeBase">
     <defName>MCIW_Barrel_ShortWood</defName>
     <label>short wood barrel</label>
@@ -388,6 +435,31 @@
     </researchPrerequisites>
   </ModularWeapons.ModularPartDef>
 
+  <ModularWeapons.ModularPartDef ParentName="UWC_StunBarrel_Base">
+    <defName>MCIW_Barrel_Enforcer</defName>
+    <label>enforcer carbine barrel</label>
+    <description>Carbine barrel with stun tool attached.</description>
+    <path>Barrel_Med_Enforcer</path>
+    <kind>MCIW_Barrel</kind>
+    <!--=====-->
+    <dmgMultiplierFactor>-0.1</dmgMultiplierFactor>
+    <AccTouchFactor>0.02</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>0.06</AccMediumFactor>
+    <AccLongFactor>0.02</AccLongFactor>
+    <rangeFactor>-3</rangeFactor>
+    <massFactor>-0.1</massFactor>
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <ticksBetweenShotsFactor>2</ticksBetweenShotsFactor>
+    <!--=====-->
+    <costList>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <Steel>28</Steel>
+      <Chemfuel>14</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
   <ModularWeapons.ModularPartDef ParentName="UWC_MCIW_BayonetMeleeBase">
     <defName>MCIW_Barrel_Trench</defName>
     <label>bayonet carbine barrel</label>
@@ -489,6 +561,19 @@
     <costList>
       <Steel>5</Steel>
       <Chemfuel>8</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_StunStock_Base">
+    <defName>MCIW_Stock_Enforcer</defName>
+    <label>enforcer stock</label>
+    <description>Enforcer stock with stun tool.</description>
+    <path>Stock_Enforcer</path>
+    <kind>MCIW_Stock</kind>
+    <costList>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <Steel>15</Steel>
+      <Chemfuel>10</Chemfuel>
     </costList>
   </ModularWeapons.ModularPartDef>
 
