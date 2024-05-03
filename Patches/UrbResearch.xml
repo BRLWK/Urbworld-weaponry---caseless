@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="PatchOperationConditional">
+      <success>Always</success>
+      <xpath>/Defs/ResearchTabDef[defName = "UrbworldTech"]</xpath>
+      <nomatch Class="PatchOperationAdd">
+          <xpath>/Defs</xpath>
+          <value>
+            <ResearchTabDef>
+	          <defName>UrbworldTech</defName>
+	          <label>Urbworld tech</label>
+	        </ResearchTabDef>
+          </value>
+      </nomatch>
+  </Operation>
+
+</Patch>

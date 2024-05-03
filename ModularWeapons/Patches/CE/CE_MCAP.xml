@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+	<mods>
+	  <li>Combat Extended</li>
+	</mods>
+
+    <match Class="PatchOperationSequence">
+		<operations>
+
+        <li Class="PatchOperationReplace">
+		    	<xpath>Defs/ThingDef[defName="Caseless_ModPistol"]/label</xpath>
+		    	<value>
+		    		<label>Special-B</label>
+		    	</value>
+		    </li>
+
+        <li Class="PatchOperationReplace">
+		    	<xpath>Defs/ThingDef[defName="Caseless_ModPistol"]/description</xpath>
+		    	<value>
+		    		<description>A modular bullpup pistol. Due to the rear-seated magazine it's capable of firing longer cartridges than standard pistols, but also experiences much more recoil.</description>
+		    	</value>
+		    </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName="Caseless_ModPistol"]/statBases</xpath>
+          <value>
+            <statBases>
+              <Mass>0.92</Mass>
+              <RangedWeapon_Cooldown>0.37</RangedWeapon_Cooldown>
+              <SightsEfficiency>0.7</SightsEfficiency>
+              <ShotSpread>0.14</ShotSpread>
+              <SwayFactor>1.32</SwayFactor>
+              <Bulk>3.04</Bulk>
+              <WorkToMake>10500</WorkToMake>
+            </statBases>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName="Caseless_ModPistol"]/verbs</xpath>
+          <value>
+            <verbs>
+              <li Class="CombatExtended.VerbPropertiesCE">
+                <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                <recoilAmount>1.99</recoilAmount>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_57x26mm_FMJ</defaultProjectile>
+                <warmupTime>0.6</warmupTime>
+                <range>20</range>
+                <burstShotCount>1</burstShotCount>
+                <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                <soundCast>Shot_kpistol</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>7</muzzleFlashScale>
+              </li>
+            </verbs>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingDef[defName="Caseless_ModPistol"]/weaponTags</xpath>
+          <value>
+            <li>CE_OneHandedWeapon</li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingDef[defName="Caseless_ModPistol"]/comps</xpath>
+          <value>
+            <li Class="ModularWeapons_CEModule.CompProperties_AmmoUserMW">
+              <magazineSize>24</magazineSize>
+              <reloadTime>4.5</reloadTime>
+              <ammoSet>AmmoSet_57x26mm</ammoSet>
+            </li>
+            <li Class="ModularWeapons_CEModule.CompProperties_FireModesMW">
+              <aimedBurstShotCount>1</aimedBurstShotCount>
+              <aiUseBurstMode>FALSE</aiUseBurstMode>
+              <aiAimMode>Snapshot</aiAimMode>
+            </li>
+            <li Class="ModularWeapons_CEModule.CompProperties_BipodMW">
+              <catDef>bipodDMR</catDef>
+            </li>
+            <li Class="ModularWeapons_CEModule.CompProperties_UnderbarrelMW">
+              <enableDefault>false</enableDefault>
+                <propsUnderBarrel>
+                  <magazineSize>1</magazineSize>
+                  <reloadTime>3</reloadTime>
+                  <ammoSet>AmmoSet_9x26mmCM</ammoSet>
+                </propsUnderBarrel>
+                <verbPropsUnderBarrel>
+                  <recoilAmount>2.71</recoilAmount>
+                  <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                  <hasStandardCommand>true</hasStandardCommand>
+                  <defaultProjectile>Bullet_9x26mmCM_FMJ</defaultProjectile>
+                  <warmupTime>1.1</warmupTime>
+                  <range>40</range>
+                  <burstShotCount>1</burstShotCount>
+                  <soundCast>Shot_GLA</soundCast>
+                  <soundCastTail>GunTail_Light</soundCastTail>
+                  <muzzleFlashScale>4</muzzleFlashScale>
+                </verbPropsUnderBarrel>
+                <propsFireModesUnderBarrel>
+                  <aiUseBurstMode>FALSE</aiUseBurstMode>
+                  <aiAimMode>AimedShot</aiAimMode>
+                  <aimedBurstShotCount>1</aimedBurstShotCount>
+                </propsFireModesUnderBarrel>
+            </li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+		    	<xpath>Defs/ThingDef[defName="Caseless_ModPistol"]/costList</xpath>
+		    	<value>
+		    		<costList>
+              <Chemfuel>5</Chemfuel>
+              <Steel>25</Steel>
+              <ComponentIndustrial>4</ComponentIndustrial>
+            </costList>
+		    	</value>
+		    </li>
+
+<!-- ======================================== Stats : Removing non-CE stats, melee tools  ==== -->
+
+        <!--li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[
+          defName="MCAP_Grip_Standard" or
+          defName="MCAP_Grip_Ergonomic" or
+          defName="MCAP_Grip_Wire"]/toolFactor</xpath>
+            <value>
+              <toolFactor Class="CombatExtended.ToolCE">
+                <label>grip</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>2</power>
+                <cooldownTime>1.54</cooldownTime>
+                <chanceFactor>1.5</chanceFactor>
+                <armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+                <linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+              </toolFactor>
+          </value>
+        </li-->
+
+        <!--li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Grip_Stock"]/toolFactor</xpath>
+            <value>
+              <toolFactor Class="CombatExtended.ToolCE">
+                <label>stock</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>8</power>
+                <cooldownTime>1.55</cooldownTime>
+                <chanceFactor>1.5</chanceFactor>
+                <armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+                <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+              </toolFactor>
+          </value>
+        </li-->
+
+        <!--li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[
+          defName="MCAP_Frame_Standard" or
+          defName="MCAP_Frame_Heavy" or
+          defName="MCAP_Frame_MP" or
+          defName="MCAP_Frame_EC" or
+          defName="MCAP_Frame_MPEC"]/toolFactor</xpath>
+            <value>
+              <toolFactor Class="CombatExtended.ToolCE">
+                <label>muzzle</label>
+                <capacities>
+                  <li>Poke</li>
+                </capacities>
+                <power>2</power>
+                <cooldownTime>1.54</cooldownTime>
+                <armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+                <linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+              </toolFactor>
+          </value>
+        </li-->
+
+        <!--cooldown-->
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[
+            defName="MCAP_Grip_Ergonomic" or
+            defName="MCAP_Frame_MP" or
+            defName="MCAP_Magazine_Extended" or
+            defName="MCAP_Magazine_Drum"
+            ]/cooldownFactor</xpath>
+        </li>
+
+        <!--warmup-->
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[
+            defName="MCAP_Grip_Wire" or
+            defName="MCAP_Grip_Stock" or
+            defName="MCAP_Grip_Enforcer" or
+            defName="MCAP_Frame_MP" or
+            defName="MCAP_Frame_EC" or
+            defName="MCAP_Frame_MPEC" or
+            defName="MCAP_Magazine_Extended" or
+            defName="MCAP_Magazine_Drum" or
+            defName="MCAP_Muzzle_Laser" or
+            defName="MCAP_Muzzle_Extension" or
+            defName="MCAP_Muzzle_Light" or
+            defName="MCAP_Muzzle_Enforcer" or
+            defName="MCAP_Muzzle_Accelerator" or
+            defName="MCAP_Muzzle_Bayonet"
+            ]/warmupTimeFactor</xpath>
+        </li>
+
+        <!--range-->
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[
+            defName="MCAP_Grip_Stock" or 
+            defName="MCAP_Grip_Enforcer" or
+            defName="MCAP_Frame_MP" or
+            defName="MCAP_Frame_MPEC"
+            ]/rangeFactor</xpath>
+        </li>
+
+        <!--Burst-->
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[
+            defName="MCAP_Frame_EC" or
+            defName="MCAP_Magazine_Extended" or
+            defName="MCAP_Magazine_Drum"
+            ]/burstCountFactor</xpath>
+        </li>
+
+        <!--ticks-->
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[
+            defName="MCAP_Muzzle_Extension" or
+            defName="MCAP_Muzzle_Light" or
+            defName="MCAP_Muzzle_Enforcer" or
+            defName="MCAP_Muzzle_Bayonet"
+            ]/ticksBetweenShotsFactor</xpath>
+        </li>
+
+<!-- ======================================== Stats : Stocks and grips  ==== -->
+        <!-- ergo grip -->
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Grip_Ergonomic"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <swayFactor>-0.07</swayFactor>
+                <bulk>0.03</bulk>
+                <recoilAmount>-0.05</recoilAmount>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Grip_Ergonomic"]</xpath>
+          <value>
+            <massFactor>-0.08</massFactor>
+          </value>
+        </li>
+
+        <!-- Wire stock -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Grip_Wire"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <swayFactor>-0.65</swayFactor>
+                <sightsEfficiency>0.3</sightsEfficiency>
+                <bulk>0.3</bulk>
+                <recoilAmount>-0.38</recoilAmount>
+                <oneHandedness>-1.0</oneHandedness>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Grip_Wire"]/massFactor</xpath>
+          <value>
+            <massFactor>0.45</massFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Grip_Wire"]</xpath>
+          <value>
+            <cooldownFactor>-0.01</cooldownFactor>
+          </value>
+        </li>
+
+        <!-- stock -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Grip_Stock" or defName="MCAP_Grip_Enforcer"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <swayFactor>-0.65</swayFactor>
+                <sightsEfficiency>0.3</sightsEfficiency>
+                <bulk>3.34</bulk>
+                <recoilAmount>-0.6</recoilAmount>
+                <oneHandedness>-1.0</oneHandedness>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Grip_Stock" or defName="MCAP_Grip_Enforcer"]/massFactor</xpath>
+          <value>
+            <massFactor>0.95</massFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Grip_Stock" or defName="MCAP_Grip_Enforcer"]</xpath>
+          <value>
+            <cooldownFactor>-0.01</cooldownFactor>
+          </value>
+        </li>
+
+<!-- ======================================== Stats : frames  ==== -->
+        <!-- default recoil: 1.99 -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_Standard"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <overrideAmmoSet>AmmoSet_57x26mm</overrideAmmoSet>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <!-- base MP slide -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+              <ModularWeapons.ModularPartDef>
+                <defName>MCAP_Frame_StandardMP</defName>
+                <label>Standard MP frame</label>
+                <description>High velocity 5.7mm machine pistol frame.</description>
+                <kind>MCAP_Frame</kind>
+                <path>Frame_Standard</path>
+                <!--=====-->
+                <additionalFactors>
+                  <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                    <overrideAmmoSet>AmmoSet_57x26mm</overrideAmmoSet>
+                    <aimedBurstShotCount>2</aimedBurstShotCount>
+                  </li>
+                </additionalFactors>
+                <burstCountFactor>4</burstCountFactor>
+                <ticksBetweenShotsFactor>-5</ticksBetweenShotsFactor>
+                <!--=====-->
+                <costList>
+                  <Steel>15</Steel>
+                  <ComponentIndustrial>1</ComponentIndustrial>
+                </costList>
+                <researchPrerequisites>
+                  <li>BlowbackOperation</li>
+                </researchPrerequisites>
+              </ModularWeapons.ModularPartDef>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCAP_Basic_MP"]/requiredParts/li[text()="MCAP_Frame_Standard"]</xpath>
+              <value>
+                  <li>MCAP_Frame_StandardMP</li>
+              </value>
+          </li>
+
+        <!-- Magnum slide -->
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_Heavy"]/label</xpath>
+          <value>
+            <label>9x26mmC Magnum frame</label>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_Heavy"]/description</xpath>
+          <value>
+            <description>Heavy frame firing 9x26mm Caseless Magnum.</description>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_Heavy"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <overrideAmmoSet>AmmoSet_9x26mmCM</overrideAmmoSet>
+                <recoilAmount>1.35</recoilAmount>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_Heavy"]/cooldownFactor</xpath>
+          <value>
+            <cooldownFactor>0.04</cooldownFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_Heavy"]/burstCountFactor</xpath>
+        </li>
+
+        <!-- Pistol slide -->
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_MP"]/label</xpath>
+          <value>
+            <label>6.5x21mm Caseless frame</label>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_MP"]/description</xpath>
+          <value>
+            <description>Light frame with a high rate of fire.</description>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_MP"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <aimedBurstShotCount>2</aimedBurstShotCount>
+                <overrideAmmoSet>AmmoSet_65x21mmCaseless</overrideAmmoSet>
+                <recoilAmount>0.03</recoilAmount>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_MP"]/burstCountFactor</xpath>
+          <value>
+            <burstCountFactor>4</burstCountFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_MP"]</xpath>
+          <value>
+            <ticksBetweenShotsFactor>-3</ticksBetweenShotsFactor>
+          </value>
+        </li>
+
+        <!-- Magnum ETC slide -->
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_EC"]/label</xpath>
+          <value>
+            <label>9x26mmETC Magnum frame</label>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_EC"]/description</xpath>
+          <value>
+            <description>Heavy frame firing 9x26mm ETC Magnum. Absurdly high recoil.</description>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_EC"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <overrideAmmoSet>AmmoSet_9x26mmETC</overrideAmmoSet>
+                <recoilAmount>2.68</recoilAmount>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_EC"]/cooldownFactor</xpath>
+          <value>
+            <cooldownFactor>0.09</cooldownFactor>
+          </value>
+        </li>
+
+        <!-- MPETC -->
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_MPEC"]/label</xpath>
+          <value>
+            <label>9x18mm ETC frame</label>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_MPEC"]/description</xpath>
+          <value>
+            <description>Light frame with a high rate of fire. Extremely high recoil.</description>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_MPEC"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <aimedBurstShotCount>2</aimedBurstShotCount>
+                <overrideAmmoSet>AmmoSet_9x18mmETC</overrideAmmoSet>
+                <recoilAmount>0.74</recoilAmount>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+    
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_MPEC"]/burstCountFactor</xpath>
+          <value>
+            <burstCountFactor>4</burstCountFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_MPEC"]/ticksBetweenShotsFactor</xpath>
+          <value>
+            <ticksBetweenShotsFactor>-3</ticksBetweenShotsFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Frame_MPEC"]/cooldownFactor</xpath>
+          <value>
+            <cooldownFactor>0.02</cooldownFactor>
+          </value>
+        </li>
+
+<!-- ======================================== Stats : Magazines  ==== -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Magazine_Extended"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <magazineSize>21</magazineSize>
+                <bulk>0.2</bulk>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Magazine_Drum"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <magazineSize>41</magazineSize>
+                <bulk>0.45</bulk>
+                <reloadTime>0.9</reloadTime>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+<!-- ======================================== Stats : Muzzle  ==== -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Muzzle_Compensator"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <bulk>0.06</bulk>
+                <recoilAmount>-0.1</recoilAmount>
+                <swayFactor>-0.1</swayFactor>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Muzzle_Laser"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <bulk>0.06</bulk>
+                <recoilAmount>-0.1</recoilAmount>
+                <swayFactor>-0.1</swayFactor>
+                <sightsEfficiency>0.05</sightsEfficiency>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Muzzle_Flashlight"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <bulk>0.06</bulk>
+                <recoilAmount>-0.1</recoilAmount>
+                <swayFactor>-0.1</swayFactor>
+                <sightsEfficiency>0.05</sightsEfficiency>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Muzzle_Suppressor"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <bulk>0.12</bulk>
+                <recoilAmount>-0.15</recoilAmount>
+                <swayFactor>-0.15</swayFactor>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <!-- extended barrel -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Muzzle_Extension" or
+            defName="MCAP_Muzzle_Light" or
+            defName="MCAP_Muzzle_Enforcer" or
+            defName="MCAP_Muzzle_Bayonet"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <shotSpread>-0.04</shotSpread>
+                <swayFactor>-0.73</swayFactor>
+                <bulk>1.52</bulk>
+                <recoilAmount>-0.33</recoilAmount>
+                <oneHandedness>-1.0</oneHandedness>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Muzzle_Extension" or
+            defName="MCAP_Muzzle_Light" or
+            defName="MCAP_Muzzle_Enforcer" or
+            defName="MCAP_Muzzle_Bayonet"]/massFactor</xpath>
+          <value>
+            <massFactor>0.37</massFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Muzzle_Extension" or
+            defName="MCAP_Muzzle_Light" or
+            defName="MCAP_Muzzle_Enforcer" or
+            defName="MCAP_Muzzle_Bayonet"]/rangeFactor</xpath>
+          <value>
+            <rangeFactor>5</rangeFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Muzzle_Extension" or
+            defName="MCAP_Muzzle_Light" or
+            defName="MCAP_Muzzle_Enforcer" or
+            defName="MCAP_Muzzle_Bayonet"]/cooldownFactor</xpath>
+          <value>
+            <cooldownFactor>-0.01</cooldownFactor>
+          </value>
+        </li>
+
+        <!-- Accelerator barrel -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Muzzle_Accelerator"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <overrideAmmoSet>AmmoSet_9mmChemrail</overrideAmmoSet>
+                <shotSpread>-0.04</shotSpread>
+                <swayFactor>-0.73</swayFactor>
+                <bulk>1.52</bulk>
+                <recoilAmount>1.7</recoilAmount>
+                <oneHandedness>-1.0</oneHandedness>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Muzzle_Accelerator"]/massFactor</xpath>
+          <value>
+            <massFactor>-0.37</massFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Muzzle_Accelerator"]/rangeFactor</xpath>
+          <value>
+            <rangeFactor>5</rangeFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Muzzle_Accelerator"]/cooldownFactor</xpath>
+          <value>
+            <cooldownFactor>0.05</cooldownFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCAP_Muzzle_Accelerator"]/ticksBetweenShotsFactor</xpath>
+          <value>
+            <ticksBetweenShotsFactor>-3</ticksBetweenShotsFactor>
+          </value>
+        </li>
+
+<!-- ======================================== Presets  ==== -->
+
+        <!-- remove -->
+        <!--li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.GunsmithPresetDef[
+            defName="MCAP_Basic_Pistol" or
+            defName="MCAP_Basic_Carbine" or
+            defName="MCAP_Basic_MP"]</xpath>
+        </li-->
+
+        <!-- tags -->      
+        <!--li Class="PatchOperationRemove">
+        	<xpath>Defs/ThingDef[defName="Caseless_ModPistol"]/weaponTags/li[text()="Gun"]</xpath>
+        </li-->
+
+
+		</operations>
+	</match>
+	</Operation>
+</Patch>

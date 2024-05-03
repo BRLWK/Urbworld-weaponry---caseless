@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Combat Extended</li>
+    </mods>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs</xpath>
+      <value>
+
+    <CombatExtended.AmmoCategoryDef>
+		<defName>Scatter</defName>
+		<label>scatter</label>
+		<labelShort>scatter</labelShort>
+		<description>Frangible tungsten rod that scatters into several pellets. Due to their weight and speed they lose velocity rapidly. Practical at close range.</description>
+	</CombatExtended.AmmoCategoryDef>
+
+    <CombatExtended.AmmoCategoryDef>
+		<defName>Triplex</defName>
+		<label>triplex</label>
+		<labelShort>triplex</labelShort>
+		<description>Tungsten rod that seperates into 3 fin-stabilized projectiles. Due to their weight and speed they lose velocity quickly.</description>
+	</CombatExtended.AmmoCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>Ammo6mmChemrail</defName>
+		<label>6mm Chemrail</label>
+		<parent>AmmoAdvanced</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberRailgunRifle</iconPath>
+	</ThingCategoryDef>
+
+	<!-- ==================== AmmoSet ========================== -->
+
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_6mmChemrail</defName>
+		<label>6mm Chemrail</label>
+		<ammoTypes>
+			<Ammo_6mmChemrail_Sabot>Bullet_6mmChemrail_Sabot</Ammo_6mmChemrail_Sabot>
+            <Ammo_6mmChemrail_Triplex>Bullet_6mmChemrail_Triplex</Ammo_6mmChemrail_Triplex>
+            <Ammo_6mmChemrail_Scatter>Bullet_6mmChemrail_Scatter</Ammo_6mmChemrail_Scatter>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ==================== Ammo ========================== -->
+
+	<ThingDef Name="6mmChemrailBase" Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase" Abstract="True">
+		<statBases>
+			<Mass>0.01</Mass>
+			<Bulk>0.008</Bulk>
+			<MarketValue>0.06</MarketValue>
+		</statBases>
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+			<li>CE_AutoEnableCrafting_FabricationBench</li>
+			<li>CE_AutoEnableCrafting_TableMachining</li>
+		</tradeTags>
+		<thingCategories>
+			<li>Ammo6mmChemrail</li>
+		</thingCategories>
+		<graphicData>
+			<texPath>Things/Ammo/Railgun/Rifle</texPath>
+			<graphicClass>CombatExtended.Graphic_StackCountRanged</graphicClass>
+		</graphicData>
+		<stackLimit>5000</stackLimit>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="6mmChemrailBase">
+		<description>Fin-stabilized tungsten carbide penetrator with chemical starter, designed for accelerator rifle kits.</description>
+		<defName>Ammo_6mmChemrail_Sabot</defName>
+		<label>6mm Chemrail (sabot)</label>
+		<statBases>
+			<MarketValue>0.6</MarketValue>
+		</statBases>
+		<ammoClass>RailgunSabot</ammoClass>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="6mmChemrailBase">
+		<defName>Ammo_6mmChemrail_Triplex</defName>
+		<label>6mm Chemrail (triplex)</label>
+		<description>Tungsten rod that seperates into 3 fin-stabilized projectiles. Utilizes a chemical starter, designed for accelerator rifle kits.</description>
+		<statBases>
+			<MarketValue>0.4</MarketValue>
+		</statBases>
+		<ammoClass>Triplex</ammoClass>
+        <generateAllowChance>0.6</generateAllowChance>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="6mmChemrailBase">
+		<defName>Ammo_6mmChemrail_Scatter</defName>
+		<label>6mm Chemrail (scatter)</label>
+		<description>Frangible tungsten rod that scatters into 6 pellets. Utilizes a chemical starter, designed for accelerator rifle kits.</description>
+		<statBases>
+			<MarketValue>0.4</MarketValue>
+		</statBases>
+		<ammoClass>Scatter</ammoClass>
+        <generateAllowChance>0.3</generateAllowChance>
+	</ThingDef>
+
+	<!-- ================== Projectiles ================== -->
+
+    <ThingDef Class="CombatExtended.AmmoDef" Name="Base6mmChemrailBullet" ParentName="BaseBulletCE" Abstract="true">
+		<thingClass>CombatExtended.BulletCE</thingClass>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<speed>340</speed>
+			<dropsCasings>false</dropsCasings>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6mmChemrailBullet">
+		<defName>Bullet_6mmChemrail_Sabot</defName>
+		<label>6mm Chemrail bullet (Sabot)</label>
+        <graphicData>
+			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>25</damageAmountBase>
+			<armorPenetrationSharp>36</armorPenetrationSharp>
+			<armorPenetrationBlunt>194.5</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6mmChemrailBullet">
+		<defName>Bullet_6mmChemrail_Triplex</defName>
+		<label>6mm Chemrail bullet (Triplex)</label>
+        <graphicData>
+			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.3,1)</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>12</damageAmountBase>
+			<armorPenetrationSharp>9</armorPenetrationSharp>
+			<armorPenetrationBlunt>64.74</armorPenetrationBlunt>
+            <gravityFactor>30</gravityFactor> <!-- resistance? -->
+            <pelletCount>3</pelletCount>
+            <spreadMult>8.9</spreadMult>
+		</projectile>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6mmChemrailBullet">
+		<defName>Bullet_6mmChemrail_Scatter</defName>
+		<label>6mm Chemrail pellet (Scatter)</label>
+        <graphicData>
+			<texPath>Things/Projectile/Shotgun_Pellet</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>11</damageAmountBase>
+			<armorPenetrationSharp>5</armorPenetrationSharp>
+			<armorPenetrationBlunt>43.36</armorPenetrationBlunt>
+            <gravityFactor>40</gravityFactor> <!-- resistance? -->
+            <pelletCount>6</pelletCount>
+            <spreadMult>17.8</spreadMult>
+		</projectile>
+	</ThingDef>
+
+	<!-- ==================== Recipes ========================== -->
+
+	<RecipeDef Name="6mmChemrailRecipeBase" ParentName="AmmoRecipeBase" Abstract="True">
+		<researchPrerequisite>ECOPA</researchPrerequisite>
+		<workAmount>1000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Uranium</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</ingredients>
+		<recipeUsers>
+			<li>TableMachining</li>
+			<li>FabricationBench</li>
+		</recipeUsers>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>Uranium</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+	</RecipeDef>
+
+    <RecipeDef ParentName="6mmChemrailRecipeBase">
+		<defName>MakeAmmo_6mmChemrail_Sabot</defName>
+		<label>make 6mm Chemrail cartridge (Sabot) x500</label>
+		<description>Craft 500 6mm Chemrail (Sabot) cartridges.</description>
+		<jobString>Making 6mm Chemrail (Sabot) cartridges.</jobString>
+		<products>
+			<Ammo_6mmChemrail_Sabot>500</Ammo_6mmChemrail_Sabot>
+		</products>
+	</RecipeDef>
+
+    <RecipeDef ParentName="6mmChemrailRecipeBase">
+		<defName>MakeAmmo_6mmChemrail_Scatter</defName>
+		<label>make 6mm Chemrail cartridge (Scatter) x500</label>
+		<description>Craft 500 6mm Chemrail (Scatter) cartridges.</description>
+		<jobString>Making 6mm Chemrail (Scatter) cartridges.</jobString>
+		<products>
+			<Ammo_6mmChemrail_Scatter>500</Ammo_6mmChemrail_Scatter>
+		</products>
+	</RecipeDef>
+
+    <RecipeDef ParentName="6mmChemrailRecipeBase">
+		<defName>MakeAmmo_6mmChemrail_Triplex</defName>
+		<label>make 6mm Chemrail cartridge (Triplex) x500</label>
+		<description>Craft 500 6mm Chemrail (Triplex) cartridges.</description>
+		<jobString>Making 6mm Chemrail (Triplex) cartridges.</jobString>
+		<products>
+			<Ammo_6mmChemrail_Triplex>500</Ammo_6mmChemrail_Triplex>
+		</products>
+	</RecipeDef>
+
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Projectile -->
+
+    <ThingDef ParentName="BaseBullet">
+      <defName>Bullet_HBSCShotgun</defName>
+      <label>heavy shotgun blast</label>
+      <graphicData>
+        <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>1.4</drawSize>
+      </graphicData>
+      <projectile>
+        <damageDef>Bullet</damageDef>
+        <damageAmountBase>20</damageAmountBase>
+        <stoppingPower>2</stoppingPower>
+        <armorPenetrationBase>0.08</armorPenetrationBase>
+        <arcHeightFactor>0.2</arcHeightFactor>
+        <shadowSize>0.6</shadowSize>
+        <speed>65</speed>
+      </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_HBSCBirdshot</defName>
+    <label>heavy birdshot</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.6</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <stoppingPower>1</stoppingPower>
+      <armorPenetrationBase>0.02</armorPenetrationBase>
+      <arcHeightFactor>0.2</arcHeightFactor>
+      <shadowSize>0.6</shadowSize>
+      <speed>40</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_HBSCSlug</defName>
+    <label>heavy slug</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>14</damageAmountBase>
+      <armorPenetrationBase>0.17</armorPenetrationBase>
+      <arcHeightFactor>0.4</arcHeightFactor>
+      <shadowSize>0.6</shadowSize>
+      <speed>50</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_HSBCRiot</defName>
+    <label>heavy rubber slug</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Blunt_Riot</damageDef>
+      <damageAmountBase>16</damageAmountBase>
+      <stoppingPower>4</stoppingPower>
+      <armorPenetrationBase>0.05</armorPenetrationBase>
+      <arcHeightFactor>0.2</arcHeightFactor>
+      <shadowSize>0.6</shadowSize>
+      <speed>45</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_HSBCEX</defName>
+    <label>Explosive shotgun slug</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.4</drawSize>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>40</damageAmountBase>
+      <explosionRadius>1</explosionRadius>
+      <speed>35</speed>
+      <arcHeightFactor>0.4</arcHeightFactor>
+      <shadowSize>0.6</shadowSize>
+      <screenShakeFactor>0.2</screenShakeFactor>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_HSBC_HEAT</defName>
+    <label>HEAT grenade</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.7</drawSize>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>30</damageAmountBase>
+      <explosionRadius>0.5</explosionRadius>
+      <armorPenetrationBase>0.55</armorPenetrationBase>
+      <speed>50</speed>
+      <arcHeightFactor>0.2</arcHeightFactor>
+      <shadowSize>0.6</shadowSize>
+      <screenShakeFactor>0.2</screenShakeFactor>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_HSBC_AB</defName>
+    <label>Airburst grenade</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.7</drawSize>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <explosionRadius>1.5</explosionRadius>
+      <armorPenetrationBase>0.04</armorPenetrationBase>
+      <speed>40</speed>
+      <arcHeightFactor>0.3</arcHeightFactor>
+      <shadowSize>0.6</shadowSize>
+      <screenShakeFactor>0.5</screenShakeFactor>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_HSBC_I</defName>
+    <label>Incendiary grenade</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.7</drawSize>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <damageDef>Flame</damageDef>
+      <explosionRadius>1.1</explosionRadius>
+      <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+      <preExplosionSpawnChance>0.5</preExplosionSpawnChance>
+      <ai_IsIncendiary>true</ai_IsIncendiary>
+      <speed>40</speed>
+      <arcHeightFactor>0.3</arcHeightFactor>
+      <shadowSize>0.6</shadowSize>
+      <screenShakeFactor>0.5</screenShakeFactor>
+    </projectile>
+  </ThingDef>
+
+<!-- ======================================== Weapon ==== -->
+
+  <ThingDef ParentName="BaseCaselessModularWeapon">
+    <defName>Caseless_MCBS</defName>
+    <label>Modular heavy shotgun</label>
+    <description>Green Mountain Armory's Muffalo is a 23mm bullpup caseless shotgun. Fires a wide range of ammunition from birdshot to explosive slugs.</description>
+    <graphicData>
+      <texPath>mcbstac</texPath>
+      <graphicClass>ModularWeapons.Graphic_Modular</graphicClass>
+    </graphicData>
+    <uiIconScale>1.3</uiIconScale>
+    <soundInteract>Interact_Shotgun</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>Gun</li>
+      <li>IndustrialGunAdvanced</li>
+      <li>ShortShots</li>
+      <li>SpacerGun</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>ShortShots</li>
+      <li>RangedHeavy</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <Mass>3</Mass>
+      <AccuracyTouch>0.80</AccuracyTouch>
+      <AccuracyShort>0.87</AccuracyShort>
+      <AccuracyMedium>0.77</AccuracyMedium>
+      <AccuracyLong>0.64</AccuracyLong>
+      <RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
+    </statBases>
+    <comps>
+      <li Class="ModularWeapons.CompProperties_ModularParts">
+        <compClass>ModularWeapons.CompModularParts</compClass>
+        <partKinds>
+            <li>MCBS_Barrel</li>
+            <li>MCBS_Mag</li>
+            <li>MCBS_Action</li>
+            <li>MCBS_Ammo</li>
+            <li>MCBS_Sight</li>
+            <li>MCBS_TopAttachment</li>
+        </partKinds>
+        <majorKinds>
+            <li>MCBS_Barrel</li>
+            <li>MCBS_Mag</li>
+            <li>MCBS_Action</li>
+            <li>MCBS_Ammo</li>
+        </majorKinds>
+        <defaultParts>
+            <li>MCBS_Barrel_Standard</li>
+            <li>MCBS_Mag_Standard</li>
+            <li>MCBS_Action_Pump</li>
+            <li>MCBS_Ammo_Buck</li>
+        </defaultParts>
+      </li>
+    </comps>
+    <costList>
+      <Chemfuel>20</Chemfuel>
+      <Steel>40</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_HBSCShotgun</defaultProjectile>
+        <warmupTime>1.4</warmupTime>
+        <range>18.9</range>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <soundCast>Shot_mcbShotgun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>12</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+<!-- ======================================== Parts ==== -->
+
+<!-- ======================================== Parts : Barrel ==== -->
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
+    <defName>MCBS_Barrel_Stub</defName>
+    <label>stub barrel</label>
+    <description>Meant for firefights in a phonebooth, lacks the front sight but increases firepower.</description>
+    <kind>MCBS_Barrel</kind>
+    <path>Barrel_Stub</path>
+    <!--=====-->
+    <dmgMultiplierFactor>-0.1</dmgMultiplierFactor>
+    <warmupTimeFactor>-0.25</warmupTimeFactor>
+    <AccTouchFactor>-0.05</AccTouchFactor>
+    <AccShortFactor>-0.1</AccShortFactor>
+    <AccMediumFactor>-0.15</AccMediumFactor>
+    <AccLongFactor>-0.2</AccLongFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <massFactor>-0.8</massFactor>
+    <rangeFactor>-4</rangeFactor>
+    <ticksBetweenShotsFactor>-4</ticksBetweenShotsFactor>
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
+    <defName>MCBS_Barrel_Standard</defName>
+    <label>standard barrel compensator</label>
+    <description>Heavy compensator with plasteel teeth on the tip for close-quarters combat.</description>
+    <kind>MCBS_Barrel</kind>
+    <path>Barrel_STDCOM</path>
+    <costList>
+      <Steel>15</Steel>
+      <Plasteel>5</Plasteel>
+      <Chemfuel>20</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
+    <defName>MCBS_Barrel_StandardChoke</defName>
+    <label>standard barrel choke</label>
+    <description>Heavy choke with plasteel teeth on the tip for close-quarters combat.</description>
+    <kind>MCBS_Barrel</kind>
+    <path>Barrel_STDC</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.025</dmgMultiplierFactor>
+    <AccTouchFactor>0.06</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <cooldownFactor>0.15</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>15</Steel>
+      <Plasteel>5</Plasteel>
+      <Chemfuel>20</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
+    <defName>MCBS_Barrel_LongCompensator</defName>
+    <label>long barrel compensator</label>
+    <description>Heavy compensator with plasteel teeth on the tip for close-quarters combat.</description>
+    <kind>MCBS_Barrel</kind>
+    <path>Barrel_LNGCOM</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.06</dmgMultiplierFactor>
+    <warmupTimeFactor>0.1</warmupTimeFactor>
+    <AccTouchFactor>-0.04</AccTouchFactor>
+    <AccShortFactor>-0.03</AccShortFactor>
+    <AccMediumFactor>0.06</AccMediumFactor>
+    <AccLongFactor>0.06</AccLongFactor>
+    <cooldownFactor>0.35</cooldownFactor>
+    <massFactor>1.2</massFactor>
+    <rangeFactor>3</rangeFactor>
+    <ticksBetweenShotsFactor>4</ticksBetweenShotsFactor>
+    <!--=====-->
+    <costList>
+      <Steel>22</Steel>
+      <Plasteel>5</Plasteel>
+      <Chemfuel>20</Chemfuel>
+    </costList>
+    <researchPrerequisites>
+      <li>PrecisionRifling</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
+    <defName>MCBS_Barrel_LongChoke</defName>
+    <label>long barrel choke</label>
+    <description>Heavy choke with plasteel teeth on the tip for close-quarters combat.</description>
+    <kind>MCBS_Barrel</kind>
+    <path>Barrel_LNGC</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.09</dmgMultiplierFactor>
+    <warmupTimeFactor>0.15</warmupTimeFactor>
+    <AccTouchFactor>-0.02</AccTouchFactor>
+    <AccShortFactor>-0.01</AccShortFactor>
+    <AccMediumFactor>0.09</AccMediumFactor>
+    <AccLongFactor>0.09</AccLongFactor>
+    <cooldownFactor>0.4</cooldownFactor>
+    <massFactor>1.1</massFactor>
+    <rangeFactor>6</rangeFactor>
+    <ticksBetweenShotsFactor>4</ticksBetweenShotsFactor>
+    <!--=====-->
+    <costList>
+      <Steel>22</Steel>
+      <Plasteel>5</Plasteel>
+      <Chemfuel>20</Chemfuel>
+    </costList>
+    <researchPrerequisites>
+      <li>PrecisionRifling</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
+    <defName>MCBS_Barrel_Accelerator</defName>
+    <label>Accelerator</label>
+    <description>Advanced barrel attachment increases damage, range and accuracy.</description>
+    <kind>MCBS_Barrel</kind>
+    <path>Part_Accelerator</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.15</dmgMultiplierFactor>
+    <warmupTimeFactor>0.22</warmupTimeFactor>
+    <AccTouchFactor>0.02</AccTouchFactor>
+    <AccShortFactor>0.05</AccShortFactor>
+    <AccMediumFactor>0.09</AccMediumFactor>
+    <AccLongFactor>0.12</AccLongFactor>
+    <cooldownFactor>0.5</cooldownFactor>
+    <massFactor>1.1</massFactor>
+    <rangeFactor>9</rangeFactor>
+    <ticksBetweenShotsFactor>-2</ticksBetweenShotsFactor>
+    <!--=====-->
+    <costList>
+      <Steel>30</Steel>
+      <Plasteel>20</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <researchPrerequisites>
+      <li>AcceleratorRails</li>
+    </researchPrerequisites>
+    <incompatibleKind>
+      <li>MCBS_Action</li>
+      <li>MCBS_TopAttachment</li>
+    </incompatibleKind>
+  </ModularWeapons.ModularPartDef>
+
+<!-- ======================================== Parts : Magazine ==== -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Mag_Standard</defName>
+    <label>standard magazine</label>
+    <description>Standard 4-round magazine.</description>
+    <kind>MCBS_Mag</kind>
+    <path>Mag_Std</path>
+    <costList>
+      <Steel>10</Steel>
+      <Chemfuel>20</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Mag_Ext</defName>
+    <label>extended magazine</label>
+    <description>Extended 7-round magazine.</description>
+    <kind>MCBS_Mag</kind>
+    <path>Mag_Med</path>
+    <!--=====-->
+    <warmupTimeFactor>0.1</warmupTimeFactor>
+    <cooldownFactor>0.4</cooldownFactor>
+    <burstCountFactor>1</burstCountFactor>
+    <massFactor>0.65</massFactor>
+    <AccTouchFactor>-0.03</AccTouchFactor>
+    <AccShortFactor>-0.09</AccShortFactor>
+    <AccMediumFactor>-0.12</AccMediumFactor>
+    <AccLongFactor>-0.15</AccLongFactor>
+    <ticksBetweenShotsFactor>3</ticksBetweenShotsFactor>
+    <!--=====-->
+    <costList>
+      <Steel>15</Steel>
+      <Chemfuel>20</Chemfuel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Mag_Belt</defName>
+    <label>Belt feed</label>
+    <description>Custom design by mercenary marines.</description>
+    <kind>MCBS_Mag</kind>
+    <path>Mag_Belt</path>
+    <!--=====-->
+    <warmupTimeFactor>0.2</warmupTimeFactor>
+    <cooldownFactor>0.65</cooldownFactor>
+    <burstCountFactor>2</burstCountFactor>
+    <massFactor>1.1</massFactor>
+    <MoveSpeedFactor>-0.09</MoveSpeedFactor>
+    <AccTouchFactor>-0.05</AccTouchFactor>
+    <AccShortFactor>-0.12</AccShortFactor>
+    <AccMediumFactor>-0.15</AccMediumFactor>
+    <AccLongFactor>-0.2</AccLongFactor>
+    <ticksBetweenShotsFactor>6</ticksBetweenShotsFactor>
+    <!--=====-->
+    <costList>
+      <Steel>30</Steel>
+      <Chemfuel>40</Chemfuel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>BlowbackOperation</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Part_Streetsweeper</defName>
+    <label>Streetsweeper conversion</label>
+    <description>Heavy conversion kit intended for close combat in the urbworld sprawl.</description>
+    <kind>MCBS_Mag</kind>
+    <path>Part_Streetsweeper</path>
+    <!--=====-->
+    <warmupTimeFactor>0.1</warmupTimeFactor>
+    <cooldownFactor>0.55</cooldownFactor>
+    <burstCountFactor>4</burstCountFactor>
+    <massFactor>1.9</massFactor>
+    <MoveSpeedFactor>-0.12</MoveSpeedFactor>
+    <AccTouchFactor>-0.09</AccTouchFactor>
+    <AccShortFactor>-0.15</AccShortFactor>
+    <AccMediumFactor>-0.2</AccMediumFactor>
+    <AccLongFactor>-0.25</AccLongFactor>
+    <ticksBetweenShotsFactor>-4</ticksBetweenShotsFactor>
+    <!--=====-->
+    <costList>
+      <Steel>40</Steel>
+      <Plasteel>20</Plasteel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>GasOperation</li>
+    </researchPrerequisites>
+    <incompatibleKind>
+      <li>MCBS_Barrel</li>
+      <li>MCBS_Action</li>
+    </incompatibleKind>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Ammo_AdvHEAT</defName>
+    <label>HEAT grenade</label>
+    <description>High Explosive Anti Tank. On detonation releases a jet of molten metal into the target.</description>
+    <kind>MCBS_Mag</kind>
+    <path>Mag_HEDP</path>
+    <!--=====-->
+    <projectileFactor>Bullet_HSBC_HEAT</projectileFactor>
+    <warmupTimeFactor>0.1</warmupTimeFactor>
+    <cooldownFactor>0.3</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>20</Steel>
+      <Chemfuel>50</Chemfuel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>LauncherSmart</li>
+    </researchPrerequisites>
+    <incompatibleKind>
+      <li>MCBS_Ammo</li>
+    </incompatibleKind>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Ammo_AdvAB</defName>
+    <label>Airburst grenade</label>
+    <description>HE grenade that detonates in midair creating a larger explosion radius with reduced power.</description>
+    <kind>MCBS_Mag</kind>
+    <path>Mag_Airburst</path>
+    <!--=====-->
+    <projectileFactor>Bullet_HSBC_AB</projectileFactor>
+    <warmupTimeFactor>-0.05</warmupTimeFactor>
+    <cooldownFactor>-0.15</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>20</Steel>
+      <Chemfuel>30</Chemfuel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>LauncherSmart</li>
+    </researchPrerequisites>
+    <incompatibleKind>
+      <li>MCBS_Ammo</li>
+    </incompatibleKind>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Ammo_AdvI</defName>
+    <label>Incendiary grenade</label>
+    <description>Incendiary grenade that creates small fires on impact.</description>
+    <kind>MCBS_Mag</kind>
+    <path>Mag_Fire</path>
+    <!--=====-->
+    <projectileFactor>Bullet_HSBC_I</projectileFactor>
+    <warmupTimeFactor>0.1</warmupTimeFactor>
+    <cooldownFactor>0.3</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>20</Steel>
+      <Chemfuel>50</Chemfuel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>LauncherSmart</li>
+    </researchPrerequisites>
+    <incompatibleKind>
+      <li>MCBS_Ammo</li>
+    </incompatibleKind>
+  </ModularWeapons.ModularPartDef>
+
+<!-- ======================================== Parts : Action ==== -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Action_Pump</defName>
+    <label>Pump-action</label>
+    <description>Standard pump-action.</description>
+    <kind>MCBS_Action</kind>
+    <path>Action_Pump</path>
+    <costList>
+      <Steel>15</Steel>
+      <Chemfuel>25</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Action_Semi</defName>
+    <label>Semi-automatic action</label>
+    <description>Semi-automatic action.</description>
+    <kind>MCBS_Action</kind>
+    <path>Action_Semi</path>
+    <!--=====-->
+    <cooldownFactor>0.3</cooldownFactor>
+    <warmupTimeFactor>-0.6</warmupTimeFactor>
+    <massFactor>0.9</massFactor>
+    <AccTouchFactor>-0.03</AccTouchFactor>
+    <AccShortFactor>-0.05</AccShortFactor>
+    <AccMediumFactor>-0.08</AccMediumFactor>
+    <AccLongFactor>-0.11</AccLongFactor>
+    <ticksBetweenShotsFactor>-2</ticksBetweenShotsFactor>
+    <!--=====-->
+    <costList>
+      <Steel>15</Steel>
+      <Chemfuel>25</Chemfuel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>BlowbackOperation</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Action_Automatic</defName>
+    <label>Automatic action</label>
+    <description>Fully-automatic action.</description>
+    <kind>MCBS_Action</kind>
+    <path>Action_Auto</path>
+    <!--=====-->
+    <cooldownFactor>0.5</cooldownFactor>
+    <warmupTimeFactor>-1</warmupTimeFactor>
+    <massFactor>1.2</massFactor>
+    <AccTouchFactor>-0.07</AccTouchFactor>
+    <AccShortFactor>-0.09</AccShortFactor>
+    <AccMediumFactor>-0.15</AccMediumFactor>
+    <AccLongFactor>-0.23</AccLongFactor>
+    <ticksBetweenShotsFactor>-4</ticksBetweenShotsFactor>
+    <!--=====-->
+    <costList>
+      <Steel>20</Steel>
+      <Chemfuel>30</Chemfuel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>GasOperation</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+<!-- ======================================== Parts : Sights ==== -->
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_RedDot_Base">
+    <defName>MCBS_Sight_Reddot</defName>
+    <kind>MCBS_Sight</kind>
+    <path>Optic_RedDot</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_AcogHolo_Base">
+    <defName>MCBS_Sight_Holo</defName>
+    <kind>MCBS_Sight</kind>
+    <path>Optic_Holo</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_SmartDot_Base">
+    <defName>MCBS_Optic_SmartDot</defName>
+    <kind>MCBS_Sight</kind>
+    <path>Optic_SmartDot</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_SmartCog_Base">
+    <defName>MCBS_Optic_SmartHolo</defName>
+    <kind>MCBS_Sight</kind>
+    <path>Optic_SmartHolo</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_GlitterScope_Base">
+    <defName>MCBS_Optic_GlitterScope</defName>
+    <kind>MCBS_Sight</kind>
+    <path>Optic_Glitter</path>
+  </ModularWeapons.ModularPartDef>
+
+<!-- ======================================== Parts : Attachments ==== -->
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_PEQ_Base">
+    <defName>MCBS_Attach_PEQ</defName>
+    <kind>MCBS_TopAttachment</kind>
+    <path>Attach_PEQ</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_Flashlight_Base">
+    <defName>MCBS_Attach_Flashlight</defName>
+    <kind>MCBS_TopAttachment</kind>
+    <path>Attach_Flashlight</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_Laser_Base">
+    <defName>MCBS_Attach_Laser</defName>
+    <kind>MCBS_TopAttachment</kind>
+    <path>Attach_Laser</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Attach_Heatshield</defName>
+    <label>Heatshield</label>
+    <description>Heat shield for added durability and safety.</description>
+    <kind>MCBS_TopAttachment</kind>
+    <path>Attach_Heatshield</path>
+    <!--=====-->
+    <massFactor>0.8</massFactor>
+    <cooldownFactor>-0.15</cooldownFactor>
+    <AccMediumFactor>0.04</AccMediumFactor>
+    <AccLongFactor>0.06</AccLongFactor>
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_RayFinder_Base">
+    <defName>MCBS_Attach_Rayfinder</defName>
+    <kind>MCBS_TopAttachment</kind>
+    <path>Attach_Rayfinder</path>
+  </ModularWeapons.ModularPartDef>
+
+<!-- ======================================== Parts : Ammunition ==== -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Ammo_Buck</defName>
+    <label>Buckshot ammunition</label>
+    <description>Standard buckshot ammo.</description>
+    <kind>MCBS_Ammo</kind>
+    <path>none</path>
+    <costList>
+      <Steel>10</Steel>
+      <Chemfuel>15</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Ammo_Bird</defName>
+    <label>Birdshot ammunition</label>
+    <description>Birdshot ammo.</description>
+    <kind>MCBS_Ammo</kind>
+    <path>none</path>
+    <!--=====-->
+    <projectileFactor>Bullet_HBSCBirdshot</projectileFactor>
+    <warmupTimeFactor>-0.2</warmupTimeFactor>
+    <cooldownFactor>-0.8</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+      <Chemfuel>15</Chemfuel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Ammo_Slug</defName>
+    <label>Slug ammunition</label>
+    <description>Slug ammo.</description>
+    <kind>MCBS_Ammo</kind>
+    <path>none</path>
+    <!--=====-->
+    <projectileFactor>Bullet_HBSCSlug</projectileFactor>
+    <warmupTimeFactor>0.2</warmupTimeFactor>
+    <cooldownFactor>0.5</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+      <Chemfuel>15</Chemfuel>
+      <Uranium>10</Uranium>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Ammo_Riot</defName>
+    <label>Riot ammunition</label>
+    <description>Riot control ammo.</description>
+    <kind>MCBS_Ammo</kind>
+    <path>none</path>
+    <!--=====-->
+    <projectileFactor>Bullet_HSBCRiot</projectileFactor>
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+      <Chemfuel>20</Chemfuel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBS_Ammo_EX</defName>
+    <label>Explosive ammunition</label>
+    <description>Heavy explosive slugs.</description>
+    <kind>MCBS_Ammo</kind>
+    <path>none</path>
+    <!--=====-->
+    <warmupTimeFactor>0.5</warmupTimeFactor>
+    <cooldownFactor>1</cooldownFactor>
+    <projectileFactor>Bullet_HSBCEX</projectileFactor>
+    <!--=====-->
+    <costList>
+      <Steel>20</Steel>
+      <Chemfuel>50</Chemfuel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>MicroExplosives</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+</Defs>

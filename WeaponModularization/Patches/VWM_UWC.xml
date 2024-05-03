@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+    <Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Modularization Vanilla Weapon</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+            <!-- AR -->
+
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularAssaultRifle"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModAR_Sight"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_Sight_SimpleTwoX</li>
+					<li>CaselessMod_Sight_SimpleFourX</li>
+					<li>CaselessMod_Sight_SimpleDigiScope</li>
+					<li>CaselessMod_Sight_SimpleHolo</li>
+					<li>CaselessMod_Sight_SimpleScope</li>
+					<li>CaselessMod_Sight_RayDot</li>
+					<li>CaselessMod_Sight_RaySight</li>
+					<li>CaselessMod_Sight_RayScope</li>
+					<li>CaselessMod_Sight_AdvA</li>
+					<li>CaselessMod_Sight_AdvB</li>
+					<li>CaselessMod_Sight_AdvC</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularAssaultRifle"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModAR_UnderBarrel"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_ForwardGripA</li>
+					<li>CaselessMod_ForwardGripB</li>
+					<li>CaselessMod_ForwardGripC</li>
+					<li>CaselessMod_ForwardGripD</li>
+					<li>CaselessMod_ForwardGripE</li>
+					<li>CaselessMod_ForwardGripF</li>
+					<li>CaselessModule_RevolverGL</li>
+					<li>CaselessModule_PlasteelGL</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Module_AR_LongBarrel"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModARLong_Muzzle"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_HeavySuppressorA</li>
+					<li>CaselessMod_Muzzle_DeviceA</li>
+					<li>CaselessMod_HeavySuppressorB</li>
+					<li>CaselessMod_Muzzle_CompensatorA</li>
+					<li>CaselessMod_Muzzle_CompensatorB</li>
+					<li>CaselessMod_Muzzle_FlashHider</li>
+					<li>CaselessMod_Muzzle_CompensatorC</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Module_SR_LongBarrel"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModSRLong_Muzzle"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_HeavySuppressorA</li>
+					<li>CaselessMod_Muzzle_DeviceA</li>
+					<li>CaselessMod_HeavySuppressorB</li>
+					<li>CaselessMod_Muzzle_CompensatorA</li>
+					<li>CaselessMod_Muzzle_CompensatorB</li>
+					<li>CaselessMod_Muzzle_FlashHider</li>
+					<li>CaselessMod_Muzzle_CompensatorC</li>
+				</value>
+			</li>
+
+            <!-- Pistol -->
+
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularAutoPistol"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModAP_Sight"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_Sight_SimpleTwoX</li>
+					<li>CaselessMod_Sight_SimpleHolo</li>
+					<li>CaselessMod_Sight_RayDot</li>
+					<li>CaselessMod_Sight_AdvA</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularAutoPistol"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModAP_Muzzle"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_HeavySuppressorA</li>
+					<li>CaselessMod_Muzzle_DeviceA</li>
+					<li>CaselessMod_HeavySuppressorB</li>
+					<li>CaselessMod_Muzzle_CompensatorA</li>
+					<li>CaselessMod_Muzzle_CompensatorB</li>
+					<li>CaselessMod_Muzzle_FlashHider</li>
+					<li>CaselessMod_Muzzle_CompensatorC</li>
+				</value>
+			</li>
+
+            <!-- Revolver -->
+
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularRevolver"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModRev_Sight"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_Sight_SimpleTwoX</li>
+					<li>CaselessMod_Sight_SimpleHolo</li>
+					<li>CaselessMod_Sight_RayDot</li>
+					<li>CaselessMod_Sight_AdvA</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularRevolver"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModRev_Muzzle"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_HeavySuppressorA</li>
+					<li>CaselessMod_Muzzle_DeviceA</li>
+					<li>CaselessMod_HeavySuppressorB</li>
+					<li>CaselessMod_Muzzle_CompensatorA</li>
+					<li>CaselessMod_Muzzle_CompensatorB</li>
+					<li>CaselessMod_Muzzle_FlashHider</li>
+					<li>CaselessMod_Muzzle_CompensatorC</li>
+				</value>
+			</li>
+
+            <!-- Chain Shotgun -->
+
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularChainShotgun"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModChainSG_Sight"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_Sight_SimpleTwoX</li>
+					<li>CaselessMod_Sight_SimpleHolo</li>
+					<li>CaselessMod_Sight_RayDot</li>
+					<li>CaselessMod_Sight_AdvA</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularChainShotgun"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModChainSG_UnderBarrel"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_ForwardGripA</li>
+					<li>CaselessMod_ForwardGripB</li>
+					<li>CaselessMod_ForwardGripC</li>
+					<li>CaselessMod_ForwardGripD</li>
+					<li>CaselessMod_ForwardGripE</li>
+					<li>CaselessMod_ForwardGripF</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularChainShotgun"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModChainSG_Muzzle"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_HeavySuppressorA</li>
+					<li>CaselessMod_Muzzle_DeviceA</li>
+					<li>CaselessMod_HeavySuppressorB</li>
+					<li>CaselessMod_Muzzle_CompensatorA</li>
+					<li>CaselessMod_Muzzle_CompensatorB</li>
+					<li>CaselessMod_Muzzle_FlashHider</li>
+					<li>CaselessMod_Muzzle_CompensatorC</li>
+				</value>
+			</li>
+
+            <!-- Pump Shotgun -->
+
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularPumpShotgun"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModPumpSG_Sight"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_Sight_SimpleTwoX</li>
+					<li>CaselessMod_Sight_SimpleHolo</li>
+					<li>CaselessMod_Sight_RayDot</li>
+					<li>CaselessMod_Sight_AdvA</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularPumpShotgun"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModPumpSG_Muzzle"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_HeavySuppressorA</li>
+					<li>CaselessMod_Muzzle_DeviceA</li>
+					<li>CaselessMod_HeavySuppressorB</li>
+					<li>CaselessMod_Muzzle_CompensatorA</li>
+					<li>CaselessMod_Muzzle_CompensatorB</li>
+					<li>CaselessMod_Muzzle_FlashHider</li>
+					<li>CaselessMod_Muzzle_CompensatorC</li>
+				</value>
+			</li>
+
+            <!-- Charge Rifle -->
+
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularChargeRifle"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModCR_Sight"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_Sight_SimpleTwoX</li>
+					<li>CaselessMod_Sight_SimpleFourX</li>
+					<li>CaselessMod_Sight_SimpleDigiScope</li>
+					<li>CaselessMod_Sight_SimpleHolo</li>
+					<li>CaselessMod_Sight_SimpleScope</li>
+					<li>CaselessMod_Sight_RayDot</li>
+					<li>CaselessMod_Sight_RaySight</li>
+					<li>CaselessMod_Sight_RayScope</li>
+					<li>CaselessMod_Sight_AdvA</li>
+					<li>CaselessMod_Sight_AdvB</li>
+					<li>CaselessMod_Sight_AdvC</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularChargeRifle"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModCR_UnderBarrel"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_ForwardGripA</li>
+					<li>CaselessMod_ForwardGripB</li>
+					<li>CaselessMod_ForwardGripC</li>
+					<li>CaselessMod_ForwardGripD</li>
+					<li>CaselessMod_ForwardGripE</li>
+					<li>CaselessMod_ForwardGripF</li>
+					<li>CaselessModule_RevolverGL</li>
+					<li>CaselessModule_PlasteelGL</li>
+				</value>
+			</li>
+
+            <!-- Heavy SMG -->
+
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularHeavySMG"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModHvySMG_Sight"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_Sight_SimpleTwoX</li>
+					<li>CaselessMod_Sight_SimpleFourX</li>
+					<li>CaselessMod_Sight_SimpleDigiScope</li>
+					<li>CaselessMod_Sight_SimpleHolo</li>
+					<li>CaselessMod_Sight_SimpleScope</li>
+					<li>CaselessMod_Sight_RayDot</li>
+					<li>CaselessMod_Sight_RaySight</li>
+					<li>CaselessMod_Sight_RayScope</li>
+					<li>CaselessMod_Sight_AdvA</li>
+					<li>CaselessMod_Sight_AdvB</li>
+					<li>CaselessMod_Sight_AdvC</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularHeavySMG"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModHvySMG_UnderBarrel"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_ForwardGripA</li>
+					<li>CaselessMod_ForwardGripB</li>
+					<li>CaselessMod_ForwardGripC</li>
+					<li>CaselessMod_ForwardGripD</li>
+					<li>CaselessMod_ForwardGripE</li>
+					<li>CaselessMod_ForwardGripF</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularHeavySMG"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModHvySMG_Muzzle"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_HeavySuppressorA</li>
+					<li>CaselessMod_Muzzle_DeviceA</li>
+					<li>CaselessMod_HeavySuppressorB</li>
+					<li>CaselessMod_Muzzle_CompensatorA</li>
+					<li>CaselessMod_Muzzle_CompensatorB</li>
+					<li>CaselessMod_Muzzle_FlashHider</li>
+					<li>CaselessMod_Muzzle_CompensatorC</li>
+				</value>
+			</li>
+
+            <!-- Machine Pistol -->
+
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularMachinePistol"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModMP_Sight"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_Sight_SimpleTwoX</li>
+					<li>CaselessMod_Sight_SimpleFourX</li>
+					<li>CaselessMod_Sight_SimpleDigiScope</li>
+					<li>CaselessMod_Sight_SimpleHolo</li>
+					<li>CaselessMod_Sight_SimpleScope</li>
+					<li>CaselessMod_Sight_RayDot</li>
+					<li>CaselessMod_Sight_RaySight</li>
+					<li>CaselessMod_Sight_RayScope</li>
+					<li>CaselessMod_Sight_AdvA</li>
+					<li>CaselessMod_Sight_AdvB</li>
+					<li>CaselessMod_Sight_AdvC</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularMachinePistol"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModMP_Muzzle"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_HeavySuppressorA</li>
+					<li>CaselessMod_Muzzle_DeviceA</li>
+					<li>CaselessMod_HeavySuppressorB</li>
+					<li>CaselessMod_Muzzle_CompensatorA</li>
+					<li>CaselessMod_Muzzle_CompensatorB</li>
+					<li>CaselessMod_Muzzle_FlashHider</li>
+					<li>CaselessMod_Muzzle_CompensatorC</li>
+				</value>
+			</li>
+
+            <!-- Sniper -->
+
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularSniperRifle"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModSR_Sight"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_Sight_SimpleTwoX</li>
+					<li>CaselessMod_Sight_SimpleFourX</li>
+					<li>CaselessMod_Sight_SimpleDigiScope</li>
+					<li>CaselessMod_Sight_SimpleHolo</li>
+					<li>CaselessMod_Sight_SimpleScope</li>
+					<li>CaselessMod_Sight_RayDot</li>
+					<li>CaselessMod_Sight_RaySight</li>
+					<li>CaselessMod_Sight_RayScope</li>
+					<li>CaselessMod_Sight_AdvA</li>
+					<li>CaselessMod_Sight_AdvB</li>
+					<li>CaselessMod_Sight_AdvC</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularSniperRifle"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModSR_UnderBarrel"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_ForwardGripA</li>
+					<li>CaselessMod_ForwardGripB</li>
+					<li>CaselessMod_ForwardGripC</li>
+					<li>CaselessMod_ForwardGripD</li>
+					<li>CaselessMod_ForwardGripE</li>
+					<li>CaselessMod_ForwardGripF</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularSniperRifle"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModAR_Muzzle"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_HeavySuppressorA</li>
+					<li>CaselessMod_Muzzle_DeviceA</li>
+					<li>CaselessMod_HeavySuppressorB</li>
+					<li>CaselessMod_Muzzle_CompensatorA</li>
+					<li>CaselessMod_Muzzle_CompensatorB</li>
+					<li>CaselessMod_Muzzle_FlashHider</li>
+					<li>CaselessMod_Muzzle_CompensatorC</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Module_SR_LongBarrel"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModSRLong_Muzzle"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_HeavySuppressorA</li>
+					<li>CaselessMod_Muzzle_DeviceA</li>
+					<li>CaselessMod_HeavySuppressorB</li>
+					<li>CaselessMod_Muzzle_CompensatorA</li>
+					<li>CaselessMod_Muzzle_CompensatorB</li>
+					<li>CaselessMod_Muzzle_FlashHider</li>
+					<li>CaselessMod_Muzzle_CompensatorC</li>
+				</value>
+			</li>
+
+            <!-- Bolt Action -->
+
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularBoltActionRifle"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModRF_Sight"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_Sight_SimpleTwoX</li>
+					<li>CaselessMod_Sight_SimpleFourX</li>
+					<li>CaselessMod_Sight_SimpleDigiScope</li>
+					<li>CaselessMod_Sight_SimpleHolo</li>
+					<li>CaselessMod_Sight_SimpleScope</li>
+					<li>CaselessMod_Sight_RayDot</li>
+					<li>CaselessMod_Sight_RaySight</li>
+					<li>CaselessMod_Sight_RayScope</li>
+					<li>CaselessMod_Sight_AdvA</li>
+					<li>CaselessMod_Sight_AdvB</li>
+					<li>CaselessMod_Sight_AdvC</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularBoltActionRifle"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModRF_UnderBarrel"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_ForwardGripA</li>
+					<li>CaselessMod_ForwardGripB</li>
+					<li>CaselessMod_ForwardGripC</li>
+					<li>CaselessMod_ForwardGripD</li>
+					<li>CaselessMod_ForwardGripE</li>
+					<li>CaselessMod_ForwardGripF</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Gun_ModularBoltActionRifle"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModRF_Muzzle"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_HeavySuppressorA</li>
+					<li>CaselessMod_Muzzle_DeviceA</li>
+					<li>CaselessMod_HeavySuppressorB</li>
+					<li>CaselessMod_Muzzle_CompensatorA</li>
+					<li>CaselessMod_Muzzle_CompensatorB</li>
+					<li>CaselessMod_Muzzle_FlashHider</li>
+					<li>CaselessMod_Muzzle_CompensatorC</li>
+				</value>
+			</li>
+
+            <li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Module_RF_LongBarrel"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModRFLong_Muzzle"]/filter/thingDefs</xpath>
+				<value>
+					<li>CaselessMod_HeavySuppressorA</li>
+					<li>CaselessMod_Muzzle_DeviceA</li>
+					<li>CaselessMod_HeavySuppressorB</li>
+					<li>CaselessMod_Muzzle_CompensatorA</li>
+					<li>CaselessMod_Muzzle_CompensatorB</li>
+					<li>CaselessMod_Muzzle_FlashHider</li>
+					<li>CaselessMod_Muzzle_CompensatorC</li>
+				</value>
+			</li>
+
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

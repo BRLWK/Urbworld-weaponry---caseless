@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Tier 2 MCBR -->
+
+  <ModularWeapons.ModularPartDef Name="MCBR_UGL2_Base" Abstract="True">
+    <kind>MCBR_Underbarrel</kind>
+    <!--=====-->
+    <massFactor>0.97</massFactor> 
+    <AccTouchFactor>0.02</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>0.04</AccMediumFactor>
+    <AccLongFactor>0.02</AccLongFactor>
+    <rangeFactor>2</rangeFactor>
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <cooldownFactor>0.2</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Chemfuel>50</Chemfuel>
+      <Steel>10</Steel>
+      <Plasteel>10</Plasteel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>LauncherSmart</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="MCBR_UGL2_Base">
+    <defName>MCBR_Attach_GL2AB</defName>
+    <label>Smart grenade launcher (Airbst)</label>
+    <description>Airburst: detonates the grenade before hitting the ground resulting in a weaker explosion across a larger area.</description>
+    <path>GLA_AB</path>
+    <!--=====-->
+    <underbarrelVerb>
+      <label>underbarrel launcher</label>
+      <description>Use the airburst grenade launcher mounted on the underbarrel.</description>
+      <iconPath>Icon_UBLauncher</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>31.9</range>
+      <forcedMissRadius>0.5</forcedMissRadius>
+      <warmupTime>4.9</warmupTime>
+      <noiseRadius>4</noiseRadius>
+      <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+      <soundCast>Shot_GLA</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+      <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <defaultProjectile>Proj_UBAirburst</defaultProjectile>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </underbarrelVerb>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+  
+  <ModularWeapons.ModularPartDef ParentName="MCBR_UGL2_Base">
+    <defName>MCBR_Attach_GL2HEDP</defName>
+    <label>Smart grenade launcher (HEDP)</label>
+    <description>HEDP: High Explosive Dual Purpose, uses an anti-tank warhead and fragmenting case. Excellent against armored foes.</description>
+    <path>GLA_HEDP</path>
+    <!--=====-->
+    <underbarrelVerb>
+      <label>underbarrel launcher</label>
+      <description>Use the HEDP grenade launcher mounted on the underbarrel.</description>
+      <iconPath>Icon_UBLauncher</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>31.9</range>
+      <forcedMissRadius>0.5</forcedMissRadius>
+      <warmupTime>4.9</warmupTime>
+      <noiseRadius>4</noiseRadius>
+      <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+      <soundCast>Shot_GLA</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+      <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <defaultProjectile>Proj_UBHEDP</defaultProjectile>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </underbarrelVerb>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="MCBR_UGL2_Base">
+    <defName>MCBR_Attach_GL2I</defName>
+    <label>Smart grenade launcher (Inc)</label>
+    <description>Incendiary: A shell filled with flammable gel and a small explosive charge. Starts fires when detonated.</description>
+    <path>GLA_I</path>
+    <!--=====-->
+    <underbarrelVerb>
+      <label>underbarrel launcher</label>
+      <description>Use the incendiary grenade launcher mounted on the underbarrel.</description>
+      <iconPath>Icon_UBLauncher</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>31.9</range>
+      <forcedMissRadius>0.5</forcedMissRadius>
+      <warmupTime>4.9</warmupTime>
+      <noiseRadius>4</noiseRadius>
+      <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+      <soundCast>Shot_GLA</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+      <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <defaultProjectile>Bullet_IncendiaryLauncher</defaultProjectile>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </underbarrelVerb>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="MCBR_UGL2_Base">
+    <defName>MCBR_Attach_GL2S</defName>
+    <label>Smart grenade launcher (Smk)</label>
+    <description>Smoke: Releases a cloud of smoke obscuring incoming shots and preventing turrets from locking on.</description>
+    <path>GLA_SMK</path>
+    <!--=====-->
+    <underbarrelVerb>
+      <label>underbarrel launcher</label>
+      <description>Use the smoke grenade launcher mounted on the underbarrel.</description>
+      <iconPath>Icon_UBLauncher</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>31.9</range>
+      <forcedMissRadius>0.5</forcedMissRadius>
+      <warmupTime>4.9</warmupTime>
+      <noiseRadius>4</noiseRadius>
+      <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+      <soundCast>Shot_GLA</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+      <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <defaultProjectile>Bullet_SmokeLauncher</defaultProjectile>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </underbarrelVerb>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="MCBR_UGL2_Base">
+    <defName>MCBR_Attach_GL2EMP</defName>
+    <label>Smart grenade launcher (EMP)</label>
+    <description>EMP: Upon impact release a burst of electromagnetic energy, stunning mechanical targets (mechanoids, turrets, mortars) and depleting shields in the area of effect.</description>
+    <path>GLA_EMP</path>
+    <!--=====-->
+    <underbarrelVerb>
+      <label>underbarrel launcher</label>
+      <description>Use the EMP grenade launcher mounted on the underbarrel.</description>
+      <iconPath>Icon_UBLauncher</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>31.9</range>
+      <forcedMissRadius>0.5</forcedMissRadius>
+      <warmupTime>4.9</warmupTime>
+      <noiseRadius>4</noiseRadius>
+      <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+      <soundCast>Shot_GLA</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+      <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <defaultProjectile>Bullet_EMPLauncher</defaultProjectile>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </underbarrelVerb>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+</Defs>

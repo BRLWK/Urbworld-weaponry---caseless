@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RecipeDef Name="yy_caselessammo_base" Abstract="True" MayRequire="Mlie.YayosCombat3">
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <recipeUsers>
+      <li>Caselessbench</li>
+    </recipeUsers>
+    <unfinishedThingDef>yy_ammo_industrial_unfinish</unfinishedThingDef>
+    <skillRequirements>
+      <Crafting>5</Crafting>
+    </skillRequirements>
+    <workSkill>Crafting</workSkill>
+    <researchPrerequisite>Caseless_Weapons</researchPrerequisite>
+  </RecipeDef>
+
+<!-- Industrial caseless -->
+
+  <RecipeDef ParentName="yy_caselessammo_base" MayRequire="Mlie.YayosCombat3">
+    <defName>Make_yy_ammo_caseless</defName>
+    <label>make industrial caseless ammo</label>
+    <description>Ammunition used for caseless weapons in the industrial tech.</description>
+    <jobString>Making ammo.</jobString>
+    <workAmount>200</workAmount>
+    <unfinishedThingDef>yy_ammo_industrial_unfinish</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Chemfuel</li>
+        <li>Steel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <yy_ammo_caseless>50</yy_ammo_caseless>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="yy_caselessammo_base" MayRequire="Mlie.YayosCombat3">
+    <defName>yy_ammo_caseless10</defName>
+    <label>make industrial caseless ammo 10</label>
+    <description>Ammunition used for caseless weapons in the industrial tech.</description>
+    <jobString>Making ammo.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>2250</workAmount>
+    <unfinishedThingDef>yy_ammo_industrial_unfinish</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </filter>
+        <count>100</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>20</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Chemfuel</li>
+        <li>Steel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <yy_ammo_caseless>300</yy_ammo_caseless>
+    </products>
+    <skillRequirements>
+      <Crafting>5</Crafting>
+    </skillRequirements>
+    <workSkill>Crafting</workSkill>
+  </RecipeDef>
+
+  <!-- Industrial caseless -->
+
+  <RecipeDef ParentName="yy_caselessammo_base" MayRequire="Mlie.YayosCombat3">
+    <defName>Convert_yy_ammo_caseless10</defName>
+    <label>convert industrial caseless ammo x10</label>
+    <description>Converting x10 industrial ammo into caseless ammo.</description>
+    <jobString>Converting ammo x10.</jobString>
+    <workAmount>300</workAmount>
+    <unfinishedThingDef>yy_ammo_industrial_unfinish</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>yy_ammo_industrial</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>yy_ammo_industrial</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <yy_ammo_caseless>10</yy_ammo_caseless>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="yy_caselessammo_base" MayRequire="Mlie.YayosCombat3">
+    <defName>Convert_yy_ammo_caseless50</defName>
+    <label>convert industrial caseless ammo x50</label>
+    <description>Converting x50 industrial ammo into caseless ammo.</description>
+    <jobString>Converting ammo x50.</jobString>
+    <workAmount>500</workAmount>
+    <unfinishedThingDef>yy_ammo_industrial_unfinish</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>yy_ammo_industrial</li>
+          </thingDefs>
+        </filter>
+        <count>50</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>yy_ammo_industrial</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <yy_ammo_caseless>45</yy_ammo_caseless>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="yy_caselessammo_base" MayRequire="Mlie.YayosCombat3">
+    <defName>Convert_yy_ammo_caseless100</defName>
+    <label>convert industrial caseless ammo x100</label>
+    <description>Converting x100 industrial ammo into caseless ammo.</description>
+    <jobString>Converting ammo x100.</jobString>
+    <workAmount>900</workAmount>
+    <unfinishedThingDef>yy_ammo_industrial_unfinish</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>yy_ammo_industrial</li>
+          </thingDefs>
+        </filter>
+        <count>100</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>yy_ammo_industrial</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <yy_ammo_caseless>75</yy_ammo_caseless>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="yy_caselessammo_base" MayRequire="Mlie.YayosCombat3">
+    <defName>Convert_yy_ammo_caseless500</defName>
+    <label>convert industrial caseless ammo x500</label>
+    <description>Converting x100 industrial ammo into caseless ammo.</description>
+    <jobString>Converting ammo x500.</jobString>
+    <workAmount>1500</workAmount>
+    <unfinishedThingDef>yy_ammo_industrial_unfinish</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>yy_ammo_industrial</li>
+          </thingDefs>
+        </filter>
+        <count>500</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>yy_ammo_industrial</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <yy_ammo_caseless>400</yy_ammo_caseless>
+    </products>
+  </RecipeDef>
+
+</Defs>

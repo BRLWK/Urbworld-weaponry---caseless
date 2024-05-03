@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Morbid -->
+
+    <ThingStyleDef>
+      <defName>Morbid_Caseless_Pistol</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Pistol/Morbid</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.85</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.13, 0.0, -0.1)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.13, 0.0, -0.1)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.13, 0.0, -0.1)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.13, 0.0, -0.1)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Morbid_Caseless_SMG</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/SMG/Morbid</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.7</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, 0.05)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, -0.05)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.05, 0.0, -0.02)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.02)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Morbid_Caseless_Rifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/AssaultRifle/Morbid</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, 0.08)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.08)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.08, 0.0, -0.05)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.08, 0.0, -0.05)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Morbid_Caseless_LMG</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/LMG/Morbid</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, 0.08)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.08)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.08, 0.0, -0.05)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.08, 0.0, -0.05)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Morbid_Caseless_SniperRifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Sniper/Morbid</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1.15</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.01, 0.0, 0.2)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.01, 0.0, -0.2)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.2, 0.0, 0.01)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.2, 0.0, 0.01)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Morbid_Caseless_BurstRifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Burst/Morbid</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, 0.05)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, -0.05)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.05, 0.0, -0.02)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.02)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Morbid_Caseless_BoltActionRifle</defName>
+      <graphicData>
+        <texPath>CaselessBonus/BoltAction/Morbid</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.01, 0.0, 0.1)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.01, 0.0, -0.1)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.1, 0.0, -0.01)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.1, 0.0, -0.01)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Morbid_Caseless_BattleRifle</defName>
+      <graphicData>
+        <texPath>CaselessBonus/BattleRifle/Morbid</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.03, 0.0, 0.2)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.03, 0.0, -0.2)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.2, 0.0, -0.03)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.2, 0.0, -0.03)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <!-- SpikeCore -->
+
+    <ThingStyleDef>
+      <defName>Spikecore_Caseless_Pistol</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Pistol/Spikecore</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.85</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.13, 0.0, -0.1)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.13, 0.0, -0.1)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.13, 0.0, -0.1)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.13, 0.0, -0.1)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Spikecore_Caseless_SMG</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/SMG/Spikecore</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.7</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, 0.05)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, -0.05)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.05, 0.0, -0.02)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.02)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Spikecore_Caseless_Rifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/AssaultRifle/Spikecore</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, 0.08)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.08)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.08, 0.0, -0.05)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.08, 0.0, -0.05)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Spikecore_Caseless_LMG</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/LMG/Spikecore</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, 0.08)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.08)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.08, 0.0, -0.05)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.08, 0.0, -0.05)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Spikecore_Caseless_SniperRifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Sniper/Spikecore</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1.15</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.01, 0.0, 0.2)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.01, 0.0, -0.2)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.2, 0.0, 0.01)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.2, 0.0, 0.01)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Spikecore_Caseless_BurstRifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Burst/Spikecore</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, 0.05)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, -0.05)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.05, 0.0, -0.02)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.02)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Spikecore_Caseless_BoltActionRifle</defName>
+      <graphicData>
+        <texPath>CaselessBonus/BoltAction/Spikecore</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.01, 0.0, 0.1)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.01, 0.0, -0.1)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.1, 0.0, -0.01)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.1, 0.0, -0.01)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Spikecore_Caseless_BattleRifle</defName>
+      <graphicData>
+        <texPath>CaselessBonus/BattleRifle/Spikecore</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.03, 0.0, 0.2)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.03, 0.0, -0.2)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.2, 0.0, -0.03)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.2, 0.0, -0.03)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <!-- Rustic -->
+
+    <ThingStyleDef>
+      <defName>Rustic_Caseless_Pistol</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Pistol/Rustic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.85</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.13, 0.0, -0.1)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.13, 0.0, -0.1)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.13, 0.0, -0.1)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.13, 0.0, -0.1)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Rustic_Caseless_SMG</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/SMG/Rustic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.7</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, 0.05)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, -0.05)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.05, 0.0, -0.02)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.02)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Rustic_Caseless_Rifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/AssaultRifle/Rustic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, 0.08)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.08)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.08, 0.0, -0.05)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.08, 0.0, -0.05)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Rustic_Caseless_LMG</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/LMG/Rustic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, 0.08)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.08)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.08, 0.0, -0.05)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.08, 0.0, -0.05)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Rustic_Caseless_SniperRifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Sniper/Rustic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1.15</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.01, 0.0, 0.2)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.01, 0.0, -0.2)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.2, 0.0, 0.01)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.2, 0.0, 0.01)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Rustic_Caseless_BurstRifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Burst/Rustic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, 0.05)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, -0.05)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.05, 0.0, -0.02)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.02)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Rustic_Caseless_BoltActionRifle</defName>
+      <graphicData>
+        <texPath>CaselessBonus/BoltAction/Rustic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.01, 0.0, 0.1)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.01, 0.0, -0.1)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.1, 0.0, -0.01)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.1, 0.0, -0.01)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Rustic_Caseless_BattleRifle</defName>
+      <graphicData>
+        <texPath>CaselessBonus/BattleRifle/Rustic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.03, 0.0, 0.2)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.03, 0.0, -0.2)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.2, 0.0, -0.03)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.2, 0.0, -0.03)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <!-- Totemic -->
+
+    <ThingStyleDef>
+      <defName>Totemic_Caseless_Pistol</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Pistol/Totemic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.85</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.13, 0.0, -0.1)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.13, 0.0, -0.1)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.13, 0.0, -0.1)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.13, 0.0, -0.1)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Totemic_Caseless_SMG</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/SMG/Totemic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.7</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, 0.05)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, -0.05)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.05, 0.0, -0.02)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.02)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Totemic_Caseless_Rifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/AssaultRifle/Totemic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, 0.08)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.08)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.08, 0.0, -0.05)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.08, 0.0, -0.05)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Totemic_Caseless_LMG</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/LMG/Totemic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, 0.08)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.08)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.08, 0.0, -0.05)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.08, 0.0, -0.05)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Totemic_Caseless_SniperRifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Sniper/Totemic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1.15</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.01, 0.0, 0.2)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.01, 0.0, -0.2)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.2, 0.0, 0.01)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.2, 0.0, 0.01)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Totemic_Caseless_BurstRifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Burst/Totemic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, 0.05)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, -0.05)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.05, 0.0, -0.02)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.02)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Totemic_Caseless_BoltActionRifle</defName>
+      <graphicData>
+        <texPath>CaselessBonus/BoltAction/Totemic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.01, 0.0, 0.1)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.01, 0.0, -0.1)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.1, 0.0, -0.01)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.1, 0.0, -0.01)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Totemic_Caseless_BattleRifle</defName>
+      <graphicData>
+        <texPath>CaselessBonus/BattleRifle/Totemic</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.03, 0.0, 0.2)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.03, 0.0, -0.2)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.2, 0.0, -0.03)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.2, 0.0, -0.03)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <!-- Tech -->
+
+    <ThingStyleDef>
+      <defName>Techist_Caseless_Pistol</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Pistol/Techist</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.85</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.13, 0.0, -0.1)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.13, 0.0, -0.1)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.13, 0.0, -0.1)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.13, 0.0, -0.1)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Techist_Caseless_SMG</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/SMG/Techist</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.7</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, 0.05)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, -0.05)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.05, 0.0, -0.02)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.02)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Techist_Caseless_Rifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/AssaultRifle/Techist</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, 0.08)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.08)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.08, 0.0, -0.05)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.08, 0.0, -0.05)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Techist_Caseless_LMG</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/LMG/Techist</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, 0.08)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.08)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.08, 0.0, -0.05)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.08, 0.0, -0.05)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Techist_Caseless_SniperRifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Sniper/Techist</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1.15</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.01, 0.0, 0.2)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.01, 0.0, -0.2)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.2, 0.0, 0.01)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.2, 0.0, 0.01)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Techist_Caseless_BurstRifle</defName>
+      <graphicData>
+        <texPath>Things/CaselessWep/Burst/Techist</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, 0.05)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, -0.05)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.05, 0.0, -0.02)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.02)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Techist_Caseless_BoltActionRifle</defName>
+      <graphicData>
+        <texPath>CaselessBonus/BoltAction/Techist</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.01, 0.0, 0.1)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.01, 0.0, -0.1)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.1, 0.0, -0.01)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.1, 0.0, -0.01)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+
+    <ThingStyleDef>
+      <defName>Techist_Caseless_BattleRifle</defName>
+      <graphicData>
+        <texPath>CaselessBonus/BattleRifle/Techist</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1</drawSize>
+        <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.03, 0.0, 0.2)</drawOffsetNorth>
+        <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.03, 0.0, -0.2)</drawOffsetSouth>
+        <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.2, 0.0, -0.03)</drawOffsetEast>
+        <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.2, 0.0, -0.03)</drawOffsetWest>
+      </graphicData>
+    </ThingStyleDef>
+    
+
+</Defs>

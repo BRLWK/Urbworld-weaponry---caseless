@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!--ThingCategoryDef>
+		<defName>ThingCategory_UBGL</defName>
+		<label>Underbarrel weapons</label>
+		<parent>ThingCategory_CaselssGunParts</parent>
+	</ThingCategoryDef-->
+
+	<ThingDef Name="CGPB_UBGLBase" ParentName="Caseless_GunPartBase" Abstract="True">
+		<graphicData>
+			<texPath>Things/Item/Health/HealthItem</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+			<!--color>(174,189,118)</color-->
+		</graphicData>
+		<uiIconPath>ui/icons/AttachmentIcon/AttachmentIcon_Underbarrel</uiIconPath>
+		<thingCategories>
+			<li>ThingCategory_CGPUnderbarrel</li>
+		</thingCategories>
+		<recipeMaker>
+			<researchPrerequisite>Tier2Attachments</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+<!-- Morningstar: fires a volley of 3 tiny grenades -->
+
+	<ThingDef ParentName="CGPB_UBGLBase">
+		<defName>CaselessModule_RevolverGL</defName>
+		<label>Revolver UBGL</label>
+		<description>Simple cylinder fed underbarrel grenade launcher that fires in volleys. Uses smaller urbworld grenade munitions.</description>
+		<statBases>
+			<WorkToMake>700</WorkToMake>
+			<Mass>1.49</Mass>
+		</statBases>
+		<soundInteract>Interact_Autopistol</soundInteract>
+		<costList>
+			<Plasteel>40</Plasteel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_CGPB_Frag</defaultProjectile>
+				<warmupTime>3.8</warmupTime>
+				<range>20.9</range>
+				<forcedMissRadius>1.9</forcedMissRadius>
+				<burstShotCount>3</burstShotCount>
+				<ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+				<soundCast>Shot_GLA</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>4</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/Morningstar</PartTexPath>
+				<setRandomPartWhenCreate>true</setRandomPartWhenCreate>
+				<verbPropertiesOtherPartOffseterAffectHorizon Default="0"/>
+				<toolsOtherPartOffseterAffectHorizon Default="0"/>
+				<statOtherPartOffseterAffectHorizonDefaultValue>0</statOtherPartOffseterAffectHorizonDefaultValue>
+				<statOtherPartMultiplierAffectHorizonDefaultValue>0</statOtherPartMultiplierAffectHorizonDefaultValue>
+				<verbPropertiesObjectPatchByOtherPart Default="false"/>
+				<attachmentProperties>
+					<li>
+						<id>CaselessModule_RevolverGL</id>
+						<name>Payload</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Ammo</UITexPath>
+						<scale>(0,0,0)</scale>
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>CaselessModule_GL_Frag</li>
+								<li>CaselessModule_GL_EMP</li>
+								<li>CaselessModule_GL_Incendiary</li>
+								<li>CaselessModule_GL_Smoke</li>
+							</thingDefs>
+						</filter>
+					</li>
+				</attachmentProperties>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- Plasteel grenade launcher -->
+
+	<ThingDef ParentName="CGPB_UBGLBase">
+		<defName>CaselessModule_PlasteelGL</defName>
+		<label>Plasteel UBGL</label>
+		<description>Simple and rugged, the plasteel reinforcement gives this grenade launcher improved preformance at reduced weight. Uses vanilla modularization grenade munition.</description>
+		<statBases>
+			<WorkToMake>700</WorkToMake>
+			<Mass>1.15</Mass>
+		</statBases>
+		<soundInteract>Interact_Autopistol</soundInteract>
+		<costList>
+			<Plasteel>30</Plasteel>
+			<Steel>15</Steel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_UBGL</defaultProjectile>
+				<warmupTime>4</warmupTime>
+				<range>35.9</range>
+				<forcedMissRadius>3</forcedMissRadius>
+				<soundCast>Shot_GLA</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>4</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/GrenadeLauncher</PartTexPath>
+				<setRandomPartWhenCreate>true</setRandomPartWhenCreate>
+				<verbPropertiesOtherPartOffseterAffectHorizon Default="0"/>
+				<toolsOtherPartOffseterAffectHorizon Default="0"/>
+				<statOtherPartOffseterAffectHorizonDefaultValue>0</statOtherPartOffseterAffectHorizonDefaultValue>
+				<statOtherPartMultiplierAffectHorizonDefaultValue>0</statOtherPartMultiplierAffectHorizonDefaultValue>
+				<verbPropertiesObjectPatchByOtherPart Default="false"/>
+				<attachmentProperties>
+					<li>
+						<id>CaselessModule_PUBGL</id>
+						<name>Payload</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Ammo</UITexPath>
+						<scale>(0,0,0)</scale>
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>Module_UBGL_Farg</li>
+								<li>Module_UBGL_EMP</li>
+								<li>Module_UBGL_Inc</li>
+								<li>Module_UBGL_Smoke</li>
+							</thingDefs>
+						</filter>
+					</li>
+				</attachmentProperties>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- grenade ammunition: 20mm, fast -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_CGPB_Frag</defName>
+		<label>Mini frag grenade</label>
+		<graphicData>
+			<texPath>Things/Projectile/LauncherShot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<!--color>(254,189,58)</color-->
+			<drawSize>0.7</drawSize>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<speed>60</speed>
+			<explosionRadius>1</explosionRadius >
+			<damageDef>Bomb</damageDef>
+			<arcHeightFactor>0.2</arcHeightFactor>
+			<shadowSize>0.4</shadowSize>
+			<screenShakeFactor>0.2</screenShakeFactor>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_CGPB_Incendiary</defName>
+		<label>Mini incendiary grenade</label>
+		<graphicData>
+			<texPath>Things/Projectile/LauncherShot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<!--color>(254,189,58)</color-->
+			<drawSize>0.7</drawSize>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<speed>60</speed>
+			<damageDef>Flame</damageDef>
+            <explosionRadius>1</explosionRadius>
+            <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+            <preExplosionSpawnChance>1</preExplosionSpawnChance>
+            <ai_IsIncendiary>true</ai_IsIncendiary>
+			<arcHeightFactor>0.2</arcHeightFactor>
+			<shadowSize>0.4</shadowSize>
+			<screenShakeFactor>0.2</screenShakeFactor>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_CGPB_Smoke</defName>
+		<label>Mini smoke grenade</label>
+		<graphicData>
+			<texPath>Things/Projectile/LauncherShot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<!--color>(254,189,58)</color-->
+			<drawSize>0.7</drawSize>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<speed>60</speed>
+			<damageDef>Smoke</damageDef>
+      		<explosionRadius>1.5</explosionRadius>
+      		<postExplosionGasType>BlindSmoke</postExplosionGasType>
+      		<ai_IsIncendiary>true</ai_IsIncendiary>
+			<arcHeightFactor>0.2</arcHeightFactor>
+			<shadowSize>0.4</shadowSize>
+			<screenShakeFactor>0.2</screenShakeFactor>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_CGPB_EMP</defName>
+		<label>Mini EMP grenade</label>
+		<graphicData>
+			<texPath>Things/Projectile/LauncherShot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<!--color>(254,189,58)</color-->
+			<drawSize>0.7</drawSize>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<speed>60</speed>
+			<damageDef>EMP</damageDef>
+     		<!-- Use default damage from explosion def -->
+     		<explosionRadius>1.5</explosionRadius>
+     		<ai_IsIncendiary>true</ai_IsIncendiary>
+			<arcHeightFactor>0.2</arcHeightFactor>
+			<shadowSize>0.4</shadowSize>
+			<screenShakeFactor>0.2</screenShakeFactor>
+		</projectile>
+	</ThingDef>
+
+	<!-- modules -->
+
+	<ThingDef ParentName="CGPB_GenAmmoBase">
+		<defName>CaselessModule_GL_Frag</defName>
+		<label>Mini frag grenades</label>
+		<description>High explosive grenades for urbworld grenade launchers; smaller than conventional midworld munitions but with a similar payload.</description>
+		<uiIconPath>ui/icons/AttachmentIcon/AttachmentIcon_Ammo</uiIconPath>
+		<statBases>
+			<WorkToMake>150</WorkToMake>
+			<Mass>0.2</Mass>
+		</statBases>
+		<costList>
+			<Steel>20</Steel>
+			<Chemfuel>80</Chemfuel>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Tier2Attachments</researchPrerequisite>
+		</recipeMaker>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/WeaponPart/Gun/none</PartTexPath>
+				<verbPropertiesObjectPatch>
+					<li>
+						<defaultProjectile>Bullet_CGPB_Frag</defaultProjectile>
+					</li>
+				</verbPropertiesObjectPatch>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_GenAmmoBase">
+		<defName>CaselessModule_GL_EMP</defName>
+		<label>Mini EMP grenade</label>
+		<description>Wide-area EMP grenades for urbworld grenade launchers; smaller than conventional midworld munitions but with a similar payload.</description>
+		<uiIconPath>ui/icons/AttachmentIcon/AttachmentIcon_Ammo</uiIconPath>
+		<statBases>
+			<WorkToMake>150</WorkToMake>
+			<Mass>0.2</Mass>
+		</statBases>
+		<costList>
+			<Steel>20</Steel>
+			<ComponentIndustrial>6</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Tier2Attachments</researchPrerequisite>
+		</recipeMaker>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/WeaponPart/Gun/none</PartTexPath>
+				<verbPropertiesObjectPatch>
+					<li>
+						<defaultProjectile>Bullet_CGPB_EMP</defaultProjectile>
+					</li>
+				</verbPropertiesObjectPatch>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_GenAmmoBase">
+		<defName>CaselessModule_GL_Incendiary</defName>
+		<label>Mini incendiary grenade</label>
+		<description>Chemfuel incendiary grenades for urbworld grenade launchers; smaller than conventional midworld munitions but with a similar payload.</description>
+		<uiIconPath>ui/icons/AttachmentIcon/AttachmentIcon_Ammo</uiIconPath>
+		<statBases>
+			<WorkToMake>150</WorkToMake>
+			<Mass>0.1</Mass>
+		</statBases>
+		<costList>
+			<Steel>25</Steel>
+			<Chemfuel>80</Chemfuel>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Tier2Attachments</researchPrerequisite>
+		</recipeMaker>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/WeaponPart/Gun/none</PartTexPath>
+				<verbPropertiesObjectPatch>
+					<li>
+						<defaultProjectile>Bullet_CGPB_Incendiary</defaultProjectile>
+					</li>
+				</verbPropertiesObjectPatch>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_GenAmmoBase">
+		<defName>CaselessModule_GL_Smoke</defName>
+		<label>Mini smoke grenade</label>
+		<description>Smoke grenades for urbworld grenade launchers; smaller than conventional midworld munitions but with a similar payload.</description>
+		<uiIconPath>ui/icons/AttachmentIcon/AttachmentIcon_Ammo</uiIconPath>
+		<statBases>
+			<WorkToMake>150</WorkToMake>
+			<Mass>0.1</Mass>
+		</statBases>
+		<costList>
+			<Steel>15</Steel>
+			<Chemfuel>80</Chemfuel>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Tier2Attachments</researchPrerequisite>
+		</recipeMaker>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/WeaponPart/Gun/none</PartTexPath>
+				<verbPropertiesObjectPatch>
+					<li>
+						<defaultProjectile>Bullet_CGPB_Smoke</defaultProjectile>
+					</li>
+				</verbPropertiesObjectPatch>
+			</li>
+		</comps>
+	</ThingDef>
+
+</Defs>

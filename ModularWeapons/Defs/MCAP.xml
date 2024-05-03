@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Weapon -->
+
+  <ThingDef ParentName="BaseCaselessModularWeapon">
+    <defName>Caseless_ModPistol</defName>
+    <label>modular caseless pistol</label>
+    <description>The Durante "Special-B" is a unique bullpup handgun that offers high modularity and a variety of projectile options.</description>
+    <graphicData>
+      <texPath>mcaptac</texPath>
+      <graphicClass>ModularWeapons.Graphic_Modular</graphicClass>
+      <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1.4</drawSize>
+    </graphicData>
+    <soundInteract>Interact_CPistol</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>BlowbackOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags Inherit="False">
+      <li>Gun</li>
+      <li>IndustrialGunAdvanced</li>
+      <li>SpacerGun</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>5900</WorkToMake>
+      <Mass>1</Mass>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.50</AccuracyMedium>
+      <AccuracyLong>0.20</AccuracyLong>
+      <RangedWeapon_Cooldown>0.7</RangedWeapon_Cooldown>
+    </statBases>
+    <comps>
+      <li Class="ModularWeapons.CompProperties_ModularParts">
+        <compClass>ModularWeapons.CompModularParts</compClass>
+        <partKinds>
+          <li>MCAP_Frame</li>
+          <li>MCAP_Mag</li>
+          <li>MCAP_Sight</li>
+          <li>MCAP_Muzzle</li>
+          <li>MCAP_Grip</li>
+        </partKinds>
+        <majorKinds>
+          <li>MCAP_Frame</li>
+          <li>MCAP_Mag</li>
+          <li>MCAP_Grip</li>
+        </majorKinds>
+        <defaultParts>
+          <li>MCAP_Frame_Standard</li>
+          <li>MCAP_Magazine_Standard</li>
+          <li>MCAP_Grip_Standard</li>
+        </defaultParts>
+      </li>
+    </comps>
+    <costList>
+      <Chemfuel>20</Chemfuel>
+      <Steel>25</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_caselesspistol</defaultProjectile>
+        <warmupTime>0.1</warmupTime>
+        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+        <range>23.9</range>
+        <soundCast>Shot_kpistol</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>7</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+    </tools>
+  </ThingDef>
+  
+  <!--===== Parts =====-->
+
+  <!-- Grip -->
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleePistolGrip_Base">
+    <defName>MCAP_Grip_Standard</defName>
+    <label>standard grip</label>
+    <description>Standard bakelite grip</description>
+    <kind>MCAP_Grip</kind>
+    <path>Grip_Standard</path>
+    <!--=====-->
+    <!--=====-->
+    <costList>
+      <Chemfuel>5</Chemfuel>
+      <Steel>5</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleePistolGrip_Base">
+    <defName>MCAP_Grip_Ergonomic</defName>
+    <label>ergonomic grip</label>
+    <description>Ergonomic polymer grip for comfortable shooting.</description>
+    <kind>MCAP_Grip</kind>
+    <path>Grip_Ergonomic</path>
+    <!--=====-->
+    <AccTouchFactor>0.03</AccTouchFactor>
+    <AccShortFactor>0.02</AccShortFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <Chemfuel>10</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeStock_Base">
+    <defName>MCAP_Grip_Wire</defName>
+    <label>wire stock</label>
+    <description>Lightweight metal stock for longer engagements and recoil control.</description>
+    <kind>MCAP_Grip</kind>
+    <path>Grip_WireStock</path>
+    <!--=====-->
+    <AccTouchFactor>0.04</AccTouchFactor>
+    <AccShortFactor>0.03</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <AccLongFactor>0.02</AccLongFactor>
+    <massFactor>0.5</massFactor>
+    <warmupTimeFactor>0.15</warmupTimeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>15</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeStock_Base">
+    <defName>MCAP_Grip_Stock</defName>
+    <label>full stock</label>
+    <description>Sturdy polymer stock for longer engagements and recoil control.</description>
+    <kind>MCAP_Grip</kind>
+    <path>Grip_FullStock</path>
+    <!--=====-->
+    <AccTouchFactor>0.8</AccTouchFactor>
+    <AccShortFactor>0.06</AccShortFactor>
+    <AccMediumFactor>0.05</AccMediumFactor>
+    <AccLongFactor>0.03</AccLongFactor>
+    <massFactor>0.75</massFactor>
+    <rangeFactor>2</rangeFactor>
+    <warmupTimeFactor>0.3</warmupTimeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <Chemfuel>20</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_StunStock_Base">
+    <defName>MCAP_Grip_Enforcer</defName>
+    <label>enforcer stock</label>
+    <description>Sturdy polymer stock with a electro-prod embedded in the back.</description>
+    <kind>MCAP_Grip</kind>
+    <path>Grip_Enforcer</path>
+    <!--=====-->
+    <AccTouchFactor>0.8</AccTouchFactor>
+    <AccShortFactor>0.06</AccShortFactor>
+    <AccMediumFactor>0.05</AccMediumFactor>
+    <AccLongFactor>0.03</AccLongFactor>
+    <massFactor>0.75</massFactor>
+    <rangeFactor>2</rangeFactor>
+    <warmupTimeFactor>0.3</warmupTimeFactor>
+    <!--=====-->
+    <costList>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <Steel>20</Steel>
+      <Chemfuel>20</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Frame -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCAP_Frame_Standard</defName>
+    <label>standard frame</label>
+    <description>Standard frame</description>
+    <kind>MCAP_Frame</kind>
+    <path>Frame_Standard</path>
+    <!--=====-->
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCAP_Frame_Heavy</defName>
+    <label>Heavy frame</label>
+    <description>Heavy frame for large handgun bullets</description>
+    <kind>MCAP_Frame</kind>
+    <path>Frame_Heavy</path>
+    <!--=====-->
+    <AccTouchFactor>-0.06</AccTouchFactor>
+    <AccShortFactor>-0.03</AccShortFactor>
+    <AccMediumFactor>0.03</AccMediumFactor>
+    <AccLongFactor>0.04</AccLongFactor>
+    <projectileFactor>Bullet_MCAP_Heavy</projectileFactor>
+    <massFactor>0.65</massFactor>
+    <cooldownFactor>0.25</cooldownFactor>
+    <burstCountFactor>-9</burstCountFactor>
+    <!--=====-->
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCAP_Frame_MP</defName>
+    <label>machine pistol frame</label>
+    <description>Fully-automatic blowback frame</description>
+    <kind>MCAP_Frame</kind>
+    <path>Frame_MP</path>
+    <!--=====-->
+    <AccTouchFactor>-0.06</AccTouchFactor>
+    <AccShortFactor>-0.08</AccShortFactor>
+    <AccMediumFactor>-0.12</AccMediumFactor>
+    <AccLongFactor>-0.16</AccLongFactor>
+    <massFactor>0.4</massFactor>
+    <warmupTimeFactor>-0.15</warmupTimeFactor>
+    <cooldownFactor>1.15</cooldownFactor>
+    <burstCountFactor>2</burstCountFactor>
+    <rangeFactor>-4</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>30</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>BlowbackOperation</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCAP_Frame_EC</defName>
+    <label>EC overpressure frame</label>
+    <description>Plasteel reinforced frame; uses overpressure pistol ammunition.</description>
+    <kind>MCAP_Frame</kind>
+    <path>Frame_EC</path>
+    <!--=====-->
+    <AccTouchFactor>-0.1</AccTouchFactor>
+    <AccShortFactor>-0.06</AccShortFactor>
+    <AccMediumFactor>0.06</AccMediumFactor>
+    <AccLongFactor>0.04</AccLongFactor>
+    <projectileFactor>Bullet_caselesspistolA</projectileFactor>
+    <massFactor>0.6</massFactor>
+    <warmupTimeFactor>0.1</warmupTimeFactor>
+    <cooldownFactor>0.3</cooldownFactor>
+    <burstCountFactor>-9</burstCountFactor>
+    <!--=====-->
+    <costList>
+      <Plasteel>10</Plasteel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>ECOPA</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCAP_Frame_MPEC</defName>
+    <label>EC machine pistol frame</label>
+    <description>Plasteel reinforced machine pistol frame; uses overpressure pistol ammunition.</description>
+    <kind>MCAP_Frame</kind>
+    <path>Frame_MPEC</path>
+    <!--=====-->
+    <AccTouchFactor>-0.10</AccTouchFactor>
+    <AccShortFactor>-0.12</AccShortFactor>
+    <AccMediumFactor>-0.16</AccMediumFactor>
+    <AccLongFactor>-0.2</AccLongFactor>
+    <massFactor>0.7</massFactor>
+    <warmupTimeFactor>-0.2</warmupTimeFactor>
+    <cooldownFactor>1.2</cooldownFactor>
+    <burstCountFactor>2</burstCountFactor>
+    <rangeFactor>-2</rangeFactor>
+    <projectileFactor>Bullet_caselesspistolA</projectileFactor>
+    <ticksBetweenShotsFactor>-2</ticksBetweenShotsFactor>
+    <!--=====-->
+    <costList>
+      <Plasteel>20</Plasteel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>ECOPA</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Magazine -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCAP_Magazine_Standard</defName>
+    <label>standard magazine</label>
+    <description>Standard magazine</description>
+    <kind>MCAP_Mag</kind>
+    <path>Magazine_Standard</path>
+    <!--=====-->
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCAP_Magazine_Extended</defName>
+    <label>extended magazine</label>
+    <description>Extended magazine</description>
+    <kind>MCAP_Mag</kind>
+    <path>Magazine_Extended</path>
+    <!--=====-->
+    <AccTouchFactor>-0.015</AccTouchFactor>
+    <AccShortFactor>-0.015</AccShortFactor>
+    <AccMediumFactor>-0.015</AccMediumFactor>
+    <AccLongFactor>-0.015</AccLongFactor>
+    <massFactor>0.35</massFactor>
+    <warmupTimeFactor>0.1</warmupTimeFactor>
+    <cooldownFactor>0.2</cooldownFactor>
+    <burstCountFactor>1</burstCountFactor>
+    <!--=====-->
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCAP_Magazine_Drum</defName>
+    <label>drum magazine</label>
+    <description>Drum magazine</description>
+    <kind>MCAP_Mag</kind>
+    <path>Magazine_Drum</path>
+    <!--=====-->
+    <AccTouchFactor>-0.03</AccTouchFactor>
+    <AccShortFactor>-0.03</AccShortFactor>
+    <AccMediumFactor>-0.03</AccMediumFactor>
+    <AccLongFactor>-0.03</AccLongFactor>
+    <massFactor>0.8</massFactor>
+    <warmupTimeFactor>0.2</warmupTimeFactor>
+    <cooldownFactor>0.4</cooldownFactor>
+    <burstCountFactor>2</burstCountFactor>
+    <!--=====-->
+    <costList>
+      <Chemfuel>20</Chemfuel>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Sight -->
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_RedDot_Base">
+    <defName>MCAP_Optic_Reddot</defName>
+    <kind>MCAP_Sight</kind>
+    <path>Sight_RedDot</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_AcogHolo_Base">
+    <defName>MCAP_Sight_Holo</defName>
+    <kind>MCAP_Sight</kind>
+    <path>Sight_ACOG</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_SmartDot_Base">
+    <defName>MCAP_Optic_SmartDot</defName>
+    <kind>MCAP_Sight</kind>
+    <path>Sight_SmartDot</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_SmartCog_Base">
+    <defName>MCAP_Optic_sHolo</defName>
+    <kind>MCAP_Sight</kind>
+    <path>Sight_SmartHolo</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_GlitterScope_Base">
+    <defName>MCAP_Optic_Glitter</defName>
+    <kind>MCAP_Sight</kind>
+    <path>Sight_Glitter</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_SDSScope_Base">
+    <defName>MCAP_Optic_SDS</defName>
+    <kind>MCAP_Sight</kind>
+    <path>Sight_SDS</path>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- ===== Muzzle ===== -->
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleePistolBarrel_Base">
+    <defName>MCAP_Muzzle_Compensator</defName>
+    <label>compensator</label>
+    <description>Directs propellant gasses to manage recoil.</description>
+    <kind>MCAP_Muzzle</kind>
+    <path>Barrel_Compensator</path>
+    <!--=====-->
+    <AccTouchFactor>0.04</AccTouchFactor>
+    <AccShortFactor>0.03</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <massFactor>0.15</massFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleePistolBarrel_Base">
+    <defName>MCAP_Muzzle_Laser</defName>
+    <label>Compensator/laser</label>
+    <description>Compensator with attached laser sight.</description>
+    <kind>MCAP_Muzzle</kind>
+    <path>Barrel_Laser</path>
+    <!--=====-->
+    <massFactor>0.25</massFactor>
+    <AccTouchFactor>0.09</AccTouchFactor>
+    <AccShortFactor>0.07</AccShortFactor>
+    <AccMediumFactor>0.05</AccMediumFactor>
+    <warmupTimeFactor>-0.2</warmupTimeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleePistolBarrel_Base">
+    <defName>MCAP_Muzzle_Flashlight</defName>
+    <label>Compensator/flashlight</label>
+    <description>Compensator with attached flashlight.</description>
+    <kind>MCAP_Muzzle</kind>
+    <path>Barrel_Flash</path>
+    <!--=====-->
+    <AccTouchFactor>0.04</AccTouchFactor>
+    <AccShortFactor>0.03</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <massFactor>0.3</massFactor>
+    <flashlightFactor>true</flashlightFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <Chemfuel>20</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleePistolBarrel_Base">
+    <defName>MCAP_Muzzle_Suppressor</defName>
+    <label>suppressor</label>
+    <description>Sound suppressor for close-range fighting.</description>
+    <kind>MCAP_Muzzle</kind>
+    <path>Barrel_Suppressor</path>
+    <!--=====-->
+    <dmgMultiplierFactor>-0.1</dmgMultiplierFactor>
+    <massFactor>0.3</massFactor>
+    <AccTouchFactor>0.08</AccTouchFactor>
+    <AccShortFactor>0.06</AccShortFactor>
+    <AccLongFactor>-0.05</AccLongFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <Chemfuel>10</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+  
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
+    <defName>MCAP_Muzzle_Extension</defName>
+    <label>barrel extension</label>
+    <description>Extended barrel for increased range and recoil control.</description>
+    <kind>MCAP_Muzzle</kind>
+    <path>Barrel_Extension</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.2</dmgMultiplierFactor>
+    <AccTouchFactor>0.04</AccTouchFactor>
+    <AccShortFactor>0.08</AccShortFactor>
+    <AccMediumFactor>0.15</AccMediumFactor>
+    <AccLongFactor>0.15</AccLongFactor>
+    <massFactor>1.1</massFactor>
+    <cooldownFactor>0.3</cooldownFactor>
+    <warmupTimeFactor>0.3</warmupTimeFactor>
+    <rangeFactor>2</rangeFactor>
+    <ticksBetweenShotsFactor>4</ticksBetweenShotsFactor>
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+      <Chemfuel>20</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
+    <defName>MCAP_Muzzle_Light</defName>
+    <label>barrel extension lightbox</label>
+    <description>Extended barrel for increased range and recoil control. Includes flashlight/laser sight combo.</description>
+    <kind>MCAP_Muzzle</kind>
+    <path>Barrel_Extension_Light</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.2</dmgMultiplierFactor>
+    <AccTouchFactor>0.05</AccTouchFactor>
+    <AccShortFactor>0.10</AccShortFactor>
+    <AccMediumFactor>0.17</AccMediumFactor>
+    <AccLongFactor>0.16</AccLongFactor>
+    <massFactor>1.31</massFactor>
+    <cooldownFactor>0.4</cooldownFactor>
+    <warmupTimeFactor>0.4</warmupTimeFactor>
+    <rangeFactor>2</rangeFactor>
+    <ticksBetweenShotsFactor>4</ticksBetweenShotsFactor>
+    <flashlightFactor>true</flashlightFactor>
+    <!--=====-->
+    <costList>
+      <Steel>14</Steel>
+      <Chemfuel>20</Chemfuel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_StunBarrel_Base">
+    <defName>MCAP_Muzzle_Enforcer</defName>
+    <label>Enforcer barrel</label>
+    <description>Extended barrel with integrated lightbox and stun prod.</description>
+    <kind>MCAP_Muzzle</kind>
+    <path>Barrel_Enforcer</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.2</dmgMultiplierFactor>
+    <AccTouchFactor>0.05</AccTouchFactor>
+    <AccShortFactor>0.10</AccShortFactor>
+    <AccMediumFactor>0.17</AccMediumFactor>
+    <AccLongFactor>0.16</AccLongFactor>
+    <massFactor>1.31</massFactor>
+    <cooldownFactor>0.4</cooldownFactor>
+    <warmupTimeFactor>0.4</warmupTimeFactor>
+    <rangeFactor>2</rangeFactor>
+    <ticksBetweenShotsFactor>4</ticksBetweenShotsFactor>
+    <flashlightFactor>true</flashlightFactor>
+    <!--=====-->
+    <costList>
+      <Steel>17</Steel>
+      <Chemfuel>25</Chemfuel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_BayonetMelee_Base">
+    <defName>MCAP_Muzzle_Bayonet</defName>
+    <label>bayonet barrel</label>
+    <description>Extended barrel with attached bayonet.</description>
+    <kind>MCAP_Muzzle</kind>
+    <path>Barrel_Bayonet</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.2</dmgMultiplierFactor>
+    <AccTouchFactor>0.04</AccTouchFactor>
+    <AccShortFactor>0.08</AccShortFactor>
+    <AccMediumFactor>0.15</AccMediumFactor>
+    <AccLongFactor>0.15</AccLongFactor>
+    <massFactor>1.1</massFactor>
+    <cooldownFactor>0.3</cooldownFactor>
+    <warmupTimeFactor>0.3</warmupTimeFactor>
+    <rangeFactor>2</rangeFactor>
+    <ticksBetweenShotsFactor>4</ticksBetweenShotsFactor>
+    <!--=====-->
+    <costList>
+      <Steel>25</Steel>
+      <Chemfuel>25</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
+    <defName>MCAP_Muzzle_Accelerator</defName>
+    <label>accelerator</label>
+    <description>Advanced barrel attachment increases damage, range and accuracy.</description>
+    <kind>MCAP_Muzzle</kind>
+    <path>Barrel_Accelerator</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.6</dmgMultiplierFactor>
+    <AccTouchFactor>0.08</AccTouchFactor>
+    <AccShortFactor>0.12</AccShortFactor>
+    <AccMediumFactor>0.22</AccMediumFactor>
+    <AccLongFactor>0.2</AccLongFactor>
+    <massFactor>1.35</massFactor>
+    <cooldownFactor>-0.25</cooldownFactor>
+    <warmupTimeFactor>-0.25</warmupTimeFactor>
+    <rangeFactor>4</rangeFactor>
+    <ticksBetweenShotsFactor>-1</ticksBetweenShotsFactor>
+    <!--=====-->
+    <costList>
+      <Steel>15</Steel>
+      <Plasteel>10</Plasteel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>AcceleratorRails</li>
+    </researchPrerequisites>
+    <incompatibleKind>
+      <li>MCAP_Frame</li>
+    </incompatibleKind>
+  </ModularWeapons.ModularPartDef>
+
+</Defs>

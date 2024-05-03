@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ==== Bases ==== -->
+		<!--= Optics =-->
+
+	<ThingDef Name="CGPB_GenOpticsBase" ParentName="Caseless_GunPartBase" Abstract="True">
+		<graphicData>
+			<texPath>Things/Item/Health/HealthItem</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+			<!--color>(174,189,118)</color-->
+		</graphicData>
+		<uiIconPath>ui/icons/AttachmentIcon/AttachmentIcon_Scope</uiIconPath>
+		<thingCategories>
+			<li>ThingCategory_UWCOptics</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef Name="CGPB_GenOpticsSimpleBase" ParentName="CGPB_GenOpticsBase" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>Tier1Optics</researchPrerequisite>
+		</recipeMaker>
+		<thingCategories Inherit="False">
+			<li>ThingCategory_UWCOpticsT1</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef Name="CGPB_GenOpticsElectricBase" ParentName="CGPB_GenOpticsBase" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>Tier2Optics</researchPrerequisite>
+		</recipeMaker>
+		<thingCategories Inherit="False">
+			<li>ThingCategory_UWCOpticsT2</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef Name="CGPB_GenOpticsAdvancedBase" ParentName="CGPB_GenOpticsBase" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>Tier3Optics</researchPrerequisite>
+		</recipeMaker>
+		<thingCategories Inherit="False">
+			<li>ThingCategory_UWCOpticsT3</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_GenOpticsSimpleBase" >
+		<defName>CaselessMod_Sight_SimpleHolo</defName>
+		<label>Tacsun 2120</label>
+		<description>A short-range holographic optic. Like many found on advanced midworlds this is a holographic reticle superimposed on a glass lens.\n\nIncreases short-range accuracy and adds minuscule ranged warmup/cooldown.</description>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<Mass>0.311</Mass>
+		</statBases>
+		<costList>
+            <Steel>10</Steel>
+			<Plasteel>2</Plasteel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/HoloSimple</PartTexPath>
+				<statMultiplier>
+					<AccuracyTouch>1.07</AccuracyTouch>
+					<AccuracyShort>1.07</AccuracyShort>
+				</statMultiplier>
+				<statOffset>
+					<RangedWeapon_Cooldown>0.1</RangedWeapon_Cooldown>
+				</statOffset>
+				<verbPropertiesOffseter>
+					<li>
+						<warmupTime>0.1</warmupTime>
+					</li>
+				</verbPropertiesOffseter>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_GenOpticsSimpleBase" >
+		<defName>CaselessMod_Sight_SimpleTwoX</defName>
+		<label>TM Armory Shortdot</label>
+		<description>A 2x scope made for short-range engagements. Worse target aquisition due to input lag on the digital reciever, however the quality it does give is realtively high for attachments of this price and size.\n\nIncreases short-medium range accuracy and adds ranged warmup/cooldown.</description>
+		<statBases>
+			<WorkToMake>350</WorkToMake>
+			<Mass>0.37</Mass>
+		</statBases>
+		<costList>
+            <Steel>10</Steel>
+			<Plasteel>5</Plasteel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/OpticShortA</PartTexPath>
+				<statMultiplier>
+					<AccuracyTouch>1.16</AccuracyTouch>
+					<AccuracyShort>1.12</AccuracyShort>
+					<AccuracyMedium>1.08</AccuracyMedium>
+				</statMultiplier>
+				<statOffset>
+					<RangedWeapon_Cooldown>0.15</RangedWeapon_Cooldown>
+				</statOffset>
+				<verbPropertiesOffseter>
+					<li>
+						<warmupTime>0.1</warmupTime>
+						<range>2</range>
+					</li>
+				</verbPropertiesOffseter>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_GenOpticsElectricBase" >
+		<defName>CaselessMod_Sight_SimpleFourX</defName>
+		<label>TM Armory SC52</label>
+		<description>A 4x scope made for medium-range engagements. Communicates, abiet slowly, with battlefield information networks.\n\nAdds short-medium range accuracy, +3 range and increases warmup/cooldown time.</description>
+		<statBases>
+			<WorkToMake>550</WorkToMake>
+			<Mass>0.41</Mass>
+		</statBases>
+		<costList>
+            <Steel>15</Steel>
+			<Plasteel>8</Plasteel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/OpticMedA</PartTexPath>
+				<statMultiplier>
+					<AccuracyShort>1.17</AccuracyShort>
+					<AccuracyMedium>1.2</AccuracyMedium>
+				</statMultiplier>
+				<statOffset>
+					<RangedWeapon_Cooldown>0.2</RangedWeapon_Cooldown>
+				</statOffset>
+				<verbPropertiesOffseter>
+					<li>
+						<warmupTime>0.15</warmupTime>
+						<range>3</range>
+					</li>
+				</verbPropertiesOffseter>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_GenOpticsElectricBase" >
+		<defName>CaselessMod_Sight_SimpleDigiScope</defName>
+		<label>TM Armory SP11</label>
+		<description>A 8x digital scope made for long-range engagements. Worse target aquisition due to input delay but provides thermal imaging.\n\Excellent medium-long range accuracy, +5 range and significantly increases aiming time.</description>
+		<statBases>
+			<WorkToMake>800</WorkToMake>
+			<Mass>0.63</Mass>
+		</statBases>
+		<costList>
+            <Steel>10</Steel>
+			<Plasteel>10</Plasteel>
+			<CaselessMod_Sight_SimpleScope>1</CaselessMod_Sight_SimpleScope>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/OpticLongA</PartTexPath>
+				<statMultiplier>
+					<AccuracyMedium>1.55</AccuracyMedium>
+					<AccuracyLong>1.6</AccuracyLong>
+				</statMultiplier>
+				<statOffset>
+					<RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
+				</statOffset>
+				<verbPropertiesOffseter>
+					<li>
+						<warmupTime>0.5</warmupTime>
+						<range>5</range>
+					</li>
+				</verbPropertiesOffseter>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_GenOpticsSimpleBase" >
+		<defName>CaselessMod_Sight_SimpleScope</defName>
+		<label>Greeble Family Simple Scope</label>
+		<description>A long-range magnifying optic like many manufactured and sold on urbworlds and midworlds.\n\nModest increase in long-medium range accuracy, +5 range, and increased aiming time.</description>
+		<statBases>
+			<WorkToMake>700</WorkToMake>
+			<Mass>0.45</Mass>
+		</statBases>
+		<costList>
+            <Steel>20</Steel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/ScopeA</PartTexPath>
+				<statMultiplier>
+					<AccuracyMedium>1.3</AccuracyMedium>
+					<AccuracyLong>1.45</AccuracyLong>
+				</statMultiplier>
+				<statOffset>
+					<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+				</statOffset>
+				<verbPropertiesOffseter>
+					<li>
+						<range>5</range>
+						<warmupTime>1</warmupTime>
+					</li>
+				</verbPropertiesOffseter>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_GenOpticsElectricBase" >
+		<defName>CaselessMod_Sight_RayDot</defName>
+		<label>OGI S-10</label>
+		<description>A short-range digital optic, defeats conventional camouflage by giving the shooter an outline of the target.\n\nIncreases a pawn's skill by 1 and a +2 range bounus.</description>
+		<statBases>
+			<WorkToMake>400</WorkToMake>
+			<Mass>0.27</Mass>
+		</statBases>
+		<costList>
+            <Steel>35</Steel>
+			<Plasteel>15</Plasteel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/S10</PartTexPath>
+				<statOffset>
+					<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
+				</statOffset>
+				<verbPropertiesOffseter>
+					<li>
+						<range>2</range>
+					</li>
+				</verbPropertiesOffseter>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_GenOpticsElectricBase" >
+		<defName>CaselessMod_Sight_RaySight</defName>
+		<label>OGI P-20</label>
+		<description>A medium-range digital optic, defeats conventional camouflage by giving the shooter an outline of the target. The predominant optic of many urbworld military.\n\nProvides +1.5 shooting skill, +2 range bounus and slightly increases cooldown time.</description>
+		<statBases>
+			<WorkToMake>650</WorkToMake>
+			<Mass>0.35</Mass>
+		</statBases>
+		<costList>
+            <Steel>10</Steel>
+			<Plasteel>15</Plasteel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/P20</PartTexPath>
+				<statOffset>
+					<RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+					<ShootingAccuracyPawn>1.5</ShootingAccuracyPawn>
+				</statOffset>
+				<verbPropertiesOffseter>
+					<li>
+						<range>5</range>
+						<warmupTime>0.2</warmupTime>
+					</li>
+				</verbPropertiesOffseter>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_GenOpticsElectricBase" >
+		<defName>CaselessMod_Sight_RayScope</defName>
+		<label>OGI P-90</label>
+		<description>A long-range digital optic, defeats conventional camouflage by giving the shooter an outline of the target. A high quality optic that has seen service on many worlds.\n\n+2.5 shooting skill, significantly increases weapon cooldown/warmup with a +8 range bonus.</description>
+		<statBases>
+			<WorkToMake>800</WorkToMake>
+			<Mass>0.41</Mass>
+		</statBases>
+		<costList>
+            <Steel>15</Steel>
+			<Plasteel>20</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/P90</PartTexPath>
+				<verbPropertiesOffseter>
+					<li>
+						<warmupTime>1</warmupTime>
+						<range>8</range>
+					</li>
+				</verbPropertiesOffseter>
+				<statOffset>
+					<RangedWeapon_Cooldown>0.3</RangedWeapon_Cooldown>
+					<ShootingAccuracyPawn>2.5</ShootingAccuracyPawn>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_GenOpticsAdvancedBase" >
+		<defName>CaselessMod_Sight_AdvA</defName>
+		<label>Tageu X5</label>
+		<description>A short-range smart optic, its not unusual for Taegu Bionics to include classifier AI for devices this small.\n\nIncreases a pawn's shooting skill by 2 points, +3 range and reduces ranged cooldown time.</description>
+		<statBases>
+			<WorkToMake>1000</WorkToMake>
+			<Mass>0.2</Mass>
+		</statBases>
+		<costList>
+			<Plasteel>30</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/OpticAdvA</PartTexPath>
+				<statOffset>
+					<RangedWeapon_Cooldown>-0.3</RangedWeapon_Cooldown>
+					<ShootingAccuracyPawn>2</ShootingAccuracyPawn>
+				</statOffset>
+				<verbPropertiesOffseter>
+					<li>
+						<range>3</range>
+					</li>
+				</verbPropertiesOffseter>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_GenOpticsAdvancedBase" >
+		<defName>CaselessMod_Sight_AdvB</defName>
+		<label>Taegu Z9</label>
+		<description>A medium-range smart optic. High quality and high price, most security on the upper levels of the gigacities sport at least one piece of Taegu Bionics equipment.\n\nIncreases a pawn's shooting skill by 3.5 points, +5 range and reduces ranged cooldown time.</description>
+		<statBases>
+			<WorkToMake>1500</WorkToMake>
+			<Mass>0.3</Mass>
+		</statBases>
+		<costList>
+			<Plasteel>40</Plasteel>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/OpticAdvB</PartTexPath>
+				<statOffset>
+					<RangedWeapon_Cooldown>0.4</RangedWeapon_Cooldown>
+					<ShootingAccuracyPawn>3.5</ShootingAccuracyPawn>
+				</statOffset>
+				<verbPropertiesOffseter>
+					<li>
+						<range>5</range>
+					</li>
+				</verbPropertiesOffseter>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_GenOpticsAdvancedBase" >
+		<defName>CaselessMod_Sight_AdvC</defName>
+		<label>Taegu Z3</label>
+		<description>A long-range smart optic. Makes the Orbital Industries P-90 look like a quaint antique. Attachment of choice for corp sharpshooters and black teams across the star cluster.\n\nIncreases a pawn's shooting skill by 4.5 points, +8 range and reduces aiming time.</description>
+		<statBases>
+			<WorkToMake>2000</WorkToMake>
+			<Mass>0.45</Mass>
+		</statBases>
+		<costList>
+            <Plasteel>50</Plasteel>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/OpticAdvC</PartTexPath>
+				<verbPropertiesOffseter>
+					<li>
+						<warmupTime>0.5</warmupTime>
+						<range>8</range>
+					</li>
+				</verbPropertiesOffseter>
+				<statOffset>
+					<ShootingAccuracyPawn>4.5</ShootingAccuracyPawn>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- ==== Underbarrel ==== -->
+
+	<ThingDef Name="CGPB_UnderbarrelBase" ParentName="Caseless_GunPartBase" Abstract="True">
+		<graphicData>
+			<texPath>Things/Item/Health/HealthItem</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+			<!--color>(174,189,118)</color-->
+		</graphicData>
+		<uiIconPath>ui/icons/AttachmentIcon/AttachmentIcon_Underbarrel</uiIconPath>
+		<thingCategories>
+			<li>ThingCategory_CGPUnderbarrelT1</li>
+		</thingCategories>
+		<recipeMaker>
+			<researchPrerequisite>Tier1Attachments</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_UnderbarrelBase" >
+		<defName>CaselessMod_ForwardGripA</defName>
+		<label>Tactical grip A</label>
+		<description>A small forward grip. Allows for faster target aquisition and a slight shooting bonus.</description>
+		<statBases>
+			<WorkToMake>100</WorkToMake>
+			<Mass>0.03</Mass>
+		</statBases>
+		<costList>
+			<Chemfuel>20</Chemfuel>
+			<Steel>5</Steel>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/GripA</PartTexPath>
+                <statOffset>
+					<RangedWeapon_Cooldown>-0.15</RangedWeapon_Cooldown>
+					<ShootingAccuracyPawn>0.2</ShootingAccuracyPawn>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_UnderbarrelBase" >
+		<defName>CaselessMod_ForwardGripB</defName>
+		<label>Combat grip</label>
+		<description>A medium-sized grip used to brace oneself on terrain or corners. Allows for faster target aquisition.</description>
+		<statBases>
+			<WorkToMake>100</WorkToMake>
+			<Mass>0.03</Mass>
+		</statBases>
+		<costList>
+			<Chemfuel>20</Chemfuel>
+			<Steel>5</Steel>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/GripB</PartTexPath>
+                <statOffset>
+					<RangedWeapon_Cooldown>-0.3</RangedWeapon_Cooldown>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_UnderbarrelBase" >
+		<defName>CaselessMod_ForwardGripC</defName>
+		<label>Shooting grip</label>
+		<description>A grip that allows for better shooting accuracy.</description>
+		<statBases>
+			<WorkToMake>100</WorkToMake>
+			<Mass>0.03</Mass>
+		</statBases>
+		<costList>
+			<Chemfuel>20</Chemfuel>
+			<Steel>5</Steel>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/GripC</PartTexPath>
+                <statOffset>
+					<ShootingAccuracyPawn>0.5</ShootingAccuracyPawn>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_UnderbarrelBase" >
+		<defName>CaselessMod_ForwardGripD</defName>
+		<label>Tactical grip plus</label>
+		<description>A small forward grip. Allows for faster target aquisition and a slight shooting bonus.</description>
+		<statBases>
+			<WorkToMake>300</WorkToMake>
+			<Mass>0.03</Mass>
+		</statBases>
+		<costList>
+			<Steel>5</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+			<Neutroamine>5</Neutroamine>
+			<Synthread>5</Synthread>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Tier3Attachments</researchPrerequisite>
+		</recipeMaker>
+		<thingCategories Inherit="False">
+			<li>ThingCategory_CGPUnderbarrelT2</li>
+		</thingCategories>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/GripD</PartTexPath>
+                <statOffset>
+					<RangedWeapon_Cooldown>-0.3</RangedWeapon_Cooldown>
+					<ShootingAccuracyPawn>0.4</ShootingAccuracyPawn>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_UnderbarrelBase" >
+		<defName>CaselessMod_ForwardGripE</defName>
+		<label>Combat grip plus</label>
+		<description>A medium-sized grip used to brace oneself on terrain or corners. Allows for faster target aquisition.</description>
+		<statBases>
+			<WorkToMake>300</WorkToMake>
+			<Mass>0.03</Mass>
+		</statBases>
+		<costList>
+			<Steel>5</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+			<Neutroamine>5</Neutroamine>
+			<Synthread>5</Synthread>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Tier3Attachments</researchPrerequisite>
+		</recipeMaker>
+		<thingCategories Inherit="False">
+			<li>ThingCategory_CGPUnderbarrelT2</li>
+		</thingCategories>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/GripE</PartTexPath>
+                <statOffset>
+					<RangedWeapon_Cooldown>-0.3</RangedWeapon_Cooldown>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_UnderbarrelBase" >
+		<defName>CaselessMod_ForwardGripF</defName>
+		<label>Shooting grip plus.</label>
+		<description>A grip that allows for better shooting accuracy.</description>
+		<statBases>
+			<WorkToMake>300</WorkToMake>
+			<Mass>0.03</Mass>
+		</statBases>
+		<costList>
+			<Steel>5</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+			<Neutroamine>5</Neutroamine>
+			<Synthread>5</Synthread>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Tier3Attachments</researchPrerequisite>
+		</recipeMaker>
+		<thingCategories Inherit="False">
+			<li>ThingCategory_CGPUnderbarrelT2</li>
+		</thingCategories>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/GripF</PartTexPath>
+                <statOffset>
+					<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- ==== Barrels ==== -->
+
+	<ThingDef Name="CGPB_Barrel_Base" ParentName="Caseless_GunPartBase" Abstract="True" >
+		<graphicData>
+			<texPath>Things/Item/Health/HealthItem</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!--color>(174,189,118)</color-->
+		</graphicData>
+		<uiIconPath>ui/icons/AttachmentIcon/AttachmentIcon_Muzzle</uiIconPath>
+		<thingCategories>
+			<li>ThingCategory_Barrels</li>
+		</thingCategories>
+		<recipeMaker>
+			<researchPrerequisite>Tier1Attachments</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+	
+	<ThingDef Name="CGPB_BarrelSimple_Base" ParentName="CGPB_Barrel_Base" Abstract="True" >
+		<recipeMaker>
+			<researchPrerequisite>Tier2Attachments</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+ 
+	<ThingDef Name="CGPB_BarrelAdv_Base" ParentName="CGPB_Barrel_Base" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>Tier3Attachments</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<!--==== ammo types ====-->
+
+	<ThingDef Name="CGPB_GenAmmoBase" ParentName="Caseless_GunPartBase" Abstract="True">
+		<graphicData>
+			<texPath>Things/Item/Health/HealthItem</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+			<!--color>(174,189,118)</color-->
+		</graphicData>
+		<uiIconPath>ui/icons/AttachmentIcon/AttachmentIcon_Mag</uiIconPath>
+		<recipeMaker>
+			<researchPrerequisite>Tier1Attachments</researchPrerequisite>
+		</recipeMaker>
+		<thingCategories>
+			<li>ThingCategory_GLAmmo</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef Name="CGPB_AmmoBase_T2" ParentName="CGPB_GenAmmoBase" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>Tier2Attachments</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<!-- ==== Muzzles ==== -->
+
+	<ThingDef Name="CGPB_MuzzleBase" ParentName="Caseless_GunPartBase" Abstract="True">
+		<graphicData>
+			<texPath>Things/Item/Health/HealthItem</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+			<!--color>(174,189,118)</color-->
+		</graphicData>
+		<uiIconPath>ui/icons/AttachmentIcon/AttachmentIcon_Muzzle</uiIconPath>
+		<thingCategories>
+			<li>ThingCategory_CGPMuzzle</li>
+		</thingCategories>
+		<recipeMaker>
+			<researchPrerequisite>Tier1Attachments</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+    <ThingDef ParentName="CGPB_MuzzleBase" >
+		<defName>CaselessMod_HeavySuppressorA</defName>
+		<label>OGI suppressor A</label>
+		<description>A dual chamber tube suppressor, lowers the report but has substantial bulk.\n\n+50% hunting stealth, removes muzzle flash.</description>
+		<statBases>
+			<WorkToMake>250</WorkToMake>
+			<Mass>0.45</Mass>
+		</statBases>
+		<costList>
+			<Steel>15</Steel>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/SuppressorA</PartTexPath>
+				<verbPropertiesObjectPatch>
+					<li>
+						<soundCast>Shot_SilencedC</soundCast>
+						<soundCastTail IsNull="true"/>
+						<muzzleFlashScale>0</muzzleFlashScale>
+					</li>
+				</verbPropertiesObjectPatch>
+				<statOffset>
+					<HuntingStealth>.5</HuntingStealth>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_MuzzleBase" >
+		<defName>CaselessMod_HeavySuppressorB</defName>
+		<label>OGI suppressor B</label>
+		<description>Large box suppressor.\n\n+30% hunting stealth, lowers muzzle flash and improves short-range accuracy.</description>
+		<statBases>
+			<WorkToMake>275</WorkToMake>
+			<Mass>0.56</Mass>
+		</statBases>
+		<costList>
+			<Steel>18</Steel>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/SuppressorC</PartTexPath>
+				<verbPropertiesObjectPatch>
+					<li>
+						<soundCast>Shot_SilencedC</soundCast>
+						<soundCastTail IsNull="true"/>
+						<muzzleFlashScale>1</muzzleFlashScale>
+					</li>
+				</verbPropertiesObjectPatch>
+				<statMultiplier>
+					<AccuracyTouch>1.2</AccuracyTouch>
+					<AccuracyShort>1.15</AccuracyShort>
+				</statMultiplier>
+				<statOffset>
+					<HuntingStealth>.3</HuntingStealth>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_MuzzleBase" >
+		<defName>CaselessMod_Muzzle_DeviceA</defName>
+		<label>OGI suppressor C</label>
+		<description>Plasteel suppressor, smaller and lighter than its industrial counterparts but manufactured with urbworld grit. Improves short-range accuracy, +50% hunting stealth and eliminates muzzle flash.</description>
+		<statBases>
+			<WorkToMake>400</WorkToMake>
+			<Mass>0.36</Mass>
+		</statBases>
+		<costList>
+			<Plasteel>14</Plasteel>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/SuppressorB</PartTexPath>
+				<verbPropertiesObjectPatch>
+					<li>
+						<soundCast>Shot_SilencedA</soundCast>
+						<soundCastTail IsNull="true"/>
+						<muzzleFlashScale>0</muzzleFlashScale>
+					</li>
+				</verbPropertiesObjectPatch>
+				<statOffset>
+					<HuntingStealth>.5</HuntingStealth>
+				</statOffset>
+				<statMultiplier>
+					<AccuracyTouch>1.2</AccuracyTouch>
+					<AccuracyShort>1.15</AccuracyShort>
+				</statMultiplier>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_MuzzleBase" >
+		<defName>CaselessMod_Muzzle_CompensatorA</defName>
+		<label>Compensator A</label>
+		<description>An expensive, large boxy plasteel compensator. Counteracts recoil as well as reduces the shooter's profile.</description>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<Mass>0.31</Mass>
+		</statBases>
+		<costList>
+			<Plasteel>8</Plasteel>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Tier1Attachments</researchPrerequisite>
+		</recipeMaker>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/CompensatorA</PartTexPath>
+				<verbPropertiesMultiplier>
+					<li>
+						<muzzleFlashScale>0.5</muzzleFlashScale>
+					</li>
+				</verbPropertiesMultiplier>
+				<statOffset>
+					<ShootingAccuracyPawn>0.4</ShootingAccuracyPawn>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_MuzzleBase" >
+		<defName>CaselessMod_Muzzle_CompensatorB</defName>
+		<label>Compensator B</label>
+		<description>A well-balanced short steel compensator, decreases the shooter's profile and improves shooting accuracy.</description>
+		<statBases>
+			<WorkToMake>150</WorkToMake>
+			<Mass>0.32</Mass>
+		</statBases>
+		<costList>
+			<Steel>16</Steel>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Tier1Attachments</researchPrerequisite>
+		</recipeMaker>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/CompensatorB</PartTexPath>
+				<verbPropertiesMultiplier>
+					<li>
+						<muzzleFlashScale>0.8</muzzleFlashScale>
+					</li>
+				</verbPropertiesMultiplier>
+				<statOffset>
+					<ShootingAccuracyPawn>0.2</ShootingAccuracyPawn>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_MuzzleBase" >
+		<defName>CaselessMod_Muzzle_CompensatorC</defName>
+		<label>Compensator C</label>
+		<description>Short and sturdy steel compensator, provides the best shooting accuracy at the cost of increasing the shooter's profile.</description>
+		<statBases>
+			<WorkToMake>150</WorkToMake>
+			<Mass>0.32</Mass>
+		</statBases>
+		<costList>
+			<Steel>25</Steel>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Tier1Attachments</researchPrerequisite>
+		</recipeMaker>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/CompensatorC</PartTexPath>
+				<verbPropertiesMultiplier>
+					<li>
+						<muzzleFlashScale>1.5</muzzleFlashScale>
+					</li>
+				</verbPropertiesMultiplier>
+				<statOffset>
+					<HuntingStealth>-0.5</HuntingStealth>
+					<ShootingAccuracyPawn>0.6</ShootingAccuracyPawn>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_MuzzleBase" >
+		<defName>CaselessMod_Muzzle_FlashHider</defName>
+		<label>PlasFlash hider</label>
+		<description>Plasteel flash hider, reduces the shooter's profile; does not eliminate sound but allows shooters to stay concealed during night combat and hunting.</description>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<Mass>0.09</Mass>
+		</statBases>
+		<costList>
+			<Plasteel>10</Plasteel>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Tier1Attachments</researchPrerequisite>
+		</recipeMaker>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/Attachments/General/FlashHider</PartTexPath>
+				<verbPropertiesMultiplier>
+					<li>
+						<muzzleFlashScale>0.2</muzzleFlashScale>
+					</li>
+				</verbPropertiesMultiplier>
+				<statOffset>
+					<HuntingStealth>.5</HuntingStealth>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- Stock base -->
+
+	<ThingDef Name="CGPB_GeneralStockBase" ParentName="Caseless_GunPartBase" Abstract="True">
+		<graphicData>
+			<texPath>Things/Item/Health/HealthItem</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+			<!--color>(174,189,118)</color-->
+		</graphicData>
+		<uiIconPath>ui/icons/AttachmentIcon/AttachmentIcon_Stock</uiIconPath>
+		<recipeMaker>
+			<researchPrerequisite>Tier1Attachments</researchPrerequisite>
+		</recipeMaker>
+		<thingCategories>
+			<li>ThingCategory_Stocks</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef Name="CGPB_StockBase_T2" ParentName="CGPB_GeneralStockBase" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>Tier2Attachments</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<ThingDef Name="CGPB_StockBase_T3" ParentName="CGPB_GeneralStockBase" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>Tier3Attachments</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+
+	<!-- ==== recievers ==== -->
+
+	<ThingDef Name="CGPB_ReceiverBase" ParentName="Caseless_GunPartBase" Abstract="True">
+		<graphicData>
+			<texPath>Things/Item/Health/HealthItem</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+			<!--color>(174,189,118)</color-->
+		</graphicData>
+		<uiIconPath>ui/icons/AttachmentIcon/AttachmentIcon_Receiver</uiIconPath>
+		<thingCategories>
+			<li>ThingCategory_Receivers</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef Name="CGPB_ReceiverBase_GO" ParentName="CGPB_ReceiverBase" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>Tier1Attachments</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<ThingDef Name="CGPB_ReceiverBase_BO" ParentName="CGPB_ReceiverBase" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>Tier2Attachments</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<ThingDef Name="CGPB_ReceiverBase_PR" ParentName="CGPB_ReceiverBase" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>Tier3Attachments</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	
+
+</Defs>

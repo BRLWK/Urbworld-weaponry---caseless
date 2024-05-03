@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Modularization Vanilla Weapon</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="TableMachining"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_CustomWeaponPort"]/filter/thingDefs</xpath>
+				<value>
+					<li>Gun_ModularCaseless_Pistol</li>
+					<li>Gun_ModularCaseless_SMG</li>
+					<li>Gun_ModularCaseless_Carbine</li>
+					<li>Gun_ModularCaseless_BoltAction</li>
+					<li>Gun_ModularCaseless_LMG</li>
+					<li>Gun_ModularCaseless_BurstRifle</li>
+					<li>Gun_ModularCaseless_BattleRifle</li>
+					<li>Gun_ModularCaseless_SniperRifle</li>
+				</value>
+			</li>
+
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

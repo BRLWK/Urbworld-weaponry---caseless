@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Conscript rifles -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCIW_Preset_WoodConscript</defName>
+    <customName>urbworld conscript rifle</customName>
+    <weapon>Caseless_MCIW</weapon>
+    <weaponTags>
+      <li>Gun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCIW_Barrel_Conscript_Wood</li>
+      <li>MCIW_Stock_WoodFull</li>
+      <li>MCIW_Mag_Short</li>
+      <li>MCIW_Sight_CarryHandle</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCIW_Barrel_LongWood</li>
+      <li>MCIW_Barrel_TrenchWood</li>
+      <li>MCIW_Barrel_CarbineWood</li>
+      <li>MCIW_Stock_Folding</li>
+      <li>MCIW_Mag_Standard</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCIW_Preset_Conscript</defName>
+    <customName>urbworld conscript rifle</customName>
+    <weapon>Caseless_MCIW</weapon>
+    <weaponTags>
+      <li>Gun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCIW_Barrel_Conscript</li>
+      <li>MCIW_Stock_Full</li>
+      <li>MCIW_Mag_Short</li>
+      <li>MCIW_Sight_CarryHandle</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCIW_Barrel_Long</li>
+      <li>MCIW_Barrel_Trench</li>
+      <li>MCIW_Barrel_Carbine</li>
+      <li>MCIW_Stock_Folding</li>
+      <li>MCIW_Mag_Standard</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Custom rifles -->
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCIW_Preset_Custom</defName>
+    <customName>customized carbine</customName>
+    <weapon>Caseless_MCIW</weapon>
+    <weaponTags>
+        <li>AssaultRifle</li>
+        <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCIW_Barrel_Carbine</li>
+      <li>MCIW_Stock_Full</li>
+      <li>MCIW_Mag_Standard</li>
+      <li>MCIW_Sight_CarryHandle</li>
+    </requiredParts>
+    <optionalPartsCount>4</optionalPartsCount>
+    <optionalParts>
+      <li>MCIW_Barrel_Long</li>
+      <li>MCIW_Barrel_Recoil</li>
+      <li>MCIW_Barrel_Trench</li>
+      <li>MCIW_Stock_CQB</li>
+      <li>MCIW_Stock_Ergonomic</li>
+      <li>MCIW_Stock_Folding</li>
+      <li>MCIW_Sight_Reddot</li>
+      <li>MCIW_Sight_Holo</li>
+      <li>MCIW_Sight_Scope</li>
+      <li>MCIW_Attach_Flashlight</li>
+      <li>MCIW_Attach_Laser</li>
+      <li>MCIW_Attach_Foregrip</li>
+      <li>MCIW_Attach_ForegripB</li>
+      <li>MCIW_Attach_ForegripC</li>
+      <li>MCIW_Attach_GLHE</li>
+      <li>MCIW_Attach_GLIC</li>
+      <li>MCIW_Attach_GLSM</li>
+      <li>MCIW_Attach_GLEMP</li>
+      <li>MCIW_Attach_Shotgun</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCIW_Preset_Custom_Wood</defName>
+    <customName>customized carbine</customName>
+    <weapon>Caseless_MCIW</weapon>
+    <weaponTags>
+        <li>AssaultRifle</li>
+        <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCIW_Barrel_CarbineWood</li>
+      <li>MCIW_Stock_WoodFull</li>
+      <li>MCIW_Mag_Standard</li>
+      <li>MCIW_Sight_CarryHandle</li>
+    </requiredParts>
+    <optionalPartsCount>4</optionalPartsCount>
+    <optionalParts>
+      <li>MCIW_Barrel_LongWood</li>
+      <li>MCIW_Barrel_TrenchWood</li>
+      <li>MCIW_Barrel_Conscript_Wood</li>
+      <li>MCIW_Stock_CQB_Wood</li>
+      <li>MCIW_Stock_Ergonomic_Wood</li>
+      <li>MCIW_Stock_Folding</li>
+      <li>MCIW_Sight_Reddot</li>
+      <li>MCIW_Sight_Holo</li>
+      <li>MCIW_Sight_Scope</li>
+      <li>MCIW_Attach_Flashlight</li>
+      <li>MCIW_Attach_Laser</li>
+      <li>MCIW_Attach_Foregrip</li>
+      <li>MCIW_Attach_ForegripB</li>
+      <li>MCIW_Attach_ForegripC</li>
+      <li>MCIW_Attach_GLHE</li>
+      <li>MCIW_Attach_GLIC</li>
+      <li>MCIW_Attach_GLSM</li>
+      <li>MCIW_Attach_GLEMP</li>
+      <li>MCIW_Attach_Shotgun</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- SAW -->
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCIW_Preset_CustomSAW</defName>
+    <customName>customized carbine SAW</customName>
+    <weapon>Caseless_MCIW</weapon>
+    <weaponTags>
+        <li>RangedHeavy</li>
+        <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCIW_Barrel_Carbine</li>
+      <li>MCIW_Stock_Full</li>
+      <li>MCIW_Mag_Box</li>
+      <li>MCIW_Sight_CarryHandle</li>
+      <li>MCIW_Attach_Bipod</li>
+    </requiredParts>
+    <optionalPartsCount>3</optionalPartsCount>
+    <optionalParts>
+      <li>MCIW_Barrel_Trench</li>
+      <li>MCIW_Barrel_Recoil</li>
+      <li>MCIW_Barrel_Long</li>
+      <li>MCIW_Stock_Ergonomic</li>
+      <li>MCIW_Sight_Reddot</li>
+      <li>MCIW_Sight_Holo</li>
+      <li>MCIW_Sight_Scope</li>
+      <li>MCIW_Attach_Flashlight</li>
+      <li>MCIW_Attach_Laser</li>
+      <li>MCIW_Attach_PEQ</li>
+      <li>MCIW_Attach_Foregrip</li>
+      <li>MCIW_Attach_ForegripB</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Battle rifle -->
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCIW_Preset_BR</defName>
+    <customName>customized battle rifle</customName>
+    <weapon>Caseless_MCIW</weapon>
+    <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCIW_Barrel_Long</li>
+      <li>MCIW_Stock_Full</li>
+      <li>MCIW_Mag_Short</li>
+      <li>MCIW_Sight_Scope</li>
+    </requiredParts>
+    <optionalPartsCount>3</optionalPartsCount>
+    <optionalParts>
+      <li>MCIW_Stock_Ergonomic</li>
+      <li>MCIW_Barrel_Recoil</li>
+      <li>MCIW_Sight_Holo</li>
+      <li>MCIW_Attach_Flashlight</li>
+      <li>MCIW_Attach_Bipod</li>
+      <li>MCIW_Attach_Laser</li>
+      <li>MCIW_Attach_Foregrip</li>
+      <li>MCIW_Attach_ForegripB</li>
+      <li>MCIW_Attach_ForegripC</li>
+      <li>MCIW_Attach_GLHE</li>
+      <li>MCIW_Attach_GLIC</li>
+      <li>MCIW_Attach_GLSM</li>
+      <li>MCIW_Attach_GLEMP</li>
+      <li>MCIW_Attach_Shotgun</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCIW_Preset_BR_Wood</defName>
+    <customName>customized battle rifle</customName>
+    <weapon>Caseless_MCIW</weapon>
+    <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCIW_Barrel_LongWood</li>
+      <li>MCIW_Stock_WoodFull</li>
+      <li>MCIW_Mag_Short</li>
+      <li>MCIW_Sight_Scope</li>
+    </requiredParts>
+    <optionalPartsCount>3</optionalPartsCount>
+    <optionalParts>
+      <li>MCIW_Mag_Standard</li>
+      <li>MCIW_Stock_Ergonomic_Wood</li>
+      <li>MCIW_Sight_Holo</li>
+      <li>MCIW_Attach_Flashlight</li>
+      <li>MCIW_Attach_Bipod</li>
+      <li>MCIW_Attach_Laser</li>
+      <li>MCIW_Attach_Foregrip</li>
+      <li>MCIW_Attach_ForegripB</li>
+      <li>MCIW_Attach_ForegripC</li>
+      <li>MCIW_Attach_GLHE</li>
+      <li>MCIW_Attach_GLIC</li>
+      <li>MCIW_Attach_GLSM</li>
+      <li>MCIW_Attach_GLEMP</li>
+      <li>MCIW_Attach_Shotgun</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Sniper rifles -->
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCIW_Preset_SR_Custom</defName>
+    <customName>customized sniper carbine</customName>
+    <weapon>Caseless_MCIW</weapon>
+    <weaponTags>
+        <li>SniperRifle</li>
+        <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCIW_Barrel_Long</li>
+      <li>MCIW_Stock_Ergonomic</li>
+      <li>MCIW_Mag_Short</li>
+      <li>MCIW_Sight_Scope</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCIW_Attach_Bipod</li>
+      <li>MCIW_Attach_ForegripC</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCIW_Preset_SR_Custom_Wood</defName>
+    <customName>customized sniper carbine</customName>
+    <weapon>Caseless_MCIW</weapon>
+    <weaponTags>
+        <li>SniperRifle</li>
+        <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCIW_Barrel_LongWood</li>
+      <li>MCIW_Stock_Ergonomic_Wood</li>
+      <li>MCIW_Mag_Short</li>
+      <li>MCIW_Sight_Scope</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCIW_Attach_Bipod</li>
+      <li>MCIW_Attach_ForegripC</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- SMGs -->
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCIW_Preset_SMG</defName>
+    <customName>customized carbine SMG</customName>
+    <weapon>Caseless_MCIW</weapon>
+    <weaponTags>
+        <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCIW_Barrel_Short</li>
+      <li>MCIW_Stock_CQB</li>
+      <li>MCIW_Mag_Pistol</li>
+      <li>MCIW_Sight_Reddot</li>
+    </requiredParts>
+    <optionalPartsCount>3</optionalPartsCount>
+    <optionalParts>
+      <li>MCIW_Barrel_Recoil</li>
+      <li>MCIW_Barrel_Trench</li>
+      <li>MCIW_Stock_Folding</li>
+      <li>MCIW_Sight_Holo</li>
+      <li>MCIW_Attach_Flashlight</li>
+      <li>MCIW_Attach_PEQ</li>
+      <li>MCIW_Attach_Laser</li>
+      <li>MCIW_Attach_Foregrip</li>
+      <li>MCIW_Attach_ForegripB</li>
+      <li>MCIW_Attach_Shotgun</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Spacer SMG -->
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCIW_Preset_SpacerSMG</defName>
+    <customName>Spacer custom SMG</customName>
+    <weapon>Caseless_MCIW</weapon>
+    <weaponTags>
+        <li>ShortShots</li>
+        <li>SpacerGun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCIW_Barrel_Light_Plasteel</li>
+      <li>MCIW_Stock_Ergonomic_Plasteel</li>
+      <li>MCIW_Mag_ETCPistol</li>
+      <li>MCIW_Optic_SmartShort</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCIW_Barrel_Accelerator</li>
+      <li>MCIW_Attach_RayFinder</li>
+      <li>MCIW_Attach_PEQ</li>
+      <li>MCIW_Attach_Foregrip</li>
+      <li>MCIW_Attach_ForegripB</li>
+      <li>MCIW_Attach_ForegripC</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Spacer rifle -->
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCIW_Preset_SpacerCustom</defName>
+    <customName>Spacer custom carbine</customName>
+    <weapon>Caseless_MCIW</weapon>
+    <weaponTags>
+        <li>AssaultRifle</li>
+        <li>SpacerGun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCIW_Barrel_Medium_Plasteel</li>
+      <li>MCIW_Stock_Ergonomic_Plasteel</li>
+      <li>MCIW_Mag_ETC</li>
+      <li>MCIW_Optic_SmartMed</li>
+      <li>MCIW_Attach_RayFinder</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCIW_Barrel_Accelerator</li>
+      <li>MCIW_Optic_SmartShort</li>
+      <li>MCIW_Optic_SmartScope</li>
+      <li>MCIW_Mag_ETCext</li>
+      <li>MCIW_Attach_PEQ</li>
+      <li>MCIW_Attach_Foregrip</li>
+      <li>MCIW_Attach_ForegripB</li>
+      <li>MCIW_Attach_ForegripC</li>
+      <li>MCIW_Attach_GL2AB</li>
+      <li>MCIW_Attach_GL2HEDP</li>
+      <li>MCIW_Attach_GL2I</li>
+      <li>MCIW_Attach_GL2S</li>
+      <li>MCIW_Attach_GL2EMP</li>
+      <li>MCIW_Attach_Shotgun</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Spacer longshot -->
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCIW_Preset_SpacerLongshot</defName>
+    <customName>Spacer custom longshot</customName>
+    <weapon>Caseless_MCIW</weapon>
+    <weaponTags>
+        <li>LongShots</li>
+        <li>SpacerGun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCIW_Barrel_Long_Plasteel</li>
+      <li>MCIW_Stock_Ergonomic_Plasteel</li>
+      <li>MCIW_Mag_ETC</li>
+      <li>MCIW_Optic_SmartScope</li>
+      <li>MCIW_Attach_RayFinder</li>
+      <li>MCIW_Attach_Bipod</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCIW_Optic_SDS</li>
+      <li>MCIW_Attach_ForegripC</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+
+</Defs>

@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Combat Extended</li>
+    </mods>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs</xpath>
+      <value>
+
+      <ThingCategoryDef>
+		    <defName>Ammo77x49mmETC</defName>
+		    <label>7.7x49mm ETC</label>
+		    <parent>AmmoRifles</parent>
+		    <iconPath>UI/Icons/ThingCategories/CaliberRifle</iconPath>
+	    </ThingCategoryDef>
+
+	<!-- ==================== AmmoSet ========================== -->
+
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_77x49mmETC</defName>
+		<label>7.7x49mm ETC</label>
+		<ammoTypes>
+			<Ammo_77x49mmETC_FMJ>Bullet_77x49mmETC_FMJ</Ammo_77x49mmETC_FMJ>
+			<Ammo_77x49mmETC_AP>Bullet_77x49mmETC_AP</Ammo_77x49mmETC_AP>
+			<Ammo_77x49mmETC_HP>Bullet_77x49mmETC_HP</Ammo_77x49mmETC_HP>
+			<Ammo_77x49mmETC_Incendiary>Bullet_77x49mmETC_Incendiary</Ammo_77x49mmETC_Incendiary>
+			<Ammo_77x49mmETC_HE>Bullet_77x49mmETC_HE</Ammo_77x49mmETC_HE>
+			<Ammo_77x49mmETC_Sabot>Bullet_77x49mmETC_Sabot</Ammo_77x49mmETC_Sabot>				
+		</ammoTypes>
+    <similarTo>AmmoSet_Rifle</similarTo>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ==================== Ammo ========================== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" Name="77x49mmECBase" ParentName="SmallAmmoBase" Abstract="True">
+		<description>Rifle cartridge used in battle rifles, machine guns and sniper rifles.</description>
+		<statBases>
+			<Mass>0.021</Mass>
+			<Bulk>0.02</Bulk>
+		</statBases>
+		<menuHidden>False</menuHidden>
+		<destroyOnDrop>False</destroyOnDrop>
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+			<li>CE_AutoEnableCrafting</li>
+		</tradeTags>
+		<stackLimit>5000</stackLimit>
+		<thingCategories>
+			<li>Ammo77x49mmETC</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="77x49mmECBase">
+		<defName>Ammo_77x49mmETC_FMJ</defName>
+		<label>7.7x49mmETC cartridge (FMJ)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Rifle/FMJ</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.09</MarketValue>
+		</statBases>
+		<ammoClass>FullMetalJacket</ammoClass>
+		<cookOffProjectile>Bullet_77x49mmETC_FMJ</cookOffProjectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="77x49mmECBase">
+		<defName>Ammo_77x49mmETC_AP</defName>
+		<label>7.7x49mmETC cartridge (AP)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Rifle/AP</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.09</MarketValue>
+		</statBases>
+		<ammoClass>ArmorPiercing</ammoClass>
+		<cookOffProjectile>Bullet_77x49mmETC_AP</cookOffProjectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="77x49mmECBase">
+		<defName>Ammo_77x49mmETC_HP</defName>
+		<label>7.7x49mmETC cartridge (HP)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Rifle/HP</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.09</MarketValue>
+		</statBases>
+		<ammoClass>HollowPoint</ammoClass>
+		<cookOffProjectile>Bullet_77x49mmETC_HP</cookOffProjectile>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="77x49mmECBase">
+      <defName>Ammo_77x49mmETC_Incendiary</defName>
+      <label>7.7x49mmETC cartridge (AP-I)</label>
+      <graphicData>
+        <texPath>Things/Ammo/Rifle/Incendiary</texPath>
+        <graphicClass>Graphic_StackCount</graphicClass>
+      </graphicData>
+      <statBases>
+        <MarketValue>0.13</MarketValue>
+      </statBases>
+      <ammoClass>IncendiaryAP</ammoClass>
+      <cookOffProjectile>Bullet_77x49mmETC_Incendiary</cookOffProjectile>
+    </ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="77x49mmECBase">
+      <defName>Ammo_77x49mmETC_HE</defName>
+      <label>7.7x49mmETC cartridge (HE)</label>
+      <graphicData>
+        <texPath>Things/Ammo/Rifle/HE</texPath>
+        <graphicClass>Graphic_StackCount</graphicClass>
+      </graphicData>
+      <statBases>
+        <MarketValue>0.2</MarketValue>
+      </statBases>
+      <ammoClass>ExplosiveAP</ammoClass>
+      <cookOffProjectile>Bullet_77x49mmETC_HE</cookOffProjectile>
+    </ThingDef>
+    
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="77x49mmECBase">
+      <defName>Ammo_77x49mmETC_Sabot</defName>
+      <label>7.7x49mmETC cartridge (Sabot)</label>
+      <graphicData>
+        <texPath>Things/Ammo/Rifle/Sabot</texPath>
+        <graphicClass>Graphic_StackCount</graphicClass>
+      </graphicData>
+      <statBases>
+        <MarketValue>0.12</MarketValue>
+    	  <Mass>0.022</Mass>
+      </statBases>
+      <ammoClass>Sabot</ammoClass>
+      <cookOffProjectile>Bullet_77x49mmETC_Sabot</cookOffProjectile>
+    </ThingDef>
+
+	<!-- ================== Projectiles ================== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" Name="Base77x49mmECBullet" ParentName="BaseBulletCE" Abstract="true">
+		<thingClass>CombatExtended.BulletCE</thingClass>
+        <graphicData>
+			<texPath>Things/Projectile/ETC_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.2</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<speed>176</speed>
+			<dropsCasings>false</dropsCasings>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Base77x49mmECBullet">
+		<defName>Bullet_77x49mmETC_FMJ</defName>
+		<label>7.7mmEC bullet (FMJ)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>22</damageAmountBase>
+			<armorPenetrationSharp>8</armorPenetrationSharp>
+			<armorPenetrationBlunt>92.92</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Base77x49mmECBullet">
+		<defName>Bullet_77x49mmETC_AP</defName>
+		<label>7.7mmEC bullet (AP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>17</damageAmountBase>
+			<armorPenetrationSharp>16</armorPenetrationSharp>
+			<armorPenetrationBlunt>92.92</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Base77x49mmECBullet">
+		<defName>Bullet_77x49mmETC_HP</defName>
+		<label>7.7mmEC bullet (HP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>25</damageAmountBase>
+			<armorPenetrationSharp>4</armorPenetrationSharp>
+			<armorPenetrationBlunt>92.92</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base77x49mmECBullet">
+      <defName>Bullet_77x49mmETC_Incendiary</defName>
+      <label>7.7mmEC bullet (AP-I)</label>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageAmountBase>17</damageAmountBase>
+        <armorPenetrationSharp>16</armorPenetrationSharp>
+    	  <armorPenetrationBlunt>92.92</armorPenetrationBlunt>
+        <secondaryDamage>
+          <li>
+            <def>Flame_Secondary</def>
+            <amount>9</amount>
+          </li>
+        </secondaryDamage>
+      </projectile>
+    </ThingDef>
+    
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base77x49mmECBullet">
+      <defName>Bullet_77x49mmETC_HE</defName>
+      <label>7.7mmEC bullet (HE)</label>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageAmountBase>15</damageAmountBase>
+        <armorPenetrationSharp>8</armorPenetrationSharp>
+    	  	<armorPenetrationBlunt>92.92</armorPenetrationBlunt>
+    		  <secondaryDamage>
+    				<li>
+    			  	<def>Bomb_Secondary</def>
+    			  	<amount>13</amount>
+    				</li>
+    		  </secondaryDamage>
+      </projectile>
+    </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base77x49mmECBullet">
+    <defName>Bullet_77x49mmETC_Sabot</defName>
+    <label>7.7mmEC bullet (Sabot)</label>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>13</damageAmountBase>
+      <armorPenetrationSharp>28</armorPenetrationSharp>
+      <armorPenetrationBlunt>116.74</armorPenetrationBlunt>
+      <speed>264</speed>
+    </projectile>
+  </ThingDef>
+  
+	<!-- ==================== Recipes ========================== -->
+
+        <RecipeDef ParentName="UWC_ETCAmmoRecipeBase">
+        	<defName>MakeAmmo_77x49mmETC_FMJ</defName>
+        	<label>make 7.7x49mmETC (FMJ) cartridge x500</label>
+        	<description>Craft 500 7.7x49mmETC (FMJ) cartridges.</description>
+        	<jobString>Making 7.7x49mmETC (FMJ) cartridges.</jobString>
+        	<ingredients>
+        		<li>
+        			<filter>
+        				<thingDefs>
+        					<li>Steel</li>
+        				</thingDefs>
+        			</filter>
+        			<count>22</count>
+        		</li>
+        	</ingredients>
+        	<fixedIngredientFilter>
+        		<thingDefs>
+        			<li>Steel</li>
+        		</thingDefs>
+        	</fixedIngredientFilter>
+        	<products>
+        		<Ammo_77x49mmETC_FMJ>500</Ammo_77x49mmETC_FMJ>
+        	</products>
+        	<workAmount>2200</workAmount>
+        </RecipeDef>
+
+        <RecipeDef ParentName="UWC_ETCAmmoRecipeBase">
+        	<defName>MakeAmmo_77x49mmETC_AP</defName>
+        	<label>make 7.7x49mmETC (AP) cartridge x500</label>
+        	<description>Craft 500 7.7x49mmETC (AP) cartridges.</description>
+        	<jobString>Making 7.7x49mmETC (AP) cartridges.</jobString>
+        	<ingredients>
+        		<li>
+        			<filter>
+        				<thingDefs>
+        					<li>Steel</li>
+        				</thingDefs>
+        			</filter>
+        			<count>22</count>
+        		</li>
+        	</ingredients>
+        	<fixedIngredientFilter>
+        		<thingDefs>
+        			<li>Steel</li>
+        		</thingDefs>
+        	</fixedIngredientFilter>
+        	<products>
+        		<Ammo_77x49mmETC_AP>500</Ammo_77x49mmETC_AP>
+        	</products>
+        	<workAmount>2640</workAmount>
+        </RecipeDef>
+
+        <RecipeDef ParentName="UWC_ETCAmmoRecipeBase">
+        	<defName>MakeAmmo_77x49mmETC_HP</defName>
+        	<label>make 7.7x49mmETC (HP) cartridge x500</label>
+        	<description>Craft 500 7.7x49mmETC (HP) cartridges.</description>
+        	<jobString>Making 7.7x49mmETC (HP) cartridges.</jobString>
+        	<ingredients>
+        		<li>
+        			<filter>
+        				<thingDefs>
+        					<li>Steel</li>
+        				</thingDefs>
+        			</filter>
+        			<count>22</count>
+        		</li>
+        	</ingredients>
+        	<fixedIngredientFilter>
+        		<thingDefs>
+        			<li>Steel</li>
+        		</thingDefs>
+        	</fixedIngredientFilter>
+        	<products>
+        		<Ammo_77x49mmETC_HP>500</Ammo_77x49mmETC_HP>
+        	</products>
+        	<workAmount>2200</workAmount>
+        </RecipeDef>
+
+        <RecipeDef ParentName="UWC_AdvancedETCAmmoRecipeBase">
+        <defName>MakeAmmo_77x49mmETC_Incendiary</defName>
+        <label>make 7.7x49mmETC (AP-I) cartridge x500</label>
+        <description>Craft 500 7.7x49mmETC (AP-I) cartridges.</description>
+        <jobString>Making 7.7x49mmETC (AP-I) cartridges.</jobString>
+        <ingredients>
+          <li>
+            <filter>
+              <thingDefs>
+                <li>Steel</li>
+              </thingDefs>
+            </filter>
+            <count>22</count>
+          </li>
+          <li>
+            <filter>
+              <thingDefs>
+                <li>Prometheum</li>
+              </thingDefs>
+            </filter>
+            <count>3</count>
+          </li>
+        </ingredients>
+        <fixedIngredientFilter>
+          <thingDefs>
+            <li>Steel</li>
+            <li>Prometheum</li>
+          </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+          <Ammo_77x49mmETC_Incendiary>500</Ammo_77x49mmETC_Incendiary>
+        </products>
+        <workAmount>4080</workAmount>
+        </RecipeDef>
+
+        <RecipeDef ParentName="UWC_AdvancedETCAmmoRecipeBase">
+        <defName>MakeAmmo_77x49mmETC_HE</defName>
+        <label>make 7.7x49mmETC (HE) cartridge x500</label>
+        <description>Craft 500 7.7x49mmETC (HE) cartridges.</description>
+        <jobString>Making 7.7x49mmETC (HE) cartridges.</jobString>
+        <ingredients>
+          <li>
+            <filter>
+              <thingDefs>
+                <li>Steel</li>
+              </thingDefs>
+            </filter>
+            <count>22</count>
+          </li>
+          <li>
+            <filter>
+              <thingDefs>
+                <li>FSX</li>
+              </thingDefs>
+            </filter>
+            <count>7</count>
+          </li>
+        </ingredients>
+        <fixedIngredientFilter>
+          <thingDefs>
+            <li>Steel</li>
+            <li>FSX</li>
+          </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+          <Ammo_77x49mmETC_HE>500</Ammo_77x49mmETC_HE>
+        </products>
+        <workAmount>6000</workAmount>
+        </RecipeDef>
+
+        <RecipeDef ParentName="UWC_AdvancedETCAmmoRecipeBase">
+        <defName>MakeAmmo_77x49mmETC_Sabot</defName>
+        <label>make 7.7x49mmETC (Sabot) cartridge x500</label>
+        <description>Craft 500 7.7x49mmETC (Sabot) cartridges.</description>
+        <jobString>Making 7.7x49mmETC (Sabot) cartridges.</jobString>
+        <ingredients>
+          <li>
+            <filter>
+              <thingDefs>
+                <li>Steel</li>
+              </thingDefs>
+            </filter>
+            <count>10</count>
+          </li>
+          <li>
+            <filter>
+              <thingDefs>
+                <li>Uranium</li>
+              </thingDefs>
+            </filter>
+            <count>4</count>
+          </li>
+          <li>
+            <filter>
+              <thingDefs>
+                <li>Chemfuel</li>
+              </thingDefs>
+            </filter>
+            <count>4</count>
+          </li>		  
+        </ingredients>
+        <fixedIngredientFilter>
+          <thingDefs>
+            <li>Steel</li>
+            <li>Uranium</li>
+            <li>Chemfuel</li>		
+          </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+          <Ammo_77x49mmETC_Sabot>500</Ammo_77x49mmETC_Sabot>
+        </products>
+        <workAmount>3400</workAmount>
+        </RecipeDef>
+
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

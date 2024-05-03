@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- =======================Interact Pistol======================= -->
+
+   <SoundDef>
+    <defName>Interact_CPistol</defName>  
+    <context>MapOnly</context> 
+    <eventNames />  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Interact/CaselessPistol</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>8.91304</min>        
+          <max>8.91304</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>0.9576087</min>        
+          <max>1.084783</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+<!-- =======================Interact Rifle======================= -->
+
+  <SoundDef>
+    <defName>Interact_CRifle</defName>  
+    <context>MapOnly</context> 
+    <eventNames />  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Interact/CaselessRifle</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>8.91304</min>        
+          <max>8.91304</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>0.9576087</min>        
+          <max>1.084783</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+<!-- =======================Interact Sniper======================= -->
+
+  <SoundDef>
+    <defName>Interact_CBox</defName>  
+    <context>MapOnly</context> 
+    <eventNames />  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Interact/CaselessBox</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>9.91304</min>        
+          <max>9.91304</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>0.9576087</min>        
+          <max>1.084783</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+ 
+  <!-- ======================CSG (Cyberpunk 2077 SMG)======================== -->
+ 
+   <SoundDef>
+    <defName>Shot_CSG</defName>  
+    <eventNames />  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Caseless/CSG</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>20.55823</min>        
+          <max>25.55823</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>0.9576087</min>        
+          <max>1.042391</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+    <!-- ======================LMG11k======================== -->
+	
+	<SoundDef>
+    <defName>Shot_CLMG</defName>  
+    <eventNames />  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Caseless/CLMG</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>8.2941</min>        
+          <max>9.2941</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>1.091765</min>        
+          <max>2</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+      <!-- =======================Caseless rifle (Rising Storm 2 M16)======================= -->
+
+    <SoundDef>
+    <defName>Shot_CAR</defName>  
+    <eventNames/>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Caseless/CAR</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>14</min>        
+          <max>16</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>1.091765</min>        
+          <max>1.095765</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Shot_CARETC</defName>  
+    <eventNames/>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Caseless/CAR</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>18</min>        
+          <max>20</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>1.21765</min>        
+          <max>1.298765</max>
+        </pitchRange>
+        <filters>
+          <li Class="SoundFilterEcho">
+            <delay>0.2</delay>          
+            <decayRatio>0.5</decayRatio>          
+            <wetMix>0.1333435</wetMix>          
+            <dryMix>1</dryMix>
+          </li>
+        </filters>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+   <!-- =======================Grenade launcher A======================= -->
+
+    <SoundDef>
+    <defName>Shot_GLA</defName>  
+    <eventNames/>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Caseless/GrenadeLauncher</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>18</min>        
+          <max>20</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>1.091765</min>        
+          <max>1.095765</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- =======================Bolt Action======================= -->
+
+    <SoundDef>
+    <defName>Shot_Bolty</defName>  
+    <eventNames/>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Caseless/BoltAction</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>14</min>        
+          <max>16</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>1.091765</min>        
+          <max>1.095765</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- =======================Caseless burst rifle======================= -->
+
+    <SoundDef>
+    <defName>Shot_Burst</defName>  
+    <eventNames/>  
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Caseless/Burst</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>20</min>        
+          <max>24</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>0.791765</min>        
+          <max>0.795765</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+      <!-- =======================K-5 Pistol======================= -->
+
+    <SoundDef>
+    <defName>Shot_kpistol</defName>  
+    <eventNames/>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Caseless/KP</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>10</min>        
+          <max>12</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>1.091765</min>        
+          <max>1.395765</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- =======================K-5 Mod======================= -->
+
+    <SoundDef>
+    <defName>Shot_kfiveMod</defName>  
+    <eventNames/>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Caseless/GMHS</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>10</min>        
+          <max>12</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>1.091765</min>        
+          <max>1.495765</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- ======================= Silenced ======================= -->
+
+    <SoundDef>
+    <defName>Shot_SilencedA</defName>  
+    <eventNames/>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Caseless/GenSilenced_A</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>10</min>        
+          <max>14</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>1.091765</min>        
+          <max>1.495765</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Shot_SilencedB</defName>  
+    <eventNames/>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Caseless/GenSilenced_B</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>10</min>        
+          <max>14</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>1.091765</min>        
+          <max>1.495765</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Shot_SilencedC</defName>  
+    <eventNames/>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Caseless/GenSilenced_C</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>10</min>        
+          <max>14</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>1.091765</min>        
+          <max>1.495765</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+      <!-- =======================Caseless Sniper======================= -->
+
+
+    <SoundDef>
+    <defName>Shot_csniper</defName>  
+    <eventNames/>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Caseless/M901</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>12</min>        
+          <max>12</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>1.091765</min>        
+          <max>1.095765</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- =======================Caseless BR (Rising Storm 2 L1A1 rifle)======================= -->
+
+
+    <SoundDef>
+    <defName>Shot_cbatrifle</defName>  
+    <eventNames/>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Caseless/Shot_cbatrifle</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>35</min>        
+          <max>35</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>1.091765</min>        
+          <max>1.095765</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!--===== heavy caseless bullpup shotgun ===== -->
+
+  <SoundDef>
+    <defName>Shot_mcbShotgun</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Weapon/Shotgun/Shot</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>94.70588~94.70588</volumeRange>      
+        <distRange>39.11765~70</distRange>
+        <pitchRange>0.7311765~0.1037647</pitchRange>
+        <filters>
+          <li Class="SoundFilterEcho">
+            <delay>0.2</delay>          
+            <decayRatio>0.5</decayRatio>          
+            <wetMix>0.1333435</wetMix>          
+            <dryMix>1</dryMix>
+          </li>
+        </filters>
+      </li>    
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Weapon/Shotgun/Rack</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>11.58823~12.58823</volumeRange>      
+        <pitchRange>0.9311765~1.137647</pitchRange>     
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!--===== GL reload ("Grenade Launcher M203 M16 Assault Rifle Opening And Closing The Chamber.mp3", PNMCarrieRailfan @ FreeSound.org ) ===== -->
+
+  <SoundDef>
+    <defName>Interact_GL</defName>  
+    <eventNames />  
+    <context>MapOnly</context>
+    <maxSimultaneous>3</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Interact/GL</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>22</min>        
+          <max>24</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>0.9576087</min>        
+          <max>1.042391</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+
+ </Defs>

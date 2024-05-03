@@ -1,0 +1,1380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Combat Extended</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<operations>
+
+
+        <li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="Caseless_MCSW"]/label</xpath>
+					<value>
+						<label>M95</label>
+					</value>
+				</li>
+
+                <li Class="PatchOperationReplace">
+				        	<xpath>Defs/ThingDef[defName="Caseless_MCSW"]/description</xpath>
+				        	<value>
+				        		<description>Developed alongside the MCIW program the M95 can be adapted to a variety of roles including infantry rifle, LMG and DMR configurations.</description>
+				        	</value>
+				        </li>
+
+                <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="Caseless_MCSW"]/statBases</xpath>
+                  <value>
+                    <statBases>
+                      <Mass>2.62</Mass> <!-- 0.9, Original 3.52 -->
+                      <RangedWeapon_Cooldown>0.38</RangedWeapon_Cooldown> <!-- +0.01, 0.37 -->
+                      <SightsEfficiency>1</SightsEfficiency>
+                      <ShotSpread>0.08</ShotSpread>
+                      <SwayFactor>0.88</SwayFactor> <!-- 0.45, 1.33 -->
+                      <Bulk>6.17</Bulk> <!-- 3.6, 9.77 -->
+                      <WorkToMake>28500</WorkToMake>
+                    </statBases>
+                  </value>
+                </li>
+
+                <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="Caseless_MCSW"]/verbs</xpath>
+                  <value>
+                    <verbs>
+                      <li Class="CombatExtended.VerbPropertiesCE">
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <recoilAmount>2.49</recoilAmount> <!-- 0.34, 2.15 -->
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_77x49mmPC_FMJ</defaultProjectile>
+                        <warmupTime>1.1</warmupTime>
+                        <range>62</range>
+                        <burstShotCount>6</burstShotCount>
+                        <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                        <soundCast>Shot_cbatrifle</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                      </li>
+                    </verbs>
+                  </value>
+                </li>
+
+                <li Class="PatchOperationAdd">
+                  <xpath>/Defs/ThingDef[defName="Caseless_MCSW"]/comps</xpath>
+                  <value>
+                    <li Class="ModularWeapons_CEModule.CompProperties_AmmoUserMW">
+                      <magazineSize>30</magazineSize>
+                      <reloadTime>4</reloadTime>
+                      <ammoSet>AmmoSet_77x49mmPC</ammoSet>
+                    </li>
+                    <li Class="ModularWeapons_CEModule.CompProperties_FireModesMW">
+                      <aimedBurstShotCount>3</aimedBurstShotCount>
+                      <aiUseBurstMode>TRUE</aiUseBurstMode>
+                      <aiAimMode>AimedShot</aiAimMode>
+                    </li>
+                    <li Class="ModularWeapons_CEModule.CompProperties_BipodMW">
+                      <catDef>bipodLMG</catDef>
+                    </li>
+                    <li Class="ModularWeapons_CEModule.CompProperties_UnderbarrelMW">
+                      <enableDefault>false</enableDefault>
+                        <propsUnderBarrel>
+                          <magazineSize>1</magazineSize>
+                          <reloadTime>1.6</reloadTime>
+                          <ammoSet>AmmoSet_40x46mmGrenade</ammoSet>
+                        </propsUnderBarrel>
+                        <verbPropsUnderBarrel>
+                          <recoilAmount>0</recoilAmount>
+                          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                          <hasStandardCommand>true</hasStandardCommand>
+                          <defaultProjectile>Bullet_40x46mmGrenade_HE</defaultProjectile>
+                          <warmupTime>1.1</warmupTime>
+                          <range>44</range>
+                          <burstShotCount>1</burstShotCount>
+                          <soundCast>Shot_GLA</soundCast>
+                          <soundCastTail>GunTail_Light</soundCastTail>
+                          <muzzleFlashScale>5</muzzleFlashScale>
+                        </verbPropsUnderBarrel>
+                        <propsFireModesUnderBarrel>
+                          <aiUseBurstMode>FALSE</aiUseBurstMode>
+                          <aiAimMode>AimedShot</aiAimMode>
+                          <aimedBurstShotCount>1</aimedBurstShotCount>
+                        </propsFireModesUnderBarrel>
+                    </li>
+                  </value>
+                </li>
+
+                <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="Caseless_MCSW"]/tools</xpath>
+                  <value>
+                    <tools>
+                      <li Class="CombatExtended.ToolCE">
+                        <label>barrel</label>
+                        <capacities>
+                            <li>Blunt</li>
+                        </capacities>
+                        <power>5</power>
+                        <cooldownTime>2.02</cooldownTime>
+                        <armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+                        <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+                      </li>
+                    </tools>
+                  </value>
+                </li>
+
+                <li Class="PatchOperationReplace">
+		            	<xpath>Defs/ThingDef[defName="Caseless_MCSW"]/costList</xpath>
+		            	<value>
+		            		<costList>
+                      <Steel>60</Steel>
+                      <ComponentIndustrial>5</ComponentIndustrial>
+                    </costList>
+		            	</value>
+		            </li>
+
+<!-- ======================================== Tools ==== -->
+
+                <!-- Barrels -->
+
+                <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ModularWeapons.ModularPartDef[@Name="UWC_MCSW_BarrelMeleeBase"]/toolFactor</xpath>
+                  <value>
+                    <toolFactor Class="CombatExtended.ToolCE">
+                      <label>muzzle</label>
+                      <capacities>
+                        <li>Poke</li>
+                      </capacities>
+                      <power>8</power>
+                      <cooldownTime>1.55</cooldownTime>
+                      <armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+                      <linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+                    </toolFactor>
+                  </value>
+                </li>
+
+                <!-- Stocks -->
+
+                <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ModularWeapons.ModularPartDef[@Name="UWC_MCSW_StockMeleeBase"]/toolFactor</xpath>
+                  <value>
+                    <toolFactor Class="CombatExtended.ToolCE">
+                      <label>stock</label>
+                      <capacities>
+                        <li>Blunt</li>
+                      </capacities>
+                      <power>8</power>
+                      <cooldownTime>1.55</cooldownTime>
+                      <chanceFactor>1.5</chanceFactor>
+                      <armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+                      <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+                    </toolFactor>
+                  </value>
+                </li>
+
+
+
+<!-- ======================================== Stats : Removing non-CE stats ==== -->
+
+                <!-- Ticks -->
+        
+                <li Class="PatchOperationRemove">
+                  <xpath>/Defs/ModularWeapons.ModularPartDef[
+                    defName="MCSW_Barrel_ShortWood" or
+                    defName="MCSW_Barrel_ShortPoly" or
+                    defName="MCSW_Barrel_LongWood" or
+                    defName="MCSW_Barrel_LongPoly" or
+                    defName="MCSW_Barrel_Sharpshooter" or
+                    defName="MCSW_Barrel_MachineGun" or
+                    defName="MCSW_Barrel_ShortPlasteel" or
+                    defName="MCSW_Barrel_LongPlasteel"
+                    ]/ticksBetweenShotsFactor</xpath>
+                </li>
+
+                <!-- Warmup time factor -->
+
+                <li Class="PatchOperationRemove">
+                  <xpath>/Defs/ModularWeapons.ModularPartDef[
+                    defName="MCSW_Barrel_StandardWood" or
+                    defName="MCSW_Barrel_StandardPoly" or
+                    defName="MCSW_Barrel_ShortWood" or
+                    defName="MCSW_Barrel_ShortPoly" or
+                    defName="MCSW_Barrel_LongWood" or
+                    defName="MCSW_Barrel_LongPoly" or
+                    defName="MCSW_Barrel_Sharpshooter" or
+                    defName="MCSW_Barrel_MachineGun" or
+                    defName="MCSW_Barrel_ShortPlasteel" or
+                    defName="MCSW_Barrel_StandardPlasteel" or
+                    defName="MCSW_Barrel_LongPlasteel" or
+                    defName="MCSW_Stock_Wood" or
+                    defName="MCSW_Stock_Ergo_Wood" or
+                    defName="MCSW_Stock_Sharpshooter_Wood" or
+                    defName="MCSW_Stock_Poly" or
+                    defName="MCSW_Stock_Ergo" or
+                    defName="MCSW_Stock_Sharpshooter" or
+                    defName="MCSW_Stock_Ergo_Plasteel" or
+                    defName="MCSW_Magazine_Short" or
+                    defName="MCSW_Magazine_Drum" or
+                    defName="MCSW_Magazine_Box" or
+                    defName="MCSW_Magazine_ECShort" or
+                    defName="MCSW_Magazine_ECBox" or
+                    defName="MCSW_Barrel_Accelerator"
+                    ]/warmupTimeFactor</xpath>
+                </li>
+
+                <!-- Cooldown factor -->
+
+                <li Class="PatchOperationRemove">
+                  <xpath>/Defs/ModularWeapons.ModularPartDef[
+                    defName="MCSW_Barrel_StandardWood" or
+                    defName="MCSW_Barrel_StandardPoly" or
+                    defName="MCSW_Barrel_LongWood" or
+                    defName="MCSW_Barrel_LongPoly" or
+                    defName="MCSW_Barrel_Sharpshooter" or
+                    defName="MCSW_Barrel_MachineGun" or
+                    defName="MCSW_Barrel_StandardPlasteel" or
+                    defName="MCSW_Barrel_LongPlasteel" or
+                    defName="MCSW_Stock_Sharpshooter_Wood" or
+                    defName="MCSW_Stock_Sharpshooter" or
+                    defName="MCSW_Magazine_Short" or
+                    defName="MCSW_Magazine_Drum" or
+                    defName="MCSW_Magazine_Box" or
+                    defName="MCSW_Magazine_ECShort" or
+                    defName="MCSW_Magazine_ECBox" or
+                    defName="MCSW_Barrel_Accelerator"
+                    ]/cooldownFactor</xpath>
+                </li>
+
+                <!-- rangeFactor -->
+
+                <li Class="PatchOperationRemove">
+                  <xpath>/Defs/ModularWeapons.ModularPartDef[
+                    defName="MCSW_Barrel_StandardWood" or
+                    defName="MCSW_Barrel_StandardPoly" or
+                    defName="MCSW_Stock_Wood" or
+                    defName="MCSW_Stock_Ergo_Wood" or
+                    defName="MCSW_Stock_Sharpshooter_Wood" or
+                    defName="MCSW_Stock_Poly" or
+                    defName="MCSW_Stock_Ergo" or
+                    defName="MCSW_Stock_Sharpshooter" or
+                    defName="MCSW_Stock_Ergo_Plasteel" or
+                    defName="MCSW_Magazine_Drum" or
+                    defName="MCSW_Magazine_Box"
+                    ]/rangeFactor</xpath>
+                </li>
+
+<!-- ======================================== Stats : Barrels ==== -->
+
+        <!-- standard -->
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_StandardWood" or defName="MCSW_Barrel_StandardPoly"]/massFactor</xpath>
+        </li>
+
+          <!-- Short -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortWood" or defName="MCSW_Barrel_ShortPoly"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <shotSpread>0.01</shotSpread>
+                  <swayFactor>-0.11</swayFactor>
+                  <bulk>-0.64</bulk>
+                  <recoilAmount>0.15</recoilAmount>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortWood" or defName="MCSW_Barrel_ShortPoly"]/massFactor</xpath>
+            <value>
+              <massFactor>-0.45</massFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortWood" or defName="MCSW_Barrel_ShortPoly"]</xpath>
+            <value>
+              <rangeFactor>-14</rangeFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortWood" or defName="MCSW_Barrel_ShortPoly"]/cooldownFactor</xpath>
+            <value>
+              <cooldownFactor>0.01</cooldownFactor>
+            </value>
+          </li>
+
+          <!-- Long -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_LongWood" or defName="MCSW_Barrel_LongPoly"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <shotSpread>-0.01</shotSpread>
+                  <swayFactor>0.08</swayFactor>
+                  <bulk>0.45</bulk>
+                  <recoilAmount>-0.10</recoilAmount>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_LongWood" or defName="MCSW_Barrel_LongPoly"]/massFactor</xpath>
+            <value>
+              <massFactor>0.37</massFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_LongWood" or defName="MCSW_Barrel_LongPoly"]/rangeFactor</xpath>
+            <value>
+              <rangeFactor>13</rangeFactor>
+            </value>
+          </li>
+
+          <!-- Sharpshooter -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_Sharpshooter"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <shotSpread>-0.02</shotSpread>
+                  <swayFactor>0.11</swayFactor>
+                  <bulk>0.54</bulk>
+                  <recoilAmount>-0.16</recoilAmount>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_Sharpshooter"]/massFactor</xpath>
+            <value>
+              <massFactor>0.59</massFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_Sharpshooter"]/rangeFactor</xpath>
+            <value>
+              <rangeFactor>16</rangeFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_Sharpshooter"]/burstCountFactor</xpath>
+          </li>
+
+		      <!-- MG -->
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_MachineGun"]/path</xpath>
+            <value>
+              <path>CE_Barrel_MG</path>
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_MachineGun"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <shotSpread>-0.01</shotSpread>
+                  <swayFactor>0.11</swayFactor>
+                  <bulk>0.55</bulk>
+                  <recoilAmount>-0.18</recoilAmount>
+                  <bipodEnable>true</bipodEnable>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_MachineGun"]/massFactor</xpath>
+            <value>
+              <massFactor>0.67</massFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_MachineGun"]/rangeFactor</xpath>
+            <value>
+              <rangeFactor>13</rangeFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_MachineGun"]/burstCountFactor</xpath>
+            <value>
+                <burstCountFactor>10</burstCountFactor>
+				  	</value>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_MachineGun"]/burstCountFactor</xpath>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_MachineGun"]</xpath>
+              <value>
+                <incompatibleKind>
+                  <li>MCSW_Underbarrel</li>
+                </incompatibleKind>
+              </value>
+          </li>
+
+          <!-- Short Plasteel -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortPlasteel"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <shotSpread>-0.01</shotSpread>
+                  <swayFactor>-0.14</swayFactor>
+                  <bulk>-0.66</bulk>
+                  <recoilAmount>0.13</recoilAmount>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortPlasteel"]/massFactor</xpath>
+            <value>
+              <massFactor>-0.5</massFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortPlasteel"]/rangeFactor</xpath>
+            <value>
+              <rangeFactor>-12</rangeFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_ShortPlasteel"]/cooldownFactor</xpath>
+            <value>
+              <cooldownFactor>-0.02</cooldownFactor>
+            </value>
+          </li>
+
+          <!-- Med Plasteel -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_StandardPlasteel"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <shotSpread>-0.02</shotSpread>
+                  <swayFactor>-0.03</swayFactor>
+                  <bulk>-0.05</bulk>
+                  <recoilAmount>-0.05</recoilAmount>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_StandardPlasteel"]/massFactor</xpath>
+            <value>
+              <massFactor>-0.11</massFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_StandardPlasteel"]/rangeFactor</xpath>
+            <value>
+              <rangeFactor>4</rangeFactor>
+            </value>
+          </li>
+
+          <!-- Long plas -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_LongPlasteel"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <shotSpread>-0.03</shotSpread>
+                  <swayFactor>0.05</swayFactor>
+                  <bulk>0.51</bulk>
+                  <recoilAmount>-0.18</recoilAmount>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_LongPlasteel"]/massFactor</xpath>
+            <value>
+              <massFactor>0.49</massFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_LongPlasteel"]/rangeFactor</xpath>
+            <value>
+              <rangeFactor>16</rangeFactor>
+            </value>
+          </li>
+
+          <!-- Accelerator -->
+
+          <li Class="PatchOperationReplace">
+			    	<xpath>Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_Accelerator"]/path</xpath>
+			    	<value>
+			    		<path>CE_Accelerator</path>
+			    	</value>
+			    </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_Accelerator"]/description</xpath>
+            <value>
+              <description>Advanced barrel attachment increases rate of fire and damage. High recoil. Used by unconventional, cybernetic mercenaries and special forces; unleashes an impressive amount of fire with scatter or triplex ammunition.</description>
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_Accelerator"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <overrideAmmoSet>AmmoSet_8mmChemrail</overrideAmmoSet>
+                  <swayFactor>0.06</swayFactor>
+                  <shotSpread>-0.02</shotSpread>
+                  <recoilAmount>0.58</recoilAmount>
+                  <magazineSize>20</magazineSize>
+                  <bulk>0.1</bulk>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_Accelerator"]</xpath>
+            <value>
+              <massFactor>0.58</massFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_Accelerator"]/ticksBetweenShotsFactor</xpath>
+            <value>
+              <ticksBetweenShotsFactor>-2</ticksBetweenShotsFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_Accelerator"]/rangeFactor</xpath>
+              <value>
+                <rangeFactor>6</rangeFactor>
+              </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Barrel_Accelerator"]/incompatibleKind</xpath>
+            <value>
+              <li>MCSW_Mag</li>
+            </value>
+          </li>
+
+          <!-- Extended accelerator -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+              <ModularWeapons.ModularPartDef ParentName="UWC_MCIW_MeleeBase">
+                <defName>MCSW_Barrel_AcceleratorExt</defName>
+                <label>accelerator barrel extended</label>
+                <description>Advanced barrel attachment includes an extended barrel and bipod. High recoil. Used by unconventional, cybernetic mercenaries and special forces; unleashes an impressive amount of fire with scatter or triplex ammunition.</description>
+                <kind>MCSW_Barrel</kind>
+                <path>CE_Accelerator_Ext</path>
+                <!--=====-->
+                <massFactor>2.28</massFactor>
+                <cooldownFactor>0.1</cooldownFactor>
+                <ticksBetweenShotsFactor>-2</ticksBetweenShotsFactor>
+                <rangeFactor>13</rangeFactor>
+                <!--=====-->
+                <costList>
+                  <Steel>30</Steel>
+                  <Plasteel>45</Plasteel>
+                  <ComponentSpacer>1</ComponentSpacer>
+                </costList>
+                <researchPrerequisites>
+                  <li>AcceleratorRails</li>
+                </researchPrerequisites>
+                <incompatibleKind>
+                  <li>MCSW_Underbarrel</li>
+                  <li>MCSW_Mag</li>
+                </incompatibleKind>
+                <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <overrideAmmoSet>AmmoSet_8mmChemrail</overrideAmmoSet>
+                  <swayFactor>0.27</swayFactor>
+                  <shotSpread>-0.03</shotSpread>
+                  <recoilAmount>0.15</recoilAmount>
+                  <magazineSize>20</magazineSize>
+                  <bulk>0.45</bulk>
+                  <bipodEnable>true</bipodEnable>
+                </li>
+              </additionalFactors>
+              </ModularWeapons.ModularPartDef>
+            </value>
+          </li>
+
+          <!-- LMG accelerator -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+              <ModularWeapons.ModularPartDef ParentName="UWC_MCIW_MeleeBase">
+                <defName>MCSW_Barrel_AcceleratorLMG</defName>
+                <label>accelerator barrel LMG</label>
+                <description>Advanced barrel attachment includes an extended barrel, drum magazine and bipod. High recoil. Used by unconventional, cybernetic mercenaries and special forces; unleashes an impressive amount of fire with scatter or triplex ammunition.</description>
+                <kind>MCSW_Barrel</kind>
+                <path>CE_Accelerator_LMG</path>
+                <!--=====-->
+                <massFactor>2.28</massFactor>
+                <cooldownFactor>0.1</cooldownFactor>
+                <ticksBetweenShotsFactor>-2</ticksBetweenShotsFactor>
+                <rangeFactor>13</rangeFactor>
+                <!--=====-->
+                <costList>
+                  <Steel>30</Steel>
+                  <Plasteel>45</Plasteel>
+                  <ComponentSpacer>1</ComponentSpacer>
+                </costList>
+                <researchPrerequisites>
+                  <li>AcceleratorRails</li>
+                </researchPrerequisites>
+                <incompatibleKind>
+                  <li>MCSW_Underbarrel</li>
+                  <li>MCSW_Mag</li>
+                </incompatibleKind>
+                <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <overrideAmmoSet>AmmoSet_8mmChemrail</overrideAmmoSet>
+                  <swayFactor>0.27</swayFactor>
+                  <shotSpread>-0.03</shotSpread>
+                  <recoilAmount>0.15</recoilAmount>
+                  <magazineSize>120</magazineSize>
+                  <bulk>0.45</bulk>
+                  <bipodEnable>true</bipodEnable>
+                </li>
+              </additionalFactors>
+              </ModularWeapons.ModularPartDef>
+            </value>
+          </li>
+
+
+
+<!-- ======================================== Stats : Stocks ==== -->
+
+          <!-- Standard Stock -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Wood" or defName="MCSW_Stock_Poly"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <swayFactor>1.33</swayFactor>
+                  <bulk>3.6</bulk>
+                  <recoilAmount>-0.34</recoilAmount>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Wood" or defName="MCSW_Stock_Poly"]/massFactor</xpath>
+            <value>
+              <massFactor>0.9</massFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Wood" or defName="MCSW_Stock_Poly"]/cooldownFactor</xpath>
+            <value>
+              <cooldownFactor>-0.01</cooldownFactor>
+            </value>
+          </li>
+
+          <!-- Ergonomic -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Ergo_Wood" or defName="MCSW_Stock_Ergo"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <swayFactor>-0.07</swayFactor>
+                  <bulk>-3.02</bulk>
+                  <recoilAmount>0.09</recoilAmount>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Ergo_Wood" or defName="MCSW_Stock_Ergo"]/massFactor</xpath>
+            <value>
+              <massFactor>-0.28</massFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Ergo_Wood" or defName="MCSW_Stock_Ergo"]/cooldownFactor</xpath>
+            <value>
+              <cooldownFactor>0.01</cooldownFactor>
+            </value>
+          </li>
+
+          <!-- Sharpshooter -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Sharpshooter_Wood" or defName="MCSW_Stock_Sharpshooter"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <swayFactor>0.15</swayFactor>
+                  <bulk>2.52</bulk>
+                  <recoilAmount>-0.18</recoilAmount>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Sharpshooter_Wood" or defName="MCSW_Stock_Sharpshooter"]/massFactor</xpath>
+            <value>
+              <massFactor>0.09</massFactor>
+            </value>
+          </li>
+
+          <!-- Ergonomic -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Ergo_Plasteel"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <swayFactor>-0.05</swayFactor>
+                  <bulk>-3.12</bulk>
+                  <recoilAmount>-0.18</recoilAmount>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Ergo_Plasteel"]/massFactor</xpath>
+            <value>
+              <massFactor>-0.28</massFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Stock_Ergo_Plasteel"]/cooldownFactor</xpath>
+            <value>
+              <cooldownFactor>-0.01</cooldownFactor>
+            </value>
+          </li>
+
+<!-- ======================================== Stats : Mags / Recievers ==== -->
+
+          <!-- Belt standard -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+              <ModularWeapons.ModularPartDef>
+                <defName>MCSW_Magazine_Belt</defName>
+                <label>LMG Reciever/Belt (350rn)</label>
+                <description>Heaviest reciever made for sustained fire. Uses 350-round belts.</description>
+                <kind>MCSW_Mag</kind>
+                <path>CE_Belt_Std</path>
+                <!--=====-->
+                <massFactor>1.81</massFactor>
+                <burstCountFactor>4</burstCountFactor>
+                <!--=====-->
+                <costList>
+                <Steel>55</Steel>
+                <ComponentIndustrial>3</ComponentIndustrial>
+              </costList>
+                <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <overrideAmmoSet>AmmoSet_77x49mmPC</overrideAmmoSet>
+                  <aimedBurstShotCount>2</aimedBurstShotCount>
+                  <swayFactor>0.18</swayFactor>
+                  <recoilAmount>-0.35</recoilAmount>
+                  <magazineSize>320</magazineSize>
+                  <bulk>3</bulk>
+                  <reloadTime>3.8</reloadTime>
+                </li>
+              </additionalFactors>
+              </ModularWeapons.ModularPartDef>
+            </value>
+          </li>
+
+          <!-- Belt ETC -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+              <ModularWeapons.ModularPartDef>
+                <defName>MCSW_Magazine_Belt_ETC</defName>
+                <label>ETC LMG Reciever/Belt (350rn)</label>
+                <description>Heaviest reciever made for sustained fire. Uses 350-round belts.</description>
+                <kind>MCSW_Mag</kind>
+                <path>CE_Belt_ETC</path>
+                <!--=====-->
+                <massFactor>2.28</massFactor>
+                <burstCountFactor>4</burstCountFactor>
+                <ticksBetweenShotsFactor>-1</ticksBetweenShotsFactor>
+                <rangeFactor>6</rangeFactor>
+                <!--=====-->
+                <costList>
+                <Steel>65</Steel>
+                <ComponentIndustrial>3</ComponentIndustrial>
+              </costList>
+                <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <overrideAmmoSet>AmmoSet_77x49mmETC</overrideAmmoSet>
+                  <aimedBurstShotCount>2</aimedBurstShotCount>
+                  <swayFactor>0.18</swayFactor>
+                  <recoilAmount>-0.35</recoilAmount>
+                  <magazineSize>320</magazineSize>
+                  <bulk>3</bulk>
+                  <reloadTime>3.8</reloadTime>
+                </li>
+              </additionalFactors>
+              <researchPrerequisites>
+                <li>ECOPA</li>
+              </researchPrerequisites>
+              </ModularWeapons.ModularPartDef>
+            </value>
+          </li>
+
+          <!-- Bug: magazine changes caliber based on last selected module -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Standard"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <overrideAmmoSet>AmmoSet_77x49mmPC</overrideAmmoSet>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <!-- Sniper -->
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Short"]/label</xpath>
+				  	<value>
+				  		<label>Sniper reciever/Short magazine</label>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Short"]/description</xpath>
+				  	<value>
+				  		<description>Heavier tuned reciever which incorporates plasteel construction. Slight increase in accuracy, weight and recoil reduction.</description>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Short"]/costList</xpath>
+				  	<value>
+				  		<costList>
+                <Steel>20</Steel>
+                <ComponentIndustrial>2</ComponentIndustrial>
+                <Plasteel>10</Plasteel>
+              </costList>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Short"]</xpath>
+            <value>
+              <researchPrerequisites>
+                <li>PrecisionRifling</li>
+              </researchPrerequisites>
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Short"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <overrideAmmoSet>AmmoSet_77x49mmPC</overrideAmmoSet>
+                  <aimedBurstShotCount>-2</aimedBurstShotCount>
+                  <shotSpread>-0.01</shotSpread>
+                  <magazineSize>-15</magazineSize>
+                  <swayFactor>0.06</swayFactor>
+                  <recoilAmount>-0.16</recoilAmount>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Short"]/massFactor</xpath>
+            <value>
+              <massFactor>0.58</massFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Short"]/ticksBetweenShotsFactor</xpath>
+            <value>
+              <ticksBetweenShotsFactor>-1</ticksBetweenShotsFactor>
+            </value>
+          </li>
+          
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Short"]</xpath>
+            <value>
+              <rangeFactor>3</rangeFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Short"]/burstCountFactor</xpath>
+            <value>
+              <burstCountFactor>-5</burstCountFactor>
+            </value>
+          </li>
+
+          <!-- Drum -->
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Drum"]/description</xpath>
+            <value>
+              <description>75 round drum magazine.</description>
+            </value>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Drum"]/burstCountFactor</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Drum"]/MoveSpeedFactor</xpath>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Drum"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <overrideAmmoSet>AmmoSet_77x49mmPC</overrideAmmoSet>
+                  <magazineSize>45</magazineSize>
+                  <recoilAmount>-0.12</recoilAmount>
+                  <bulk>1.1</bulk>
+                  <swayFactor>0.07</swayFactor>
+                  <reloadTime>0.9</reloadTime>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Drum"]/massFactor</xpath>
+            <value>
+              <massFactor>0.59</massFactor>
+            </value>
+          </li>
+
+          <!-- LMG -->
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Box"]/label</xpath>
+				  	<value>
+				  		<label>LMG reciever/belt feed</label>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Box"]/description</xpath>
+				  	<value>
+				  		<description>Heaviest reciever made for sustained fire. Uses 100-round belts.</description>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Box"]/burstCountFactor</xpath>
+            <value>
+                <burstCountFactor>4</burstCountFactor>
+				  	</value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Box"]/costList</xpath>
+				  	<value>
+				  		<costList>
+                <Steel>40</Steel>
+                <ComponentIndustrial>3</ComponentIndustrial>
+              </costList>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Box"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <overrideAmmoSet>AmmoSet_77x49mmPC</overrideAmmoSet>
+                  <aimedBurstShotCount>2</aimedBurstShotCount>
+                  <magazineSize>70</magazineSize>
+                  <swayFactor>0.18</swayFactor>
+                  <recoilAmount>-0.35</recoilAmount>
+                  <bulk>2</bulk>
+                  <reloadTime>3.8</reloadTime>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Box"]/massFactor</xpath>
+            <value>
+              <massFactor>1.78</massFactor>
+            </value>
+          </li>
+
+          <!--li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Box"]</xpath>
+            <value>
+              <ticksBetweenShotsFactor>-1</ticksBetweenShotsFactor>
+            </value>
+          </li-->
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_Box"]/MoveSpeedFactor</xpath>
+          </li>
+
+          <!-- ETC Sniper -->
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECShort"]/label</xpath>
+				  	<value>
+				  		<label>ETC Sniper reciever/Short magazine</label>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECShort"]/description</xpath>
+				  	<value>
+				  		<description>Heavier plasteel reciever. Fair increase in accuracy, weight and recoil reduction.</description>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECShort"]/costList</xpath>
+				  	<value>
+				  		<costList>
+                <ComponentIndustrial>4</ComponentIndustrial>
+                <Plasteel>30</Plasteel>
+              </costList>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECShort"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <overrideAmmoSet>AmmoSet_77x49mmETC</overrideAmmoSet>
+                  <aimedBurstShotCount>-2</aimedBurstShotCount>
+                  <magazineSize>-15</magazineSize>
+                  <swayFactor>0.13</swayFactor>
+                  <recoilAmount>-0.24</recoilAmount>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECShort"]/massFactor</xpath>
+            <value>
+              <massFactor>1.33</massFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECShort"]/ticksBetweenShotsFactor</xpath>
+            <value>
+              <ticksBetweenShotsFactor>1</ticksBetweenShotsFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECShort"]</xpath>
+            <value>
+              <rangeFactor>6</rangeFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECShort"]/burstCountFactor</xpath>
+            <value>
+              <burstCountFactor>-4</burstCountFactor>
+            </value>
+          </li>
+
+          <!-- ETC -->
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECStandard"]/label</xpath>
+				  	<value>
+				  		<label>ETC reciever/Standard magazine</label>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECStandard"]/description</xpath>
+				  	<value>
+				  		<description>Heavier plasteel reciever. Increased damage, weight and reduced recoil.</description>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECStandard"]/costList</xpath>
+				  	<value>
+				  		<costList>
+                <ComponentIndustrial>4</ComponentIndustrial>
+                <Plasteel>25</Plasteel>
+              </costList>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECStandard"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <overrideAmmoSet>AmmoSet_77x49mmETC</overrideAmmoSet>
+                  <swayFactor>0.04</swayFactor>
+                  <recoilAmount>-0.17</recoilAmount>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECStandard"]/massFactor</xpath>
+            <value>
+              <massFactor>0.39</massFactor>
+            </value>
+          </li>
+
+          <!--li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECStandard"]</xpath>
+            <value>
+              <ticksBetweenShotsFactor>-1</ticksBetweenShotsFactor>
+            </value>
+          </li-->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECStandard"]</xpath>
+            <value>
+              <rangeFactor>6</rangeFactor>
+            </value>
+          </li>
+
+          <!-- ETC LMG -->
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECBox"]/label</xpath>
+				  	<value>
+				  		<label>ETC LMG reciever/belt feed</label>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECBox"]/description</xpath>
+				  	<value>
+				  		<description>Heaviest reciever made for sustained fire. Uses 100-round belts of advanced ammunition.</description>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECBox"]/burstCountFactor</xpath>
+            <value>
+                <burstCountFactor>5</burstCountFactor>
+				  	</value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+				  	<xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECBox"]/costList</xpath>
+				  	<value>
+				  		<costList>
+                <Plasteel>55</Plasteel>
+                <ComponentIndustrial>5</ComponentIndustrial>
+              </costList>
+				  	</value>
+				  </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECBox"]</xpath>
+            <value>
+              <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <overrideAmmoSet>AmmoSet_77x49mmETC</overrideAmmoSet>
+                  <aimedBurstShotCount>2</aimedBurstShotCount>
+                  <magazineSize>70</magazineSize>
+                  <swayFactor>0.23</swayFactor>
+                  <recoilAmount>-0.4</recoilAmount>
+                  <bulk>2</bulk>
+                  <reloadTime>3.8</reloadTime>
+                </li>
+              </additionalFactors>
+            </value>
+          </li>
+
+          <li Class="PatchOperationReplace">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECBox"]/massFactor</xpath>
+            <value>
+              <massFactor>2.28</massFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECBox"]</xpath>
+            <value>
+              <ticksBetweenShotsFactor>-1</ticksBetweenShotsFactor>
+            </value>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECBox"]/MoveSpeedFactor</xpath>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Magazine_ECBox"]</xpath>
+            <value>
+              <rangeFactor>6</rangeFactor>
+            </value>
+          </li>
+
+          <!-- ======================================== Remove Extra GLs -->
+
+          <li Class="PatchOperationReplace">
+			    	<xpath>Defs/ModularWeapons.ModularPartDef[defName="MCSW_Attach_GLHE"]/path</xpath>
+			    	<value>
+			    		<path>CE_GL</path>
+			    	</value>
+			    </li>
+
+          <!-- Defs -->
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Attach_GLIC"]</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Attach_GLSM"]</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Attach_GLEMP"]</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Attach_GL2HEDP"]</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Attach_GL2I"]</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Attach_GL2S"]</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCSW_Attach_GL2EMP"]</xpath>
+          </li>
+
+          <!-- ======================================== Presets -->
+
+          <li Class="PatchOperationReplace">
+			    	<xpath>Defs/ModularWeapons.GunsmithPresetDef[defName="MCSW_Preset_CR" or defName="MCSW_Preset_CRW"]/requiredParts/li[3]</xpath>
+			    	<value>
+			    		<li>MCSW_Magazine_Standard</li>
+			    	</value>
+			    </li>
+
+          <li Class="PatchOperationAdd">
+			    	<xpath>Defs/ModularWeapons.GunsmithPresetDef[defName="MCSW_Preset_LMG"]/optionalParts</xpath>
+			    	<value>
+			    		<li>MCSW_Magazine_Belt</li>
+			    	</value>
+			    </li>
+
+          <li Class="PatchOperationAdd">
+			    	<xpath>Defs/ModularWeapons.GunsmithPresetDef[defName="MCSW_Preset_SBR"]/optionalParts</xpath>
+			    	<value>
+			    		<li>MCSW_Magazine_Belt_ETC</li>
+			    	</value>
+			    </li>
+
+          <!-- GLs -->
+
+          <li Class="PatchOperationRemove">
+          	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[
+            defName="MCSW_Preset_BR" or
+            defName="MCSW_Preset_BRW" or
+            defName="MCSW_Preset_ABR" or
+            defName="MCSW_Preset_ABRW"
+            ]/optionalParts/li[text()="MCSW_Attach_GLIC"]</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+          	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[
+            defName="MCSW_Preset_BR" or
+            defName="MCSW_Preset_BRW" or
+            defName="MCSW_Preset_ABR" or
+            defName="MCSW_Preset_ABRW"
+            ]/optionalParts/li[text()="MCSW_Attach_GLSM"]</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+          	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[
+            defName="MCSW_Preset_BR" or
+            defName="MCSW_Preset_BRW" or
+            defName="MCSW_Preset_ABR" or
+            defName="MCSW_Preset_ABRW"
+            ]/optionalParts/li[text()="MCSW_Attach_GLEMP"]</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+          	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCSW_Preset_SBR"]/optionalParts/li[text()="MCSW_Attach_GL2HEDP"]</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+          	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCSW_Preset_SBR"]/optionalParts/li[text()="MCSW_Attach_GL2I"]</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+          	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCSW_Preset_SBR"]/optionalParts/li[text()="MCSW_Attach_GL2S"]</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+          	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCSW_Preset_SBR"]/optionalParts/li[text()="MCSW_Attach_GL2EMP"]</xpath>
+          </li>
+
+			</operations>
+		</match>
+	</Operation>
+</Patch>

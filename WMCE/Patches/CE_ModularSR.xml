@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+  <mods>
+    <li>Modularization Vanilla Weapon</li>
+  </mods>
+  <match Class="PatchOperationSequence">
+  <operations>
+
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>Gun_ModularCaseless_BoltAction</defName>
+    <statBases>
+      <Mass>1.5</Mass> <!--3.3-->
+      <RangedWeapon_Cooldown>1.31</RangedWeapon_Cooldown> <!--1.31-->
+      <SightsEfficiency>1.0</SightsEfficiency> <!--1-->
+      <ShotSpread>0.11</ShotSpread> <!--0.07-->
+      <SwayFactor>0.87</SwayFactor> <!--1.31-->
+      <Bulk>3</Bulk> <!--6.3-->
+      <WorkToMake>22000</WorkToMake> <!--22000-->
+    </statBases>
+    <costList>
+      <Steel>55</Steel> <!--55-->
+      <ComponentIndustrial>2</ComponentIndustrial> <!--2-->
+      <Chemfuel>12</Chemfuel> <!--12-->
+    </costList>
+    <Properties>
+      <recoilAmount>2.54</recoilAmount> <!--2.54-->
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_77x49mmPC_FMJ</defaultProjectile>
+      <warmupTime>0.5</warmupTime> <!--1.5-->
+      <range>15.9</range> <!--30.9-->
+      <soundCast>Shot_Bolty</soundCast>
+      <soundCastTail>GunTail_Heavy</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>5</magazineSize> <!--5-->
+      <reloadTime>4</reloadTime>
+      <ammoSet>AmmoSet_77x49mmPC</ammoSet>
+    </AmmoUser>
+    <FireModes>
+      <aiUseBurstMode>FALSE</aiUseBurstMode>
+      <aiAimMode>AimedShot</aiAimMode>
+    </FireModes>
+    <weaponTags>
+      <li>CE_AI_SR</li>
+    </weaponTags>
+    <researchPrerequisite>Gunsmithing</researchPrerequisite>
+  </li>
+
+  <li Class="PatchOperationAdd">
+  	<xpath>Defs/ThingDef[defName="Gun_ModularCaseless_BoltAction"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+  	<value>
+  		<compGetGizmosExtraAllowedCompType>
+  			<li>CombatExtended.CompAmmoUser</li>
+  			<li>CombatExtended.CompFireModes</li>
+  		</compGetGizmosExtraAllowedCompType>
+  		<compPropertiesInitializeCompType>
+  			<li>CombatExtended.CompAmmoUser</li>
+  			<li>CombatExtended.CompFireModes</li>
+  		</compPropertiesInitializeCompType>
+  		<compPropertiesCreateInstanceCompType>
+  			<li>CombatExtended.CompFireModes</li>
+        <li>CombatExtended.CompAmmoUser</li>
+  		</compPropertiesCreateInstanceCompType>
+  	</value>
+  	<order>Append</order>
+  </li>
+
+  <!--barrels: god why-->
+
+  <li Class="PatchOperationAdd">
+  	<xpath>Defs/ThingDef[defName="Gun_ModularCaseless_BoltAction"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModCSR_UnderBarrel"]</xpath>
+  	<value>
+  		<allowedExtraCompType>
+  			<li>CombatExtended.BipodComp</li>
+  		</allowedExtraCompType>
+  	</value>
+  	<order>Append</order>
+  </li>
+
+  <li Class="PatchOperationAdd" >
+  	<xpath>Defs/ThingDef[defName="CaselessMod_SR_StdBarrel"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+  	<value>
+  	  <statMultiplier>
+  		<SwayFactor>0.75</SwayFactor>
+        <ShotSpread>0.69</ShotSpread>
+        <Mass>1.1</Mass>
+        <Bulk>1.1</Bulk>
+  	  </statMultiplier>
+  	</value>
+  </li>
+
+  <li Class="PatchOperationReplace" >
+  	<xpath>Defs/ThingDef[defName="CaselessMod_SR_SmlBarrel" 
+  					  or defName="CaselessMod_SR_SilencedBarrel"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+  	<value>
+  	  <statMultiplier>
+  		<SwayFactor>1</SwayFactor>
+        <ShotSpread>0.95</ShotSpread>
+        <Mass>1.1</Mass>
+  	  </statMultiplier>
+  	</value>
+  </li>
+
+  <li Class="PatchOperationReplace" >
+  	<xpath>Defs/ThingDef[defName="CaselessMod_SR_BarrelPlus"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+  	<value>
+  	  <statMultiplier>
+  		<SwayFactor>0.75</SwayFactor>
+        <ShotSpread>0.55</ShotSpread>
+        <Mass>0.95</Mass>
+        <Bulk>1.05</Bulk>
+  	  </statMultiplier>
+  	</value>
+  </li>
+
+  <li Class="PatchOperationReplace" >
+  	<xpath>Defs/ThingDef[defName="CaselessMod_SR_LngBarrel"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+  	<value>
+  	  <statMultiplier>
+  		<SwayFactor>0.8</SwayFactor>
+        <ShotSpread>0.55</ShotSpread>
+        <Mass>1.4</Mass>
+        <Bulk>1.3</Bulk>
+  	  </statMultiplier>
+  	</value>
+  </li>
+
+  <li Class="PatchOperationReplace" >
+  	<xpath>Defs/ThingDef[defName="CaselessMod_SR_MatchBarrel"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+  	<value>
+  	  <statMultiplier>
+  		<SwayFactor>0.8</SwayFactor>
+        <ShotSpread>0.45</ShotSpread>
+        <Mass>1.45</Mass>
+        <Bulk>1.3</Bulk>
+  	  </statMultiplier>
+  	</value>
+  </li>
+
+  <!--stocks: why pt.2-->
+
+  <li Class="PatchOperationReplace" >
+  	<xpath>Defs/ThingDef[defName="CaselessMod_SR_Stock"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+  	<value>
+  	  <statMultiplier>
+  		<SwayFactor>0.75</SwayFactor>
+        <Mass>1.1</Mass>
+        <Bulk>1.1</Bulk>
+  	  </statMultiplier>
+  	</value>
+  </li>
+
+  <li Class="PatchOperationReplace" >
+  	<xpath>Defs/ThingDef[defName="CaselessMod_SR_WoodStock"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+  	<value>
+  	  <statMultiplier>
+  		<SwayFactor>0.65</SwayFactor>
+        <Mass>1.3</Mass>
+        <Bulk>1.3</Bulk>
+  	  </statMultiplier>
+  	</value>
+  </li>
+
+  <li Class="PatchOperationReplace" >
+  	<xpath>Defs/ThingDef[defName="CaselessMod_SR_HeavyWood"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+  	<value>
+  	  <statMultiplier>
+  		<SwayFactor>0.6</SwayFactor>
+        <Mass>1.5</Mass>
+        <Bulk>1.5</Bulk>
+  	  </statMultiplier>
+  	</value>
+  </li>
+
+  <li Class="PatchOperationReplace" >
+  	<xpath>Defs/ThingDef[defName="CaselessMod_SR_StockErgo"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+  	<value>
+  	  <statMultiplier>
+  		<SwayFactor>0.68</SwayFactor>
+        <Mass>0.99</Mass>
+        <Bulk>0.7</Bulk>
+  	  </statMultiplier>
+  	</value>
+  </li>
+
+  <!--magazines-->
+
+  <li Class="PatchOperationRemove" >
+  	<xpath>Defs/ThingDef[defName="CaselessMod_SR_MagSM" or defName="CaselessMod_SR_MagLG"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/verbPropertiesOffseter</xpath>
+  </li>
+
+  <li Class="PatchOperationRemove" >
+  	<xpath>Defs/ThingDef[defName="CaselessMod_SR_MagSM" or defName="CaselessMod_SR_MagLG"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statOffset</xpath>
+  </li>
+
+  <li Class="PatchOperationAdd" >
+    <xpath>Defs/ThingDef[defName="CaselessMod_SR_MagSM"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+    <value>
+    	<compPropertiesObjectPatch>
+    		<il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+    			<magazineSize>5</magazineSize>
+                <reloadTime>3.2</reloadTime>
+    		</il>
+    	</compPropertiesObjectPatch>
+    </value>
+    <order>Append</order>
+    </li>
+
+    <li Class="PatchOperationAdd" >
+    <xpath>Defs/ThingDef[defName="CaselessMod_SR_MagMD"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+    <value>
+    	<compPropertiesObjectPatch>
+    		<il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+    			<magazineSize>10</magazineSize>
+                <reloadTime>4</reloadTime>
+    		</il>
+    	</compPropertiesObjectPatch>
+    </value>
+    <order>Append</order>
+    </li>
+
+    <li Class="PatchOperationAdd" >
+    <xpath>Defs/ThingDef[defName="CaselessMod_SR_MagLG"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+    <value>
+    	<compPropertiesObjectPatch>
+    		<il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+    			<magazineSize>15</magazineSize>
+                <reloadTime>4.6</reloadTime>
+    		</il>
+    	</compPropertiesObjectPatch>
+    </value>
+    <order>Append</order>
+    </li>
+
+    <!--receivers-->
+
+    <li Class="PatchOperationReplace" >
+  	<xpath>Defs/ThingDef[defName="CaselessMod_SR_AccurateReciever"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+  	<value>
+  	  <statMultiplier>
+        <ShotSpread>0.75</ShotSpread>
+        <Mass>1.1</Mass>
+  	  </statMultiplier>
+  	</value>
+  </li>
+
+  <li Class="PatchOperationReplace" >
+  	<xpath>Defs/ThingDef[defName="CaselessMod_SR_MarksmanReciever"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+  	<value>
+  	  <statMultiplier>
+        <ShotSpread>0.69</ShotSpread>
+        <Mass>1.1</Mass>
+  	  </statMultiplier>
+  	</value>
+  </li>
+
+  <!-- Bulk -->
+
+	<li Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="CaselessMod_SR_StdBarrel"
+                      or defName="CaselessMod_SR_BarrelPlus"]/statBases</xpath>
+    <value>
+      <Bulk>2.5</Bulk>
+    </value>
+  </li>
+
+  <li Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="CaselessMod_SR_LngBarrel"
+                      or defName="CaselessMod_SR_MatchBarrel"]/statBases</xpath>
+    <value>
+      <Bulk>4</Bulk>
+    </value>
+  </li>
+
+  <li Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="CaselessMod_SR_SilencedBarrel"]/statBases</xpath>
+    <value>
+      <Bulk>1.8</Bulk>
+    </value>
+  </li>
+
+  <li Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="CaselessMod_SR_Stock"
+                      or defName="CaselessMod_SR_WoodStock"
+                      or defName="CaselessMod_SR_HeavyWood"]/statBases</xpath>
+    <value>
+      <Bulk>3</Bulk>
+    </value>
+  </li>
+
+  <li Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="CaselessMod_SR_StockErgo"]/statBases</xpath>
+    <value>
+      <Bulk>2.3</Bulk>
+    </value>
+  </li>
+
+  <li Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="CaselessMod_SR_MagSM"]/statBases</xpath>
+    <value>
+      <Bulk>0.8</Bulk>
+    </value>
+  </li>
+
+  <li Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="CaselessMod_SR_MagMD"]/statBases</xpath>
+    <value>
+      <Bulk>1.5</Bulk>
+    </value>
+  </li>
+
+  <li Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="CaselessMod_SR_MagLG"]/statBases</xpath>
+    <value>
+      <Bulk>2</Bulk>
+    </value>
+  </li>
+
+
+
+  </operations>
+  </match>
+</Operation>
+
+</Patch>

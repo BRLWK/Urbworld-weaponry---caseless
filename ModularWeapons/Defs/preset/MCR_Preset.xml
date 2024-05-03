@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- === Tier 1: No research - basic -->
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCR_Preset_Basic</defName>
+    <customName>Self-defense revolver</customName>
+    <weapon>Caseless_ModRevolver</weapon>
+    <weaponTags>
+        <li>SimpleGun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCRev_Grip_Standard</li>
+      <li>MCRev_Cylinder_Standard</li>
+      <li>MCRev_Barrel_Stub</li>
+    </requiredParts>
+    <optionalPartsCount>0</optionalPartsCount>
+    <optionalParts>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCR_Preset_Varmint</defName>
+    <customName>Varmint revolver</customName>
+    <weapon>Caseless_ModRevolver</weapon>
+    <weaponTags>
+        <li>SimpleGun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCRev_Grip_Wood</li>
+      <li>MCRev_Cylinder_Standard</li>
+      <li>MCRev_Barrel_Standard</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCRev_Grip_Ergonomic</li>
+      <li>MCRev_Optic_Reddot</li>
+      <li>MCRev_Attach_Flashlight</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCR_Preset_Bull</defName>
+    <customName>Bull revolver</customName>
+    <weapon>Caseless_ModRevolver</weapon>
+    <weaponTags>
+        <li>Revolver</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCRev_Grip_Wood</li>
+      <li>MCRev_Cylinder_Magnum</li>
+      <li>MCRev_Barrel_Standard</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCRev_Grip_Ergonomic</li>
+      <li>MCRev_Optic_Reddot</li>
+      <li>MCRev_Attach_Flashlight</li>
+      <li>MCRev_Attach_Laser</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCR_Preset_BasicCarbine</defName>
+    <customName>Basic revolver carbine</customName>
+    <weapon>Caseless_ModRevolver</weapon>
+    <weaponTags>
+        <li>Gun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCRev_Grip_WoodStock</li>
+      <li>MCRev_Cylinder_Magnum</li>
+      <li>MCRev_Barrel_Long</li>
+      <li>MCRev_Optic_Reddot</li>
+      <li>MCRev_Attach_Flashlight</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCRev_Attach_Flashlight</li>
+      <li>MCRev_Attach_Laser</li>
+      <li>MCRev_Barrel_LongBayonet</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef> 
+    <defName>MCR_Preset_Standard</defName>
+    <customName>Magnum revolver</customName>
+    <weapon>Caseless_ModRevolver</weapon>
+    <weaponTags>
+        <li>Gun</li>
+        <li>Revolver</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCRev_Grip_Wood</li>
+      <li>MCRev_Cylinder_Magnum</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCRev_Grip_Ergonomic</li>
+      <li>MCRev_Cylinder_MagnumExt</li>
+      <li>MCRev_Barrel_Long</li>
+      <li>MCRev_Barrel_Standard</li>
+      <li>MCRev_Optic_Reddot</li>
+      <li>MCRev_Sight_Holo</li>
+      <li>MCRev_Attach_PEQ</li>
+      <li>MCRev_Attach_Flashlight</li>
+      <li>MCRev_Attach_Laser</li>
+      <li>MCRev_Barrel_LongBayonet</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Custom - IndustrialGunAdvanced -->
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCR_Preset_Advanced</defName>
+    <customName>Custom revolver</customName>
+    <weapon>Caseless_ModRevolver</weapon>
+    <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+        <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCRev_Grip_Ergonomic</li>
+      <li>MCRev_Cylinder_Magnum</li>
+      <li>MCRev_Barrel_Standard</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCRev_Cylinder_MagnumExt</li>
+      <li>MCRev_Barrel_Long</li>
+      <li>MCRev_Optic_Reddot</li>
+      <li>MCRev_Sight_Holo</li>
+      <li>MCRev_Attach_PEQ</li>
+      <li>MCRev_Attach_Flashlight</li>
+      <li>MCRev_Attach_Laser</li>
+      <li>MCRev_Barrel_LongProd</li>
+      <li>MCRev_Barrel_LongBayonet</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+  
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCR_Preset_CustomCarbine</defName>
+    <customName>Custom revolver carbine</customName>
+    <weapon>Caseless_ModRevolver</weapon>
+    <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+        <li>LongShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCRev_Grip_PolyStock</li>
+      <li>MCRev_Cylinder_MagnumExt</li>
+      <li>MCRev_Barrel_Carbine</li>
+      <li>MCRev_Optic_Scope</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCRev_Attach_PEQ</li>
+      <li>MCRev_Attach_Flashlight</li>
+      <li>MCRev_Attach_Laser</li>
+      <li>MCRev_Grip_StunStock</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Spacer revolver -->
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCR_Preset_Spacer</defName>
+    <customName>Spacer revolver</customName>
+    <weapon>Caseless_ModRevolver</weapon>
+    <weaponTags>
+        <li>SpacerGun</li>
+        <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCRev_Grip_Ergonomic</li>
+      <li>MCRev_Cylinder_EC</li>
+      <li>MCRev_Barrel_Standard</li>
+      <li>MCRev_Optic_SmartDot</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCRev_Barrel_Long</li>
+      <li>MCRev_Optic_SDS</li>
+      <li>MCRev_Optic_Glitter</li>
+      <li>MCRev_Optic_sHolo</li>
+      <li>MCRev_Barrel_LongProd</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCR_Preset_SpacerCarbine</defName>
+    <customName>Spacer revolver carbine</customName>
+    <weapon>Caseless_ModRevolver</weapon>
+    <weaponTags>
+        <li>SpacerGun</li>
+        <li>LongShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCRev_Grip_PolyStock</li>
+      <li>MCRev_Cylinder_EC</li>
+      <li>MCRev_Barrel_Accelerator</li>
+      <li>MCRev_Optic_Scope</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCRev_Optic_SDS</li>
+      <li>MCRev_Optic_sHolo</li>
+      <li>MCRev_Optic_Glitter</li>
+      <li>MCRev_Cylinder_EX</li>
+      <li>MCRev_Grip_StunStock</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+</Defs>

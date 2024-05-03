@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- ======================================== Projectiles ==== -->
+
+  <ThingDef ParentName="BaseFragGrenadeProjectile">
+    <defName>Proj_UBAirburst</defName>
+    <label>airburst grenade</label>
+    <projectile>
+      <speed>50</speed>
+      <damageAmountBase>25</damageAmountBase>
+      <stoppingPower>0.25</stoppingPower>
+      <armorPenetrationBase>0.05</armorPenetrationBase>
+      <explosionDelay>0</explosionDelay>
+      <arcHeightFactor>0.4</arcHeightFactor>
+      <explosionRadius>2.5</explosionRadius>
+    </projectile>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseFragGrenadeProjectile">
+    <defName>Proj_UBHEDP</defName>
+    <label>HEDP grenade</label>
+    <projectile>
+      <speed>55</speed>
+      <damageAmountBase>75</damageAmountBase>
+      <stoppingPower>1</stoppingPower>
+      <armorPenetrationBase>0.25</armorPenetrationBase>
+      <explosionDelay>0</explosionDelay>
+      <arcHeightFactor>0.2</arcHeightFactor>
+      <explosionRadius>1.5</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+<!-- ======================================== Modular Caseless Parent ==== -->
+
+  <ThingDef ParentName="BaseHumanMakeableGun" Abstract="True" Name="BaseCaselessModularWeapon">
+    <relicChance>0.3</relicChance>
+    <generateCommonality>0.5</generateCommonality>
+    <weaponClasses>
+      <li>Ranged</li>
+    </weaponClasses>
+    <weaponTags>
+      <li>Gun</li>
+    </weaponTags>
+    <statBases Inherit="False">
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>0.75</Flammability>
+			<DeteriorationRate>1</DeteriorationRate>
+			<Beauty>-2</Beauty>
+			<SellPriceFactor>0.25</SellPriceFactor>
+		</statBases>
+    <thingCategories Inherit="False">
+      <li>Caselessweapons</li>
+    </thingCategories>
+    <recipeMaker>
+      <researchPrerequisite>Caseless_Weapons</researchPrerequisite>
+      <recipeUsers Inherit="False">
+        <li>Caselessbench</li>
+        <li>MW_GunsmithStation</li>
+      </recipeUsers>
+    </recipeMaker>
+    
+    
+    <equippedStatOffsets>
+      <!--MoveSpeed>0.0001</MoveSpeed-->
+      <PainShockThreshold>0.000001</PainShockThreshold>
+      <PsychicSensitivity>0.000001</PsychicSensitivity>
+      <PsychicEntropyRecoveryRate MayRequire="ludeon.rimworld.royalty">0.000001</PsychicEntropyRecoveryRate>
+      <PsychicEntropyGain MayRequire="ludeon.rimworld.royalty">0.000001</PsychicEntropyGain>
+      <PsychicEntropyMax MayRequire="ludeon.rimworld.royalty">0.000001</PsychicEntropyMax>
+      <InjuryHealingFactor>0.000001</InjuryHealingFactor>
+      <MeleeHitChance>0.000001</MeleeHitChance>
+      <MeleeDodgeChance>0.000001</MeleeDodgeChance>
+      <MentalBreakThreshold>0.000001</MentalBreakThreshold>
+      <SocialImpact>0.000001</SocialImpact>
+      <!-- 2023.06.01~ -->
+      <IncomingDamageFactor>0.000001</IncomingDamageFactor>
+      <HuntingStealth>0.000001</HuntingStealth>
+      <ToxicEnvironmentResistance>0.000001</ToxicEnvironmentResistance>
+      <PawnTrapSpringChance>0.000001</PawnTrapSpringChance>
+      <MortarMissRadiusFactor>0.000001</MortarMissRadiusFactor>
+      <HackingSpeed MayRequire="ludeon.rimworld.ideology">0.000001</HackingSpeed>
+      <StaggerDurationFactor MayRequire="ludeon.rimworld.biotech">0.000001</StaggerDurationFactor>
+      <MeleeWeapon_DeflectionChance MayRequire="jecrell.jecstools">0.000001</MeleeWeapon_DeflectionChance>
+    </equippedStatOffsets>
+  </ThingDef>
+
+<!-- ======================================== Universal Modules ==== -->
+
+<!-- ======================================== Optics ==== -->
+
+  <ModularWeapons.ModularPartDef Name="UWC_RedDot_Base" Abstract="True">
+    <description>CQB sight that allows for quick aiming.</description>
+    <label>Red-dot sight</label>
+    <!--=====-->
+    <massFactor>0.21</massFactor>
+    <AccTouchFactor>0.1</AccTouchFactor>
+    <AccShortFactor>0.08</AccShortFactor>
+    <AccMediumFactor>0.03</AccMediumFactor>
+    <AccLongFactor>-0.03</AccLongFactor>
+    <warmupTimeFactor>-0.15</warmupTimeFactor>
+    <cooldownFactor>-0.15</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_AcogHolo_Base" Abstract="True">
+    <description>ACOG sight provides 4x magnification.</description>
+    <label>ACOG sight</label>
+    <!--=====-->
+    <AccTouchFactor>0.04</AccTouchFactor>
+    <AccShortFactor>0.08</AccShortFactor>
+    <AccMediumFactor>0.12</AccMediumFactor>
+    <AccLongFactor>0.08</AccLongFactor>
+    <warmupTimeFactor>0.25</warmupTimeFactor>
+    <cooldownFactor>0.15</cooldownFactor>
+    <rangeFactor>2</rangeFactor>
+    <massFactor>0.42</massFactor>
+    <!--=====-->
+    <costList>
+      <Steel>8</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_Scope_Base" Abstract="True">
+    <description>8x optical scope for long range shooting.</description>
+    <label>Scope</label>
+    <!--=====-->
+    <AccTouchFactor>-0.08</AccTouchFactor>
+    <AccShortFactor>-0.03</AccShortFactor>
+    <AccMediumFactor>0.1</AccMediumFactor>
+    <AccLongFactor>0.12</AccLongFactor>
+    <rangeFactor>4</rangeFactor>
+    <massFactor>0.76</massFactor>
+    <warmupTimeFactor>0.4</warmupTimeFactor>
+    <cooldownFactor>0.2</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>14</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Optics smart -->
+
+  <ModularWeapons.ModularPartDef Name="UWC_SmartDot_Base" Abstract="True">
+    <label>Smart dot</label>
+    <description>Urbworld smart optic, provides the user with a wide-array of battlefield information as well as outlines targets.</description>
+    <!--=====-->
+    <AccTouchFactor>0.1</AccTouchFactor>
+    <AccShortFactor>0.08</AccShortFactor>
+    <AccMediumFactor>0.03</AccMediumFactor>
+    <AccLongFactor>-0.03</AccLongFactor>
+    <massFactor>0.15</massFactor>
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <cooldownFactor>-0.2</cooldownFactor>
+    <statModifiers>
+      <ShootingAccuracyPawn>0.2</ShootingAccuracyPawn>
+      <AimingDelayFactor>-0.1</AimingDelayFactor>
+    </statModifiers>
+    <!--=====-->
+    <costList>
+      <Plasteel>12</Plasteel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>SmartOptics</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_SmartCog_Base" Abstract="True">
+    <label>Smart Holo</label>
+    <description>Urbworld smart optic, provides the user with a wide-array of battlefield information as well as outlines targets.</description>
+    <!--=====-->
+    <AccTouchFactor>0.06</AccTouchFactor>
+    <AccShortFactor>0.1</AccShortFactor>
+    <AccMediumFactor>0.14</AccMediumFactor>
+    <AccLongFactor>0.1</AccLongFactor>
+    <warmupTimeFactor>0.1</warmupTimeFactor>
+    <cooldownFactor>0.1</cooldownFactor>
+    <rangeFactor>2</rangeFactor>
+    <massFactor>0.30</massFactor>
+    <statModifiers>
+      <ShootingAccuracyPawn>0.4</ShootingAccuracyPawn>
+      <AimingDelayFactor>-0.05</AimingDelayFactor>
+    </statModifiers>
+    <!--=====-->
+    <costList>
+      <Plasteel>18</Plasteel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>SmartOptics</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+  
+  <ModularWeapons.ModularPartDef Name="UWC_SmartScope_Base" Abstract="True">
+    <label>Smart scope</label>
+    <description>Urbworld smart scope, provides the user with a wide-array of battlefield information as well as outlines targets.</description>
+    <!--=====-->
+    <AccTouchFactor>-0.08</AccTouchFactor>
+    <AccShortFactor>-0.04</AccShortFactor>
+    <AccMediumFactor>0.05</AccMediumFactor>
+    <AccLongFactor>0.07</AccLongFactor>
+    <massFactor>0.60</massFactor>
+    <warmupTimeFactor>0.15</warmupTimeFactor>
+    <cooldownFactor>0.15</cooldownFactor>
+    <rangeFactor>4</rangeFactor>
+    <statModifiers>
+      <ShootingAccuracyPawn>0.8</ShootingAccuracyPawn>
+    </statModifiers>
+    <!--=====-->
+    <costList>
+      <Plasteel>24</Plasteel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>SmartOptics</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Glitter optics -->
+
+  <ModularWeapons.ModularPartDef Name="UWC_SDSScope_Base" Abstract="True">
+    <label>SDS sight</label>
+    <description>Smart Defense Systems tactical optic, provides unmatched accuracy and range.</description>
+    <!--=====-->
+    <AccTouchFactor>0.1</AccTouchFactor>
+    <AccShortFactor>0.15</AccShortFactor>
+    <AccMediumFactor>0.15</AccMediumFactor>
+    <AccLongFactor>0.1</AccLongFactor>
+    <massFactor>0.65</massFactor>
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <cooldownFactor>-0.2</cooldownFactor>
+    <rangeFactor>7</rangeFactor>
+    <statModifiers>
+      <ShootingAccuracyPawn>1.5</ShootingAccuracyPawn>
+      <AimingDelayFactor>-0.05</AimingDelayFactor>
+    </statModifiers>
+    <!--=====-->
+    <costList>
+      <Plasteel>32</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <researchPrerequisites>
+      <li>GlitterOptics</li>
+    </researchPrerequisites>
+    <isRare>true</isRare>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_GlitterScope_Base" Abstract="True">
+    <label>GlitterScope</label>
+    <description>This rare lightweight optic known simply as a scope is used by common glitterworld forces.</description>
+    <!--=====-->
+    <AccTouchFactor>0.08</AccTouchFactor>
+    <AccShortFactor>0.14</AccShortFactor>
+    <AccMediumFactor>0.11</AccMediumFactor>
+    <AccLongFactor>0.07</AccLongFactor>
+    <massFactor>0.15</massFactor>
+    <warmupTimeFactor>-0.15</warmupTimeFactor>
+    <cooldownFactor>-0.25</cooldownFactor>
+    <rangeFactor>4</rangeFactor>
+    <statModifiers>
+      <ShootingAccuracyPawn>1</ShootingAccuracyPawn>
+      <AimingDelayFactor>-0.15</AimingDelayFactor>
+    </statModifiers>
+    <!--=====-->
+    <costList>
+      <Plasteel>5</Plasteel>
+      <Hyperweave>15</Hyperweave>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <researchPrerequisites>
+      <li>GlitterOptics</li>
+    </researchPrerequisites>
+    <isRare>true</isRare>
+  </ModularWeapons.ModularPartDef>
+
+<!-- ======================================== TopAttachments ==== -->
+
+  <ModularWeapons.ModularPartDef Name="UWC_RayFinder_Base" Abstract="True">
+    <label>Rayfinders</label>
+    <description>Ballistic rayfinders, small and rugged interface with urbworld optics to assist with aiming.</description>
+    <!--=====-->
+    <massFactor>0.24</massFactor>
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <rangeFactor>2</rangeFactor>
+    <statModifiers>
+      <ShootingAccuracyPawn>0.5</ShootingAccuracyPawn>
+      <AimingDelayFactor>-0.05</AimingDelayFactor>
+    </statModifiers>
+    <!--=====-->
+    <costList>
+      <Plasteel>18</Plasteel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>SmartOptics</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_PEQ_Base" Abstract="True">
+    <label>Tactical lightbox</label>
+    <description>Laser/Flashlight combo sight.</description>
+    <!--=====-->
+    <massFactor>0.21</massFactor>
+    <AccTouchFactor>0.02</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>0.04</AccMediumFactor>
+    <AccLongFactor>0.02</AccLongFactor>
+    <warmupTimeFactor>0.1</warmupTimeFactor>
+    <cooldownFactor>0.1</cooldownFactor>
+    <rangeFactor>2</rangeFactor>
+    <flashlightFactor>true</flashlightFactor>
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_Flashlight_Base" Abstract="True">
+    <label>Tactical flashlight</label>
+    <description>Flashlight.</description>
+    <!--=====-->
+    <AccTouchFactor>0.06</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <massFactor>0.08</massFactor>
+    <flashlightFactor>true</flashlightFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_Laser_Base" Abstract="True">
+    <label>Tactical laser</label>
+    <description>Simple laser sight.</description>
+    <!--=====-->
+    <massFactor>0.08</massFactor>
+    <AccTouchFactor>0.08</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <cooldownFactor>0.2</cooldownFactor>
+    <rangeFactor>2</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+<!-- ======================================== Underbarrel ==== -->
+
+  <ModularWeapons.ModularPartDef Name="UWC_Foregrip_Base" Abstract="True">
+    <defName>MCIW_Attach_Foregrip</defName>
+    <label>recoil grip</label>
+    <description>Vertical foregrip for recoil control.</description>
+    <kind>MCIW_Underbarrel</kind>
+    <path>Foregrip</path>
+    <!--=====-->
+    <massFactor>0.15</massFactor>
+    <AccTouchFactor>0.06</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <AccLongFactor>0.015</AccLongFactor>
+    <warmupTimeFactor>0.05</warmupTimeFactor>
+    <cooldownFactor>0.05</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <Chemfuel>5</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_Speedgrip_Base" Abstract="True">
+    <label>speed grip</label>
+    <description>Angled grip for faster shooting.</description>
+    <!--=====-->
+    <massFactor>0.11</massFactor>
+    <AccMediumFactor>-0.05</AccMediumFactor>
+    <AccLongFactor>-0.1</AccLongFactor>
+    <warmupTimeFactor>-0.15</warmupTimeFactor>
+    <cooldownFactor>-0.25</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <Chemfuel>5</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_Rangegrip_Base" Abstract="True">
+    <label>range grip</label>
+    <description>Steady grip for extended range.</description>
+    <!--=====-->
+    <massFactor>0.17</massFactor>
+    <warmupTimeFactor>0.15</warmupTimeFactor>
+    <cooldownFactor>0.15</cooldownFactor>
+    <rangeFactor>4</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <Chemfuel>5</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_Bipod_Base" Abstract="True">
+    <label>bipod</label>
+    <description>Device that assists in grounding the gun.</description>
+    <!--=====-->
+    <AccTouchFactor>0.03</AccTouchFactor>
+    <AccShortFactor>0.06</AccShortFactor>
+    <AccMediumFactor>0.11</AccMediumFactor>
+    <AccLongFactor>0.1</AccLongFactor>
+    <massFactor>0.3</massFactor>
+    <rangeFactor>5</rangeFactor>
+    <warmupTimeFactor>0.2</warmupTimeFactor>
+    <cooldownFactor>0.6</cooldownFactor>
+    <statModifiers>
+      <ShootingAccuracyPawn>0.2</ShootingAccuracyPawn>
+    </statModifiers>
+    <!--=====-->
+    <costList>
+      <Steel>12</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+<!-- ======================================== Basic UGBL ==== -->
+
+  <ModularWeapons.ModularPartDef Name="UWC_BaseUBGL" Abstract="True">
+    <!--=====-->
+    <massFactor>1.3</massFactor> 
+    <AccShortFactor>-0.02</AccShortFactor>
+    <AccMediumFactor>-0.03</AccMediumFactor>
+    <AccLongFactor>-0.04</AccLongFactor>
+    <!--=====-->
+    <costList>
+      <Chemfuel>50</Chemfuel>
+      <Steel>30</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>Mortars</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_BaseFrag_GL" ParentName="UWC_BaseUBGL" Abstract="True">
+    <label>Grenade launcher</label>
+    <description>Launcher fragmentation grenades. Explodes in a cloud of shrapnel shredding anyone nearby.</description>
+    <!--=====-->
+    <underbarrelVerb>
+      <label>Frag grenades</label>
+      <description>Launcher fragmentation grenades. Explodes in a cloud of shrapnel shredding anyone nearby.</description>
+      <iconPath>Icon_UBLauncher</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>19.9</range>
+      <forcedMissRadius>1.9</forcedMissRadius>
+      <warmupTime>5.5</warmupTime>
+      <noiseRadius>4</noiseRadius>
+      <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+      <soundCast>Shot_GLA</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+      <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <defaultProjectile>Proj_UBGrenade</defaultProjectile>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </underbarrelVerb>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_BaseIncendiary_GL" ParentName="UWC_BaseUBGL" Abstract="True">
+    <label>Incendiary launcher</label>
+    <description>Small launcher grenades that create incendiary explosions on impact, starting fires.</description>
+    <!--=====-->
+    <underbarrelVerb>
+      <label>Incendiary grenades</label>
+      <description>Small launcher grenades that create incendiary explosions on impact, starting fires.</description>
+      <iconPath>Icon_UBLauncher</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>19.9</range>
+      <forcedMissRadius>1.9</forcedMissRadius>
+      <warmupTime>5.5</warmupTime>
+      <noiseRadius>4</noiseRadius>
+      <soundCast>Shot_GLA</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+      <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <defaultProjectile>Proj_UBIncendiary</defaultProjectile>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </underbarrelVerb>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_BaseSmoke_GL" ParentName="UWC_BaseUBGL" Abstract="True">
+    <label>Smoke launcher</label>
+    <description>Small launcher grenades that upon impact release a cloud of smoke, obscuring incoming shots and preventing turrets from locking on.</description>
+    <!--=====-->
+    <underbarrelVerb>
+      <label>Smoke grenades</label>
+      <description>Small launcher grenades that upon impact release a cloud of smoke, obscuring incoming shots and preventing turrets from locking on.</description>
+      <iconPath>Icon_UBLauncher</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>19.9</range>
+      <forcedMissRadius>1.9</forcedMissRadius>
+      <warmupTime>5.5</warmupTime>
+      <noiseRadius>4</noiseRadius>
+      <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+      <soundCast>Shot_GLA</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+      <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <defaultProjectile>Proj_UBSmoke</defaultProjectile>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </underbarrelVerb>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_BaseEMP_GL" ParentName="UWC_BaseUBGL" Abstract="True">
+    <label>EMP launcher</label>
+    <description>Small launcher grenades that upon impact release a burst of electromagnetic energy, stunning mechanical targets (mechanoids, turrets, mortars) and depleting shields in the area of effect.</description>
+    <!--=====-->
+    <underbarrelVerb>
+      <label>EMP grenades</label>
+      <description>Small launcher grenades that upon impact release a burst of electromagnetic energy, stunning mechanical targets (mechanoids, turrets, mortars) and depleting shields in the area of effect.</description>
+      <iconPath>Icon_UBLauncher</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>19.9</range>
+      <forcedMissRadius>1.9</forcedMissRadius>
+      <warmupTime>5.5</warmupTime>
+      <noiseRadius>4</noiseRadius>
+      <soundCast>Shot_GLA</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+      <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <defaultProjectile>Proj_UBEmp</defaultProjectile>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </underbarrelVerb>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+<!-- ======================================== Shotgun ==== -->
+
+  <ModularWeapons.ModularPartDef Name="UWC_BaseUBS" Abstract="True">
+    <label>Underbarrel shotgun</label>
+    <description>Underbarrel shotgun for breaching doors.</description>
+    <massFactor>2.5</massFactor>
+    <AccTouchFactor>-0.05</AccTouchFactor>
+    <AccShortFactor>-0.08</AccShortFactor>
+    <AccMediumFactor>-0.1</AccMediumFactor>
+    <AccLongFactor>-0.14</AccLongFactor>
+    <underbarrelVerb>
+      <label>Underbarrel shotgun</label>
+      <description>Use the shotgun mounted on the underbarrel.</description>
+      <iconPath>Icon_UBShotgun</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>13.9</range>
+      <forcedMissRadius>0.9</forcedMissRadius>
+      <warmupTime>1.8</warmupTime>
+      <soundCast>Shot_Shotgun</soundCast>
+      <soundCastTail>GunTail_Heavy</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+      <defaultProjectile>Proj_UBShotgun</defaultProjectile>
+    </underbarrelVerb>
+    <costList>
+      <Steel>35</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+<!-- ======================================== Advanced UGBL ==== -->
+
+  <ModularWeapons.ModularPartDef Name="UWC_BaseUBGL_Advanced" Abstract="True">
+    <!--=====-->
+    <massFactor>0.97</massFactor> 
+    <AccTouchFactor>0.02</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>0.04</AccMediumFactor>
+    <AccLongFactor>0.02</AccLongFactor>
+    <rangeFactor>2</rangeFactor>
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <cooldownFactor>0.2</cooldownFactor>
+    <statModifiers>
+      <ShootingAccuracyPawn>0.2</ShootingAccuracyPawn>
+    </statModifiers>
+    <!--=====-->
+    <costList>
+      <Chemfuel>50</Chemfuel>
+      <Steel>10</Steel>
+      <Plasteel>10</Plasteel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>LauncherSmart</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_AirburstUGBL_Advanced" ParentName="UWC_BaseUBGL_Advanced" Abstract="True">
+    <label>Airburst grenade launcher</label>
+    <description>Detonates the grenade before hitting the ground resulting in a weaker explosion across a larger area.</description>
+    <!--=====-->
+    <underbarrelVerb>
+      <label>Airburst launcher</label>
+      <description>Detonates the grenade before hitting the ground resulting in a weaker explosion across a larger area.</description>
+      <iconPath>Icon_UBLauncher</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>31.9</range>
+      <forcedMissRadius>0.5</forcedMissRadius>
+      <warmupTime>4.9</warmupTime>
+      <noiseRadius>4</noiseRadius>
+      <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+      <soundCast>Shot_GLA</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+      <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <defaultProjectile>Proj_UBAirburst</defaultProjectile>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </underbarrelVerb>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+  
+  <ModularWeapons.ModularPartDef Name="UWC_HEDPUGBL_Advanced" ParentName="UWC_BaseUBGL_Advanced" Abstract="True">
+    <label>HEDP grenade launcher</label>
+    <description>HEDP: High Explosive Dual Purpose, uses an anti-tank warhead and fragmenting case. Excellent against armored foes.</description>
+    <!--=====-->
+    <underbarrelVerb>
+      <label>HEDP launcher</label>
+      <description>High Explosive Dual Purpose, uses an anti-tank warhead and fragmenting case. Excellent against armored foes.</description>
+      <iconPath>Icon_UBLauncher</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>31.9</range>
+      <forcedMissRadius>0.5</forcedMissRadius>
+      <warmupTime>4.9</warmupTime>
+      <noiseRadius>4</noiseRadius>
+      <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+      <soundCast>Shot_GLA</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+      <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <defaultProjectile>Proj_UBHEDP</defaultProjectile>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </underbarrelVerb>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_IncendiaryUGBL_Advanced" ParentName="UWC_BaseUBGL_Advanced" Abstract="True">
+    <label>Incendiary grenade launcher</label>
+    <description>Incendiary: grenade filled with flammable gel and a small explosive charge. Starts fires when detonated.</description>
+    <!--=====-->
+    <underbarrelVerb>
+      <label>Incendiary launcher</label>
+      <description>Grenade filled with flammable gel and a small explosive charge. Starts fires when detonated.</description>
+      <iconPath>Icon_UBLauncher</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>31.9</range>
+      <forcedMissRadius>0.5</forcedMissRadius>
+      <warmupTime>4.9</warmupTime>
+      <noiseRadius>4</noiseRadius>
+      <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+      <soundCast>Shot_GLA</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+      <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <defaultProjectile>Bullet_IncendiaryLauncher</defaultProjectile>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </underbarrelVerb>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_SmokeUGBL_Advanced" ParentName="UWC_BaseUBGL_Advanced" Abstract="True">
+    <label>Smoke grenade launcher</label>
+    <description>Smoke: Releases a cloud of smoke obscuring incoming shots and preventing turrets from locking on.</description>
+    <!--=====-->
+    <underbarrelVerb>
+      <label>Smoke launcher</label>
+      <description>Releases a cloud of smoke obscuring incoming shots and preventing turrets from locking on.</description>
+      <iconPath>Icon_UBLauncher</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>31.9</range>
+      <forcedMissRadius>0.5</forcedMissRadius>
+      <warmupTime>4.9</warmupTime>
+      <noiseRadius>4</noiseRadius>
+      <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+      <soundCast>Shot_GLA</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+      <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <defaultProjectile>Bullet_SmokeLauncher</defaultProjectile>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </underbarrelVerb>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_EMPUGBL_Advanced" ParentName="UWC_BaseUBGL_Advanced" Abstract="True">
+    <label>EMP grenade launcher</label>
+    <description>EMP: Upon impact release a burst of electromagnetic energy, stunning mechanical targets (mechanoids, turrets, mortars) and depleting shields in the area of effect.</description>
+    <!--=====-->
+    <underbarrelVerb>
+      <label>EMP launcher</label>
+      <description>Upon impact release a burst of electromagnetic energy, stunning mechanical targets (mechanoids, turrets, mortars) and depleting shields in the area of effect.</description>
+      <iconPath>Icon_UBLauncher</iconPath>
+      <verbClass>ModularWeapons.Verb_Underbarrel</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <onlyManualCast>True</onlyManualCast>
+      <range>31.9</range>
+      <forcedMissRadius>0.5</forcedMissRadius>
+      <warmupTime>4.9</warmupTime>
+      <noiseRadius>4</noiseRadius>
+      <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+      <soundCast>Shot_GLA</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+      <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <defaultProjectile>Bullet_EMPLauncher</defaultProjectile>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </underbarrelVerb>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+<!-- ======================================== Melee bases ==== -->
+  <!-- Pistols -->
+  <ModularWeapons.ModularPartDef Name="UWC_MeleePistolBarrel_Base" Abstract="True">
+    <!--=====-->
+    <toolFactor>
+      <label>barrel</label>
+      <capacities>
+        <li>Blunt</li>
+        <li>Poke</li>
+      </capacities>
+      <power>4</power>
+      <cooldownTime>1</cooldownTime>
+    </toolFactor>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_MeleePistolGrip_Base" Abstract="True">
+    <!--=====-->
+    <toolFactor>
+      <label>grip</label>
+      <capacities>
+        <li>Blunt</li>
+      </capacities>
+      <power>4</power>
+      <cooldownTime>1</cooldownTime>
+    </toolFactor>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Longguns -->
+  <ModularWeapons.ModularPartDef Name="UWC_MeleeStock_Base" Abstract="True">
+    <!--=====-->
+    <toolFactor>
+      <label>stock</label>
+      <capacities>
+        <li>Blunt</li>
+      </capacities>
+      <power>9</power>
+      <cooldownTime>2</cooldownTime>
+    </toolFactor>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_MeleeRifleBarrel_Base" Abstract="True">
+    <!--=====-->
+    <toolFactor>
+      <label>barrel</label>
+      <capacities>
+        <li>Blunt</li>
+        <li>Poke</li>
+      </capacities>
+      <power>9</power>
+      <cooldownTime>2</cooldownTime>
+    </toolFactor>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Weapons -->
+  <ModularWeapons.ModularPartDef Name="UWC_StunStock_Base" Abstract="True">
+    <!--=====-->
+    <toolFactor>
+      <label>stock prod</label>
+      <capacities>
+        <li>Blunt</li>
+      </capacities>
+      <power>9</power>
+      <cooldownTime>2</cooldownTime>
+      <extraMeleeDamages>
+          <li>
+            <def>Stun</def>
+            <amount>8</amount>
+            <chance>0.5</chance>
+          </li>
+        </extraMeleeDamages>
+    </toolFactor>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_StunBarrel_Base" Abstract="True">
+    <!--=====-->
+    <toolFactor>
+      <label>barrel prod</label>
+      <capacities>
+        <li>Blunt</li>
+        <li>Poke</li>
+      </capacities>
+      <power>9</power>
+      <cooldownTime>2</cooldownTime>
+      <extraMeleeDamages>
+          <li>
+            <def>Stun</def>
+            <amount>6</amount>
+            <chance>0.5</chance>
+          </li>
+        </extraMeleeDamages>
+    </toolFactor>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef Name="UWC_BayonetMelee_Base" Abstract="True">
+    <!--=====-->
+    <toolFactor>
+      <label>bayonet</label>
+      <capacities>
+        <li>Cut</li>
+        <li>Stab</li>
+      </capacities>
+      <power>20</power>
+      <cooldownTime>2.4</cooldownTime>
+    </toolFactor>
+    <!--=====-->
+  </ModularWeapons.ModularPartDef>
+
+</Defs>

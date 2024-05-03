@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Weapon -->
+
+    <ThingDef ParentName="BaseCaselessModularWeapon">
+    <defName>Caseless_MCBR</defName>
+    <label>MCBR</label>
+    <description>A relic of Old Earth firearms technology with a modern makeover, featuring updated ergonomics and an enhanced action. Excels in field combat.</description>
+    <graphicData>
+      <texPath>mcbrtac</texPath>
+      <graphicClass>ModularWeapons.Graphic_Modular</graphicClass>
+    </graphicData>
+    <uiIconScale>1.3</uiIconScale>
+    <soundInteract>Interact_CRifle</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags Inherit="False">
+      <li>IndustrialGunAdvanced</li>
+      <li>AssaultRifle</li>
+      <li>ShortShots</li>
+      <li>LongShots</li>
+      <li>SpacerGun</li>
+      <li>RangedHeavy</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>48000</WorkToMake>
+      <Mass>2.8</Mass>
+      <AccuracyTouch>0.18</AccuracyTouch>
+	  <AccuracyShort>0.38</AccuracyShort>
+	  <AccuracyMedium>0.61</AccuracyMedium>
+	  <AccuracyLong>0.76</AccuracyLong>
+	  <RangedWeapon_Cooldown>2.8</RangedWeapon_Cooldown>
+    </statBases>
+    <comps>
+      <li Class="ModularWeapons.CompProperties_ModularParts">
+        <compClass>ModularWeapons.CompModularParts</compClass>
+        <partKinds>
+          <li>MCBR_Furniture</li>
+          <li>MCBR_Barrel</li>
+          <li>MCBR_Optics</li>
+          <li>MCBR_Underbarrel</li>
+          <li>MCBR_Reciever</li>
+          <li>MCBR_Magazine</li>
+          <li>MCBR_TopAttachment</li>
+        </partKinds>
+        <majorKinds>
+          <li>MCBR_Optics</li>
+          <li>MCBR_Furniture</li>
+          <li>MCBR_Magazine</li>
+        </majorKinds>
+        <defaultParts>
+          <li>MCBR_Mag_Standard</li>
+          <li>MCBR_Furniture_Standard</li>
+          <li>MCBR_Optic_IronHandle</li>
+        </defaultParts>
+      </li>
+    </comps>
+    <costList>
+      <Chemfuel>20</Chemfuel>
+      <Steel>40</Steel>
+      <ComponentIndustrial>9</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_CAR</defaultProjectile>
+        <warmupTime>1.5</warmupTime>
+        <range>34.9</range>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+        <soundCast>Shot_Burst</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>4</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>1.75</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>1.75</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+    <!-- ===== Parts ===== -->
+
+    <!-- Magazine -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Mag_Standard</defName>
+    <label>flechettes</label>
+    <description>Medium-capacity magazine filled with intermediate flechette ammunition. High armor-piercing but with very low damage.</description>
+    <kind>MCBR_Magazine</kind>
+    <path>Magazine_Std</path>
+    <costList>
+      <Steel>10</Steel>
+      <Chemfuel>10</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Mag_FMJ</defName>
+    <label>Full Metal Jacket</label>
+    <description>Medium-capacity magazine filled with full metal jacket ammunition. Strikes a balance between stopping power, armor penetration and damage.</description>
+    <kind>MCBR_Magazine</kind>
+    <path>Magazine_FMJ</path>
+    <!--======-->
+    <projectileFactor>Bullet_CAR_FMJ</projectileFactor>
+    <!--======-->
+    <costList>
+      <Steel>10</Steel>
+      <Chemfuel>10</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Mag_HP</defName>
+    <label>Hollowpoint</label>
+    <description>Medium-capacity magazine filled with intermediate hollowpoint ammunition. Highest damage and stopping power but with very low armor penetration.</description>
+    <kind>MCBR_Magazine</kind>
+    <path>Magazine_HP</path>
+    <!--======-->
+    <projectileFactor>Bullet_CAR_HP</projectileFactor>
+    <!--======-->
+    <costList>
+      <Steel>10</Steel>
+      <Chemfuel>10</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Recievers -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Reciever_ETC</defName>
+    <label>ETC conversion</label>
+    <description>Plasteel reinforcement and advanced ammunition give this weapon increased firepower, range but decreased accuracy.</description>
+    <kind>MCBR_Reciever</kind>
+    <path>ETC</path>
+    <!--=====-->
+    <projectileFactor>Bullet_CARETC</projectileFactor>
+    <warmupTimeFactor>0.2</warmupTimeFactor>
+    <cooldownFactor>0.4</cooldownFactor>
+    <massFactor>1</massFactor>
+    <MoveSpeedFactor>-0.05</MoveSpeedFactor>
+    <AccTouchFactor>-0.04</AccTouchFactor>
+    <AccShortFactor>-0.07</AccShortFactor>
+    <AccMediumFactor>-0.1</AccMediumFactor>
+    <AccLongFactor>-0.14</AccLongFactor>
+    <rangeFactor>4</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>20</Steel>
+      <Plasteel>25</Plasteel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>ECOPA</li>
+    </researchPrerequisites>
+    <incompatibleKind>
+      <li>MCBR_Magazine</li>
+    </incompatibleKind>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Reciever_Tuned</defName>
+    <label>Tuned reciever</label>
+    <description>Lighter, simplified reciever compared to its old-earth counterpart. Requires plasteel.</description>
+    <kind>MCBR_Reciever</kind>
+    <path>Reciver_Plus</path>
+    <!--=====-->
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <massFactor>-0.3</massFactor>
+    <AccTouchFactor>0.03</AccTouchFactor>
+    <AccShortFactor>0.06</AccShortFactor>
+    <AccMediumFactor>0.06</AccMediumFactor>
+    <AccLongFactor>0.03</AccLongFactor>
+    <!--=====-->
+    <costList>
+      <Steel>15</Steel>
+      <Plasteel>5</Plasteel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>GasOperation</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Reciever_Hyper</defName>
+    <label>Hyperburst</label>
+    <description>Heavy plasteel reciever with a stunning 5-round burst.</description>
+    <kind>MCBR_Reciever</kind>
+    <path>Reciver_HB</path>
+    <!--=====-->
+    <warmupTimeFactor>0.25</warmupTimeFactor>
+    <cooldownFactor>0.4</cooldownFactor>
+    <massFactor>0.6</massFactor>
+    <burstCountFactor>2</burstCountFactor>
+    <AccTouchFactor>-0.03</AccTouchFactor>
+    <AccShortFactor>-0.04</AccShortFactor>
+    <AccMediumFactor>-0.08</AccMediumFactor>
+    <AccLongFactor>-0.12</AccLongFactor>
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+      <Plasteel>10</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>PrecisionRifling</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Furniture -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Furniture_Standard</defName>
+    <label>standard furniture</label>
+    <description>Standard dark poylmer furniture.</description>
+    <kind>MCBR_Furniture</kind>
+    <path>Furn_Std</path>
+    <costList>
+      <Steel>5</Steel>
+      <Chemfuel>10</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Furniture_Wood</defName>
+    <label>wood furniture</label>
+    <description>Standard wood furniture.</description>
+    <kind>MCBR_Furniture</kind>
+    <path>Furn_Wood</path>
+    <costList>
+      <Steel>5</Steel>
+      <WoodLog>7</WoodLog>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Furniture_Plasteel</defName>
+    <label>plasteel furniture</label>
+    <description>Lightweight, ergonomic plasteel furniture.</description>
+    <kind>MCBR_Furniture</kind>
+    <path>Furn_Plas</path>
+    <!--=====-->
+    <massFactor>-0.6</massFactor>
+    <MoveSpeedFactor>0.05</MoveSpeedFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <Plasteel>7</Plasteel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Underbarrel -->
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_Foregrip_Base">
+    <defName>MCBR_Attach_Foregrip</defName>
+    <kind>MCBR_Underbarrel</kind>
+    <path>Fore_Recoil</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_Speedgrip_Base">
+    <defName>MCBR_Attach_ForegripB</defName>
+    <kind>MCBR_Underbarrel</kind>
+    <path>Fore_Speed</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_Rangegrip_Base">
+    <defName>MCBR_Attach_ForegripC</defName>
+    <kind>MCBR_Underbarrel</kind>
+    <path>Fore_Range</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_Bipod_Base">
+    <defName>MCBR_Attach_Bipod</defName>
+    <kind>MCBR_Underbarrel</kind>
+    <path>Fore_Bipod</path>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- underbarrel launchers -->
+
+  <!-- Tier 1 -->
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_BaseFrag_GL">
+    <defName>MCBR_Attach_GLHE</defName>
+    <kind>MCBR_Underbarrel</kind>
+    <path>GL_HE</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_BaseIncendiary_GL">
+    <defName>MCBR_Attach_GLIC</defName>
+    <kind>MCBR_Underbarrel</kind>
+    <path>GL_I</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_BaseSmoke_GL">
+    <defName>MCBR_Attach_GLSM</defName>
+    <kind>MCBR_Underbarrel</kind>
+    <path>GL_SMK</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_BaseEMP_GL">
+    <defName>MCBR_Attach_GLEMP</defName>
+    <kind>MCBR_Underbarrel</kind>
+    <path>GL_EMP</path>
+  </ModularWeapons.ModularPartDef>
+  
+  <ModularWeapons.ModularPartDef ParentName="UWC_BaseUBS">
+    <defName>MCBR_Attach_Shotgun</defName>
+    <kind>MCBR_Underbarrel</kind>
+    <path>Fore_Shotgun</path>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Tier 2 -->
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_AirburstUGBL_Advanced">
+    <defName>MCBR_Attach_GL2AB</defName>
+    <kind>MCBR_Underbarrel</kind>
+    <path>GLA_AB</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_HEDPUGBL_Advanced">
+    <defName>MCBR_Attach_GL2HEDP</defName>
+    <kind>MCBR_Underbarrel</kind>
+    <path>GLA_HEDP</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_IncendiaryUGBL_Advanced">
+    <defName>MCBR_Attach_GL2I</defName>
+    <kind>MCBR_Underbarrel</kind>
+    <path>GLA_I</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_SmokeUGBL_Advanced">
+    <defName>MCBR_Attach_GL2S</defName>
+    <kind>MCBR_Underbarrel</kind>
+    <path>GLA_SMK</path>
+  </ModularWeapons.ModularPartDef>
+  
+  <ModularWeapons.ModularPartDef ParentName="UWC_EMPUGBL_Advanced">
+    <defName>MCBR_Attach_GL2EMP</defName>
+    <kind>MCBR_Underbarrel</kind>
+    <path>GLA_EMP</path>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Optics -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Optic_IronHandle</defName>
+    <label>Simple red dot scope.</label>
+    <description>Simple red dot scope.</description>
+    <kind>MCBR_Optics</kind>
+    <path>Optic_Iron</path>
+    <!--=====-->
+    <massFactor>0.18</massFactor>
+    <AccTouchFactor>0.1</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>0.01</AccMediumFactor>
+    <AccLongFactor>-0.03</AccLongFactor>
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_RedDot_Base">
+    <defName>MCBR_Sight_Reddot</defName>
+    <kind>MCBR_Optics</kind>
+    <path>Optic_RedDot</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_AcogHolo_Base">
+    <defName>MCBR_Sight_ACOG</defName>
+    <kind>MCBR_Optics</kind>
+    <path>Optic_ACOG</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_Scope_Base">
+    <defName>MCBR_Sight_Scope</defName>
+    <kind>MCBR_Optics</kind>
+    <path>Optic_Scope</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_SmartDot_Base">
+    <defName>MCBR_Optic_SmartShort</defName>
+    <kind>MCBR_Optics</kind>
+    <path>Optic_SmartDot</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_SmartCog_Base">
+    <defName>MCBR_Optic_SmartMed</defName>
+    <kind>MCBR_Optics</kind>
+    <path>Optic_SmartHolo</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_SmartScope_Base">
+    <defName>MCBR_Optic_SmartScope</defName>
+    <kind>MCBR_Optics</kind>
+    <path>Optic_SmartScope</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_GlitterScope_Base">
+    <defName>MCBR_Optic_Glitter</defName>
+    <kind>MCBR_Optics</kind>
+    <path>Optic_Glitter</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_SDSScope_Base">
+    <defName>MCBR_Optic_SDS</defName>
+    <kind>MCBR_Optics</kind>
+    <path>Optic_SDS</path>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Barrel -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Barrel_Flash</defName>
+    <label>Flash hider</label>
+    <description>Helps conceal the shooter by scattering propellant gas and flame.</description>
+    <kind>MCBR_Barrel</kind>
+    <path>Barrel_Flash</path>
+    <!--=====-->
+    <AccTouchFactor>0.07</AccTouchFactor>
+    <AccShortFactor>0.03</AccShortFactor>
+    <massFactor>0.03</massFactor>
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <HuntingStealthFactor>0.1</HuntingStealthFactor>
+    <IncomingDamageFactor>-0.05</IncomingDamageFactor>
+    <!--=====-->
+    <costList>
+      <Steel>8</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Barrel_Compensator</defName>
+    <label>Compensator</label>
+    <description>Redirects propellant gasses resulting in lower muzzle climb.</description>
+    <kind>MCBR_Barrel</kind>
+    <path>Barrel_Comp</path>
+    <!--=====-->
+    <AccTouchFactor>0.15</AccTouchFactor>
+    <AccShortFactor>0.06</AccShortFactor>
+    <AccMediumFactor>0.03</AccMediumFactor>
+    <AccLongFactor>0.02</AccLongFactor>
+    <massFactor>0.07</massFactor>
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>12</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Barrel_Extended</defName>
+    <label>Extended barrel</label>
+    <description>Increases bullet velocity, weapon time and range.</description>
+    <kind>MCBR_Barrel</kind>
+    <path>Barrel_Ext</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.15</dmgMultiplierFactor>
+    <AccTouchFactor>-0.08</AccTouchFactor>
+    <AccShortFactor>-0.05</AccShortFactor>
+    <AccMediumFactor>0.03</AccMediumFactor>
+    <AccLongFactor>0.05</AccLongFactor>
+    <massFactor>0.5</massFactor>
+    <warmupTimeFactor>0.1</warmupTimeFactor>
+    <cooldownFactor>0.2</cooldownFactor>
+    <rangeFactor>2</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>15</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Barrel_Silencer</defName>
+    <label>Integrated silencer</label>
+    <description>Special integrated silencer, increases short-range performance and reduces the shooter's profile.</description>
+    <kind>MCBR_Barrel</kind>
+    <path>Barrel_Silencer</path>
+    <!--=====-->
+    <ticksBetweenShotsFactor>2</ticksBetweenShotsFactor>
+    <AccTouchFactor>0.5</AccTouchFactor>
+    <AccShortFactor>0.34</AccShortFactor>
+    <AccMediumFactor>-0.29</AccMediumFactor>
+    <AccLongFactor>-0.60</AccLongFactor>
+    <massFactor>1.2</massFactor>
+    <warmupTimeFactor>-0.3</warmupTimeFactor>
+    <cooldownFactor>-0.5</cooldownFactor>
+    <HuntingStealthFactor>0.2</HuntingStealthFactor>
+    <IncomingDamageFactor>-0.10</IncomingDamageFactor>
+    <rangeFactor>-10</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Chemfuel>30</Chemfuel>
+      <Steel>20</Steel>
+      <Plasteel>5</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <incompatibleKind>
+      <li>MCBR_TopAttachment</li>
+      <li>MCBR_Underbarrel</li>
+    </incompatibleKind>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCBR_Barrel_Accelerator</defName>
+    <label>accelerator barrel</label>
+    <description>Advanced barrel attachment increases damage but decreases accruacy.</description>
+    <kind>MCBR_Barrel</kind>
+    <path>Barrel_Accelerator</path>
+    <!--=====-->
+    <ticksBetweenShotsFactor>1</ticksBetweenShotsFactor>
+    <dmgMultiplierFactor>0.35</dmgMultiplierFactor>
+    <AccTouchFactor>-0.04</AccTouchFactor>
+    <AccShortFactor>-0.08</AccShortFactor>
+    <AccMediumFactor>-0.12</AccMediumFactor>
+    <AccLongFactor>-0.17</AccLongFactor>
+    <rangeFactor>6</rangeFactor>
+    <warmupTimeFactor>-0.2</warmupTimeFactor>
+    <cooldownFactor>-0.3</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>30</Steel>
+      <Plasteel>20</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <researchPrerequisites>
+      <li>AcceleratorRails</li>
+    </researchPrerequisites>
+    <incompatibleKind>
+      <li>MCBR_Underbarrel</li>
+      <li>MCBR_TopAttachment</li>
+    </incompatibleKind>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Top attachments -->
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_RayFinder_Base">
+    <defName>MCBR_Attach_RayFinder</defName>
+    <kind>MCBR_TopAttachment</kind>
+    <path>Attach_Array</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_PEQ_Base">
+    <defName>MCBR_Attach_PEQ</defName>
+    <kind>MCBR_TopAttachment</kind>
+    <path>Attach_PEQ</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_Flashlight_Base">
+    <defName>MCBR_Attach_Flashlight</defName>
+    <kind>MCBR_TopAttachment</kind>
+    <path>Attach_Flash</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_Laser_Base">
+    <defName>MCBR_Attach_Laser</defName>
+    <kind>MCBR_TopAttachment</kind>
+    <path>Attach_Laser</path>
+  </ModularWeapons.ModularPartDef>
+
+
+
+</Defs>

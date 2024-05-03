@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+  <mods>
+    <li>Modularization Vanilla Weapon</li>
+  </mods>
+  <match Class="PatchOperationSequence">
+    <operations>
+
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+        <defName>Gun_ModularCaseless_SniperRifle</defName>
+        <statBases>
+          <Mass>8.75</Mass>
+          <RangedWeapon_Cooldown>0.38</RangedWeapon_Cooldown>
+          <SightsEfficiency>2.54</SightsEfficiency>
+          <ShotSpread>0.03</ShotSpread>
+          <SwayFactor>1.65</SwayFactor>
+          <Bulk>8.75</Bulk>
+          <WorkToMake>59000</WorkToMake>
+        </statBases>
+        <costList>
+          <Steel>55</Steel>
+          <Chemfuel>15</Chemfuel>
+          <Plasteel>30</Plasteel>
+          <ComponentIndustrial>12</ComponentIndustrial>
+        </costList>
+        <Properties>
+          <recoilAmount>0.0</recoilAmount>
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <defaultProjectile>Bullet_77x49mmPC_FMJ</defaultProjectile>
+          <burstShotCount>2</burstShotCount>
+          <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+          <warmupTime>1.65</warmupTime>
+          <range>72</range>
+          <soundCast>Shot_csniper</soundCast>
+          <soundCastTail>GunTail_Heavy</soundCastTail>
+          <muzzleFlashScale>7</muzzleFlashScale>
+        </Properties>
+        <AmmoUser>
+          <magazineSize>8</magazineSize>
+          <reloadTime>4.5</reloadTime>
+          <ammoSet>AmmoSet_77x49mmPC</ammoSet>
+        </AmmoUser>
+        <FireModes>
+          <aimedBurstShotCount>2</aimedBurstShotCount>
+          <aiUseBurstMode>TRUE</aiUseBurstMode>
+          <aiAimMode>AimedShot</aiAimMode>
+        </FireModes>
+        <weaponTags>
+          <li>CE_AI_SR</li>
+          <li>Bipod_DMR</li>
+        </weaponTags>
+        <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+        <AllowWithRunAndGun>false</AllowWithRunAndGun>
+      </li>
+
+    <li Class="PatchOperationAdd" >
+    <xpath>Defs/ThingDef[defName="Gun_ModularCaseless_SniperRifle"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+    <value>
+    	<compGetGizmosExtraAllowedCompType>
+    		<li>CombatExtended.CompAmmoUser</li>
+    		<li>CombatExtended.CompFireModes</li>
+    	</compGetGizmosExtraAllowedCompType>
+    	<compPropertiesInitializeCompType>
+    		<li>CombatExtended.CompAmmoUser</li>
+    		<li>CombatExtended.CompFireModes</li>
+    	</compPropertiesInitializeCompType>
+    	<compPropertiesCreateInstanceCompType>
+        <li>CombatExtended.CompAmmoUser</li>
+        <li>CombatExtended.CompFireModes</li>
+    	</compPropertiesCreateInstanceCompType>
+    </value>
+    <order>Append</order>
+    </li>
+
+    <li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="Module_CaselessSniper_RecieverA"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+			<ShotSpread>1.12</ShotSpread>
+		</value>
+		<order>Append</order>
+	</li>
+
+    <li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="Module_CaselessSniper_RecieverB"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+			<ShotSpread>1.23</ShotSpread>
+		</value>
+		<order>Append</order>
+	</li>
+
+  <li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="Module_CaselessSniper_RecoilA"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statOffset</xpath>
+		<value>
+			<statOffset>
+					<RangedWeapon_Cooldown>-0.12</RangedWeapon_Cooldown>
+				</statOffset>
+		</value>
+	</li>
+
+  <li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="Module_CaselessSniper_RecoilB"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statOffset</xpath>
+		<value>
+			<statOffset>
+					<RangedWeapon_Cooldown>-0.16</RangedWeapon_Cooldown>
+				</statOffset>
+		</value>
+	</li>
+
+  <li Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Module_CaselessSniper_Hypershot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/verbPropertiesObjectPatch/li/defaultProjectile</xpath>
+		<value>
+			<defaultProjectile>Bullet_77x49mmEC_FMJ</defaultProjectile>
+		</value>
+	</li>
+
+  <li Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Module_CaselessSniper_Hypershot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+			<compPropertiesObjectPatch>
+				<il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+					<ammoSet>AmmoSet_77x49mmEC</ammoSet>
+				</il>
+			</compPropertiesObjectPatch>
+		</value>
+    <order>Append</order>
+	</li>
+
+  <li Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Module_CaselessSniper_Hypershot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+        <statMultiplier>
+					<ShotSpread>1.25</ShotSpread>
+				</statMultiplier>
+		</value>
+    <order>Append</order>
+	</li>
+
+  </operations>
+  </match>
+</Operation>
+
+</Patch>

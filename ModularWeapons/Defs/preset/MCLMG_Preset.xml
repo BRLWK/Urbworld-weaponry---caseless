@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- "basic" (precisionrifling cap) -->
+
+    <!-- Wildcard LMG -->
+    <!--ModularWeapons.GunsmithPresetDef>
+      <defName>MCLMG_Wildcard_LMG</defName>
+      <customName>Caseless LMG</customName>
+      <weapon>Caseless_MCLMG</weapon>
+      <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+        <li>RangedHeavy</li>
+      </weaponTags>
+      <requiredParts>
+        <li>MCLMG_Mag_Standard</li>
+        <li>MCLMG_Furniture_Standard</li>
+        <li>MCLMG_Optic_IronHandle</li>
+      </requiredParts>
+      <optionalPartsCount>5</optionalPartsCount>
+      <optionalParts>
+        <li>MCLMG_Mag_FMJ</li>
+        <li>MCLMG_Mag_HP</li>
+        <li>MCLMG_Reciever_Tuned</li>
+        <li>MCLMG_Furniture_Wood</li>
+        <li>MCLMG_Attach_Foregrip</li>
+        <li>MCLMG_Attach_ForegripB</li>
+        <li>MCLMG_Attach_ForegripC</li>
+        <li>MCLMG_Attach_Bipod</li>
+        <li>MCLMG_Attach_GLHE</li>
+        <li>MCLMG_Attach_GLIC</li>
+        <li>MCLMG_Attach_GLSM</li>
+        <li>MCLMG_Attach_GLEMP</li>
+        <li>MCLMG_Attach_Shotgun</li>
+        <li>MCLMG_Sight_Reddot</li>
+        <li>MCLMG_Sight_ACOG</li>
+        <li>MCLMG_Sight_Scope</li>
+        <li>MCLMG_Barrel_Flash</li>
+        <li>MCLMG_Barrel_Compensator</li>
+        <li>MCLMG_Barrel_Extended</li>
+        <li>MCLMG_Attach_PEQ</li>
+        <li>MCLMG_Attach_Flashlight</li>
+        <li>MCLMG_Attach_Laser</li>
+      </optionalParts>
+    </ModularWeapons.GunsmithPresetDef-->
+
+    <!-- Support -->
+    <ModularWeapons.GunsmithPresetDef>
+      <defName>MCLMG_Support_LMG</defName>
+      <customName>Support LMG</customName>
+      <weapon>Caseless_MCLMG</weapon>
+      <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+        <li>RangedHeavy</li>
+      </weaponTags>
+      <requiredParts>
+        <li>MCLMG_Mag_Standard</li>
+        <li>MCLMG_Furniture_Standard</li>
+        <li>MCLMG_Sight_Scope</li>
+        <li>MCLMG_Barrel_Extended</li>
+        <li>MCLMG_Attach_Bipod</li>
+        <li>MCLMG_Reciever_Reinforced</li>
+      </requiredParts>
+      <optionalPartsCount>1</optionalPartsCount>
+      <optionalParts>
+        <li>MCLMG_Mag_FMJ</li>
+        <li>MCLMG_Mag_HP</li>
+        <li>MCLMG_Furniture_Wood</li>
+        <li>MCLMG_Attach_PEQ</li>
+        <li>MCLMG_Attach_Flashlight</li>
+        <li>MCLMG_Attach_Laser</li>
+      </optionalParts>
+    </ModularWeapons.GunsmithPresetDef>
+
+    <!-- Assault -->
+    <ModularWeapons.GunsmithPresetDef>
+      <defName>MCLMG_Assault_LMG</defName>
+      <customName>Assault LMG</customName>
+      <weapon>Caseless_MCLMG</weapon>
+      <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+        <li>AssaultRifle</li>
+      </weaponTags>
+      <requiredParts>
+        <li>MCLMG_Mag_Standard</li>
+        <li>MCLMG_Furniture_Standard</li>
+        <li>MCLMG_Sight_Reddot</li>
+        <li>MCLMG_Reciever_Tuned</li>
+        <li>MCLMG_Attach_Foregrip</li>
+        <li>MCLMG_Barrel_Compensator</li>
+        <li>MCLMG_Attach_PEQ</li>
+      </requiredParts>
+      <optionalPartsCount>1</optionalPartsCount>
+      <optionalParts>
+        <li>MCLMG_Mag_FMJ</li>
+        <li>MCLMG_Mag_HP</li>
+        <li>MCLMG_Furniture_Wood</li>
+        <li>MCLMG_Attach_ForegripB</li>
+        <li>MCLMG_Attach_GLHE</li>
+        <li>MCLMG_Attach_GLIC</li>
+        <li>MCLMG_Attach_GLSM</li>
+        <li>MCLMG_Attach_GLEMP</li>
+        <li>MCLMG_Attach_Shotgun</li>
+      </optionalParts>
+    </ModularWeapons.GunsmithPresetDef>
+
+    <!-- Spacer Support -->
+    <ModularWeapons.GunsmithPresetDef>
+      <defName>MCLMG_SpacerSupport_LMG</defName>
+      <customName>Support LMG</customName>
+      <weapon>Caseless_MCLMG</weapon>
+      <weaponTags>
+        <li>SpacerGun</li>
+        <li>RangedHeavy</li>
+      </weaponTags>
+      <requiredParts>
+        <li>MCLMG_Furniture_Plasteel</li>
+        <li>MCLMG_Optic_SmartScope</li>
+        <li>MCLMG_Barrel_Extended</li>
+        <li>MCLMG_Attach_Bipod</li>
+        <li>MCLMG_Reciever_ETC</li>
+        <li>MCLMG_Attach_RayFinder</li>
+      </requiredParts>
+      <optionalPartsCount>0</optionalPartsCount>
+      <optionalParts>
+      </optionalParts>
+    </ModularWeapons.GunsmithPresetDef>
+
+    <!-- Spacer Assault -->
+    <ModularWeapons.GunsmithPresetDef>
+      <defName>MCLMG_SpacerAssault_LMG</defName>
+      <customName>Assault LMG</customName>
+      <weapon>Caseless_MCLMG</weapon>
+      <weaponTags>
+        <li>SpacerGun</li>
+        <li>RangedHeavy</li>
+      </weaponTags>
+      <requiredParts>
+        <li>MCLMG_Furniture_Plasteel</li>
+        <li>MCLMG_Optic_SmartShort</li>
+        <li>MCLMG_Barrel_Accelerator</li>
+        <li>MCLMG_Reciever_ETC</li>
+      </requiredParts>
+      <optionalPartsCount>0</optionalPartsCount>
+      <optionalParts>
+      </optionalParts>
+    </ModularWeapons.GunsmithPresetDef>
+
+</Defs>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- conscript rifles -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCSW_Preset_CR</defName>
+    <customName>conscript battle rifle</customName>
+    <weapon>Caseless_MCSW</weapon>
+    <weaponTags>
+        <li>Gun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCSW_Sight_Rear</li>
+      <li>MCSW_Barrel_StandardPoly</li>
+      <li>MCSW_Stock_Poly</li>
+      <li>MCSW_Magazine_Short</li>
+    </requiredParts>
+    <optionalPartsCount>0</optionalPartsCount>
+    <optionalParts>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCSW_Preset_CRW</defName>
+    <customName>conscript battle rifle</customName>
+    <weapon>Caseless_MCSW</weapon>
+    <weaponTags>
+        <li>Gun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCSW_Sight_Rear</li>
+      <li>MCSW_Barrel_StandardWood</li>
+      <li>MCSW_Stock_Wood</li>
+      <li>MCSW_Magazine_Short</li>
+    </requiredParts>
+    <optionalPartsCount>0</optionalPartsCount>
+    <optionalParts>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+    <!-- Battle rifles -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCSW_Preset_BR</defName>
+    <customName>urbworld battle rifle</customName>
+    <weapon>Caseless_MCSW</weapon>
+    <weaponTags>
+        <li>AssaultRifle</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCSW_Sight_Rear</li>
+      <li>MCSW_Barrel_StandardPoly</li>
+      <li>MCSW_Stock_Poly</li>
+      <li>MCSW_Magazine_Standard</li>
+    </requiredParts>
+    <optionalPartsCount>3</optionalPartsCount>
+    <optionalParts>
+      <li>MCSW_Barrel_LongPoly</li>
+      <li>MCSW_Sight_Reddot</li>
+      <li>MCSW_Sight_Holo</li>
+      <li>MCSW_Attach_Flashlight</li>
+      <li>MCSW_Attach_Laser</li>
+      <li>MCSW_Attach_Foregrip</li>
+      <li>MCSW_Attach_ForegripB</li>
+      <li>MCSW_Attach_ForegripC</li>
+      <li>MCSW_Attach_Bipod</li>
+      <li>MCSW_Attach_GLHE</li>
+      <li>MCSW_Attach_GLIC</li>
+      <li>MCSW_Attach_GLSM</li>
+      <li>MCSW_Attach_GLEMP</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCSW_Preset_BRW</defName>
+    <customName>urbworld battle rifle</customName>
+    <weapon>Caseless_MCSW</weapon>
+    <weaponTags>
+        <li>AssaultRifle</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCSW_Sight_Rear</li>
+      <li>MCSW_Barrel_StandardWood</li>
+      <li>MCSW_Stock_Wood</li>
+      <li>MCSW_Magazine_Standard</li>
+    </requiredParts>
+    <optionalPartsCount>3</optionalPartsCount>
+    <optionalParts>
+      <li>MCSW_Barrel_LongWood</li>
+      <li>MCSW_Sight_Reddot</li>
+      <li>MCSW_Sight_Holo</li>
+      <li>MCSW_Attach_Flashlight</li>
+      <li>MCSW_Attach_Laser</li>
+      <li>MCSW_Attach_Foregrip</li>
+      <li>MCSW_Attach_ForegripB</li>
+      <li>MCSW_Attach_ForegripC</li>
+      <li>MCSW_Attach_Bipod</li>
+      <li>MCSW_Attach_GLHE</li>
+      <li>MCSW_Attach_GLIC</li>
+      <li>MCSW_Attach_GLSM</li>
+      <li>MCSW_Attach_GLEMP</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Sweeper rifles -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCSW_Preset_Sweeper</defName>
+    <customName>sweeper rifle</customName>
+    <weapon>Caseless_MCSW</weapon>
+    <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+        <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCSW_Barrel_ShortPoly</li>
+      <li>MCSW_Sight_Reddot</li>
+      <li>MCSW_Magazine_Standard</li>
+      <li>MCSW_Attach_Flashlight</li>
+      <li>MCSW_Attach_ForegripB</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCSW_Magazine_Drum</li>
+      <li>MCSW_Magazine_Box</li>
+      <li>MCSW_Stock_Ergo</li>
+      <li>MCSW_Attach_PEQ</li>
+      <li>MCSW_Attach_Laser</li>
+      <li>MCSW_Attach_Foregrip</li>
+      <li>MCSW_Attach_ForegripC</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCSW_Preset_SweeperW</defName>
+    <customName>sweeper rifle</customName>
+    <weapon>Caseless_MCSW</weapon>
+    <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+        <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCSW_Barrel_ShortWood</li>
+      <li>MCSW_Sight_Reddot</li>
+      <li>MCSW_Magazine_Standard</li>
+      <li>MCSW_Attach_Flashlight</li>
+      <li>MCSW_Attach_ForegripB</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCSW_Magazine_Drum</li>
+      <li>MCSW_Magazine_Box</li>
+      <li>MCSW_Stock_Ergo_Wood</li>
+      <li>MCSW_Attach_PEQ</li>
+      <li>MCSW_Attach_Laser</li>
+      <li>MCSW_Attach_Foregrip</li>
+      <li>MCSW_Attach_ForegripC</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Advanced Battle rifles -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCSW_Preset_ABR</defName>
+    <customName>advanced battle rifle</customName>
+    <weapon>Caseless_MCSW</weapon>
+    <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCSW_Barrel_StandardPoly</li>
+      <li>MCSW_Stock_Ergo</li>
+      <li>MCSW_Magazine_Standard</li>
+      <li>MCSW_Sight_Reddot</li>
+    </requiredParts>
+    <optionalPartsCount>3</optionalPartsCount>
+    <optionalParts>
+      <li>MCSW_Barrel_LongPoly</li>
+      <li>MCSW_Magazine_Drum</li>
+      <li>MCSW_Sight_Scope</li>
+      <li>MCSW_Sight_Holo</li>
+      <li>MCSW_Attach_PEQ</li>
+      <li>MCSW_Attach_Foregrip</li>
+      <li>MCSW_Attach_ForegripB</li>
+      <li>MCSW_Attach_ForegripC</li>
+      <li>MCSW_Attach_Bipod</li>
+      <li>MCSW_Attach_GLHE</li>
+      <li>MCSW_Attach_GLIC</li>
+      <li>MCSW_Attach_GLSM</li>
+      <li>MCSW_Attach_GLEMP</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCSW_Preset_ABRW</defName>
+    <customName>advanced battle rifle</customName>
+    <weapon>Caseless_MCSW</weapon>
+    <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCSW_Barrel_StandardWood</li>
+      <li>MCSW_Stock_Ergo_Wood</li>
+      <li>MCSW_Magazine_Standard</li>
+      <li>MCSW_Sight_Reddot</li> 
+    </requiredParts>
+    <optionalPartsCount>3</optionalPartsCount>
+    <optionalParts>
+      <li>MCSW_Barrel_LongWood</li>
+      <li>MCSW_Magazine_Drum</li>
+      <li>MCSW_Sight_Scope</li>
+      <li>MCSW_Sight_Holo</li>
+      <li>MCSW_Attach_PEQ</li>
+      <li>MCSW_Attach_Foregrip</li>
+      <li>MCSW_Attach_ForegripB</li>
+      <li>MCSW_Attach_ForegripC</li>
+      <li>MCSW_Attach_Bipod</li>
+      <li>MCSW_Attach_GLHE</li>
+      <li>MCSW_Attach_GLIC</li>
+      <li>MCSW_Attach_GLSM</li>
+      <li>MCSW_Attach_GLEMP</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- LMG -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCSW_Preset_LMG</defName>
+    <customName>caseless LMG</customName>
+    <weapon>Caseless_MCSW</weapon>
+    <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCSW_Barrel_MachineGun</li>
+      <li>MCSW_Stock_Ergo</li>
+      <li>MCSW_Magazine_Drum</li>
+      <li>MCSW_Sight_Holo</li>
+      <li>MCSW_Attach_Bipod</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCSW_Magazine_Box</li>
+      <li>MCSW_Attach_PEQ</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- DMR -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCSW_Preset_DMR</defName>
+    <customName>caseless DMR</customName>
+    <weapon>Caseless_MCSW</weapon>
+    <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCSW_Barrel_Sharpshooter</li>
+      <li>MCSW_Stock_Sharpshooter</li>
+      <li>MCSW_Magazine_Short</li>
+      <li>MCSW_Sight_Scope</li>
+      <li>MCSW_Attach_Bipod</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCSW_Attach_PEQ</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Spacer sweeper  -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCSW_Preset_SpaceSweeper</defName>
+    <customName>spacer sweeper</customName>
+    <weapon>Caseless_MCSW</weapon>
+    <weaponTags>
+        <li>SpacerGun</li>
+        <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCSW_Barrel_ShortPlasteel</li>
+      <li>MCSW_Optic_SmartDot</li>
+      <li>MCSW_Magazine_ECStandard</li>
+      <li>MCSW_Attach_PEQ</li>
+      <li>MCSW_Attach_ForegripB</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCSW_Magazine_ECBox</li>
+      <li>MCSW_Stock_Ergo_Plasteel</li>
+      <li>MCSW_Attach_Foregrip</li>
+      <li>MCSW_Attach_ForegripC</li>
+      <li>MCSW_Attach_Shotgun</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Spacer Battle rifles -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCSW_Preset_SBR</defName>
+    <customName>spacer battle rifle</customName>
+    <weapon>Caseless_MCSW</weapon>
+    <weaponTags>
+        <li>SpacerGun</li>
+        <li>AssaultRifle</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCSW_Barrel_StandardPlasteel</li>
+      <li>MCSW_Stock_Ergo_Plasteel</li>
+      <li>MCSW_Magazine_ECStandard</li>
+      <li>MCSW_Optic_SmartMed</li>
+      <li>MCSW_Attach_RayFinder</li>
+      <li>MCSW_Attach_Foregrip</li>
+    </requiredParts>
+    <optionalPartsCount>3</optionalPartsCount>
+    <optionalParts>
+      <li>MCSW_Barrel_Accelerator</li>
+      <li>MCSW_Optic_SmartDot</li>
+      <li>MCSW_Optic_SDS</li>
+      <li>MCSW_Attach_PEQ</li>
+      <li>MCSW_Attach_ForegripB</li>
+      <li>MCSW_Attach_ForegripC</li>
+      <li>MCSW_Attach_GL2AB</li>
+      <li>MCSW_Attach_GL2HEDP</li>
+      <li>MCSW_Attach_GL2I</li>
+      <li>MCSW_Attach_GL2S</li>
+      <li>MCSW_Attach_GL2EMP</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Spacer longshot -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCSW_Preset_SLS</defName>
+    <customName>spacer longshot</customName>
+    <weapon>Caseless_MCSW</weapon>
+    <weaponTags>
+        <li>SpacerGun</li>
+        <li>LongShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCSW_Barrel_LongPlasteel</li>
+      <li>MCSW_Stock_Ergo_Plasteel</li>
+      <li>MCSW_Magazine_ECShort</li>
+      <li>MCSW_Optic_SmartScope</li>
+      <li>MCSW_Attach_RayFinder</li>
+      <li>MCSW_Attach_Bipod</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCSW_Magazine_ECBox</li>
+      <li>MCSW_Optic_SDS</li>
+      <li>MCSW_Attach_PEQ</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+</Defs>

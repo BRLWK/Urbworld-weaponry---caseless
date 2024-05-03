@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- "basic" (precisionrifling cap) -->
+
+    <!-- Wildcard rifle -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBR_Wildcard_Rifle</defName>
+    <customName>wildcard burst rifle</customName>
+    <weapon>Caseless_MCBR</weapon>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>AssaultRifle</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBR_Mag_Standard</li>
+      <li>MCBR_Furniture_Standard</li>
+      <li>MCBR_Optic_IronHandle</li>
+    </requiredParts>
+    <optionalPartsCount>5</optionalPartsCount>
+    <optionalParts>
+      <li>MCBR_Mag_FMJ</li>
+      <li>MCBR_Mag_HP</li>
+      <li>MCBR_Reciever_Tuned</li>
+      <li>MCBR_Furniture_Wood</li>
+      <li>MCBR_Attach_Foregrip</li>
+      <li>MCBR_Attach_ForegripB</li>
+      <li>MCBR_Attach_ForegripC</li>
+      <li>MCBR_Attach_Bipod</li>
+      <li>MCBR_Attach_GLHE</li>
+      <li>MCBR_Attach_GLIC</li>
+      <li>MCBR_Attach_GLSM</li>
+      <li>MCBR_Attach_GLEMP</li>
+      <li>MCBR_Attach_Shotgun</li>
+      <li>MCBR_Sight_Reddot</li>
+      <li>MCBR_Sight_ACOG</li>
+      <li>MCBR_Sight_Scope</li>
+      <li>MCBR_Barrel_Flash</li>
+      <li>MCBR_Barrel_Compensator</li>
+      <li>MCBR_Barrel_Extended</li>
+      <li>MCBR_Barrel_Silencer</li>
+      <li>MCBR_Attach_PEQ</li>
+      <li>MCBR_Attach_Flashlight</li>
+      <li>MCBR_Attach_Laser</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+    <!-- commando rifle -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBR_Commando_Rifle</defName>
+    <customName>commando burst rifle</customName>
+    <weapon>Caseless_MCBR</weapon>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBR_Mag_HP</li>
+      <li>MCBR_Furniture_Standard</li>
+      <li>MCBR_Sight_Reddot</li>
+      <li>MCBR_Barrel_Silencer</li>
+    </requiredParts>
+    <optionalPartsCount>3</optionalPartsCount>
+    <optionalParts>
+      <li>MCBR_Mag_Standard</li>
+      <li>MCBR_Mag_FMJ</li>
+      <li>MCBR_Reciever_Tuned</li>
+      <li>MCBR_Reciever_Hyper</li>
+      <li>MCBR_Furniture_Wood</li>
+      <li>MCBR_Attach_Foregrip</li>
+      <li>MCBR_Attach_ForegripB</li>
+      <li>MCBR_Attach_ForegripC</li>
+      <li>MCBR_Sight_ACOG</li>
+      <li>MCBR_Attach_PEQ</li>
+      <li>MCBR_Attach_Flashlight</li>
+      <li>MCBR_Attach_Laser</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+    <!-- LRB rifle -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBR_LRB_Rifle</defName>
+    <customName>long-range burst rifle</customName>
+    <weapon>Caseless_MCBR</weapon>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>LongShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBR_Mag_FMJ</li>
+      <li>MCBR_Furniture_Standard</li>
+      <li>MCBR_Sight_ACOG</li>
+      <li>MCBR_Attach_Bipod</li>
+      <li>MCBR_Barrel_Extended</li>
+    </requiredParts>
+    <optionalPartsCount>3</optionalPartsCount>
+    <optionalParts>
+      <li>MCBR_Mag_Standard</li>
+      <li>MCBR_Mag_HP</li>
+      <li>MCBR_Reciever_Tuned</li>
+      <li>MCBR_Reciever_Hyper</li>
+      <li>MCBR_Attach_ForegripC</li>
+      <li>MCBR_Furniture_Wood</li>
+      <li>MCBR_Sight_Scope</li>
+      <li>MCBR_Attach_PEQ</li>
+      <li>MCBR_Attach_Laser</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+  
+  <!-- Spacer -->
+
+      <!-- Wildcard rifle -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBR_Wildcard_SpacerRifle</defName>
+    <customName>Spacer burst rifle</customName>
+    <weapon>Caseless_MCBR</weapon>
+    <weaponTags>
+      <li>SpacerGun</li>
+      <li>AssaultRifle</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBR_Mag_Standard</li>
+      <li>MCBR_Furniture_Plasteel</li>
+      <li>MCBR_Optic_SmartShort</li>
+    </requiredParts>
+    <optionalPartsCount>4</optionalPartsCount>
+    <optionalParts>
+      <li>MCBR_Reciever_ETC</li>
+      <li>MCBR_Reciever_Hyper</li>
+      <li>MCBR_Attach_Foregrip</li>
+      <li>MCBR_Attach_ForegripB</li>
+      <li>MCBR_Attach_ForegripC</li>
+      <li>MCBR_Attach_Bipod</li>
+      <li>MCBR_Attach_GL2AB</li>
+      <li>MCBR_Attach_GL2HEDP</li>
+      <li>MCBR_Attach_GL2I</li>
+      <li>MCBR_Attach_GL2S</li>
+      <li>MCBR_Attach_GL2EMP</li>
+      <li>MCBR_Optic_SmartMed</li>
+      <li>MCBR_Optic_SmartScope</li>
+      <li>MCBR_Optic_SDS</li>
+      <li>MCBR_Barrel_Flash</li>
+      <li>MCBR_Barrel_Compensator</li>
+      <li>MCBR_Barrel_Extended</li>
+      <li>MCBR_Barrel_Silencer</li>
+      <li>MCBR_Attach_PEQ</li>
+      <li>MCBR_Attach_RayFinder</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+      <!-- Accelerator rifle -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBR_Accelerator_BurstRifle</defName>
+    <customName>Accelerator burst rifle</customName>
+    <weapon>Caseless_MCBR</weapon>
+    <weaponTags>
+      <li>SpacerGun</li>
+      <li>RangedHeavy</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBR_Mag_Standard</li>
+      <li>MCBR_Furniture_Plasteel</li>
+      <li>MCBR_Optic_SmartShort</li>
+      <li>MCBR_Barrel_Accelerator</li>
+    </requiredParts>
+    <optionalPartsCount>4</optionalPartsCount>
+    <optionalParts>
+      <li>MCBR_Reciever_ETC</li>
+      <li>MCBR_Reciever_Hyper</li>
+      <li>MCBR_Attach_Foregrip</li>
+      <li>MCBR_Attach_ForegripB</li>
+      <li>MCBR_Attach_ForegripC</li>
+      <li>MCBR_Attach_Bipod</li>
+      <li>MCBR_Attach_GL2AB</li>
+      <li>MCBR_Attach_GL2HEDP</li>
+      <li>MCBR_Attach_GL2I</li>
+      <li>MCBR_Attach_GL2S</li>
+      <li>MCBR_Attach_GL2EMP</li>
+      <li>MCBR_Optic_SmartMed</li>
+      <li>MCBR_Optic_SmartScope</li>
+      <li>MCBR_Optic_SDS</li>
+      <li>MCBR_Attach_PEQ</li>
+      <li>MCBR_Attach_RayFinder</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+</Defs>

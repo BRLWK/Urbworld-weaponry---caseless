@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!--thingcategories-->
+
+    <ThingCategoryDef >
+		<defName>ThingCategory_CaselssGunParts</defName>
+		<label>Caseless gun parts</label>
+		<parent>Weapons</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef >
+		<defName>ThingCategory_GenCGP</defName>
+		<label>General parts</label>
+		<parent>ThingCategory_CaselssGunParts</parent>
+	</ThingCategoryDef>
+
+	<!--===optics===-->
+
+	<ThingCategoryDef>
+		<defName>ThingCategory_UWCOptics</defName>
+		<label>Optics</label>
+		<parent>ThingCategory_GenCGP</parent>
+	</ThingCategoryDef>
+
+		<ThingCategoryDef>
+			<defName>ThingCategory_UWCOpticsT1</defName>
+			<label>Optics T1</label>
+			<parent>ThingCategory_UWCOptics</parent>
+		</ThingCategoryDef>
+
+		<ThingCategoryDef>
+			<defName>ThingCategory_UWCOpticsT2</defName>
+			<label>Optics T2</label>
+			<parent>ThingCategory_UWCOptics</parent>
+		</ThingCategoryDef>
+
+		<ThingCategoryDef>
+			<defName>ThingCategory_UWCOpticsT3</defName>
+			<label>Optics T3</label>
+			<parent>ThingCategory_UWCOptics</parent>
+		</ThingCategoryDef>
+
+	<!--===Underbarrel?===-->
+
+	<ThingCategoryDef>
+		<defName>ThingCategory_CGPUnderbarrel</defName>
+		<label>Underbarrel</label>
+		<parent>ThingCategory_GenCGP</parent>
+	</ThingCategoryDef>
+
+		<ThingCategoryDef>
+			<defName>ThingCategory_CGPUnderbarrelT1</defName>
+			<label>Underbarrel T1</label>
+			<parent>ThingCategory_CGPUnderbarrel</parent>
+		</ThingCategoryDef>
+
+		<ThingCategoryDef>
+			<defName>ThingCategory_CGPUnderbarrelT2</defName>
+			<label>Underbarrel T2</label>
+			<parent>ThingCategory_CGPUnderbarrel</parent>
+		</ThingCategoryDef>
+
+	<!--===Muzzle====-->
+
+	<ThingCategoryDef>
+		<defName>ThingCategory_CGPMuzzle</defName>
+		<label>Muzzle attachments</label>
+		<parent>ThingCategory_GenCGP</parent>
+	</ThingCategoryDef>
+
+		<ThingCategoryDef>
+			<defName>ThingCategory_CGPMuzzleC</defName>
+			<label>Compensators</label>
+			<parent>ThingCategory_CGPMuzzle</parent>
+		</ThingCategoryDef>
+
+		<ThingCategoryDef>
+			<defName>ThingCategory_CGPMuzzleS</defName>
+			<label>Suppressors</label>
+			<parent>ThingCategory_CGPMuzzle</parent>
+		</ThingCategoryDef>
+
+	<!--===GL Ammo===-->
+
+	<ThingCategoryDef>
+		<defName>ThingCategory_GLAmmo</defName>
+		<label>Grenade ammunition</label>
+		<parent>ThingCategory_GenCGP</parent>
+	</ThingCategoryDef>
+
+	<!--ThingCategoryDef>
+		<defName>ThingCategory_</defName>
+		<label></label>
+		<parent>ThingCategory_CaselssGunParts</parent>
+	</ThingCategoryDef-->
+
+	<!--thingCategories>
+		<li>ThingCategory_</li>
+	</thingCategories-->
+
+	<!--bases-->
+
+	<ThingDef Name="Caseless_GunPartBase" ParentName="ResourceBase"  Abstract="True">
+		<graphicData>
+			<texPath>Things/Item/Health/HealthItem</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+			<!--color>(189,169,118)</color-->
+		</graphicData>
+		<generateCommonality>0.2</generateCommonality>
+		<techLevel>Industrial</techLevel>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<stackLimit>25</stackLimit>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+		<smeltable>true</smeltable>
+		<recipeMaker>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<recipeUsers Inherit="False">
+				<li>Caselessbench</li>
+			</recipeUsers>
+			<unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+			<researchPrerequisite>Tier1Attachments</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>4</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<statBases>
+			<MaxHitPoints>70</MaxHitPoints>
+			<WorkToMake>600</WorkToMake>
+			<Mass>0.2</Mass>
+			<Flammability>0.6</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+		</statBases>
+		<intricate>true</intricate>
+		<comps>
+			<li Class="RW_NodeTree.CompProperties_ChildNodeProccesser">
+				<TextureSizeFactor>256</TextureSizeFactor>
+				<TextureFilterMode>Point</TextureFilterMode>
+				<VerbTrackerAllVerbRedictory>true</VerbTrackerAllVerbRedictory>
+				<!--ForceNodeIdControl>true</ForceNodeIdControl-->
+			</li>
+		</comps>
+	</ThingDef>
+
+
+</Defs>

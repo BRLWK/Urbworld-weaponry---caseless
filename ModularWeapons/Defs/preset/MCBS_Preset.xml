@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Basics - No research -->
+
+    <!-- Basic Shotgun -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_Custom_Basic</defName>
+    <customName>basic caseless shotgun</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+        <li>Gun</li>
+        <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Barrel_Standard</li>
+      <li>MCBS_Mag_Standard</li>
+      <li>MCBS_Action_Pump</li>
+      <li>MCBS_Ammo_Buck</li>
+      <li>MCBS_Attach_Heatshield</li>
+    </requiredParts>
+    <optionalPartsCount>0</optionalPartsCount>
+    <optionalParts>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Basic Streetsweeper -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_Custom_SS</defName>
+    <customName>basic streetsweeper</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+        <li>Gun</li>
+        <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Barrel_Stub</li>
+      <li>MCBS_Mag_Ext</li>
+      <li>MCBS_Action_Pump</li>
+      <li>MCBS_Ammo_Bird</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCBS_Sight_Reddot</li>
+      <li>MCBS_Attach_Flashlight</li>
+      <li>MCBS_Attach_Laser</li>
+      <li>MCBS_Attach_Heatshield</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Basic slug rifle -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_Custom_SR</defName>
+    <customName>basic slug rifle</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+        <li>Gun</li>
+        <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Barrel_StandardChoke</li>
+      <li>MCBS_Mag_Standard</li>
+      <li>MCBS_Action_Pump</li>
+      <li>MCBS_Ammo_Slug</li>
+      <li>MCBS_Sight_Reddot</li>
+      <li>MCBS_Attach_Heatshield</li>
+    </requiredParts>
+    <optionalPartsCount>0</optionalPartsCount>
+    <optionalParts>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Customs - Industrial research -->
+
+    <!-- Custom Shotgun -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_Custom_Standard</defName>
+    <customName>custom caseless shotgun</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Barrel_Standard</li>
+      <li>MCBS_Mag_Standard</li>
+      <li>MCBS_Action_Pump</li>
+      <li>MCBS_Ammo_Buck</li>
+      <li>MCBS_Attach_Heatshield</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCBS_Barrel_StandardChoke</li>
+      <li>MCBS_Action_Semi</li>
+      <li>MCBS_Mag_Ext</li>
+      <li>MCBS_Sight_Reddot</li>
+      <li>MCBS_Sight_Holo</li>
+      <li>MCBS_Attach_Flashlight</li>
+      <li>MCBS_Attach_Laser</li>
+      <li>MCBS_Attach_PEQ</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- streetsweeper -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_Streetsweeper</defName>
+    <customName>custom streetsweeper</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Barrel_Stub</li>
+      <li>MCBS_Mag_Ext</li>
+      <li>MCBS_Action_Semi</li>
+      <li>MCBS_Ammo_Bird</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCBS_Mag_Belt</li>
+      <li>MCBS_Action_Automatic</li>
+      <li>MCBS_Sight_Reddot</li>
+      <li>MCBS_Attach_Flashlight</li>
+      <li>MCBS_Attach_Laser</li>
+      <li>MCBS_Attach_PEQ</li>
+      <li>MCBS_Attach_Heatshield</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_AdvStreetsweeper</defName>
+    <customName>custom streetsweeper</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Part_Streetsweeper</li>
+      <li>MCBS_Ammo_Bird</li>
+      <li>MCBS_Sight_Reddot</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCBS_Attach_Flashlight</li>
+      <li>MCBS_Attach_Laser</li>
+      <li>MCBS_Attach_PEQ</li>
+      <li>MCBS_Attach_Heatshield</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+    <!-- slug rifle -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_SlugRifle</defName>
+    <customName>custom slug rifle</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Barrel_LongChoke</li>
+      <li>MCBS_Mag_Standard</li>
+      <li>MCBS_Action_Pump</li>
+      <li>MCBS_Sight_Holo</li>
+      <li>MCBS_Ammo_Slug</li>
+      <li>MCBS_Attach_Heatshield</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCBS_Barrel_LongCompensator</li>
+      <li>MCBS_Mag_Ext</li>
+      <li>MCBS_Action_Semi</li>
+      <li>MCBS_Attach_Flashlight</li>
+      <li>MCBS_Attach_Laser</li>
+      <li>MCBS_Attach_PEQ</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- grenade rifle -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_CustomGR</defName>
+    <customName>custom grenade rifle</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+      <li>RangedHeavy</li>
+      <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Barrel_LongChoke</li>
+      <li>MCBS_Mag_Standard</li>
+      <li>MCBS_Action_Pump</li>
+      <li>MCBS_Sight_Holo</li>
+      <li>MCBS_Ammo_EX</li>
+      <li>MCBS_Attach_Heatshield</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCBS_Barrel_LongCompensator</li>
+      <li>MCBS_Mag_Ext</li>
+      <li>MCBS_Action_Semi</li>
+      <li>MCBS_Attach_Flashlight</li>
+      <li>MCBS_Attach_Laser</li>
+      <li>MCBS_Attach_PEQ</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Advanced - Spacer tech -->
+
+    <!-- Advanced Shotgun -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_Custom_Adv</defName>
+    <customName>advanced caseless shotgun</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+      <li>SpacerGun</li>
+      <li>ShortShots</li> 
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Barrel_Standard</li>
+      <li>MCBS_Mag_Ext</li>
+      <li>MCBS_Action_Semi</li>
+      <li>MCBS_Ammo_Buck</li>
+      <li>MCBS_Optic_SmartDot</li>
+      <li>MCBS_Attach_Heatshield</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCBS_Barrel_StandardChoke</li>
+      <li>MCBS_Barrel_Stub</li>
+      <li>MCBS_Mag_Belt</li>
+      <li>MCBS_Action_Automatic</li>
+      <li>MCBS_Optic_SmartHolo</li>
+      <li>MCBS_Attach_PEQ</li>
+      <li>MCBS_Attach_Rayfinder</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- adv streetsweeper -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_AdvSS</defName>
+    <customName>Advanced streetsweeper</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+      <li>SpacerGun</li>
+      <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Barrel_Stub</li>
+      <li>MCBS_Mag_Belt</li>
+      <li>MCBS_Action_Automatic</li>
+      <li>MCBS_Ammo_Bird</li>
+      <li>MCBS_Optic_SmartDot</li>
+      <li>MCBS_Attach_Heatshield</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCBS_Attach_PEQ</li>
+      <li>MCBS_Attach_Rayfinder</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_AdvSSTwo</defName>
+    <customName>Advanced streetsweeper</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+      <li>SpacerGun</li>
+      <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Part_Streetsweeper</li>
+      <li>MCBS_Ammo_Bird</li>
+      <li>MCBS_Optic_SmartDot</li>
+      <li>MCBS_Attach_Heatshield</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCBS_Attach_PEQ</li>
+      <li>MCBS_Attach_Rayfinder</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- slug rifle -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_AdvSlugRifle</defName>
+    <customName>advanced slug rifle</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+      <li>SpacerGun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Barrel_LongChoke</li>
+      <li>MCBS_Mag_Standard</li>
+      <li>MCBS_Action_Pump</li>
+      <li>MCBS_Optic_SmartHolo</li>
+      <li>MCBS_Ammo_Slug</li>
+      <li>MCBS_Attach_Heatshield</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCBS_Barrel_LongCompensator</li>
+      <li>MCBS_Mag_Ext</li>
+      <li>MCBS_Action_Semi</li>
+      <li>MCBS_Attach_PEQ</li>
+      <li>MCBS_Attach_Rayfinder</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- adv grenade rifle -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_AdvGrenadeRifle</defName>
+    <customName>advanced grenade rifle</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+      <li>RangedHeavy</li>
+      <li>SpacerGun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Barrel_LongChoke</li>
+      <li>MCBS_Mag_Standard</li>
+      <li>MCBS_Action_Pump</li>
+      <li>MCBS_Optic_SmartHolo</li>
+      <li>MCBS_Ammo_EX</li>
+      <li>MCBS_Attach_Heatshield</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCBS_Barrel_LongCompensator</li>
+      <li>MCBS_Mag_Ext</li>
+      <li>MCBS_Action_Semi</li>
+      <li>MCBS_Attach_PEQ</li>
+      <li>MCBS_Attach_Rayfinder</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Accelerator SR -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_AcceleratorSR</defName>
+    <customName>accelerator slug rifle</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+      <li>SpacerGun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Barrel_Accelerator</li>
+      <li>MCBS_Mag_Standard</li>
+      <li>MCBS_Optic_SmartHolo</li>
+      <li>MCBS_Ammo_Slug</li>
+    </requiredParts>
+    <optionalPartsCount>0</optionalPartsCount>
+    <optionalParts>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Accelerator GR -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_AcceleratorGR</defName>
+    <customName>accelerator grenade rifle</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+      <li>RangedHeavy</li>
+      <li>SpacerGun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Barrel_Accelerator</li>
+      <li>MCBS_Mag_Standard</li>
+      <li>MCBS_Optic_SmartHolo</li>
+      <li>MCBS_Ammo_EX</li>
+    </requiredParts>
+    <optionalPartsCount>0</optionalPartsCount>
+    <optionalParts>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Accelerator GR -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCBS_Preset_AcceleratorGRTwo</defName>
+    <customName>accelerator grenade rifle</customName>
+    <weapon>Caseless_MCBS</weapon>
+    <weaponTags>
+      <li>RangedHeavy</li>
+      <li>SpacerGun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCBS_Barrel_Accelerator</li>
+      <li>MCBS_Ammo_AdvHEAT</li>
+      <li>MCBS_Optic_SmartHolo</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCBS_Ammo_AdvAB</li>
+      <li>MCBS_Ammo_AdvI</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+</Defs>

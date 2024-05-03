@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Modularization Vanilla Weapon</li>
+    </mods>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs</xpath>
+      <value>
+
+  <ThingCategoryDef>
+	  <defName>Ammo9x18mmEC</defName>
+	  <label>9x18mm Electrochemical</label>
+	  <parent>AmmoPistols</parent>
+    <iconPath>UI/Icons/ThingCategories/CaliberPistol</iconPath>
+	</ThingCategoryDef>
+	
+	<!-- ==================== AmmoSet ========================== -->
+
+	<CombatExtended.AmmoSetDef >
+		<defName>AmmoSet_9x18mmEC</defName>
+		<label>9x18mmEC</label>
+		<ammoTypes>
+			<Ammo_9x18mmEC_FMJ>Bullet_9x18mmEC_FMJ</Ammo_9x18mmEC_FMJ>
+			<Ammo_9x18mmEC_AP>Bullet_9x18mmEC_AP</Ammo_9x18mmEC_AP>
+			<Ammo_9x18mmEC_HP>Bullet_9x18mmEC_HP</Ammo_9x18mmEC_HP>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	
+	<!-- ==================== Ammo ========================== -->
+
+	<ThingDef  Class="CombatExtended.AmmoDef" Name="9x18mmECBase" ParentName="SmallAmmoBase" Abstract="True">
+		<description>Handgun cartridge envloped in advanced propellant.</description>
+		<statBases>
+		  <Mass>0.008</Mass>
+		  <Bulk>0.01</Bulk>
+		</statBases>
+		<menuHidden>False</menuHidden>
+		<destroyOnDrop>False</destroyOnDrop>
+		<tradeTags Inherit="False">
+			<li>CE_AutoEnableTrade</li>
+			<li>CE_AutoEnableCrafting</li>
+			<li>CE_Ammo</li>
+		</tradeTags>
+		<thingCategories>
+			<li>Ammo9x18mmEC</li>
+		</thingCategories>
+    <stackLimit>5000</stackLimit>	
+	</ThingDef>
+
+	<ThingDef  Class="CombatExtended.AmmoDef" ParentName="9x18mmECBase">
+		<defName>Ammo_9x18mmEC_FMJ</defName>
+		<label>9x18mm EC cartridge (FMJ)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Pistol/FMJ</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.04</MarketValue>
+		</statBases>
+		<ammoClass>FullMetalJacket</ammoClass>
+		<cookOffProjectile>Bullet_9x18mmEC_FMJ</cookOffProjectile>
+	</ThingDef>
+
+	<ThingDef  Class="CombatExtended.AmmoDef" ParentName="9x18mmECBase">
+		<defName>Ammo_9x18mmEC_AP</defName>
+		<label>9x18mm EC cartridge (AP)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Pistol/AP</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.04</MarketValue>
+		</statBases>
+		<ammoClass>ArmorPiercing</ammoClass>
+		<cookOffProjectile>Bullet_9x18mmEC_AP</cookOffProjectile>
+	</ThingDef>
+
+	<ThingDef  Class="CombatExtended.AmmoDef" ParentName="9x18mmECBase">
+		<defName>Ammo_9x18mmEC_HP</defName>
+		<label>9x18mm EC cartridge (HP)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Pistol/HP</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.04</MarketValue>
+		</statBases>
+		<ammoClass>HollowPoint</ammoClass>
+		<cookOffProjectile>Bullet_9x18mmEC_HP</cookOffProjectile>
+	</ThingDef>
+
+	<!-- ================== Projectiles ================== -->
+
+	<ThingDef  Class="CombatExtended.AmmoDef" Name="Base9x18mmECBullet" ParentName="BaseBulletCE" Abstract="true">
+		<thingClass>CombatExtended.BulletCE</thingClass>
+    <graphicData>
+			<texPath>Things/Projectile/ETC_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<speed>122</speed>
+			<dropsCasings>false</dropsCasings>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef  Class="CombatExtended.AmmoDef" ParentName="Base9x18mmECBullet">
+		<defName>Bullet_9x18mmEC_FMJ</defName>
+		<label>9x18mm EC bullet (FMJ)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>18</damageAmountBase>
+			<armorPenetrationSharp>6</armorPenetrationSharp>
+			<armorPenetrationBlunt>14.84</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef  Class="CombatExtended.AmmoDef" ParentName="Base9x18mmECBullet">
+		<defName>Bullet_9x18mmEC_AP</defName>
+		<label>9x18mm EC bullet (AP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>10</damageAmountBase>
+			<armorPenetrationSharp>10</armorPenetrationSharp>
+			<armorPenetrationBlunt>14.84</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef  Class="CombatExtended.AmmoDef" ParentName="Base9x18mmECBullet">
+		<defName>Bullet_9x18mmEC_HP</defName>
+		<label>9x18mm EC bullet (HP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>23</damageAmountBase>
+			<armorPenetrationSharp>4</armorPenetrationSharp>
+			<armorPenetrationBlunt>14.84</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+  
+  <!-- ==================== Recipes ========================== -->
+
+	<RecipeDef Name="ECAmmoRecipeBase" ParentName="AmmoRecipeBase" Abstract="true">
+		<researchPrerequisite>Tier3Attachments</researchPrerequisite>
+	</RecipeDef>
+
+    <RecipeDef  ParentName="ECAmmoRecipeBase">
+      <defName>MakeAmmo_9x18mmEC_FMJ</defName>
+      <label>make 9x18mm EC (FMJ) cartridge x500</label>
+      <description>Craft 500 9x18mm EC (FMJ) cartridges.</description>
+      <jobString>Making 9x18mm EC (FMJ) cartridges.</jobString>
+      <ingredients>
+        <li>
+          <filter>
+            <thingDefs>
+              <li>Steel</li>
+            </thingDefs>
+          </filter>
+          <count>8</count>
+        </li>
+		    <li>
+          <filter>
+            <thingDefs>
+              <li>Chemfuel</li>
+            </thingDefs>
+          </filter>
+          <count>10</count>
+        </li>
+      </ingredients>
+      <fixedIngredientFilter>
+        <thingDefs>
+          <li>Steel</li>
+		      <li>Chemfuel</li>
+        </thingDefs>
+      </fixedIngredientFilter>
+      <products>
+        <Ammo_9x18mmEC_FMJ>500</Ammo_9x18mmEC_FMJ>
+      </products>
+      <workAmount>1000</workAmount>
+	  <recipeUsers>
+	  	<li>AmmoBench</li>
+	  </recipeUsers>	
+    </RecipeDef>
+
+    <RecipeDef  ParentName="ECAmmoRecipeBase">
+      <defName>MakeAmmo_9x18mmEC_AP</defName>
+      <label>make 9x18mm EC (AP) cartridge x500</label>
+      <description>Craft 500 9x18mm EC (AP) cartridges.</description>
+      <jobString>Making 9x18mm EC (AP) cartridges.</jobString>
+      <ingredients>
+        <li>
+          <filter>
+            <thingDefs>
+              <li>Steel</li>
+            </thingDefs>
+          </filter>
+          <count>8</count>
+        </li>
+		    <li>
+          <filter>
+            <thingDefs>
+              <li>Chemfuel</li>
+            </thingDefs>
+          </filter>
+          <count>10</count>
+        </li>
+      </ingredients>
+      <fixedIngredientFilter>
+        <thingDefs>
+          <li>Steel</li>
+		      <li>Chemfuel</li>
+        </thingDefs>
+      </fixedIngredientFilter>
+      <products>
+        <Ammo_9x18mmEC_AP>500</Ammo_9x18mmEC_AP>
+      </products>
+      <workAmount>1160</workAmount>
+	  <recipeUsers>
+	  	<li>AmmoBench</li>
+	  </recipeUsers>
+    </RecipeDef>
+
+    <RecipeDef  ParentName="ECAmmoRecipeBase">
+      <defName>MakeAmmo_9x18mmEC_HP</defName>
+      <label>make 9x18mm EC (HP) cartridge x500</label>
+      <description>Craft 500 9x18mm EC (HP) cartridges.</description>
+      <jobString>Making 9x18mm EC (HP) cartridges.</jobString>
+      <ingredients>
+        <li>
+          <filter>
+            <thingDefs>
+              <li>Steel</li>
+            </thingDefs>
+          </filter>
+          <count>8</count>
+        </li>
+		    <li>
+          <filter>
+            <thingDefs>
+              <li>Chemfuel</li>
+            </thingDefs>
+          </filter>
+          <count>10</count>
+        </li>
+      </ingredients>
+      <fixedIngredientFilter>
+        <thingDefs>
+          <li>Steel</li>
+		      <li>Chemfuel</li>
+        </thingDefs>
+      </fixedIngredientFilter>
+      <products>
+        <Ammo_9x18mmEC_HP>500</Ammo_9x18mmEC_HP>
+      </products>
+      <workAmount>1000</workAmount>
+	  <recipeUsers>
+	  	<li>AmmoBench</li>
+	  </recipeUsers>
+    </RecipeDef>
+
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

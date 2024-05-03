@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Modularization Vanilla Weapon</li>
+    </mods>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs</xpath>
+      <value>
+
+    <ThingDef ParentName="CGPB_CPDWRB" >
+		<defName>Module_CE_CaselessSMG_Hypershot</defName>
+		<label>Caseless PDW hypershot</label>
+		<description>Electrochemical conversion kit for the PDW. Increases range and armor penetration.</description>
+		<recipeMaker Inherit="False">
+			<researchPrerequisite>Tier3Attachments</researchPrerequisite>
+		</recipeMaker>
+		<statBases>
+			<WorkToMake>575</WorkToMake>
+			<Mass>0.2</Mass>
+		</statBases>
+		<costList>
+			<Plasteel>35</Plasteel>
+            <ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<notDrawInParent>true</notDrawInParent>
+                <compPropertiesObjectPatch>
+				    <il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+				    	<ammoSet>AmmoSet_9x18mmEC</ammoSet>
+				    </il>
+			    </compPropertiesObjectPatch>
+                <verbPropertiesObjectPatch>
+					<li>
+						<defaultProjectile>Bullet_9x18mmEC_FMJ</defaultProjectile>
+                        <soundCast>Shot_kfiveMod</soundCast>
+                    </li>
+				</verbPropertiesObjectPatch>
+				<verbPropertiesOffseter>
+					<li>
+						<range>4</range>
+						<burstShotCount>3</burstShotCount>
+                        <ticksBetweenBurstShots>-3</ticksBetweenBurstShots>
+					</li>
+				</verbPropertiesOffseter>
+                <statMultiplier>
+					<ShotSpread>1.25</ShotSpread>
+				</statMultiplier>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CBRRB" >
+		<defName>Module_CaselessBR_Hypershot</defName>
+		<label>Caseless battle rifle hypershot</label>
+		<description>Electrochemical conversion kit. Increases projectile preformance while keeping ammunition light.</description>
+		<statBases>
+			<WorkToMake>1700</WorkToMake>
+			<Mass>0.45</Mass>
+		</statBases>
+		<costList>
+			<Plasteel>50</Plasteel>
+            <ComponentIndustrial>5</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>CaselessBonus/BattleRifle/Modular/Hypershot</PartTexPath>
+				<compPropertiesObjectPatch>
+				    <il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+				    	<ammoSet>AmmoSet_77x49mmEC</ammoSet>
+				    </il>
+			    </compPropertiesObjectPatch>
+                <verbPropertiesObjectPatch>
+					<li>
+						<defaultProjectile>Bullet_77x49mmEC_FMJ</defaultProjectile>
+                    </li>
+				</verbPropertiesObjectPatch>
+				<verbPropertiesOffseter>
+					<li>
+						<range>5</range>
+						<burstShotCount>2</burstShotCount>
+                        <ticksBetweenBurstShots>-3</ticksBetweenBurstShots>
+					</li>
+				</verbPropertiesOffseter>
+                <statMultiplier>
+					<ShotSpread>1.25</ShotSpread>
+				</statMultiplier>
+			</li>
+		</comps>
+	</ThingDef>
+
+
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

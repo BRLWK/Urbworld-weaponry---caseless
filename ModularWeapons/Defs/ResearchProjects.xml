@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ResearchProjectDef>
+    <defName>ECOPA</defName>
+    <label>ETC ammunition</label>
+    <tab>UrbworldTech</tab>
+    <prerequisites>
+      <li>MultiAnalyzer</li>
+      <li>PrecisionRifling</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <techLevel>Industrial</techLevel>
+    <description>Electrothermal-chemical ammunition resulting in cleaner ignition and increased performance. Added damage as well as general inaccuracy.</description>
+    <baseCost>1000</baseCost>
+  <researchViewX>0.0</researchViewX>
+  <researchViewY>1</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>MicroExplosives</defName>
+    <label>Micro-explosives</label>
+    <tab>UrbworldTech</tab>
+    <prerequisites>
+      <li>ECOPA</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <techLevel>Industrial</techLevel>
+    <description>Micro-explosive ammunition for the revolver and shotgun.</description>
+    <baseCost>800</baseCost>
+  <researchViewX>0.0</researchViewX>
+  <researchViewY>1.5</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>LauncherSmart</defName>
+    <label>Smart Launchers</label>
+    <tab>UrbworldTech</tab>
+    <prerequisites>
+      <li>MicroExplosives</li>
+      <li>SmartOptics</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+    <techLevel>Spacer</techLevel>
+    <description>Deadly combination of advanced optics, timed fuses and semi-guided munitions makes these underbarrel launchers more effective than their midworld counterparts.</description>
+    <baseCost>500</baseCost>
+  <researchViewX>0.0</researchViewX>
+  <researchViewY>2</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>SmartOptics</defName>
+    <label>Smart optics</label>
+    <tab>UrbworldTech</tab>
+    <prerequisites>
+      <li>MicroelectronicsBasics</li>
+      <li>PrecisionRifling</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <techLevel>Spacer</techLevel>
+    <description>Unlock urbworld weapon optics for use with modular weapons.</description>
+    <baseCost>500</baseCost>
+  <researchViewX>1</researchViewX>
+  <researchViewY>1</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>GlitterOptics</defName>
+    <label>Glitter optics</label>
+    <tab>UrbworldTech</tab>
+    <prerequisites>
+      <li>SmartOptics</li>
+      <li>Fabrication</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+    <techLevel>Spacer</techLevel>
+    <description>Unlock advanced urbworld / basic glitterworld optics.</description>
+    <baseCost>1000</baseCost>
+  <researchViewX>1</researchViewX>
+  <researchViewY>1.5</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>AcceleratorRails</defName>
+    <label>Accelerator rails</label>
+    <tab>UrbworldTech</tab>
+    <prerequisites>
+      <li>Fabrication</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+    <techLevel>Spacer</techLevel>
+    <description>Special barrel attachments that increase projectile damage.</description>
+    <baseCost>700</baseCost>
+  <researchViewX>1</researchViewX>
+  <researchViewY>2</researchViewY>
+  </ResearchProjectDef>
+
+  <!--ResearchProjectDef>
+    <defName>AdvErgo</defName>
+    <label>Advanced ergonomics</label>
+    <tab>UrbworldTech</tab>
+    <prerequisites>
+      <li>Bionics</li>
+    </prerequisites>
+    <techLevel>Spacer</techLevel>
+    <description>Advanced ergonomic attachments from the minds of glitterworld scientists.</description>
+    <baseCost>300</baseCost>
+  <researchViewX>1</researchViewX>
+  <researchViewY>2.5</researchViewY>
+  </ResearchProjectDef-->
+
+</Defs>

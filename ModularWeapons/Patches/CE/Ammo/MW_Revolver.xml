@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+<mods>
+  <li>Combat Extended</li>
+</mods>
+<match Class="PatchOperationAdd">
+<xpath>Defs</xpath>
+<value>
+
+	<!-- ============================================== 9x26mm Caseless Magnum -->
+
+	<ThingCategoryDef>
+		<defName>Ammo9x26mmCM</defName>
+		<label>9x26mmCM</label>
+		<parent>AmmoPistols</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberPistol</iconPath>
+	</ThingCategoryDef>
+
+	<!-- ==== AmmoSet ==== -->
+
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_9x26mmCM</defName>
+		<label>9x26mmCM</label>
+		<ammoTypes>
+			<Ammo_9x26mmCM_FMJ>Bullet_9x26mmCM_FMJ</Ammo_9x26mmCM_FMJ>
+			<Ammo_9x26mmCM_AP>Bullet_9x26mmCM_AP</Ammo_9x26mmCM_AP>
+			<Ammo_9x26mmCM_HP>Bullet_9x26mmCM_HP</Ammo_9x26mmCM_HP>
+		</ammoTypes>
+		<similarTo>AmmoSet_PistolMagnum</similarTo>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ==== Ammo ==== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" Name="9x26mmCMBase" ParentName="SmallAmmoBase" Abstract="True">
+		<description>Magnum pistol cartridge designed for revolvers.</description>
+		<statBases>
+			<Mass>0.015</Mass>
+			<Bulk>0.01</Bulk>
+		</statBases>
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+			<li>CE_AutoEnableCrafting</li>
+		</tradeTags>
+		<thingCategories>
+			<li>Ammo9x26mmCM</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="9x26mmCMBase">
+		<defName>Ammo_9x26mmCM_FMJ</defName>
+		<label>9x26mmCM (FMJ)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Revolver/FMJ</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.07</MarketValue>
+		</statBases>
+		<ammoClass>FullMetalJacket</ammoClass>
+		<cookOffProjectile>Bullet_9x26mmCM_FMJ</cookOffProjectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="9x26mmCMBase">
+		<defName>Ammo_9x26mmCM_AP</defName>
+		<label>9x26mmCM (AP)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Revolver/AP</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.07</MarketValue>
+		</statBases>
+		<ammoClass>ArmorPiercing</ammoClass>
+		<cookOffProjectile>Bullet_9x26mmCM_AP</cookOffProjectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="9x26mmCMBase">
+		<defName>Ammo_9x26mmCM_HP</defName>
+		<label>9x26mmCM (HP)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Revolver/HP</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.07</MarketValue>
+		</statBases>
+		<ammoClass>HollowPoint</ammoClass>
+		<cookOffProjectile>Bullet_9x26mmCM_HP</cookOffProjectile>
+	</ThingDef>
+
+	<!-- ==== Projectiles ==== -->
+
+	<ThingDef Name="Base9x26mmCMBullet" ParentName="BaseBulletCE" Abstract="true">
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<speed>86</speed>
+			<dropsCasings>false</dropsCasings>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base9x26mmCMBullet">
+		<defName>Bullet_9x26mmCM_FMJ</defName>
+		<label>9x26mmCM bullet (FMJ)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>15</damageAmountBase>
+			<armorPenetrationSharp>7</armorPenetrationSharp>
+			<armorPenetrationBlunt>24.3</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base9x26mmCMBullet">
+		<defName>Bullet_9x26mmCM_AP</defName>
+		<label>9x26mmCM bullet (AP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>9</damageAmountBase>
+			<armorPenetrationSharp>14</armorPenetrationSharp>
+			<armorPenetrationBlunt>24.3</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base9x26mmCMBullet">
+		<defName>Bullet_9x26mmCM_HP</defName>
+		<label>9x26mmCM bullet (HP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>18</damageAmountBase>
+			<armorPenetrationSharp>3.5</armorPenetrationSharp>
+			<armorPenetrationBlunt>24.3</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<!-- ==== Recipes ==== -->
+
+	<RecipeDef Name="9x26mmCMRecipeBase" ParentName="UWC_CaselessAmmoBase" Abstract="True">
+        <ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>16</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+    </RecipeDef>
+    
+    <RecipeDef ParentName="9x26mmCMRecipeBase">
+		<defName>MakeAmmo_9x26mmCM_FMJ</defName>
+		<label>make 9x26mmCM (FMJ) cartridge x500</label>
+		<description>Craft 500 9x26mmCM (FMJ) cartridges.</description>
+		<jobString>Making 9x26mmCM (FMJ) cartridges.</jobString>
+		<products>
+			<Ammo_9x26mmCM_FMJ>500</Ammo_9x26mmCM_FMJ>
+		</products>
+		<workAmount>1600</workAmount>
+	</RecipeDef>
+
+	<RecipeDef ParentName="9x26mmCMRecipeBase">
+		<defName>MakeAmmo_9x26mmCM_AP</defName>
+		<label>make 9x26mmCM (AP) cartridge x500</label>
+		<description>Craft 500 9x26mmCM (AP) cartridges.</description>
+		<jobString>Making 9x26mmCM (AP) cartridges.</jobString>
+		<products>
+			<Ammo_9x26mmCM_AP>500</Ammo_9x26mmCM_AP>
+		</products>
+		<workAmount>1920</workAmount>
+	</RecipeDef>
+
+	<RecipeDef ParentName="9x26mmCMRecipeBase">
+		<defName>MakeAmmo_9x26mmCM_HP</defName>
+		<label>make 9x26mmCM (HP) cartridge x500</label>
+		<description>Craft 500 9x26mmCM (HP) cartridges.</description>
+		<jobString>Making 9x26mmCM (HP) cartridges.</jobString>
+		<products>
+			<Ammo_9x26mmCM_HP>500</Ammo_9x26mmCM_HP>
+		</products>
+		<workAmount>1600</workAmount>
+	</RecipeDef>
+
+	<!-- ============================================== 5.7 Defender -->
+
+    <ThingCategoryDef>
+		<defName>Ammo57x26mm</defName>
+		<label>5.7 Defender</label>
+		<parent>AmmoPistols</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberPistol</iconPath>
+	</ThingCategoryDef>
+
+	<!-- ==== AmmoSet ==== -->
+
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_57x26mm</defName>
+		<label>5.7 Defender</label>
+		<ammoTypes>
+			<Ammo_57x26mm_FMJ>Bullet_57x26mm_FMJ</Ammo_57x26mm_FMJ>
+			<Ammo_57x26mm_AP>Bullet_57x26mm_AP</Ammo_57x26mm_AP>
+			<Ammo_57x26mm_HP>Bullet_57x26mm_HP</Ammo_57x26mm_HP>
+		</ammoTypes>
+		<similarTo>AmmoSet_Pistol</similarTo>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ==== Ammo ==== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" Name="57x26mmBase" ParentName="SmallAmmoBase" Abstract="True">
+		<description>Also known as 5.7x25mmC. High-velocity handgun cartridge designed for urbworld self-defense pistols.</description>
+		<statBases>
+			<Mass>0.005</Mass>
+			<Bulk>0.01</Bulk>
+		</statBases>
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+			<li>CE_AutoEnableCrafting</li>
+		</tradeTags>
+		<thingCategories>
+			<li>Ammo57x26mm</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="57x26mmBase">
+		<defName>Ammo_57x26mm_FMJ</defName>
+		<label>5.7 Defender (FMJ)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Revolver/FMJ</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.04</MarketValue>
+		</statBases>
+		<ammoClass>FullMetalJacket</ammoClass>
+		<cookOffProjectile>Bullet_57x26mm_FMJ</cookOffProjectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="57x26mmBase">
+		<defName>Ammo_57x26mm_AP</defName>
+		<label>5.7 Defender (AP)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Revolver/AP</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.04</MarketValue>
+		</statBases>
+		<ammoClass>ArmorPiercing</ammoClass>
+		<cookOffProjectile>Bullet_57x26mm_AP</cookOffProjectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="57x26mmBase">
+		<defName>Ammo_57x26mm_HP</defName>
+		<label>5.7 Defender (HP)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Revolver/HP</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.04</MarketValue>
+		</statBases>
+		<ammoClass>HollowPoint</ammoClass>
+		<cookOffProjectile>Bullet_57x26mm_HP</cookOffProjectile>
+	</ThingDef>
+
+	<!-- ==== Projectiles ==== -->
+
+	<ThingDef Name="Base57x26mmBullet" ParentName="BaseBulletCE" Abstract="true">
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<speed>136</speed>
+			<dropsCasings>false</dropsCasings>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base57x26mmBullet">
+		<defName>Bullet_57x26mm_FMJ</defName>
+		<label>5.7 Defender bullet (FMJ)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>10</damageAmountBase>
+			<armorPenetrationSharp>5</armorPenetrationSharp>
+			<armorPenetrationBlunt>12.02</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base57x26mmBullet">
+		<defName>Bullet_57x26mm_AP</defName>
+		<label>5.7 Defender bullet (AP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>6</damageAmountBase>
+			<armorPenetrationSharp>10</armorPenetrationSharp>
+			<armorPenetrationBlunt>12.02</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base57x26mmBullet">
+		<defName>Bullet_57x26mm_HP</defName>
+		<label>5.7 Defender bullet (HP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>12</damageAmountBase>
+			<armorPenetrationSharp>3</armorPenetrationSharp>
+			<armorPenetrationBlunt>12.02</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<!-- ==== Recipes ==== -->
+
+    <RecipeDef Name="22DefenderRecipeBase" ParentName="UWC_CaselessAmmoBase" Abstract="True">
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+	</RecipeDef>
+
+	<RecipeDef ParentName="22DefenderRecipeBase">
+		<defName>MakeAmmo_57x26mm_FMJ</defName>
+		<label>make 5.7 Defender (FMJ) cartridge x500</label>
+		<description>Craft 500 5.7 Defender (FMJ) cartridges.</description>
+		<jobString>Making 5.7 Defender (FMJ) cartridges.</jobString>
+		<products>
+			<Ammo_57x26mm_FMJ>500</Ammo_57x26mm_FMJ>
+		</products>
+		<workAmount>1000</workAmount>
+	</RecipeDef>
+
+	<RecipeDef ParentName="22DefenderRecipeBase">
+		<defName>MakeAmmo_57x26mm_AP</defName>
+		<label>make 5.7 Defender (AP) cartridge x500</label>
+		<description>Craft 500 5.7 Defender (AP) cartridges.</description>
+		<jobString>Making 5.7 Defender (AP) cartridges.</jobString>
+		<products>
+			<Ammo_57x26mm_AP>500</Ammo_57x26mm_AP>
+		</products>
+		<workAmount>1200</workAmount>
+	</RecipeDef>
+
+	<RecipeDef ParentName="22DefenderRecipeBase">
+		<defName>MakeAmmo_57x26mm_HP</defName>
+		<label>make 5.7 Defender (HP) cartridge x500</label>
+		<description>Craft 500 5.7 Defender (HP) cartridges.</description>
+		<jobString>Making 5.7 Defender (HP) cartridges.</jobString>
+		<products>
+			<Ammo_57x26mm_HP>500</Ammo_57x26mm_HP>
+		</products>
+		<workAmount>1000</workAmount>
+	</RecipeDef>
+
+	<!-- ============================================== 9x26mmETC -->
+
+		<ThingCategoryDef>
+			<defName>Ammo9x26mmETC</defName>
+			<label>9x26mm ETC</label>
+			<parent>AmmoPistols</parent>	
+		  	<iconPath>UI/Icons/ThingCategories/CaliberPistol</iconPath>
+		</ThingCategoryDef>
+	
+	<!-- ==== AmmoSet ==== -->
+
+		<CombatExtended.AmmoSetDef >
+			<defName>AmmoSet_9x26mmETC</defName>
+			<label>9x26mmETC</label>
+			<ammoTypes>
+				<Ammo_9x26mmETC_FMJ>Bullet_9x26mmETC_FMJ</Ammo_9x26mmETC_FMJ>
+				<Ammo_9x26mmETC_AP>Bullet_9x26mmETC_AP</Ammo_9x26mmETC_AP>
+				<Ammo_9x26mmETC_HP>Bullet_9x26mmETC_HP</Ammo_9x26mmETC_HP>
+				<Ammo_9x26mmETC_APHE>Bullet_9x26mmETC_APHE</Ammo_9x26mmETC_APHE>
+			</ammoTypes>
+			<similarTo>AmmoSet_PistolMagnum</similarTo>
+		</CombatExtended.AmmoSetDef>
+	
+	<!-- ==== Ammo ==== -->
+
+		<ThingDef  Class="CombatExtended.AmmoDef" Name="9x26mmETCBase" ParentName="SmallAmmoBase" Abstract="True">
+			<description>Magnum handgun cartridge envloped in advanced propellant.</description>
+			<statBases>
+			  <Mass>0.011</Mass>
+			  <Bulk>0.01</Bulk>
+			</statBases>
+			<tradeTags>
+				<li>CE_AutoEnableTrade</li>
+				<li>CE_AutoEnableCrafting</li>
+			</tradeTags>
+			<thingCategories>
+				<li>Ammo9x26mmETC</li>
+			</thingCategories>
+    		<stackLimit>5000</stackLimit>	
+		</ThingDef>
+
+		<ThingDef  Class="CombatExtended.AmmoDef" ParentName="9x26mmETCBase">
+			<defName>Ammo_9x26mmETC_FMJ</defName>
+			<label>9x26mm ETC cartridge (FMJ)</label>
+			<graphicData>
+				<texPath>Things/Ammo/Revolver/FMJ</texPath>
+				<graphicClass>Graphic_StackCount</graphicClass>
+			</graphicData>
+			<statBases>
+				<MarketValue>0.07</MarketValue>
+			</statBases>
+			<ammoClass>FullMetalJacket</ammoClass>
+			<cookOffProjectile>Bullet_9x26mmETC_FMJ</cookOffProjectile>
+		</ThingDef>
+
+		<ThingDef  Class="CombatExtended.AmmoDef" ParentName="9x26mmETCBase">
+			<defName>Ammo_9x26mmETC_AP</defName>
+			<label>9x26mm ETC cartridge (AP)</label>
+			<graphicData>
+				<texPath>Things/Ammo/Revolver/AP</texPath>
+				<graphicClass>Graphic_StackCount</graphicClass>
+			</graphicData>
+			<statBases>
+				<MarketValue>0.07</MarketValue>
+			</statBases>
+			<ammoClass>ArmorPiercing</ammoClass>
+			<cookOffProjectile>Bullet_9x26mmETC_AP</cookOffProjectile>
+		</ThingDef>
+
+		<ThingDef  Class="CombatExtended.AmmoDef" ParentName="9x26mmETCBase">
+			<defName>Ammo_9x26mmETC_HP</defName>
+			<label>9x26mm ETC cartridge (HP)</label>
+			<graphicData>
+				<texPath>Things/Ammo/Revolver/HP</texPath>
+				<graphicClass>Graphic_StackCount</graphicClass>
+			</graphicData>
+			<statBases>
+				<MarketValue>0.07</MarketValue>
+			</statBases>
+			<ammoClass>HollowPoint</ammoClass>
+			<cookOffProjectile>Bullet_9x26mmETC_HP</cookOffProjectile>
+		</ThingDef>
+
+		<ThingDef  Class="CombatExtended.AmmoDef" ParentName="9x26mmETCBase">
+			<defName>Ammo_9x26mmETC_APHE</defName>
+			<label>9x26mm ETC cartridge (AP-HE)</label>
+			<graphicData>
+				<texPath>Things/Ammo/Pistol/AP</texPath>
+				<graphicClass>Graphic_StackCount</graphicClass>
+			</graphicData>
+			<statBases>
+				<MarketValue>0.07</MarketValue>
+			</statBases>
+			<ammoClass>ExplosiveAP</ammoClass>
+			<cookOffProjectile>Bullet_9x26mmETC_APHE</cookOffProjectile>
+			<generateAllowChance>0.6</generateAllowChance>
+		</ThingDef>
+
+		<!-- ==== Projectiles ==== -->
+
+		<ThingDef  Class="CombatExtended.AmmoDef" Name="Base9x26mmETCBullet" ParentName="BaseBulletCE" Abstract="true">
+			<thingClass>CombatExtended.BulletCE</thingClass>
+    		<graphicData>
+				<texPath>Things/Projectile/ETC_Small</texPath>
+				<graphicClass>Graphic_Single</graphicClass>
+			</graphicData>
+			<projectile Class="CombatExtended.ProjectilePropertiesCE">
+				<damageDef>Bullet</damageDef>
+				<speed>174</speed>
+				<dropsCasings>false</dropsCasings>
+			</projectile>
+		</ThingDef>
+
+		<ThingDef  Class="CombatExtended.AmmoDef" ParentName="Base9x26mmETCBullet">
+			<defName>Bullet_9x26mmETC_FMJ</defName>
+			<label>9x26mm ETC bullet (FMJ)</label>
+			<projectile Class="CombatExtended.ProjectilePropertiesCE">
+				<damageAmountBase>23</damageAmountBase>
+				<armorPenetrationSharp>9</armorPenetrationSharp>
+				<armorPenetrationBlunt>90.82</armorPenetrationBlunt>
+			</projectile>
+		</ThingDef>
+
+		<ThingDef  Class="CombatExtended.AmmoDef" ParentName="Base9x26mmETCBullet">
+			<defName>Bullet_9x26mmETC_AP</defName>
+			<label>9x26mm ETC bullet (AP)</label>
+			<projectile Class="CombatExtended.ProjectilePropertiesCE">
+				<damageAmountBase>14</damageAmountBase>
+				<armorPenetrationSharp>15</armorPenetrationSharp>
+				<armorPenetrationBlunt>90.82</armorPenetrationBlunt>
+			</projectile>
+		</ThingDef>
+
+		<ThingDef  Class="CombatExtended.AmmoDef" ParentName="Base9x26mmETCBullet">
+			<defName>Bullet_9x26mmETC_HP</defName>
+			<label>9x26mm ETC bullet (HP)</label>
+			<projectile Class="CombatExtended.ProjectilePropertiesCE">
+				<damageAmountBase>29</damageAmountBase>
+				<armorPenetrationSharp>4.5</armorPenetrationSharp>
+				<armorPenetrationBlunt>90.82</armorPenetrationBlunt>
+			</projectile>
+		</ThingDef>
+
+		<ThingDef  Class="CombatExtended.AmmoDef" ParentName="Base9x26mmETCBullet">
+			<defName>Bullet_9x26mmETC_APHE</defName>
+			<label>9x26mm ETC bullet (AP-HE)</label>
+			<projectile Class="CombatExtended.ProjectilePropertiesCE">
+				<damageAmountBase>23</damageAmountBase>
+				<armorPenetrationSharp>9</armorPenetrationSharp>
+				<armorPenetrationBlunt>90.82</armorPenetrationBlunt>
+				<secondaryDamage>
+    				<li>
+    			  	<def>Bomb_Secondary</def>
+    			  	<amount>14</amount>
+    				</li>
+    		  </secondaryDamage>
+			</projectile>
+		</ThingDef>
+  
+  <!-- ==== Recipes ==== -->
+
+    	<RecipeDef  ParentName="UWC_ETCAmmoRecipeBase">
+    	  <defName>MakeAmmo_9x26mmETC_FMJ</defName>
+    	  <label>make 9x26mm ETC (FMJ) cartridge x500</label>
+    	  <description>Craft 500 9x26mm ETC (FMJ) cartridges.</description>
+    	  <jobString>Making 9x26mm ETC (FMJ) cartridges.</jobString>
+    	  <ingredients>
+    	    <li>
+    	      <filter>
+    	        <thingDefs>
+    	          <li>Steel</li>
+    	        </thingDefs>
+    	      </filter>
+    	      <count>16</count>
+    	    </li>
+    	  </ingredients>
+    	  <fixedIngredientFilter>
+    	    <thingDefs>
+    	      <li>Steel</li>
+    	    </thingDefs>
+    	  </fixedIngredientFilter>
+    	  <products>
+    	    <Ammo_9x26mmETC_FMJ>500</Ammo_9x26mmETC_FMJ>
+    	  </products>
+    	  <workAmount>1600</workAmount>
+    	</RecipeDef>
+
+    	<RecipeDef  ParentName="UWC_ETCAmmoRecipeBase">
+    	  <defName>MakeAmmo_9x26mmETC_AP</defName>
+    	  <label>make 9x26mm ETC (AP) cartridge x500</label>
+    	  <description>Craft 500 9x26mm ETC (AP) cartridges.</description>
+    	  <jobString>Making 9x26mm ETC (AP) cartridges.</jobString>
+    	  <ingredients>
+    	    <li>
+    	      <filter>
+    	        <thingDefs>
+    	          <li>Steel</li>
+    	        </thingDefs>
+    	      </filter>
+    	      <count>16</count>
+    	    </li>
+    	  </ingredients>
+    	  <fixedIngredientFilter>
+    	    <thingDefs>
+    	      <li>Steel</li>
+    	    </thingDefs>
+    	  </fixedIngredientFilter>
+    	  <products>
+    	    <Ammo_9x26mmETC_AP>500</Ammo_9x26mmETC_AP>
+    	  </products>
+    	  <workAmount>1920</workAmount>
+    	</RecipeDef>
+
+    	<RecipeDef  ParentName="UWC_ETCAmmoRecipeBase">
+    	  <defName>MakeAmmo_9x26mmETC_HP</defName>
+    	  <label>make 9x26mm ETC (HP) cartridge x500</label>
+    	  <description>Craft 500 9x26mm ETC (HP) cartridges.</description>
+    	  <jobString>Making 9x26mm ETC (HP) cartridges.</jobString>
+    	  <ingredients>
+    	    <li>
+    	      <filter>
+    	        <thingDefs>
+    	          <li>Steel</li>
+    	        </thingDefs>
+    	      </filter>
+    	      <count>16</count>
+    	    </li>
+    	  </ingredients>
+    	  <fixedIngredientFilter>
+    	    <thingDefs>
+    	      <li>Steel</li>
+    	    </thingDefs>
+    	  </fixedIngredientFilter>
+    	  <products>
+    	    <Ammo_9x26mmETC_HP>500</Ammo_9x26mmETC_HP>
+    	  </products>
+    	  <workAmount>1600</workAmount>
+    	</RecipeDef>
+
+    	<RecipeDef  ParentName="UWC_AdvancedETCAmmoRecipeBase">
+    	  <defName>MakeAmmo_9x26mmETC_APHE</defName>
+    	  <label>make 9x26mm ETC (AP-HE) cartridge x500</label>
+    	  <description>Craft 500 9x26mm ETC (AP-HE) cartridges.</description>
+    	  <jobString>Making 9x26mm ETC (AP-HE) cartridges.</jobString>
+		  <researchPrerequisites Inherit="False">
+            <li>MicroExplosives</li>
+            <li>ECOPA</li>
+        </researchPrerequisites>
+    	  <ingredients>
+    	    <li>
+    	      <filter>
+    	        <thingDefs>
+    	          <li>Steel</li>
+    	        </thingDefs>
+    	      </filter>
+    	      <count>16</count>
+    	    </li>
+			<li>
+    	      <filter>
+    	        <thingDefs>
+    	          <li>FSX</li>
+    	        </thingDefs>
+    	      </filter>
+    	      <count>7</count>
+    	    </li>
+    	  </ingredients>
+    	  <fixedIngredientFilter>
+    	    <thingDefs>
+    	      <li>Steel</li>
+			  <li>FSX</li>
+    	    </thingDefs>
+    	  </fixedIngredientFilter>
+    	  <products>
+    	    <Ammo_9x26mmETC_APHE>500</Ammo_9x26mmETC_APHE>
+    	  </products>
+    	  <workAmount>5280</workAmount>
+    	</RecipeDef>
+
+</value>
+</match>
+</Operation>
+
+</Patch>

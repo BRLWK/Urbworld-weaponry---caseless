@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+  <mods>
+    <li>Modularization Vanilla Weapon</li>
+  </mods>
+  <match Class="PatchOperationSequence">
+  <operations>
+
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>Gun_ModularCaseless_LMG</defName>
+    <statBases>
+      <Mass>5.53</Mass>
+      <RangedWeapon_Cooldown>0.38</RangedWeapon_Cooldown>
+      <SightsEfficiency>1</SightsEfficiency>
+      <ShotSpread>0.07</ShotSpread>
+      <SwayFactor>1.31</SwayFactor>
+      <Bulk>7.53</Bulk>
+      <WorkToMake>29000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>55</Steel>
+      <Chemfuel>5</Chemfuel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <Properties>
+      <recoilAmount>1.06</recoilAmount>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_473x33mmCaseless_FMJ</defaultProjectile>
+      <warmupTime>1.1</warmupTime>
+      <range>68</range>
+      <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+      <burstShotCount>10</burstShotCount>
+      <soundCast>Shot_CLMG</soundCast>
+      <soundCastTail>GunTail_Medium</soundCastTail>
+      <muzzleFlashScale>6</muzzleFlashScale>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <recoilPattern>Mounted</recoilPattern>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>300</magazineSize>
+      <reloadTime>9.2</reloadTime>
+      <ammoSet>AmmoSet_473x33mmCaseless</ammoSet>
+    </AmmoUser>
+    <FireModes>
+      <aimedBurstShotCount>5</aimedBurstShotCount>
+      <aiUseBurstMode>FALSE</aiUseBurstMode>
+      <aiAimMode>SuppressFire</aiAimMode>
+    </FireModes>
+    <weaponTags>
+      <li>CE_MachineGun</li>
+      <li>CE_AI_LMG</li>
+    </weaponTags>
+  </li>
+
+  <li Class="PatchOperationAdd">
+  <xpath>Defs/ThingDef[defName="Gun_ModularCaseless_LMG"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+  <value>
+  	<compGetGizmosExtraAllowedCompType>
+  		<li>CombatExtended.CompAmmoUser</li>
+  		<li>CombatExtended.CompFireModes</li>
+  	</compGetGizmosExtraAllowedCompType>
+  	<compPropertiesInitializeCompType>
+  		<li>CombatExtended.CompAmmoUser</li>
+  		<li>CombatExtended.CompFireModes</li>
+  	</compPropertiesInitializeCompType>
+  	<compPropertiesCreateInstanceCompType>
+  		<li>CombatExtended.CompAmmoUser</li>
+  		<li>CombatExtended.CompFireModes</li>
+  	</compPropertiesCreateInstanceCompType>
+  </value>
+  <order>Append</order>
+  </li>
+
+  <!--barrels n bipods-->
+
+  <li Class="PatchOperationAdd">
+  	<xpath>Defs/ThingDef[defName="Gun_ModularCaseless_LMG"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModCLMG_Barrel"]</xpath>
+  	<value>
+  		<allowedExtraCompType>
+  			<li>CombatExtended.BipodComp</li>
+  		</allowedExtraCompType>
+  	</value>
+  	<order>Append</order>
+  </li>
+
+  <li Class="PatchOperationRemove" >
+    <xpath>Defs/ThingDef[defName="CaselessMod_LMG_StdBarrel"
+                      or defName="CaselessMod_LMG_TacticalBarrel"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statOffset</xpath>
+  </li>
+
+  <li Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="CaselessMod_LMG_StdBarrel" 
+                          or defName="CaselessMod_LMG_LongBarrel"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+			<extraComp>
+				<li Class="CombatExtended.CompProperties_BipodComp">
+					<catDef>bipodRifle</catDef>
+					<!--additional range with bipod set up -->
+					<additionalrange>3</additionalrange>
+					 <!--ticks to set up -->
+					<ticksToSetUp>150</ticksToSetUp>
+					 <!--recoil mult with bipod set up-->
+					<recoilMulton>0.8</recoilMulton>
+					 <!-- recoil mult without the bipod set up -->
+					<recoilMultoff>1</recoilMultoff>
+					 <!--warmup mult with the bipod set up -->
+					<warmupMult>0.85</warmupMult>
+					 <!--warmup mult without the bipod set up -->
+					<warmupPenalty>1</warmupPenalty>
+					 <!--sway mult with the bipod set up -->
+					<swayMult>0.75</swayMult>
+					 <!--sway mult without the bipod set up -->
+					<swayPenalty>1</swayPenalty>
+				</li>
+			</extraComp>
+		</value>
+	</li>
+
+    <li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_LMG_LongBarrel" 
+                          or defName="CaselessMod_LMG_LongTacticalBarrel"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+			<ShotSpread>1.25</ShotSpread>
+		</value>
+		<order>Append</order>
+	</li>
+
+    <!--magazines-->
+
+    <li Class="PatchOperationAdd" >
+    <xpath>Defs/ThingDef[defName="CaselessMod_LMG_MagBasic"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+    <value>
+    	<compPropertiesObjectPatch>
+    		<il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+    			<magazineSize>300</magazineSize>
+          <reloadTime>9.2</reloadTime>
+    		</il>
+    	</compPropertiesObjectPatch>
+    </value>
+    <order>Append</order>
+    </li>
+
+    <li Class="PatchOperationAdd" >
+    <xpath>Defs/ThingDef[defName="CaselessMod_LMG_MagCylinder"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+    <value>
+    	<compPropertiesObjectPatch>
+    		<il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+    			<magazineSize>150</magazineSize>
+          <reloadTime>6.2</reloadTime>
+    		</il>
+    	</compPropertiesObjectPatch>
+    </value>
+    <order>Append</order>
+    </li>
+
+    <li Class="PatchOperationAdd" >
+    <xpath>Defs/ThingDef[defName="CaselessMod_LMG_Magazine"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+    <value>
+    	<compPropertiesObjectPatch>
+    		<il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+    			<magazineSize>50</magazineSize>
+          <reloadTime>3.2</reloadTime>
+    		</il>
+    	</compPropertiesObjectPatch>
+    </value>
+    <order>Append</order>
+    </li>
+
+    <li Class="PatchOperationRemove" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_LMG_MagBasic"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/verbPropertiesOffseter</xpath>
+	</li>
+
+    <li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_LMG_MagCylinder"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/verbPropertiesOffseter/li/burstShotCount</xpath>
+		<value>
+			<burstShotCount>-2</burstShotCount>
+		</value>
+	</li>
+
+    <!-- receivers -->
+
+  <li Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Module_CaselessLMG_Hypershot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/verbPropertiesObjectPatch/li/defaultProjectile</xpath>
+		<value>
+			<defaultProjectile>Bullet_473x33mmEC_FMJ</defaultProjectile>
+		</value>
+	</li>
+
+  <li Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Module_CaselessLMG_Hypershot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+			<compPropertiesObjectPatch>
+				<il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+					<ammoSet>AmmoSet_473x33mmEC</ammoSet>
+				</il>
+			</compPropertiesObjectPatch>
+		</value>
+    <order>Append</order>
+	</li>
+
+  <li Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Module_CaselessLMG_Hypershot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+        <statMultiplier>
+					<ShotSpread>1.25</ShotSpread>
+				</statMultiplier>
+		</value>
+    <order>Append</order>
+	</li>
+
+
+    <!-- Bulk -->
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_LMG_StdBarrel"
+                        or defName="CaselessMod_LMG_TacticalBarrel"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>0.5</Bulk>
+  	  </value>
+  	</li>
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_LMG_LongBarrel"
+                        or defName="CaselessMod_LMG_LongTacticalBarrel"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>5</Bulk>
+  	  </value>
+  	</li>
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="Module_CaselessLMG_ReinforceReciever"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>0.3</Bulk>
+  	  </value>
+  	</li>
+    
+
+  </operations>
+  </match>
+</Operation>
+
+</Patch>

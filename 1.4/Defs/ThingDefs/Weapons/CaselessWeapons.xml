@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ==== sell price factor, statbase, commonality  ==== -->
+
+  <ThingDef Name="CaselessGunBase" Abstract="True" ParentName="BaseWeapon">
+		<techLevel>Industrial</techLevel>
+		<smeltable>true</smeltable>
+    <relicChance>0.3</relicChance>
+    <generateCommonality>0.5</generateCommonality>
+    <weaponClasses>
+      <li>Ranged</li>
+    </weaponClasses>
+    <statBases Inherit="False">
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>0.75</Flammability>
+			<DeteriorationRate>1</DeteriorationRate>
+			<Beauty>-2</Beauty>
+			<SellPriceFactor>0.25</SellPriceFactor>
+		</statBases>
+		<thingCategories>
+      <li>Caselessweapons</li>
+    </thingCategories>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CompProperties_Biocodable"/>
+    </comps>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>Caselessbench</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+      <researchPrerequisite>Caseless_Weapons</researchPrerequisite>
+    </recipeMaker>
+    <weaponTags>
+      <li>Gun</li>
+    </weaponTags>
+  </ThingDef>
+
+  <ThingDef ParentName="CaselessGunBase" Name="CaselessGunMMeleeBase" Abstract="True">
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>1.75</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>1.75</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- ==== K5 caseless pistol ==== -->
+
+  <ThingDef ParentName="CaselessGunBase">
+    <defName>Gun_Caseless_Pistol</defName>
+    <label>Caseless Pistol</label>
+    <description>A caseless pistol manufactured by Super Arms, number one in self-defense since 5020. Using special additive manufacturing technology this muzzle brake is able to significantly reduce horizontal recoil.</description>
+    <graphicData>
+      <texPath>Things/CaselessWep/Pistol/Standard</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.85</drawSize>
+      <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.13, 0.0, -0.1)</drawOffsetNorth>
+      <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.13, 0.0, -0.1)</drawOffsetSouth>
+      <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.13, 0.0, -0.1)</drawOffsetEast>
+      <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.13, 0.0, -0.1)</drawOffsetWest>
+    </graphicData>
+    <soundInteract>Interact_CPistol</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>BlowbackOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>SimpleGun</li>
+      <li>UWPC_Pistol</li>
+      <li>ammo_caseless/21</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+      <li>ShortShots</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>6500</WorkToMake>
+      <Mass>0.9</Mass>
+      <AccuracyTouch>0.95</AccuracyTouch>
+      <AccuracyShort>0.88</AccuracyShort>
+      <AccuracyMedium>0.42</AccuracyMedium>
+      <AccuracyLong>0.18</AccuracyLong>
+      <RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>15</Steel>
+      <Chemfuel>15</Chemfuel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_caselesspistol</defaultProjectile>
+        <warmupTime>0.12</warmupTime>
+        <range>11.9</range>
+        <burstShotCount>3</burstShotCount>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+        <soundCast>Shot_kpistol</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>6</muzzleFlashScale>
+      </li>
+    </verbs>
+    <!--====custom for CE====-->
+    <tools>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>1</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>1.2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_caselesspistol</defName>
+    <label>pistol flechette</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>6</damageAmountBase>
+	    <armorPenetrationBase>0.2</armorPenetrationBase>
+      <stoppingPower>0</stoppingPower>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet" >
+    <defName>Bullet_caselesspistolA</defName>
+    <label>electrochem pistol bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/ETC_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>8</damageAmountBase>
+      <stoppingPower>0.35</stoppingPower>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet" >
+    <defName>Bullet_caselesspistolB</defName>
+    <label>subsonic bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>14</damageAmountBase>
+      <stoppingPower>2</stoppingPower>
+      <armorPenetrationBase>0.02</armorPenetrationBase>
+      <speed>40</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_MCAP_Heavy</defName>
+    <label>heavy caseless bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>12</damageAmountBase>
+      <stoppingPower>1</stoppingPower>
+      <speed>55</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- ==== caseless bolt action ==== -->
+
+  <ThingDef ParentName="CaselessGunMMeleeBase">
+    <defName>Gun_Caseless_BoltAction</defName>
+    <label>Caseless survival rifle</label>
+    <description>Urbworld colony freighters are equipped with essential survival kits that include weapons designed for self-defense and hunting, particularly on life-seeded worlds where dangerous megafauna are prevalent. These compact and portable survival rifles fit easily into a backpack, providing essential protection for navigating the perils of uncharted territories.</description>
+    <graphicData>
+      <texPath>CaselessBonus/BoltAction/Standard</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1</drawSize>
+      <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.01, 0.0, 0.1)</drawOffsetNorth>
+      <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.01, 0.0, -0.1)</drawOffsetSouth>
+      <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.1, 0.0, -0.01)</drawOffsetEast>
+      <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.1, 0.0, -0.01)</drawOffsetWest>
+    </graphicData>
+    <soundInteract>Interact_CRifle</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>SimpleGun</li>
+      <li>LongShots</li>
+      <li>ammo_caseless/15</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>LongShots</li>
+      <li>RangedLight</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>10500</WorkToMake>
+      <Mass>1.9</Mass>
+      <AccuracyTouch>0.65</AccuracyTouch>
+      <AccuracyShort>0.81</AccuracyShort>
+      <AccuracyMedium>0.95</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>3.2</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>55</Steel>
+      <Chemfuel>12</Chemfuel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_CSBAR</defaultProjectile>
+        <warmupTime>1.5</warmupTime>
+        <range>30.9</range>
+        <soundCast>Shot_Bolty</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_CSBAR</defName>
+    <label>rifle hollow point</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>22</damageAmountBase>
+	    <armorPenetrationBase>0.07</armorPenetrationBase>
+      <stoppingPower>1.5</stoppingPower>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- ==== CSK-8 submachine gun ==== -->
+  
+<ThingDef ParentName="CaselessGunMMeleeBase">
+		<defName>Gun_Caseless_SMG</defName>
+		<label>Caseless PDW</label>
+		<description>Compact, lightweight, and high-performance firearm designed for close-quarters combat and self-defense. It is a popular choice for unaugmented beat cops and basic corpsec personnel due to its ease of use, low recoil, and high rate of fire.</description>
+		<graphicData>
+			<texPath>Things/CaselessWep/SMG/Standard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+      <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.7</drawSize>
+      <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, 0.05)</drawOffsetNorth>
+      <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, -0.05)</drawOffsetSouth>
+      <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.05, 0.0, -0.02)</drawOffsetEast>
+      <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.02)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Interact_CPistol</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>GasOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>ShortShots</li>
+      <li>UWPC_SMG</li>
+      <li>ammo_caseless/50</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+      <li>ShortShots</li>
+    </weaponClasses>
+		<statBases>
+			<WorkToMake>23000</WorkToMake>
+			<Mass>2.29</Mass>
+			<AccuracyTouch>0.77</AccuracyTouch>
+			<AccuracyShort>0.62</AccuracyShort>
+			<AccuracyMedium>0.27</AccuracyMedium>
+			<AccuracyLong>0.15</AccuracyLong>
+			<RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+      <Chemfuel>45</Chemfuel>
+			<Steel>20</Steel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+    <verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_CSG</defaultProjectile>
+				<warmupTime>0.7</warmupTime>
+				<range>14.9</range>
+				<burstShotCount>5</burstShotCount>
+				<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+				<soundCast>Shot_CSG</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>7</muzzleFlashScale>
+			</li>
+		</verbs>
+	</ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_CSG</defName>
+    <label>HVAP bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>6</damageAmountBase>
+	  <armorPenetrationBase>0.16</armorPenetrationBase>
+	  <stoppingPower>0</stoppingPower>
+      <speed>75</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet" >
+    <defName>Bullet_CSG_Longbarrel</defName>
+    <label>HVAP bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>8</damageAmountBase>
+	    <armorPenetrationBase>0.2</armorPenetrationBase>
+	    <stoppingPower>0.2</stoppingPower>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet" >
+    <defName>Bullet_CSG_FMJ</defName>
+    <label>caseless bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet" >
+    <defName>Bullet_CSG_HP</defName>
+    <label>caseless hollow point</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>14</damageAmountBase>
+      <armorPenetrationBase>0.03</armorPenetrationBase>
+      <stoppingPower>1</stoppingPower>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef>
+  
+	    <!-- ============================================== -->
+	
+	<ThingDef ParentName="CaselessGunMMeleeBase">
+		<defName>Gun_Caseless_Carbine</defName>
+		<label>Caseless carbine</label>
+		<description>A renowned firearm known for its large 50-round magazine and high rate of fire. Manufactured by Sradi Security Tech, a long-standing corporation renowned for its high-quality small arms, this rifle has gained a reputation for reliability and effectiveness in close-quarters engagements.</description>
+		<graphicData>
+			<texPath>Things/CaselessWep/AssaultRifle/Standard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+      <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+      <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, 0.08)</drawOffsetNorth>
+      <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.08)</drawOffsetSouth>
+      <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.08, 0.0, -0.05)</drawOffsetEast>
+      <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.08, 0.0, -0.05)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Interact_CRifle</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>GasOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>AssaultRifle</li>
+      <li>UWPC_Rifle</li>
+      <li>ammo_caseless/50</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+      <li>ShortShots</li>
+    </weaponClasses>
+		<statBases>
+			<WorkToMake>42000</WorkToMake>
+			<Mass>2.8</Mass>
+			<AccuracyTouch>0.9</AccuracyTouch>
+			<AccuracyShort>0.78</AccuracyShort>
+			<AccuracyMedium>0.21</AccuracyMedium>
+			<AccuracyLong>0.15</AccuracyLong>
+			<RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>50</Steel>
+      <Chemfuel>10</Chemfuel>
+			<ComponentIndustrial>8</ComponentIndustrial>
+		</costList>
+    <verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_CAR</defaultProjectile>
+				<warmupTime>1.9</warmupTime>
+				<range>22.9</range>
+				<burstShotCount>6</burstShotCount>
+				<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+				<soundCast>Shot_CAR</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>4</muzzleFlashScale>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <!-- Projectile -->
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_CAR</defName>
+    <label>AR flechette</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>7</damageAmountBase>
+	  <armorPenetrationBase>0.20</armorPenetrationBase>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_CAR_FMJ</defName>
+    <label>AR bullet (FMJ)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>11</damageAmountBase>
+	  <armorPenetrationBase>0.10</armorPenetrationBase>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_CAR_HP</defName>
+    <label>AR bullet (HP)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>15</damageAmountBase>
+	  <armorPenetrationBase>0.03</armorPenetrationBase>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- similar damage x3 armor pen of standard ap-->
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_CARETC</defName>
+    <label>AR bullet (ETC)</label>
+    <graphicData>
+      <texPath>Things/Projectile/ETC_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>9</damageAmountBase>
+	  <armorPenetrationBase>0.35</armorPenetrationBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+	
+		    <!-- ======================LMG11K======================== -->
+
+	<ThingDef ParentName="CaselessGunMMeleeBase">
+		<defName>Gun_Caseless_LMG</defName>
+		<label>Caseless LMG</label>
+		<description>This caseless LMG delivers unmatched suppressive fire thanks to its large ammo capacity, meticulous engineering, and lightweight ammunition. However, unleashed fire comes at a cost. The LMG's tendency to overheat can lead to dangerous ammunition cook-offs and barrel warping. This risk is magnified in the dense, polluted atmospheres common to many urbworlds.</description>
+		<graphicData>
+			<texPath>Things/CaselessWep/LMG/Standard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+      <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+      <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, 0.08)</drawOffsetNorth>
+      <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.08)</drawOffsetSouth>
+      <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.08, 0.0, -0.05)</drawOffsetEast>
+      <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.08, 0.0, -0.05)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Interact_CBox</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>GasOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>UWPC_LMG</li>
+      <li>ammo_caseless/300</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+    </weaponClasses>
+		<statBases>
+			<WorkToMake>40000</WorkToMake>
+			<Mass>5.5</Mass>
+			<AccuracyTouch>0.3</AccuracyTouch>
+			<AccuracyShort>0.37</AccuracyShort>
+			<AccuracyMedium>0.25</AccuracyMedium>
+			<AccuracyLong>0.1</AccuracyLong>
+			<RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>70</Steel>
+      <Chemfuel>10</Chemfuel>
+			<ComponentIndustrial>6</ComponentIndustrial>
+		</costList>
+    <verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_CLMG</defaultProjectile>
+				<warmupTime>2</warmupTime>
+				<range>27.9</range>
+				<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+				<burstShotCount>12</burstShotCount>
+				<soundCast>Shot_CLMG</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_CLMG</defName>
+    <label>LMG flechette</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>8</damageAmountBase>
+	  <armorPenetrationBase>0.15</armorPenetrationBase>
+      <stoppingPower>0.8</stoppingPower>
+      <speed>55</speed>
+    </projectile>
+  </ThingDef>
+	
+<!-- ============================================== -->
+	
+	<ThingDef ParentName="CaselessGunMMeleeBase">
+		<defName>Gun_Caseless_BurstRifle</defName>
+		<label>Caseless burst rifle</label>
+		<description>A relic of Old Earth firearms technology with a modern makeover, featuring updated ergonomics and an enhanced action. This veteran weapon maintains its effectiveness in wasteland combat, delivering lethal three-round bursts at long range.\n\nThe exhausted barrens that stretch between cities are home to thermal boreholes: colossal mining complexes that reach the urbworld's mantle. These mines are sites of conflict between rival corporations and city-states for the valuable resources they provide.</description>
+		<graphicData>
+			<texPath>Things/CaselessWep/Burst/Standard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+      <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">0.88</drawSize>
+      <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, 0.05)</drawOffsetNorth>
+      <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.02, 0.0, -0.05)</drawOffsetSouth>
+      <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.05, 0.0, -0.02)</drawOffsetEast>
+      <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.05, 0.0, -0.02)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Interact_CRifle</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>AssaultRifle</li>
+      <li>UWPC_Rifle_Advanced</li>
+      <li>ammo_caseless/50</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+    </weaponClasses>
+		<statBases>
+			<WorkToMake>52000</WorkToMake>
+			<Mass>2.8</Mass>
+			<AccuracyTouch>0.21</AccuracyTouch>
+			<AccuracyShort>0.43</AccuracyShort>
+			<AccuracyMedium>0.66</AccuracyMedium>
+			<AccuracyLong>0.83</AccuracyLong>
+			<RangedWeapon_Cooldown>2.3</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>50</Steel>
+      <Chemfuel>20</Chemfuel>
+			<ComponentIndustrial>9</ComponentIndustrial>
+		</costList>
+    <verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_CAR</defaultProjectile>
+				<warmupTime>1.5</warmupTime>
+				<range>34.9</range>
+				<burstShotCount>3</burstShotCount>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<soundCast>Shot_Burst</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>4</muzzleFlashScale>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <!-- ==== battle rifle ==== -->
+
+  <ThingDef ParentName="CaselessGunMMeleeBase">
+    <defName>Gun_Caseless_BattleRifle</defName>
+    <label>Caseless battle rifle</label>
+    <description>This common infantry battle rifle was once manufactured by Green Mountain Armory (GMA), but the schematic predates the company's founding by at least several centuries. It includes a small holographic sight embedded on the carry rail.\n\nUrbworlds are known for producing a wide variety of battle rifles due to the prevalence of cybernetics and advanced body armor.</description>
+    <graphicData>
+      <texPath>CaselessBonus/BattleRifle/Standard</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1</drawSize>
+      <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.03, 0.0, 0.2)</drawOffsetNorth>
+      <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.03, 0.0, -0.2)</drawOffsetSouth>
+      <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.2, 0.0, -0.03)</drawOffsetEast>
+      <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.2, 0.0, -0.03)</drawOffsetWest>
+    </graphicData>
+    <soundInteract>Interact_CRifle</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>AssaultRifle</li>
+      <li>LongShots</li>
+      <li>ammo_caseless/25</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>LongShots</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>15500</WorkToMake>
+      <Mass>3.9</Mass>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.78</AccuracyMedium>
+      <AccuracyLong>0.68</AccuracyLong>
+      <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>50</Steel>
+    <ComponentIndustrial>6</ComponentIndustrial>
+    <Chemfuel>12</Chemfuel>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_CBR</defaultProjectile>
+        <warmupTime>0.5</warmupTime>
+        <range>32.9</range>
+        <soundCast>Shot_cbatrifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_CBR</defName>
+    <label>battle rifle flechette</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>16</damageAmountBase>
+	    <armorPenetrationBase>0.26</armorPenetrationBase>
+      <stoppingPower>0.5</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_CBRA</defName>
+    <label>caseless rifle bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>21</damageAmountBase>
+      <stoppingPower>1.4</stoppingPower>
+      <speed>50</speed>
+    </projectile>
+  </ThingDef>
+  
+	    <!-- ============================================== -->
+
+  <ThingDef ParentName="CaselessGunMMeleeBase">
+    <defName>Gun_Caseless_SniperRifle</defName>
+    <label>Caseless sniper rifle</label>
+    <description>This mass-produced sniper rifle, manufactured by Green Mountain Armory, complements the overwhelming firepower that urbworld infantry units are known for. Its floating mechanism allows the operator to fire two shots before feeling the recoil.</description>
+    <graphicData>
+      <texPath>Things/CaselessWep/Sniper/Standard</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1.15</drawSize>
+      <drawOffsetNorth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.01, 0.0, 0.2)</drawOffsetNorth>
+      <drawOffsetSouth MayRequire="CarnySenpai.EnableOversizedWeapons">(0.01, 0.0, -0.2)</drawOffsetSouth>
+      <drawOffsetEast MayRequire="CarnySenpai.EnableOversizedWeapons">(0.2, 0.0, 0.01)</drawOffsetEast>
+      <drawOffsetWest MayRequire="CarnySenpai.EnableOversizedWeapons">(-0.2, 0.0, 0.01)</drawOffsetWest>
+    </graphicData>
+    <soundInteract>Interact_CBox</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>7</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>SniperRifle</li>
+      <li>UWPC_SniperRifle</li>
+      <li>LongShots</li>
+      <li>ammo_caseless/15</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>LongShots</li>
+      <li>RangedLight</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>50000</WorkToMake>
+      <Mass>7.1</Mass>
+      <AccuracyTouch>0.55</AccuracyTouch>
+      <AccuracyShort>0.65</AccuracyShort>
+      <AccuracyMedium>0.82</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>4</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Chemfuel>20</Chemfuel>
+      <Steel>50</Steel>
+      <ComponentIndustrial>9</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_caselessMRifle</defaultProjectile>
+        <warmupTime>4.2</warmupTime>
+        <range>40.9</range>
+        <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+				<burstShotCount>2</burstShotCount>
+        <soundCast>Shot_csniper</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_caselessMRifle</defName>
+    <label>DMR bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <armorPenetrationBase>0.18</armorPenetrationBase>
+      <stoppingPower>1.5</stoppingPower>
+      <speed>100</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_caselessMRifle_ETC</defName>
+    <label>EC Rifle bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/ETC_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>22</damageAmountBase>
+      <stoppingPower>2</stoppingPower>
+      <armorPenetrationBase>0.3</armorPenetrationBase>
+      <speed>120</speed>
+    </projectile>
+  </ThingDef>
+
+
+</Defs>

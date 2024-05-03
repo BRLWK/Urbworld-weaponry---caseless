@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+	<mods>
+		<li>Combat Extended</li>
+	</mods>
+
+<match Class="PatchOperationSequence">
+<operations>
+
+        <li Class="PatchOperationReplace">
+		    	<xpath>Defs/ThingDef[defName="Caseless_MCBR"]/label</xpath>
+		    	<value>
+		    		<label>G530 Mod.</label>
+		    	</value>
+		    </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName="Caseless_MCBR"]/statBases</xpath>
+          <value>
+            <statBases>
+              <Mass>3.65</Mass>
+              <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+              <SightsEfficiency>1</SightsEfficiency>
+              <ShotSpread>0.06</ShotSpread>
+              <SwayFactor>1.12</SwayFactor>
+              <Bulk>7.5</Bulk>
+              <WorkToMake>58000</WorkToMake>
+            </statBases>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName="Caseless_MCBR"]/verbs</xpath>
+          <value>
+            <verbs>
+              <li Class="CombatExtended.VerbPropertiesCE">
+                <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                <recoilAmount>0.43</recoilAmount> <!-- 1/3 1.30 -->
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_473x33mmCaseless_FMJ</defaultProjectile>
+                <warmupTime>1.1</warmupTime>
+                <range>48</range>
+                <burstShotCount>3</burstShotCount>
+                <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                <soundCast>Shot_Burst</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>6</muzzleFlashScale>
+              </li>
+            </verbs>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingDef[defName="Caseless_MCBR"]/comps</xpath>
+          <value>
+            <li Class="ModularWeapons_CEModule.CompProperties_AmmoUserMW">
+              <magazineSize>50</magazineSize>
+              <reloadTime>4.5</reloadTime>
+              <ammoSet>AmmoSet_473x33mmCaseless</ammoSet>
+            </li>
+            <li Class="ModularWeapons_CEModule.CompProperties_FireModesMW">
+              <aimedBurstShotCount>3</aimedBurstShotCount>
+              <aiUseBurstMode>TRUE</aiUseBurstMode>
+              <aiAimMode>AimedShot</aiAimMode>
+            </li>
+            <li Class="ModularWeapons_CEModule.CompProperties_BipodMW">
+              <catDef>bipodDMR</catDef>
+            </li>
+            <li Class="ModularWeapons_CEModule.CompProperties_UnderbarrelMW">
+              <enableDefault>false</enableDefault>
+                <propsUnderBarrel>
+                  <magazineSize>1</magazineSize>
+                  <reloadTime>3</reloadTime>
+                  <ammoSet>AmmoSet_40x53mmVOG25Grenade</ammoSet>
+                </propsUnderBarrel>
+                <verbPropsUnderBarrel>
+                  <recoilAmount>2.71</recoilAmount>
+                  <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                  <hasStandardCommand>true</hasStandardCommand>
+                  <defaultProjectile>Bullet_40x53mmVOG25Grenade_HE</defaultProjectile>
+                  <warmupTime>1.15</warmupTime>
+                  <range>45</range>
+                  <burstShotCount>1</burstShotCount>
+                  <soundCast>Shot_GLA</soundCast>
+                  <soundCastTail>GunTail_Light</soundCastTail>
+                  <muzzleFlashScale>4</muzzleFlashScale>
+                </verbPropsUnderBarrel>
+                <propsFireModesUnderBarrel>
+                  <aiUseBurstMode>FALSE</aiUseBurstMode>
+                  <aiAimMode>AimedShot</aiAimMode>
+                  <aimedBurstShotCount>1</aimedBurstShotCount>
+                </propsFireModesUnderBarrel>
+            </li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName="Caseless_MCBR"]/tools/li[1]</xpath>
+          <value>
+            <li Class="CombatExtended.ToolCE">
+              <label>stock</label>
+              <capacities>
+                <li>Blunt</li>
+              </capacities>
+              <power>8</power>
+              <cooldownTime>1.55</cooldownTime>
+              <chanceFactor>1.5</chanceFactor>
+              <armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+              <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+            </li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName="Caseless_MCBR"]/tools/li[2]</xpath>
+          <value>
+            <li Class="CombatExtended.ToolCE">
+              <label>barrel</label>
+              <capacities>
+                <li>Blunt</li>
+              </capacities>
+              <power>5</power>
+              <cooldownTime>2.02</cooldownTime>
+              <armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+              <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+            </li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+		    	<xpath>Defs/ThingDef[defName="Caseless_MCBR"]/costList</xpath>
+		    	<value>
+		    		<costList>
+              <Chemfuel>10</Chemfuel>
+              <Steel>45</Steel>
+              <Plasteel>25</Plasteel>
+              <ComponentIndustrial>10</ComponentIndustrial>
+            </costList>
+		    	</value>
+		    </li>
+
+<!-- ======================================== Stats : Removing non-CE stats ==== -->
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[
+              defName="MCBR_Reciever_ETC" or
+              defName="MCBR_Reciever_Tuned" or
+              defName="MCBR_Reciever_Hyper" or
+              defName="MCBR_Barrel_Flash" or
+              defName="MCBR_Barrel_Compensator" or
+              defName="MCBR_Barrel_Extended" or
+              defName="MCBR_Barrel_Accelerator"]/warmupTimeFactor</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[
+              defName="MCBR_Reciever_ETC"]/rangeFactor</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[
+              defName="MCBR_Barrel_Silencer" or
+              defName="MCBR_Barrel_Accelerator"]/ticksBetweenShotsFactor</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[
+              defName="MCBR_Reciever_ETC" or
+              defName="MCBR_Furniture_Plasteel"]/MoveSpeedFactor</xpath>
+          </li>
+
+          <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[
+              defName="MCBR_Reciever_Tuned" or
+              defName="MCBR_Reciever_Hyper" or
+              defName="MCBR_Barrel_Flash" or
+              defName="MCBR_Barrel_Compensator" or
+              defName="MCBR_Barrel_Extended" or
+              defName="MCBR_Barrel_Silencer" or
+              defName="MCBR_Optic_IronHandle"]/cooldownFactor</xpath>
+          </li>
+
+<!-- ======================================== Stats : Removing ammo / categories / Presets ==== -->
+        <!-- category -->
+        <li Class="PatchOperationRemove">
+        	<xpath>Defs/ThingDef[defName="Caseless_MCBR"]/comps/li[@Class="ModularWeapons.CompProperties_ModularParts"]/defaultParts/li[text()="MCBR_Mag_Standard"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>Defs/ThingDef[defName="Caseless_MCBR"]/comps/li[@Class="ModularWeapons.CompProperties_ModularParts"]/majorKinds/li[text()="MCBR_Magazine"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>Defs/ThingDef[defName="Caseless_MCBR"]/comps/li[@Class="ModularWeapons.CompProperties_ModularParts"]/partKinds/li[text()="MCBR_Magazine"]</xpath>
+        </li>
+        <!-- ammo -->
+        <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[
+                defName="MCBR_Mag_Standard" or
+                defName="MCBR_Mag_FMJ" or
+                defName="MCBR_Mag_HP"]</xpath>
+        </li>
+        <!-- Preset -->
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[
+            defName="MCBR_Wildcard_Rifle" or
+            defName="MCBR_Wildcard_SpacerRifle" or
+            defName="MCBR_Accelerator_BurstRifle"
+          ]/requiredParts/li[text()="MCBR_Mag_Standard"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[
+            defName="MCBR_Commando_Rifle" or
+            defName="MCBR_LRB_Rifle"
+          ]/optionalParts/li[text()="MCBR_Mag_Standard"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBR_LRB_Rifle"]/requiredParts/li[text()="MCBR_Mag_FMJ"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBR_Wildcard_Rifle" or defName="MCBR_Commando_Rifle"]/optionalParts/li[text()="MCBR_Mag_FMJ"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBR_Commando_Rifle"]/requiredParts/li[text()="MCBR_Mag_HP"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBR_Wildcard_Rifle" or defName="MCBR_LRB_Rifle"]/optionalParts/li[text()="MCBR_Mag_HP"]</xpath>
+        </li>
+
+<!-- ======================================== Stats : Recievers ==== -->
+        <!-- ETC -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Reciever_ETC"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <overrideAmmoSet>AmmoSet_65x33mmETC</overrideAmmoSet>
+                <swayFactor>0.1</swayFactor>
+                <recoilAmount>0.21</recoilAmount> <!-- 1/3 1.93 -->
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Reciever_ETC"]/massFactor</xpath>
+          <value>
+            <massFactor>1</massFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Reciever_ETC"]/cooldownFactor</xpath>
+          <value>
+            <cooldownFactor>0.01</cooldownFactor>
+          </value>
+        </li>
+
+        <!-- tuned -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Reciever_Tuned"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <shotSpread>-0.01</shotSpread>
+                <swayFactor>-0.02</swayFactor>
+                <recoilAmount>0.03</recoilAmount>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Reciever_Tuned"]/massFactor</xpath>
+          <value>
+            <massFactor>-0.15</massFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Reciever_Tuned"]</xpath>
+          <value>
+            <rangeFactor>5</rangeFactor>
+          </value>
+        </li>
+
+        <!-- hyperburst -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Reciever_Hyper"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <swayFactor>0.06</swayFactor>
+                <recoilAmount>-0.1</recoilAmount>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+<!-- ======================================== Remove extra GLs ==== -->
+
+        <li Class="PatchOperationReplace">
+		    	<xpath>Defs/ModularWeapons.ModularPartDef[defName="MCBR_Attach_GLHE"]/path</xpath>
+		    	<value>
+		    		<path>CE_GL</path>
+		    	</value>
+		    </li>
+
+        <li Class="PatchOperationReplace">
+		    	<xpath>Defs/ModularWeapons.ModularPartDef[defName="MCBR_Attach_GL2AB"]/path</xpath>
+		    	<value>
+		    		<path>CE_GL2</path>
+		    	</value>
+		    </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBR_Wildcard_Rifle"]/optionalParts/li[text()="MCBR_Attach_GLIC"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBR_Wildcard_Rifle"]/optionalParts/li[text()="MCBR_Attach_GLSM"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBR_Wildcard_Rifle"]/optionalParts/li[text()="MCBR_Attach_GLEMP"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBR_Wildcard_SpacerRifle" or defName="MCBR_Accelerator_BurstRifle"]/optionalParts/li[text()="MCBR_Attach_GL2HEDP"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBR_Wildcard_SpacerRifle" or defName="MCBR_Accelerator_BurstRifle"]/optionalParts/li[text()="MCBR_Attach_GL2I"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBR_Wildcard_SpacerRifle" or defName="MCBR_Accelerator_BurstRifle"]/optionalParts/li[text()="MCBR_Attach_GL2S"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBR_Wildcard_SpacerRifle" or defName="MCBR_Accelerator_BurstRifle"]/optionalParts/li[text()="MCBR_Attach_GL2EMP"]</xpath>
+        </li>
+
+        <!-- Defs -->
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Attach_GLIC"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Attach_GLSM"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Attach_GLEMP"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Attach_GL2HEDP"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Attach_GL2I"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Attach_GL2S"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Attach_GL2EMP"]</xpath>
+        </li>
+
+<!-- ======================================== Stats : Barrels ==== -->
+        <!-- compensator -->
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Barrel_Compensator"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <recoilAmount>-0.08</recoilAmount>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+        <!-- ext -->
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Barrel_Extended"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <shotSpread>-0.02</shotSpread>
+                <swayFactor>0.15</swayFactor>
+                <recoilAmount>-0.08</recoilAmount>
+                <bulk>1.01</bulk>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Barrel_Extended"]/rangeFactor</xpath>
+          <value>
+            <rangeFactor>5</rangeFactor>
+          </value>
+        </li>
+        <!-- silencer -->
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Barrel_Silencer"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <shotSpread>0.01</shotSpread>
+                <swayFactor>-0.06</swayFactor>
+                <recoilAmount>0.06</recoilAmount>
+                <bulk>-0.3</bulk>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Barrel_Silencer"]/rangeFactor</xpath>
+          <value>
+            <rangeFactor>-11</rangeFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Barrel_Silencer"]/massFactor</xpath>
+          <value>
+            <massFactor>-0.3</massFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Barrel_Silencer"]/warmupTimeFactor</xpath>
+          <value>
+            <warmupTimeFactor>-0.2</warmupTimeFactor>
+          </value>
+        </li>
+
+        <!-- Accelerator -->
+        <li Class="PatchOperationReplace">
+			<xpath>Defs/ModularWeapons.ModularPartDef[defName="MCBR_Barrel_Accelerator"]/path</xpath>
+			<value>
+				<path>CE_Accelerator</path>
+			</value>
+		</li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Barrel_Accelerator"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <overrideAmmoSet>AmmoSet_6mmChemrail</overrideAmmoSet>
+                <shotSpread>-0.01</shotSpread>
+                <swayFactor>0.03</swayFactor>
+                <recoilAmount>0.8</recoilAmount>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Barrel_Accelerator"]/rangeFactor</xpath>
+          <value>
+            <rangeFactor>7</rangeFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Barrel_Accelerator"]</xpath>
+          <value>
+            <massFactor>0.3</massFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Barrel_Accelerator"]/cooldownFactor</xpath>
+          <value>
+            <cooldownFactor>0.01</cooldownFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Barrel_Accelerator"]/incompatibleKind</xpath>
+          <value>
+            <li>MCBR_Reciever</li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBR_Accelerator_BurstRifle"]/optionalParts/li[text()="MCBR_Reciever_ETC"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCBR_Accelerator_BurstRifle"]/optionalParts/li[text()="MCBR_Reciever_Hyper"]</xpath>
+        </li>
+
+<!-- ======================================== Stats : Optics ==== -->
+
+            <!-- Red Dot -->
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Optic_IronHandle"]</xpath>
+                <value>
+                    <additionalFactors>
+                        <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                            <bulk>0.05</bulk>
+                            <sightsEfficiency>0.15</sightsEfficiency>
+                        </li>
+                    </additionalFactors>
+                </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCBR_Optic_IronHandle"]/warmupTimeFactor</xpath>
+                <value>
+                    <warmupTimeFactor>0.15</warmupTimeFactor>
+                </value>
+            </li>
+
+
+</operations>
+</match>
+</Operation>
+</Patch>

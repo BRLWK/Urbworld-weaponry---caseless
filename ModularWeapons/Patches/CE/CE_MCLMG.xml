@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+	<mods>
+		<li>Combat Extended</li>
+	</mods>
+
+<match Class="PatchOperationSequence">
+<operations>
+
+
+        <li Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="Caseless_MCLMG"]/label</xpath>
+			<value>
+				<label>LMG11 Mod.</label>
+			</value>
+		</li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName="Caseless_MCLMG"]/statBases</xpath>
+          <value>
+            <statBases>
+              <Mass>4.35</Mass>
+              <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+              <SightsEfficiency>1</SightsEfficiency>
+              <ShotSpread>0.06</ShotSpread>
+              <SwayFactor>1.34</SwayFactor>
+              <Bulk>9</Bulk>
+              <WorkToMake>40000</WorkToMake>
+            </statBases>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName="Caseless_MCLMG"]/verbs</xpath>
+          <value>
+            <verbs>
+              <li Class="CombatExtended.VerbPropertiesCE">
+                <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                <recoilAmount>1.19</recoilAmount>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_473x33mmCaseless_FMJ</defaultProjectile>
+                <warmupTime>1.1</warmupTime>
+                <range>62</range>
+                <burstShotCount>10</burstShotCount>
+                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                <targetParams>
+                  <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+                <recoilPattern>Mounted</recoilPattern>
+                <soundCast>Shot_CLMG</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>6</muzzleFlashScale>
+              </li>
+            </verbs>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingDef[defName="Caseless_MCLMG"]/comps</xpath>
+          <value>
+            <li Class="ModularWeapons_CEModule.CompProperties_AmmoUserMW">
+              <magazineSize>300</magazineSize>
+              <reloadTime>5.4</reloadTime>
+              <ammoSet>AmmoSet_473x33mmCaseless</ammoSet>
+            </li>
+            <li Class="ModularWeapons_CEModule.CompProperties_FireModesMW">
+              <aimedBurstShotCount>5</aimedBurstShotCount>
+              <aiUseBurstMode>TRUE</aiUseBurstMode>
+              <aiAimMode>AimedShot</aiAimMode>
+            </li>
+            <li Class="ModularWeapons_CEModule.CompProperties_BipodMW">
+              <catDef>bipodLMG</catDef>
+            </li>
+            <li Class="ModularWeapons_CEModule.CompProperties_UnderbarrelMW">
+              <enableDefault>false</enableDefault>
+                <propsUnderBarrel>
+                  <magazineSize>1</magazineSize>
+                  <reloadTime>3</reloadTime>
+                  <ammoSet>AmmoSet_40x53mmVOG25Grenade</ammoSet>
+                </propsUnderBarrel>
+                <verbPropsUnderBarrel>
+                  <recoilAmount>2.71</recoilAmount>
+                  <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                  <hasStandardCommand>true</hasStandardCommand>
+                  <defaultProjectile>Bullet_40x53mmVOG25Grenade_HE</defaultProjectile>
+                  <warmupTime>1.1</warmupTime>
+                  <range>40</range>
+                  <burstShotCount>1</burstShotCount>
+                  <soundCast>Shot_GLA</soundCast>
+                  <soundCastTail>GunTail_Light</soundCastTail>
+                  <muzzleFlashScale>4</muzzleFlashScale>
+                </verbPropsUnderBarrel>
+                <propsFireModesUnderBarrel>
+                  <aiUseBurstMode>FALSE</aiUseBurstMode>
+                  <aiAimMode>AimedShot</aiAimMode>
+                  <aimedBurstShotCount>1</aimedBurstShotCount>
+                </propsFireModesUnderBarrel>
+            </li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName="Caseless_MCLMG"]/tools/li[1]</xpath>
+          <value>
+            <li Class="CombatExtended.ToolCE">
+              <label>stock</label>
+              <capacities>
+                <li>Blunt</li>
+              </capacities>
+              <power>8</power>
+              <cooldownTime>1.55</cooldownTime>
+              <chanceFactor>1.5</chanceFactor>
+              <armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+              <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+            </li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName="Caseless_MCLMG"]/tools/li[2]</xpath>
+          <value>
+            <li Class="CombatExtended.ToolCE">
+              <label>barrel</label>
+              <capacities>
+                <li>Blunt</li>
+              </capacities>
+              <power>5</power>
+              <cooldownTime>2.02</cooldownTime>
+              <armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+              <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+            </li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+		    	<xpath>Defs/ThingDef[defName="Caseless_MCLMG"]/costList</xpath>
+		    	<value>
+		    		<costList>
+              <Chemfuel>15</Chemfuel>
+              <Steel>50</Steel>
+              <ComponentIndustrial>6</ComponentIndustrial>
+            </costList>
+		    	</value>
+		    </li>
+
+<!-- ======================================== Stats : Removing non-CE stats ==== -->
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[
+            defName="MCLMG_Reciever_ETC" or
+            defName="MCLMG_Reciever_Tuned" or
+            defName="MCLMG_Reciever_Reinforced" or
+            defName="MCLMG_Barrel_Flash" or
+            defName="MCLMG_Barrel_Compensator" or
+            defName="MCLMG_Barrel_Extended" or
+            defName="MCLMG_Barrel_Accelerator"]/warmupTimeFactor</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[
+            defName="MCLMG_Reciever_Tuned" or
+            defName="MCLMG_Reciever_Reinforced" or
+            defName="MCLMG_Barrel_Flash" or
+            defName="MCLMG_Barrel_Compensator" or
+            defName="MCLMG_Barrel_Extended"]/cooldownFactor</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[
+            defName="MCLMG_Reciever_ETC" or
+            defName="MCLMG_Furniture_Plasteel"]/MoveSpeedFactor</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[
+            defName="MCLMG_Barrel_Accelerator"]/ticksBetweenShotsFactor</xpath>
+        </li>
+
+<!-- ======================================== Stats : Removing ammo / categories / Presets ==== -->
+
+        <li Class="PatchOperationReplace">
+			<xpath>Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Mag_Standard"]/path</xpath>
+			<value>
+				<path>Mag_CE</path>
+			</value>
+		</li>
+        <!-- preset -->
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCLMG_Support_LMG" or defName="MCLMG_Assault_LMG"]/optionalParts/li[text()="MCLMG_Mag_FMJ"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCLMG_Support_LMG" or defName="MCLMG_Assault_LMG"]/optionalParts/li[text()="MCLMG_Mag_HP"]</xpath>
+        </li>
+
+        <!-- ammo -->
+        <li Class="PatchOperationRemove">
+            <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Mag_FMJ" or defName="MCLMG_Mag_HP"]</xpath>
+        </li>
+
+<!-- ======================================== Stats : Recievers ==== -->
+        
+        <!-- ETC -->
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Reciever_ETC"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <overrideAmmoSet>AmmoSet_65x33mmETC</overrideAmmoSet>
+                <swayFactor>0.1</swayFactor>
+                <recoilAmount>0.81</recoilAmount> <!-- 1/3 1.93 -->
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Reciever_ETC"]/massFactor</xpath>
+          <value>
+            <massFactor>1</massFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Reciever_ETC"]/cooldownFactor</xpath>
+          <value>
+            <cooldownFactor>0.01</cooldownFactor>
+          </value>
+        </li>
+
+        <!-- tuned -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Reciever_Tuned"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <shotSpread>-0.01</shotSpread>
+                <swayFactor>-0.02</swayFactor>
+                <recoilAmount>0.03</recoilAmount>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Reciever_Tuned"]/massFactor</xpath>
+          <value>
+            <massFactor>-0.15</massFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Reciever_Tuned"]</xpath>
+          <value>
+            <rangeFactor>5</rangeFactor>
+          </value>
+        </li>
+
+        <!-- Reinforced -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Reciever_Reinforced"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <aimedBurstShotCount>5</aimedBurstShotCount>
+                <swayFactor>0.06</swayFactor>
+                <recoilAmount>-0.21</recoilAmount>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Reciever_Reinforced"]/massFactor</xpath>
+          <value>
+            <massFactor>0.3</massFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Reciever_Reinforced"]/burstCountFactor</xpath>
+          <value>
+            <burstCountFactor>10</burstCountFactor>
+          </value>
+        </li>
+
+<!-- ======================================== Remove extra GLs ==== -->
+
+        <li Class="PatchOperationReplace">
+		    	<xpath>Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Attach_GLHE"]/path</xpath>
+		    	<value>
+		    		<path>GL_CE</path>
+		    	</value>
+		    </li>
+
+        <li Class="PatchOperationReplace">
+		    	<xpath>Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Attach_GL2AB"]/path</xpath>
+		    	<value>
+		    		<path>GLA_CE</path>
+		    	</value>
+		    </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCLMG_Assault_LMG"]/optionalParts/li[text()="MCLMG_Attach_GLIC"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCLMG_Assault_LMG"]/optionalParts/li[text()="MCLMG_Attach_GLSM"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCLMG_Assault_LMG"]/optionalParts/li[text()="MCLMG_Attach_GLEMP"]</xpath>
+        </li>
+
+        <!-- Defs -->
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Attach_GLIC"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Attach_GLSM"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Attach_GLEMP"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Attach_GL2HEDP"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Attach_GL2I"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Attach_GL2S"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Attach_GL2EMP"]</xpath>
+        </li>
+
+<!-- ======================================== Stats : Barrels ==== -->
+        <!-- compensator -->
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Barrel_Compensator"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <recoilAmount>-0.08</recoilAmount>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+        <!-- ext -->
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Barrel_Extended"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <shotSpread>-0.02</shotSpread>
+                <swayFactor>0.15</swayFactor>
+                <recoilAmount>-0.08</recoilAmount>
+                <bulk>1.01</bulk>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Barrel_Extended"]/rangeFactor</xpath>
+          <value>
+            <rangeFactor>5</rangeFactor>
+          </value>
+        </li>
+
+        <!-- Accelerator -->
+        <li Class="PatchOperationReplace">
+			<xpath>Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Barrel_Accelerator"]/path</xpath>
+			<value>
+				<path>Accelerator_CE</path>
+			</value>
+		</li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Barrel_Accelerator"]</xpath>
+          <value>
+            <additionalFactors>
+              <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                <overrideAmmoSet>AmmoSet_6mmChemrail</overrideAmmoSet>
+                <shotSpread>-0.01</shotSpread>
+                <swayFactor>0.05</swayFactor>
+                <recoilAmount>0.98</recoilAmount>
+              </li>
+            </additionalFactors>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Barrel_Accelerator"]/rangeFactor</xpath>
+          <value>
+            <rangeFactor>13</rangeFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Barrel_Accelerator"]</xpath>
+          <value>
+            <massFactor>0.5</massFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Barrel_Accelerator"]/cooldownFactor</xpath>
+          <value>
+            <cooldownFactor>0.01</cooldownFactor>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ModularWeapons.ModularPartDef[defName="MCLMG_Barrel_Accelerator"]/incompatibleKind</xpath>
+          <value>
+            <li>MCLMG_Reciever</li>
+            <li>MCLMG_Magazine</li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCLMG_SpacerAssault_LMG"]/requiredParts/li[text()="MCLMG_Reciever_ETC"]</xpath>
+        </li>
+
+          <!-- LMG accelerator -->
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+              <ModularWeapons.ModularPartDef ParentName="UWC_MCIW_MeleeBase">
+                <defName>MCLMG_Barrel_AcceleratorLMG</defName>
+                <label>LMG accelerator barrel</label>
+                <description>Advanced barrel attachment includes bipod. High recoil. Used by unconventional, cybernetic mercenaries and special forces; unleashes an impressive amount of fire with scatter or triplex ammunition.</description>
+                <kind>MCLMG_Barrel</kind>
+                <path>Accelerator_Heavy_CE</path>
+                <!--=====-->
+                <massFactor>0.7</massFactor>
+                <cooldownFactor>0.01</cooldownFactor>
+                <rangeFactor>13</rangeFactor>
+                <ticksBetweenShotsFactor>-2</ticksBetweenShotsFactor>
+                <!--=====-->
+                <costList>
+                  <Steel>40</Steel>
+                  <Plasteel>20</Plasteel>
+                  <ComponentSpacer>1</ComponentSpacer>
+                </costList>
+                <researchPrerequisites>
+                  <li>AcceleratorRails</li>
+                </researchPrerequisites>
+                <incompatibleKind>
+                  <li>MCLMG_Underbarrel</li>
+                  <li>MCLMG_TopAttachment</li>
+                  <li>MCLMG_Reciever</li>
+                  <li>MCLMG_Magazine</li>
+                </incompatibleKind>
+                <additionalFactors>
+                <li Class="ModularWeapons_CEModule.MWP_CEStats">
+                  <overrideAmmoSet>AmmoSet_6mmChemrail</overrideAmmoSet>
+                  <swayFactor>0.09</swayFactor>
+                  <shotSpread>-0.01</shotSpread>
+                  <recoilAmount>0.94</recoilAmount>
+                  <bulk>0.2</bulk>
+                  <bipodEnable>true</bipodEnable>
+                </li>
+              </additionalFactors>
+              </ModularWeapons.ModularPartDef>
+            </value>
+          </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCLMG_SpacerSupport_LMG"]/requiredParts/li[text()="MCLMG_Reciever_ETC"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCLMG_SpacerSupport_LMG"]/requiredParts/li[text()="MCLMG_Attach_Bipod"]</xpath>
+        </li>
+
+        <li Class="PatchOperationRemove">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCLMG_SpacerSupport_LMG"]/requiredParts/li[text()="MCLMG_Attach_RayFinder"]</xpath>
+        </li>
+
+        <li Class="PatchOperationReplace">
+        	<xpath>/Defs/ModularWeapons.GunsmithPresetDef[defName="MCLMG_SpacerSupport_LMG"]/requiredParts/li[text()="MCLMG_Barrel_Extended"]</xpath>
+            <value>
+              <li>MCLMG_Barrel_AcceleratorLMG</li>
+            </value>
+        </li>
+
+
+</operations>
+</match>
+</Operation>
+</Patch>

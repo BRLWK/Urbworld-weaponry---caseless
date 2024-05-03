@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Weapon -->
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_RevolverLite</defName>
+    <label>caseless varmint bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>9</damageAmountBase>
+      <stoppingPower>0.5</stoppingPower>
+      <speed>40</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_EC_Revolver</defName>
+    <label>EC revolver bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/ETC_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>11</damageAmountBase>
+      <armorPenetrationBase>0.2</armorPenetrationBase>
+      <stoppingPower>1.5</stoppingPower>
+      <speed>65</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_RevolverEX</defName>
+    <label>Explosive revolver bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <explosionRadius>0.5</explosionRadius>
+      <speed>35</speed>
+      <arcHeightFactor>0.2</arcHeightFactor>
+      <shadowSize>0.6</shadowSize>
+      <screenShakeFactor>0.2</screenShakeFactor>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseCaselessModularWeapon">
+    <defName>Caseless_ModRevolver</defName>
+    <label>modular caseless revolver</label>
+    <description>Highly customizable revolver. Replaceable ammunition cylinders and a compact form make firing faster than traditional revolvers.</description>
+    <graphicData>
+      <texPath>mcrevtac</texPath>
+      <graphicClass>ModularWeapons.Graphic_Modular</graphicClass>
+      <drawSize MayRequire="CarnySenpai.EnableOversizedWeapons">1.4</drawSize>
+    </graphicData>
+    <uiIconScale>1.5</uiIconScale>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>SimpleGun</li>
+      <li>Revolver</li>
+      <li>IndustrialGunAdvanced</li>
+      <li>ShortShots</li>
+      <li>LongShots</li>
+      <li>SpacerGun</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>4000</WorkToMake>
+      <Mass>1</Mass>
+      <AccuracyTouch>0.9</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.35</AccuracyMedium>
+      <AccuracyLong>0.25</AccuracyLong>
+      <RangedWeapon_Cooldown>0.75</RangedWeapon_Cooldown>
+    </statBases>
+    <comps>
+      <li Class="ModularWeapons.CompProperties_ModularParts">
+        <compClass>ModularWeapons.CompModularParts</compClass>
+        <partKinds>
+          <li>MCRev_Grip</li>
+          <li>MCRev_Cylinder</li>
+          <li>MCRev_Barrel</li>
+          <li>MCRev_Sight</li>
+          <li>MCRev_SideAttachment</li>
+        </partKinds>
+        <majorKinds>
+          <li>MCRev_Grip</li>
+          <li>MCRev_Cylinder</li>
+          <li>MCRev_Barrel</li>
+        </majorKinds>
+        <defaultParts>
+          <li>MCRev_Grip_Standard</li>
+          <li>MCRev_Cylinder_Standard</li>
+          <li>MCRev_Barrel_Stub</li>
+        </defaultParts>
+      </li>
+    </comps>
+    <costList>
+      <Chemfuel>30</Chemfuel>
+      <Steel>25</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_RevolverLite</defaultProjectile>
+        <warmupTime>0.3</warmupTime>
+        <range>20.9</range>
+        <soundCast>Shot_Revolver</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+    </tools>
+  </ThingDef>
+
+  <!--===== Parts =====-->
+
+  <!-- Grip -->
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleePistolGrip_Base">
+    <defName>MCRev_Grip_Standard</defName>
+    <label>standard grip</label>
+    <description>Standard concealable grip</description>
+    <kind>MCRev_Grip</kind>
+    <path>Grip_Conceal</path>
+    <!--=====-->
+    <!--=====-->
+    <costList>
+      <Chemfuel>5</Chemfuel>
+      <Steel>5</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleePistolGrip_Base">
+    <defName>MCRev_Grip_Ergonomic</defName>
+    <label>ergonomic grip</label>
+    <description>Ergonomic polymer grip for comfortable shooting.</description>
+    <kind>MCRev_Grip</kind>
+    <path>Grip_Ergonomic</path>
+    <!--=====-->
+    <AccTouchFactor>0.04</AccTouchFactor>
+    <AccShortFactor>0.02</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <Chemfuel>10</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleePistolGrip_Base">
+    <defName>MCRev_Grip_Wood</defName>
+    <label>wood grip</label>
+    <description>Sturdy and heavy wooden grip.</description>
+    <kind>MCRev_Grip</kind>
+    <path>Grip_Wood</path>
+    <!--=====-->
+    <massFactor>0.09</massFactor>
+    <AccTouchFactor>0.08</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>0.03</AccMediumFactor>
+    <cooldownFactor>0.1</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <WoodLog>5</WoodLog>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeStock_Base">
+    <defName>MCRev_Grip_PolyStock</defName>
+    <label>polymer stock</label>
+    <description>Ergonomic polymer stock for comfortable shooting.</description>
+    <kind>MCRev_Grip</kind>
+    <path>Grip_StockP</path>
+    <!--=====-->
+    <massFactor>0.3</massFactor>
+    <AccTouchFactor>0.02</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>0.06</AccMediumFactor>
+    <AccLongFactor>0.08</AccLongFactor>
+    <warmupTimeFactor>0.2</warmupTimeFactor>
+    <cooldownFactor>0.2</cooldownFactor>
+    <rangeFactor>4</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <Chemfuel>15</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_StunStock_Base">
+    <defName>MCRev_Grip_StunStock</defName>
+    <label>stun stock</label>
+    <description>Stun prod system embedded into the base of this stock.</description>
+    <kind>MCRev_Grip</kind>
+    <path>Grip_StockS</path>
+    <!--=====-->
+    <massFactor>0.3</massFactor>
+    <AccTouchFactor>0.02</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>0.06</AccMediumFactor>
+    <AccLongFactor>0.08</AccLongFactor>
+    <warmupTimeFactor>0.2</warmupTimeFactor>
+    <cooldownFactor>0.2</cooldownFactor>
+    <rangeFactor>4</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+      <Chemfuel>15</Chemfuel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeStock_Base">
+    <defName>MCRev_Grip_WoodStock</defName>
+    <label>Wood stock</label>
+    <description>Heavy wood stock for comfortable shooting.</description>
+    <kind>MCRev_Grip</kind>
+    <path>Grip_StockW</path>
+    <!--=====-->
+    <massFactor>0.4</massFactor>
+    <AccTouchFactor>0.03</AccTouchFactor>
+    <AccShortFactor>0.05</AccShortFactor>
+    <AccMediumFactor>0.08</AccMediumFactor>
+    <AccLongFactor>0.1</AccLongFactor>
+    <warmupTimeFactor>0.25</warmupTimeFactor>
+    <cooldownFactor>0.25</cooldownFactor>
+    <rangeFactor>5</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <WoodLog>10</WoodLog>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Cylinder -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCRev_Cylinder_Standard</defName>
+    <label>standard cylinder</label>
+    <description>Disposable plastic cylinder loaded with light ammunition.</description>
+    <kind>MCRev_Cylinder</kind>
+    <path>Cylinder_Conceal</path>
+    <costList>
+      <Steel>5</Steel>
+      <Chemfuel>5</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCRev_Cylinder_Magnum</defName>
+    <label>magnum cylinder</label>
+    <description>Disposable ceramic cylinder loaded with magnum ammunition.</description>
+    <kind>MCRev_Cylinder</kind>
+    <path>Cylinder_Standard</path>
+    <!--=====-->
+    <AccTouchFactor>0.03</AccTouchFactor>
+    <AccShortFactor>0.05</AccShortFactor>
+    <AccMediumFactor>0.09</AccMediumFactor>
+    <AccLongFactor>0.11</AccLongFactor>  
+    <projectileFactor>Bullet_Revolver</projectileFactor>
+    <massFactor>0.2</massFactor>
+    <warmupTimeFactor>0.15</warmupTimeFactor>
+    <cooldownFactor>0.15</cooldownFactor>
+    <rangeFactor>2</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Chemfuel>10</Chemfuel>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCRev_Cylinder_EC</defName>
+    <label>EC cylinder</label>
+    <description>Disposable ceramic cylinder loaded with heavy EC ammunition.</description>
+    <kind>MCRev_Cylinder</kind>
+    <path>Cylinder_EC</path>
+    <!--=====-->
+    <AccShortFactor>0.02</AccShortFactor>
+    <AccMediumFactor>0.05</AccMediumFactor>
+    <AccLongFactor>0.08</AccLongFactor>  
+    <projectileFactor>Bullet_EC_Revolver</projectileFactor>
+    <massFactor>0.4</massFactor>
+    <warmupTimeFactor>0.2</warmupTimeFactor>
+    <cooldownFactor>0.2</cooldownFactor>
+    <rangeFactor>4</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+      <Plasteel>5</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>ECOPA</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCRev_Cylinder_EX</defName>
+    <label>EX cylinder</label>
+    <description>Large explosive slug used by urbworld enforcer police to breach doors and take down armored foes.</description>
+    <kind>MCRev_Cylinder</kind>
+    <path>Cylinder_EX</path>
+    <!--=====-->
+    <AccTouchFactor>-0.02</AccTouchFactor>
+    <AccShortFactor>-0.03</AccShortFactor>
+    <AccMediumFactor>-0.05</AccMediumFactor>
+    <AccLongFactor>-0.03</AccLongFactor>  
+    <projectileFactor>Bullet_RevolverEX</projectileFactor>
+    <massFactor>0.7</massFactor>
+    <warmupTimeFactor>0.25</warmupTimeFactor>
+    <cooldownFactor>1.25</cooldownFactor>
+    <rangeFactor>-5</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Plasteel>5</Plasteel>
+      <Chemfuel>25</Chemfuel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>MicroExplosives</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>MCRev_Cylinder_MagnumExt</defName>
+    <label>extended magnum cylinder</label>
+    <description>Large disposable cylinder loaded with magnum ammunition.</description>
+    <kind>MCRev_Cylinder</kind>
+    <path>Cylinder_Extended</path>
+    <!--=====-->
+    <AccTouchFactor>-0.02</AccTouchFactor>
+    <AccShortFactor>-0.025</AccShortFactor>
+    <AccMediumFactor>-0.045</AccMediumFactor>
+    <AccLongFactor>-0.05</AccLongFactor>  
+    <projectileFactor>Bullet_Revolver</projectileFactor>
+    <massFactor>0.5</massFactor>
+    <warmupTimeFactor>0.05</warmupTimeFactor>
+    <cooldownFactor>0.10</cooldownFactor>
+    <rangeFactor>2</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Chemfuel>20</Chemfuel>
+      <Steel>15</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Barrels -->
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleePistolBarrel_Base">
+    <defName>MCRev_Barrel_Stub</defName>
+    <label>Stub barrel</label>
+    <description>Stub barrel.</description>
+    <kind>MCRev_Barrel</kind>
+    <path>none</path>
+    <!--=====-->
+    <incompatibleKind>
+      <li>MCRev_SideAttachment</li>
+    </incompatibleKind>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
+    <defName>MCRev_Barrel_Standard</defName>
+    <label>standard barrel</label>
+    <description>Standard length barrel for increased accuracy.</description>
+    <kind>MCRev_Barrel</kind>
+    <path>Barrel_Standard</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.2</dmgMultiplierFactor>
+    <AccTouchFactor>-0.02</AccTouchFactor>
+    <AccMediumFactor>0.04</AccMediumFactor>
+    <AccLongFactor>0.08</AccLongFactor>
+    <massFactor>0.3</massFactor>
+    <rangeFactor>2</rangeFactor>
+    <warmupTimeFactor>0.05</warmupTimeFactor>
+    <cooldownFactor>0.15</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
+    <defName>MCRev_Barrel_Long</defName>
+    <label>long barrel</label>
+    <description>Long barrel for increased accuracy.</description>
+    <kind>MCRev_Barrel</kind>
+    <path>Barrel_Long</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.3</dmgMultiplierFactor>
+    <AccTouchFactor>-0.04</AccTouchFactor>
+    <AccShortFactor>-0.02</AccShortFactor>
+    <AccMediumFactor>0.08</AccMediumFactor>
+    <AccLongFactor>0.12</AccLongFactor>
+    <massFactor>0.6</massFactor>
+    <rangeFactor>4</rangeFactor>
+    <warmupTimeFactor>0.15</warmupTimeFactor>
+    <cooldownFactor>0.25</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Chemfuel>10</Chemfuel>
+      <Steel>15</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_StunBarrel_Base">
+    <defName>MCRev_Barrel_LongProd</defName>
+    <label>long prod barrel</label>
+    <description>Long barrel with electric prod tool.</description>
+    <kind>MCRev_Barrel</kind>
+    <path>Barrel_Stun</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.3</dmgMultiplierFactor>
+    <AccTouchFactor>-0.04</AccTouchFactor>
+    <AccShortFactor>-0.02</AccShortFactor>
+    <AccMediumFactor>0.08</AccMediumFactor>
+    <AccLongFactor>0.12</AccLongFactor>
+    <massFactor>0.6</massFactor>
+    <rangeFactor>4</rangeFactor>
+    <warmupTimeFactor>0.15</warmupTimeFactor>
+    <cooldownFactor>0.25</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Chemfuel>10</Chemfuel>
+      <Steel>20</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_BayonetMelee_Base">
+    <defName>MCRev_Barrel_LongBayonet</defName>
+    <label>long bayonet barrel</label>
+    <description>Long barrel with attached bayonet.</description>
+    <kind>MCRev_Barrel</kind>
+    <path>Barrel_Bayonet</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.3</dmgMultiplierFactor>
+    <AccTouchFactor>-0.04</AccTouchFactor>
+    <AccShortFactor>-0.02</AccShortFactor>
+    <AccMediumFactor>0.08</AccMediumFactor>
+    <AccLongFactor>0.12</AccLongFactor>
+    <massFactor>0.6</massFactor>
+    <rangeFactor>4</rangeFactor>
+    <warmupTimeFactor>0.15</warmupTimeFactor>
+    <cooldownFactor>0.25</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Chemfuel>10</Chemfuel>
+      <Steel>25</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
+    <defName>MCRev_Barrel_Carbine</defName>
+    <label>carbine barrel</label>
+    <description>Carbine barrel for increased accuracy.</description>
+    <kind>MCRev_Barrel</kind>
+    <path>Barrel_Carbine</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.6</dmgMultiplierFactor>
+    <AccTouchFactor>-0.08</AccTouchFactor>
+    <AccShortFactor>-0.04</AccShortFactor>
+    <AccMediumFactor>0.10</AccMediumFactor>
+    <AccLongFactor>0.15</AccLongFactor>
+    <massFactor>1</massFactor>
+    <rangeFactor>8</rangeFactor>
+    <warmupTimeFactor>0.3</warmupTimeFactor>
+    <cooldownFactor>1</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Chemfuel>10</Chemfuel>
+      <Steel>20</Steel>
+    </costList>
+    <researchPrerequisites>
+      <li>PrecisionRifling</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_MeleeRifleBarrel_Base">
+    <defName>MCRev_Barrel_Accelerator</defName>
+    <label>accelerator</label>
+    <description>Advanced barrel attachment increases damage, range and accuracy.</description>
+    <kind>MCRev_Barrel</kind>
+    <path>Barrel_Accelerator</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.8</dmgMultiplierFactor>
+    <AccTouchFactor>0.08</AccTouchFactor>
+    <AccShortFactor>0.12</AccShortFactor>
+    <AccMediumFactor>0.22</AccMediumFactor>
+    <AccLongFactor>0.2</AccLongFactor>
+    <massFactor>1.35</massFactor>
+    <rangeFactor>10</rangeFactor>
+    <cooldownFactor>-0.25</cooldownFactor>
+    <warmupTimeFactor>-0.25</warmupTimeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>15</Steel>
+      <Plasteel>10</Plasteel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>AcceleratorRails</li>
+    </researchPrerequisites>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Sights -->
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_RedDot_Base">
+    <defName>MCRev_Optic_Reddot</defName>
+    <kind>MCRev_Sight</kind>
+    <path>Sight_RedDot</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_AcogHolo_Base">
+    <defName>MCRev_Sight_Holo</defName>
+    <kind>MCRev_Sight</kind>
+    <path>Sight_ACOG</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_Scope_Base">
+    <defName>MCRev_Optic_Scope</defName>
+    <kind>MCRev_Sight</kind>
+    <path>Sight_Scope</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_SmartDot_Base">
+    <defName>MCRev_Optic_SmartDot</defName>
+    <kind>MCRev_Sight</kind>
+    <path>Sight_SmartDot</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_SmartCog_Base">
+    <defName>MCRev_Optic_sHolo</defName>
+    <kind>MCRev_Sight</kind>
+    <path>Sight_SmartHolo</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_GlitterScope_Base">
+    <defName>MCRev_Optic_Glitter</defName>
+    <kind>MCRev_Sight</kind>
+    <path>Sight_Glitter</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_SDSScope_Base">
+    <defName>MCRev_Optic_SDS</defName>
+    <kind>MCRev_Sight</kind>
+    <path>Sight_SDS</path>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Side attachments -->
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_PEQ_Base">
+    <defName>MCRev_Attach_PEQ</defName>
+    <kind>MCRev_SideAttachment</kind>
+    <path>SB_PEQ</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_Flashlight_Base">
+    <defName>MCRev_Attach_Flashlight</defName>
+    <kind>MCRev_SideAttachment</kind>
+    <path>SB_Flashlight</path>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef ParentName="UWC_Laser_Base">
+    <defName>MCRev_Attach_Laser</defName>
+    <kind>MCRev_SideAttachment</kind>
+    <path>SB_Laser</path>
+  </ModularWeapons.ModularPartDef>
+  
+
+</Defs>

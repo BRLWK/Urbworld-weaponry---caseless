@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+  <mods>
+    <li>Modularization Vanilla Weapon</li>
+  </mods>
+  <match Class="PatchOperationSequence">
+    <operations>
+
+        <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+          <defName>Gun_ModularCaseless_BurstRifle</defName>
+          <statBases>
+            <Mass>7.44</Mass>
+            <RangedWeapon_Cooldown>0.45</RangedWeapon_Cooldown>
+            <SightsEfficiency>1</SightsEfficiency><!--2.54-->
+            <ShotSpread>0.06</ShotSpread>
+            <SwayFactor>1.13</SwayFactor>
+            <Bulk>7.44</Bulk>
+            <WorkToMake>49000</WorkToMake>
+          </statBases>
+          <costList>
+            <Steel>40</Steel>
+            <Chemfuel>10</Chemfuel>
+            <Plasteel>25</Plasteel>
+            <ComponentIndustrial>10</ComponentIndustrial>
+          </costList>
+          <Properties>
+            <recoilAmount>1.29</recoilAmount>
+            <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+            <hasStandardCommand>true</hasStandardCommand>
+            <defaultProjectile>Bullet_473x33mmCaseless_FMJ</defaultProjectile>
+            <warmupTime>0.75</warmupTime>
+            <range>51</range>
+            <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+            <burstShotCount>3</burstShotCount>
+            <soundCast>Shot_Burst</soundCast>
+            <soundCastTail>GunTail_Medium</soundCastTail>
+            <muzzleFlashScale>6</muzzleFlashScale>
+          </Properties>
+          <AmmoUser>
+            <magazineSize>50</magazineSize>
+            <reloadTime>5.5</reloadTime>
+            <ammoSet>AmmoSet_473x33mmCaseless</ammoSet>
+          </AmmoUser>
+          <FireModes>
+            <aimedBurstShotCount>3</aimedBurstShotCount>
+            <aiUseBurstMode>TRUE</aiUseBurstMode>
+            <aiAimMode>AimedShot</aiAimMode>
+          </FireModes>
+          <weaponTags>
+           <li>IndustrialGunAdvanced</li>
+            <li>CE_AI_AR</li>
+          </weaponTags>
+          <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+          <AllowWithRunAndGun>false</AllowWithRunAndGun>
+        </li>
+
+    <li Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Gun_ModularCaseless_BurstRifle"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+			<compGetGizmosExtraAllowedCompType>
+				<li>CombatExtended.CompAmmoUser</li>
+				<li>CombatExtended.CompFireModes</li>
+			</compGetGizmosExtraAllowedCompType>
+			<compPropertiesInitializeCompType>
+				<li>CombatExtended.CompAmmoUser</li>
+				<li>CombatExtended.CompFireModes</li>
+			</compPropertiesInitializeCompType>
+			<compPropertiesCreateInstanceCompType>
+        		<li>CombatExtended.CompAmmoUser</li> <!--?-->
+    			<li>CombatExtended.CompFireModes</li> <!--?-->
+    		</compPropertiesCreateInstanceCompType>
+		</value>
+		<order>Append</order>
+	</li>
+
+    <!--underbarrel-->
+
+    <li Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Gun_ModularCaseless_BurstRifle"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModCBR_UnderBarrel"]</xpath>
+		<value>
+			<allowedExtraCompType>
+				<li>CombatExtended.BipodComp</li>
+			</allowedExtraCompType>
+		</value>
+		<order>Append</order>
+	</li>
+
+    <!--Sights-->
+
+    <li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Burst_CarryHandle"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+			<SightsEfficiency>2.54</SightsEfficiency>
+		</value>
+	</li>
+
+    <!--receivers -->
+
+    <li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="Module_CaselessBurst_RecieverA"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+        <statMultiplier>
+			<ShotSpread>0.95</ShotSpread>
+		</statMultiplier>
+		</value>
+	</li>
+
+    <li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="Module_CaselessBurst_RecieverB"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+        <statMultiplier>
+			<ShotSpread>0.89</ShotSpread>
+		</statMultiplier>
+		</value>
+	</li>
+
+
+  <li Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Module_CaselessBurst_Hypershot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/verbPropertiesObjectPatch/li/defaultProjectile</xpath>
+		<value>
+			<defaultProjectile>Bullet_473x33mmEC_FMJ</defaultProjectile>
+		</value>
+	</li>
+
+  <li Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Module_CaselessBurst_Hypershot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+			<compPropertiesObjectPatch>
+				<il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+					<ammoSet>AmmoSet_473x33mmEC</ammoSet>
+				</il>
+			</compPropertiesObjectPatch>
+		</value>
+    <order>Append</order>
+	</li>
+
+  	<li Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="Module_CaselessBurst_Hypershot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+			<value>
+    	    <statMultiplier>
+				<ShotSpread>1.25</ShotSpread>
+			</statMultiplier>
+			</value>
+    	<order>Append</order>
+	</li>
+
+    <!-- bulk -->
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Burst_CarryHandle"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>0.9</Bulk>
+  	  </value>
+  	</li>
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Burst_ExtBarrel"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>0.1</Bulk>
+  	  </value>
+  	</li>
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[@Name="CGPB_BurstFurnitureBase"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>0.25</Bulk>
+  	  </value>
+  	</li>
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="Module_CaselessBurst_RecieverA"
+                        or defName="Module_CaselessBurst_RecieverB"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>0.5</Bulk>
+  	  </value>
+  	</li>
+
+  </operations>
+  </match>
+</Operation>
+
+</Patch>

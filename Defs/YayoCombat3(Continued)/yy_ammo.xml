@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="ResourceBase" MayRequire="Mlie.YayosCombat3">
+    <defName>yy_ammo_caseless</defName>
+    <label>caseless ammo</label>
+    <description>Industrial tech caseless ammo.</description>
+    <graphicData>
+      <texPath>yy_ammo_industrial</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>250</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>20</MaxHitPoints>
+      <Mass>0.003</Mass>
+      <Flammability>0.5</Flammability>
+      <DeteriorationRate>1.0</DeteriorationRate>
+    </statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>yy_ammo_category</li>
+    </thingCategories>
+    <tradeTags>
+      <li>Ammo</li>
+    </tradeTags>
+    <techLevel>Industrial</techLevel>
+  </ThingDef>
+
+</Defs>

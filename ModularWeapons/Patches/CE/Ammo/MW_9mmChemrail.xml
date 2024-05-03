@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Combat Extended</li>
+    </mods>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs</xpath>
+      <value>
+
+    <CombatExtended.AmmoCategoryDef>
+		<defName>UWC_Flechette</defName>
+		<label>flechette</label>
+		<labelShort>flechette</labelShort>
+		<description>A collection of small fin-stabilized uranium projectiles launched from chemrail pistol kits.</description>
+	</CombatExtended.AmmoCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>Ammo9mmChemrail</defName>
+		<label>9mm Chemrail</label>
+		<parent>AmmoAdvanced</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberRailgunRifle</iconPath>
+	</ThingCategoryDef>
+
+	<!-- ==================== AmmoSet ========================== -->
+
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_9mmChemrail</defName>
+		<label>9mm Chemrail</label>
+		<ammoTypes>
+			<Ammo_9mmChemrail_Sabot>Bullet_9mmChemrail_Sabot</Ammo_9mmChemrail_Sabot>
+            <Ammo_9mmChemrail_APHE>Bullet_9mmChemrail_APHE</Ammo_9mmChemrail_APHE>
+            <Ammo_9mmChemrail_Flechette>Bullet_9mmChemrail_Flechette</Ammo_9mmChemrail_Flechette>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ==================== Ammo ========================== -->
+
+	<ThingDef Name="9mmChemrailBase" Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase" Abstract="True">
+		<statBases>
+			<Bulk>0.01</Bulk>
+		</statBases>
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+			<li>CE_AutoEnableCrafting_FabricationBench</li>
+			<li>CE_AutoEnableCrafting_TableMachining</li>
+		</tradeTags>
+		<thingCategories>
+			<li>Ammo9mmChemrail</li>
+		</thingCategories>
+		<graphicData>
+			<texPath>Things/Ammo/Railgun/Rifle</texPath>
+			<graphicClass>CombatExtended.Graphic_StackCountRanged</graphicClass>
+		</graphicData>
+		<stackLimit>5000</stackLimit>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="9mmChemrailBase">
+		<description>Fin-stabilized tungsten carbide penetrator with chemical starter, designed for accelerator rifle kits.</description>
+		<defName>Ammo_9mmChemrail_Sabot</defName>
+		<label>9mm Chemrail (sabot)</label>
+		<statBases>
+			<MarketValue>0.6</MarketValue>
+			<Mass>0.009</Mass>
+		</statBases>
+		<ammoClass>RailgunSabot</ammoClass>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="9mmChemrailBase">
+		<defName>Ammo_9mmChemrail_APHE</defName>
+		<label>9mm Chemrail (APHE)</label>
+		<description>Filled with high-explosives that detonate on impact for additional damage.</description>
+		<statBases>
+			<MarketValue>0.24</MarketValue>
+			<Mass>0.02</Mass>
+		</statBases>
+		<ammoClass>ExplosiveAP</ammoClass>
+        <generateAllowChance>0.6</generateAllowChance>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="9mmChemrailBase">
+		<defName>Ammo_9mmChemrail_Flechette</defName>
+		<label>9mm Chemrail (flechette)</label>
+		<description>A collection of small fin-stabilized uranium projectiles launched from chemrail pistol kits.</description>
+		<statBases>
+			<MarketValue>0.28</MarketValue>
+			<Mass>0.068</Mass>
+		</statBases>
+		<ammoClass>UWC_Flechette</ammoClass>
+	</ThingDef>
+
+	<!-- ================== Projectiles ================== -->
+
+    <ThingDef Class="CombatExtended.AmmoDef" Name="Base9mmChemrailBullet" ParentName="BaseBulletCE" Abstract="true">
+		<thingClass>CombatExtended.BulletCE</thingClass>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<dropsCasings>false</dropsCasings>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Base9mmChemrailBullet">
+		<defName>Bullet_9mmChemrail_Sabot</defName>
+		<label>9mm Chemrail bullet (Sabot)</label>
+        <graphicData>
+			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+			<armorPenetrationSharp>27</armorPenetrationSharp>
+			<armorPenetrationBlunt>96.8</armorPenetrationBlunt>
+			<speed>220</speed>
+		</projectile>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base9mmChemrailBullet">
+		<defName>Bullet_9mmChemrail_APHE</defName>
+		<label>9mm Chemrail bullet (APHE)</label>
+        <graphicData>
+			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.5,1.2)</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>23</damageAmountBase>
+			<armorPenetrationSharp>10</armorPenetrationSharp>
+			<armorPenetrationBlunt>88.2</armorPenetrationBlunt>
+			<speed>140</speed>
+    		<secondaryDamage>
+    			<li>
+    		  	<def>Bomb_Secondary</def>
+    		  	<amount>14</amount>
+    			</li>
+    		</secondaryDamage>
+		</projectile>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base9mmChemrailBullet">
+		<defName>Bullet_9mmChemrail_Flechette</defName>
+		<label>9mm Chemrail bullet (flechette)</label>
+        <graphicData>
+			<texPath>Things/Projectile/Shotgun_Pellet</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>9</damageAmountBase>
+			<armorPenetrationSharp>16.5</armorPenetrationSharp>
+			<armorPenetrationBlunt>59.14</armorPenetrationBlunt>
+            <pelletCount>9</pelletCount>
+            <spreadMult>17.8</spreadMult>
+			<speed>180</speed>
+		</projectile>
+	</ThingDef>
+
+	<!-- ==================== Recipes ========================== -->
+
+	<RecipeDef Name="9mmChemrailRecipeBase" ParentName="AmmoRecipeBase" Abstract="True">
+		<researchPrerequisite>ECOPA</researchPrerequisite>
+		<workAmount>1200</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Uranium</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>Uranium</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+	</RecipeDef>
+
+    <RecipeDef ParentName="9mmChemrailRecipeBase">
+		<defName>MakeAmmo_9mmChemrail_Sabot</defName>
+		<label>make 9mm Chemrail cartridge (Sabot) x500</label>
+		<description>Craft 500 9mm Chemrail (Sabot) cartridges.</description>
+		<jobString>Making 9mm Chemrail (Sabot) cartridges.</jobString>
+		<products>
+			<Ammo_9mmChemrail_Sabot>500</Ammo_9mmChemrail_Sabot>
+		</products>
+	</RecipeDef>
+
+    <RecipeDef ParentName="9mmChemrailRecipeBase">
+		<defName>MakeAmmo_9mmChemrail_Flechette</defName>
+		<label>make 9mm Chemrail cartridge (flechette) x500</label>
+		<description>Craft 500 9mm Chemrail (flechette) cartridges.</description>
+		<jobString>Making 9mm Chemrail (flechette) cartridges.</jobString>
+		<products>
+			<Ammo_9mmChemrail_Flechette>500</Ammo_9mmChemrail_Flechette>
+		</products>
+	</RecipeDef>
+
+    <RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_9mmChemrail_APHE</defName>
+		<label>make 9mm Chemrail cartridge (APHE) x500</label>
+		<description>Craft 500 9mm Chemrail (APHE) cartridges.</description>
+		<jobString>Making 9mm Chemrail (APHE) cartridges.</jobString>
+		<researchPrerequisites>
+			<li>MicroExplosives</li>
+			<li>ECOPA</li>
+		</researchPrerequisites>
+		<workAmount>7200</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>FSX</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<recipeUsers>
+			<li>TableMachining</li>
+			<li>FabricationBench</li>
+		</recipeUsers>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>FSX</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_9mmChemrail_APHE>500</Ammo_9mmChemrail_APHE>
+		</products>
+	</RecipeDef>
+
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

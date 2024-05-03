@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ==== sell price factor, statbase, commonality  ==== -->
+
+  <ThingDef Name="CaselessGunBase" Abstract="True" ParentName="BaseWeapon">
+		<techLevel>Industrial</techLevel>
+		<smeltable>true</smeltable>
+    <relicChance>0.3</relicChance>
+    <generateCommonality>0.5</generateCommonality>
+    <drawerType MayRequire="RWNodeTree.RWWeaponModularization">RealtimeOnly</drawerType>
+    <weaponClasses>
+      <li>Ranged</li>
+    </weaponClasses>
+    <statBases Inherit="False">
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>0.75</Flammability>
+			<DeteriorationRate>1</DeteriorationRate>
+			<Beauty>-2</Beauty>
+			<SellPriceFactor>0.3</SellPriceFactor>
+		</statBases>
+		<thingCategories>
+      <li>Caselessweapons</li>
+    </thingCategories>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CompProperties_Biocodable"/>
+    </comps>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>Caselessbench</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+      <researchPrerequisite>Caseless_Weapons</researchPrerequisite>
+    </recipeMaker>
+    <weaponTags>
+      <li>Gun</li>
+    </weaponTags>
+  </ThingDef>
+
+  <ThingDef ParentName="CaselessGunBase" Name="CaselessGunMMeleeBase" Abstract="True">
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>1.75</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>1.75</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- ==== K5 caseless pistol ==== -->
+
+  <ThingDef ParentName="CaselessGunBase">
+    <defName>Gun_Caseless_Pistol</defName>
+    <label>Caseless Pistol</label>
+    <description>A caseless pistol manufactured by Super Arms, number one in self-defense since 5020. Using special additive manufacturing technology this muzzle brake is able to significantly reduce horizontal recoil.</description>
+    <graphicData>
+      <texPath>Things/CaselessWep/Pistol/Standard</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_CPistol</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>BlowbackOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>SimpleGun</li>
+      <li>UWPC_Pistol</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+      <li>ShortShots</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>6500</WorkToMake>
+      <Mass>0.9</Mass>
+      <AccuracyTouch>0.95</AccuracyTouch>
+      <AccuracyShort>0.88</AccuracyShort>
+      <AccuracyMedium>0.42</AccuracyMedium>
+      <AccuracyLong>0.18</AccuracyLong>
+      <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>15</Steel>
+      <Chemfuel>15</Chemfuel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_caselesspistol</defaultProjectile>
+        <warmupTime>0.12</warmupTime>
+        <range>11.9</range>
+        <soundCast>Shot_kpistol</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>5</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>1</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>1.2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_caselesspistol</defName>
+    <label>plastic hollow point</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>9</damageAmountBase>
+	    <armorPenetrationBase>0.05</armorPenetrationBase>
+      <stoppingPower>0</stoppingPower>
+      <speed>40</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- ==== caseless bolt action ==== -->
+
+  <ThingDef ParentName="CaselessGunMMeleeBase">
+    <defName>Gun_Caseless_BoltAction</defName>
+    <label>Caseless survival rifle</label>
+    <description>Survival kits from urbworld colony freighters include weapons like these intended for self-defense and hunting. Fits easily into a pack but has a significant amount of recoil.</description>
+    <graphicData>
+      <texPath>CaselessBonus/BoltAction/Standard</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_CRifle</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>LongShots</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+      <li>LongShots</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>10500</WorkToMake>
+      <Mass>1.9</Mass>
+      <AccuracyTouch>0.65</AccuracyTouch>
+      <AccuracyShort>0.81</AccuracyShort>
+      <AccuracyMedium>0.95</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>2.9</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>55</Steel>
+      <Chemfuel>12</Chemfuel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_CSBAR</defaultProjectile>
+        <warmupTime>1.5</warmupTime>
+        <range>30.9</range>
+        <soundCast>Shot_Bolty</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <!--====custom for CE====-->
+    <tools>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_CSBAR</defName>
+    <label>rifle hollow point</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>22</damageAmountBase>
+	    <armorPenetrationBase>0.07</armorPenetrationBase>
+      <stoppingPower>1.5</stoppingPower>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- ==== CSK-8 submachine gun ==== -->
+  
+<ThingDef ParentName="CaselessGunMMeleeBase">
+		<defName>Gun_Caseless_SMG</defName>
+		<label>Caseless PDW</label>
+		<description>Features high rate of fire, armor piercing ammunition and a compact lightweight design. A standard issue firearm of unagumented beat cops and lobby corpsec.</description>
+		<graphicData>
+			<texPath>Things/CaselessWep/SMG/Standard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_CPistol</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>GasOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>SimpleGun</li>
+      <li>UWPC_SMG</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+      <li>ShortShots</li>
+    </weaponClasses>
+		<statBases>
+			<WorkToMake>23000</WorkToMake>
+			<Mass>2.29</Mass>
+			<AccuracyTouch>0.77</AccuracyTouch>
+			<AccuracyShort>0.62</AccuracyShort>
+			<AccuracyMedium>0.27</AccuracyMedium>
+			<AccuracyLong>0.15</AccuracyLong>
+			<RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+      <Chemfuel>45</Chemfuel>
+			<Steel>20</Steel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+    <verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_CSG</defaultProjectile>
+				<warmupTime>0.7</warmupTime>
+				<range>14.9</range>
+				<burstShotCount>5</burstShotCount>
+				<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+				<soundCast>Shot_CSG</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>7</muzzleFlashScale>
+			</li>
+		</verbs>
+	</ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_CSG</defName>
+    <label>HVAP bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>6</damageAmountBase>
+	  <armorPenetrationBase>0.16</armorPenetrationBase>
+	  <stoppingPower>0</stoppingPower>
+      <speed>75</speed>
+    </projectile>
+  </ThingDef>
+  
+	    <!-- ============================================== -->
+	
+	<ThingDef ParentName="CaselessGunMMeleeBase">
+		<defName>Gun_Caseless_Carbine</defName>
+		<label>Caseless carbine</label>
+		<description>50 round magazine and high rate-of-fire makes this Sradi Security Tech rifle an excellent choice for close-in fighting.\n\nSradi Security Tech was a faraway corporation that manufactured high quality small arms for several centuries.</description>
+		<graphicData>
+			<texPath>Things/CaselessWep/AssaultRifle/Standard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_CRifle</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>GasOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>AssaultRifle</li>
+      <li>UWPC_Rifle</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+      <li>ShortShots</li>
+    </weaponClasses>
+		<statBases>
+			<WorkToMake>42000</WorkToMake>
+			<Mass>2.8</Mass>
+			<AccuracyTouch>0.9</AccuracyTouch>
+			<AccuracyShort>0.78</AccuracyShort>
+			<AccuracyMedium>0.21</AccuracyMedium>
+			<AccuracyLong>0.15</AccuracyLong>
+			<RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>50</Steel>
+      <Chemfuel>10</Chemfuel>
+			<ComponentIndustrial>8</ComponentIndustrial>
+		</costList>
+    <verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_CAR</defaultProjectile>
+				<warmupTime>1.9</warmupTime>
+				<range>22.9</range>
+				<burstShotCount>5</burstShotCount>
+				<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+				<soundCast>Shot_CAR</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>4</muzzleFlashScale>
+			</li>
+		</verbs>
+	</ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_CAR</defName>
+    <label>assault rifle bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>7</damageAmountBase>
+	  <armorPenetrationBase>0.2</armorPenetrationBase>
+      <speed>75</speed>
+    </projectile>
+  </ThingDef>
+	
+		    <!-- ======================LMG11K======================== -->
+
+	<ThingDef ParentName="CaselessGunMMeleeBase">
+		<defName>Gun_Caseless_LMG</defName>
+		<label>Caseless LMG</label>
+		<description>Large ammo capacity, careful engineering and light ammunition gives this LMG unrivaled suppresive fire ability.\n\nHas been known to overheat leading to ammunition cook-offs and warping. Especially noticable in the hot, dense polluted atmospheres common to many urbworlds.</description>
+		<graphicData>
+			<texPath>Things/CaselessWep/LMG/Standard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_CBox</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>UWPC_LMG</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+    </weaponClasses>
+		<statBases>
+			<WorkToMake>40000</WorkToMake>
+			<Mass>5.5</Mass>
+			<AccuracyTouch>0.3</AccuracyTouch>
+			<AccuracyShort>0.37</AccuracyShort>
+			<AccuracyMedium>0.25</AccuracyMedium>
+			<AccuracyLong>0.1</AccuracyLong>
+			<RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>70</Steel>
+      <Chemfuel>10</Chemfuel>
+			<ComponentIndustrial>6</ComponentIndustrial>
+		</costList>
+    <verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_CLMG</defaultProjectile>
+				<warmupTime>2</warmupTime>
+				<range>27.9</range>
+				<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+				<burstShotCount>10</burstShotCount>
+				<soundCast>Shot_CLMG</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_CLMG</defName>
+    <label>LMG bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>8</damageAmountBase>
+	  <armorPenetrationBase>0.15</armorPenetrationBase>
+      <stoppingPower>0.8</stoppingPower>
+      <speed>55</speed>
+    </projectile>
+  </ThingDef>
+	
+<!-- ============================================== -->
+	
+	<ThingDef ParentName="CaselessGunMMeleeBase">
+		<defName>Gun_Caseless_BurstRifle</defName>
+		<label>Caseless burst rifle</label>
+		<description>An old-earth design of caseless rifle with updated ergonomics and simpler action. Excels in field combat with a deadly 3 round burst and long-range optic.\n\nThe exhausted wastelands between cities are home to Thermal Boreholes: colossal mining complexes that reach the urbworld's mantle. These mines are sites of conflict between rival corporations and city-states for the valuable resources they provide.</description>
+		<graphicData>
+			<texPath>Things/CaselessWep/Burst/Standard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_CRifle</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>AssaultRifle</li>
+      <li>UWPC_Rifle_Advanced</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+    </weaponClasses>
+		<statBases>
+			<WorkToMake>52000</WorkToMake>
+			<Mass>2.8</Mass>
+			<AccuracyTouch>0.21</AccuracyTouch>
+			<AccuracyShort>0.43</AccuracyShort>
+			<AccuracyMedium>0.66</AccuracyMedium>
+			<AccuracyLong>0.83</AccuracyLong>
+			<RangedWeapon_Cooldown>2.3</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>50</Steel>
+      <Chemfuel>20</Chemfuel>
+			<ComponentIndustrial>9</ComponentIndustrial>
+		</costList>
+    <verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_CAR</defaultProjectile>
+				<warmupTime>1.5</warmupTime>
+				<range>34.9</range>
+				<burstShotCount>3</burstShotCount>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<soundCast>Shot_Burst</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>4</muzzleFlashScale>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <!-- ==== battle rifle ==== -->
+
+  <ThingDef ParentName="CaselessGunMMeleeBase">
+    <defName>Gun_Caseless_BattleRifle</defName>
+    <label>Caseless battle rifle</label>
+    <description>A common infantry battle rifle once manufactured by green mountain armory, however the schematic pre-dates GMA's founding by at least several centuries. Includes a small holographic sight embedded on the carry rail.\n\nUrbworlds have been known to produce an enormous variety of battle rifles due to cybernetics and advanced body armor being commonplace.</description>
+    <graphicData>
+      <texPath>CaselessBonus/BattleRifle/Standard</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_CRifle</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>LongShots</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>LongShots</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>15500</WorkToMake>
+      <Mass>3.9</Mass>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.78</AccuracyMedium>
+      <AccuracyLong>0.68</AccuracyLong>
+      <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>50</Steel>
+    <ComponentIndustrial>6</ComponentIndustrial>
+    <Chemfuel>12</Chemfuel>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_CBR</defaultProjectile>
+        <warmupTime>0.5</warmupTime>
+        <range>32.9</range>
+        <soundCast>Shot_cbatrifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <!--====custom for CE====-->
+    <tools>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_CBR</defName>
+    <label>AP rifle cartridge</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>16</damageAmountBase>
+	    <armorPenetrationBase>0.26</armorPenetrationBase>
+      <stoppingPower>0.5</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+
+
+  
+	    <!-- ============================================== -->
+
+  <ThingDef ParentName="CaselessGunMMeleeBase">
+    <defName>Gun_Caseless_SniperRifle</defName>
+    <label>Caseless sniper rifle</label>
+    <description>Because of its floating mechanism this sniper rifle is able to fire two shots before the operator feels the recoil.\n\nManufactured by Green Mountain Armory, this mass-produced model complements the overwhelming firepower urbworld infantry units are known for.</description>
+    <graphicData>
+      <texPath>Things/CaselessWep/Sniper/Standard</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_CBox</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>7</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>SniperRifle</li>
+      <li>UWPC_SniperRifle</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>50000</WorkToMake>
+      <Mass>7.1</Mass>
+      <AccuracyTouch>0.55</AccuracyTouch>
+      <AccuracyShort>0.65</AccuracyShort>
+      <AccuracyMedium>0.82</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>2.7</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Chemfuel>20</Chemfuel>
+      <Steel>50</Steel>
+      <ComponentIndustrial>9</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_caselessMRifle</defaultProjectile>
+        <warmupTime>4.2</warmupTime>
+        <range>40.9</range>
+        <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+				<burstShotCount>2</burstShotCount>
+        <soundCast>Shot_csniper</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_caselessMRifle</defName>
+    <label>DMR bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <armorPenetrationBase>0.3</armorPenetrationBase>
+      <stoppingPower>1.5</stoppingPower>
+      <speed>100</speed>
+    </projectile>
+  </ThingDef>
+
+
+</Defs>

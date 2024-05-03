@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- ==== caseless bolt action ==== -->
+
+  <ThingDef ParentName="CaselessGunMMeleeBase">
+    <defName>Gun_ModularCaseless_BoltAction</defName>
+    <label>Modular caseless survival rifle</label>
+    <description>Survival kits from urbworld colony freighters include weapons like these intended for self-defense and hunting. Fits easily into a pack but has a significant amount of recoil.</description>
+    <graphicData>
+      <texPath>Things/CaselessWep/Survival/Modular</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_CRifle</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>SimpleGun</li>
+      <li>LongShots</li>
+      <li>ammo_caseless/15</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>LongShots</li>
+      <li>RangedLight</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>10500</WorkToMake> <!-- 10500 -->
+      <Mass>1.9</Mass> <!-- 1.9 -->
+      <AccuracyTouch>0.65</AccuracyTouch> <!--0.65-->
+      <AccuracyShort>0.81</AccuracyShort> <!-- 0.81 -->
+      <AccuracyMedium>0.95</AccuracyMedium> <!-- 0.95 -->
+      <AccuracyLong>0.85</AccuracyLong> <!-- 0.85 -->
+      <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown> <!-- 3.2 -->
+    </statBases>
+    <costList>
+      <Steel>55</Steel>
+      <Chemfuel>12</Chemfuel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_CSBAR</defaultProjectile>
+        <warmupTime>0.5</warmupTime> <!-- 1.5 -->
+        <range>15.9</range> <!-- 30.9 -->
+        <soundCast>Shot_Bolty</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+
+        <comps>
+			<li Class="RW_NodeTree.CompProperties_ChildNodeProccesser">
+				<TextureSizeFactor>256</TextureSizeFactor>
+				<TextureFilterMode>Point</TextureFilterMode>
+				<ExceedanceFactor>2</ExceedanceFactor>
+				<ExceedanceOffset>1</ExceedanceOffset>
+				<!--ForceNodeIdControl>true</ForceNodeIdControl-->
+			</li>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<setRandomPartWhenCreate>true</setRandomPartWhenCreate>
+				<attachmentProperties>
+					<li>
+						<id>ModCSR_Sight</id>
+						<name>sight</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Scope</UITexPath>
+						<postion>(0.25,4,0.034)</postion> <!-- (0.03,0.1,0.055) -->
+						<scale>(0.85,0,0.85)</scale>
+						<!--defultThing>CaselessMod_Carbine_CarryHandle</defultThing-->
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_Sight_SimpleTwoX</li>
+								<li>CaselessMod_Sight_SimpleFourX</li>
+								<li>CaselessMod_Sight_SimpleDigiScope</li>
+								<li>CaselessMod_Sight_SimpleHolo</li>
+								<li>CaselessMod_Sight_SimpleScope</li>
+								<li>CaselessMod_Sight_RayDot</li>
+								<li>CaselessMod_Sight_RaySight</li>
+								<li>CaselessMod_Sight_RayScope</li>
+								<li>CaselessMod_Sight_AdvA</li>
+								<li>CaselessMod_Sight_AdvB</li>
+								<li>CaselessMod_Sight_AdvC</li>
+                                <li MayRequire="RWNodeTree.RWWeaponModularization">Module_ACOG</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_HoloSight</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_RedDotSight</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_SniperScope</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+                  		  <CaselessMod_Sight_SimpleTwoX>1</CaselessMod_Sight_SimpleTwoX>
+                  		  <CaselessMod_Sight_SimpleFourX>3</CaselessMod_Sight_SimpleFourX>
+						  <CaselessMod_Sight_SimpleDigiScope>2</CaselessMod_Sight_SimpleDigiScope>
+						  <CaselessMod_Sight_SimpleHolo>1</CaselessMod_Sight_SimpleHolo>
+						  <CaselessMod_Sight_SimpleScope>4</CaselessMod_Sight_SimpleScope>
+						  <CaselessMod_Sight_RayDot>1</CaselessMod_Sight_RayDot>
+                  		  <CaselessMod_Sight_RaySight>2</CaselessMod_Sight_RaySight>
+						  <CaselessMod_Sight_RayScope>2</CaselessMod_Sight_RayScope>
+						  <CaselessMod_Sight_AdvA>1</CaselessMod_Sight_AdvA>
+						  <CaselessMod_Sight_AdvB>1</CaselessMod_Sight_AdvB>
+						  <CaselessMod_Sight_AdvC>1</CaselessMod_Sight_AdvC>
+                  		  <Module_ACOG MayRequire="RWNodeTree.RWWeaponModularization">4</Module_ACOG>
+						  <Module_HoloSight MayRequire="RWNodeTree.RWWeaponModularization">2</Module_HoloSight>
+						  <Module_RedDotSight MayRequire="RWNodeTree.RWWeaponModularization">2</Module_RedDotSight>
+						  <Module_SniperScope MayRequire="RWNodeTree.RWWeaponModularization">4</Module_SniperScope>
+			      		</randomThingDefWeights>
+					</li>
+					<li>
+						<id>ModCSR_Barrel</id>
+						<name>barrel</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Muzzle</UITexPath>
+						<postion>(0.4,2,0.0435)</postion>
+						<scale>(0.925,0,0.925)</scale>
+						<defultThing>CaselessMod_SR_StdBarrel</defultThing>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_SR_StdBarrel</li>
+                                <li>CaselessMod_SR_SmlBarrel</li>
+								<li>CaselessMod_SR_SilencedBarrel</li>
+								<li>CaselessMod_SR_BarrelPlus</li>
+                                <li>CaselessMod_SR_LngBarrel</li>
+								<li>CaselessMod_SR_MatchBarrel</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_Silencer</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleBrake</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleCompensator</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_FlashHider</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+							<CaselessMod_SR_StdBarrel>8</CaselessMod_SR_StdBarrel>
+							<CaselessMod_SR_SmlBarrel>4</CaselessMod_SR_SmlBarrel>
+							<CaselessMod_SR_SilencedBarrel>2</CaselessMod_SR_SilencedBarrel>
+							<CaselessMod_SR_BarrelPlus>1</CaselessMod_SR_BarrelPlus>
+							<CaselessMod_SR_LngBarrel>3</CaselessMod_SR_LngBarrel>
+							<CaselessMod_SR_MatchBarrel>1</CaselessMod_SR_MatchBarrel>
+						</randomThingDefWeights>
+					</li>
+					<li>
+						<id>ModCSR_Receiver</id>
+						<name>Receiver</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Receiver</UITexPath>
+						<postion>(0.0,0.1,0.0)</postion> 
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_SR_AccurateReciever</li>
+								<li>CaselessMod_SR_MarksmanReciever</li>
+								<li>CaselessMod_SR_RapidReciever</li>
+								<li>CaselessMod_SR_StraightPull</li>
+							</thingDefs>
+						</filter>
+					</li>
+					<li>
+						<id>ModCSR_Magazines</id>
+						<name>Magazines</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Mag</UITexPath>
+						<postion>(0.0,5,0.01)</postion> 
+						<defultThing>CaselessMod_SR_MagMD</defultThing>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_SR_MagSM</li>
+								<li>CaselessMod_SR_MagMD</li>
+								<li>CaselessMod_SR_MagLG</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+							<CaselessMod_SR_MagSM>4</CaselessMod_SR_MagSM>
+							<CaselessMod_SR_MagMD>2</CaselessMod_SR_MagMD>
+							<CaselessMod_SR_MagLG>1</CaselessMod_SR_MagLG>
+						</randomThingDefWeights>
+					</li>
+                    <li>
+						<id>ModCSR_UnderBarrel</id>
+						<name>under barrel</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Underbarrel</UITexPath>
+						<allowEmpty>true</allowEmpty>
+						<postion>(0.06,0.1,0.02)</postion>
+						<scale>(0.85,0,0.85)</scale>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_ForwardGripA</li>
+								<li>CaselessMod_ForwardGripB</li>
+								<li>CaselessMod_ForwardGripC</li>
+								<li>CaselessMod_ForwardGripD</li>
+								<li>CaselessMod_ForwardGripE</li>
+								<li>CaselessMod_ForwardGripF</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_Bipod</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_VerticalGrip</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_AngledGrip</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+                  		  <CaselessMod_ForwardGripA>3</CaselessMod_ForwardGripA>
+                  		  <CaselessMod_ForwardGripB>3</CaselessMod_ForwardGripB>
+						  <CaselessMod_ForwardGripC>3</CaselessMod_ForwardGripC>
+						  <CaselessMod_ForwardGripD>3</CaselessMod_ForwardGripD>
+						  <CaselessMod_ForwardGripE>3</CaselessMod_ForwardGripE>
+						  <CaselessMod_ForwardGripF>3</CaselessMod_ForwardGripF>
+						  <Module_Bipod MayRequire="RWNodeTree.RWWeaponModularization">5</Module_Bipod>
+						  <Module_VerticalGrip MayRequire="RWNodeTree.RWWeaponModularization">5</Module_VerticalGrip>
+						  <Module_AngledGrip MayRequire="RWNodeTree.RWWeaponModularization">5</Module_AngledGrip>
+			      		</randomThingDefWeights>
+					</li>
+					<li>
+						<id>ModCSR_Stock</id>
+						<name>stock</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Stock</UITexPath>
+						<postion>(-0.1,3,0.0)</postion>
+						<allowEmpty>true</allowEmpty>
+						<defultThing>CaselessMod_SR_Stock</defultThing>
+						<filter>
+							<thingDefs>
+                                <li>CaselessMod_SR_Stock</li>
+                                <li>CaselessMod_SR_WoodStock</li>
+                                <li>CaselessMod_SR_StockErgo</li>
+                                <li>CaselessMod_SR_HeavyWood</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+							<CaselessMod_SR_Stock>2</CaselessMod_SR_Stock>
+							<CaselessMod_SR_WoodStock>4</CaselessMod_SR_WoodStock>
+							<CaselessMod_SR_StockErgo>1</CaselessMod_SR_StockErgo>
+							<CaselessMod_SR_HeavyWood>4</CaselessMod_SR_HeavyWood>
+						</randomThingDefWeights>
+					</li>
+				</attachmentProperties>
+			</li>
+		</comps>
+
+  </ThingDef>
+
+  <ThingCategoryDef >
+		<defName>CSR_Parts</defName>
+		<label>Survival rifle parts</label>
+		<parent>ThingCategory_CaselssGunParts</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef >
+		<defName>CSR_Barrel</defName>
+		<label>Survival rifle barrels</label>
+		<parent>CSR_Parts</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef >
+		<defName>CSR_Reciever</defName>
+		<label>Survival rifle recievers</label>
+		<parent>CSR_Parts</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef >
+		<defName>CSR_Magazines</defName>
+		<label>Survival rifle magazines</label>
+		<parent>CSR_Parts</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef >
+		<defName>CSR_Stocks</defName>
+		<label>Survival rifle stocks</label>
+		<parent>CSR_Parts</parent>
+	</ThingCategoryDef>
+
+  <!-- ==== Barrels ==== -->
+
+  	<ThingDef Name="CGPB_CSRB" ParentName="CGPB_Barrel_Base" Abstract="True">
+		<thingCategories Inherit="False">
+			<li>CSR_Barrel</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef Name="CGPB_CSRBS" ParentName="CGPB_BarrelSimple_Base" Abstract="True">
+		<thingCategories Inherit="False">
+			<li>CSR_Barrel</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef Name="CGPB_CSRBA" ParentName="CGPB_BarrelAdv_Base" Abstract="True">
+		<thingCategories Inherit="False">
+			<li>CSR_Barrel</li>
+		</thingCategories>
+	</ThingDef>
+
+    <ThingDef ParentName="CGPB_CSRB">
+		<defName>CaselessMod_SR_StdBarrel</defName>
+		<label>Survival rifle standard barrel</label>
+		<description>Standard length barrel. Average warmup, accuracy and range.</description>
+		<costList>
+			<Steel>50</Steel>
+		</costList>
+		<statBases>
+			<WorkToMake>500</WorkToMake>
+			<Mass>0.5</Mass>
+		</statBases>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/BarrelStd</PartTexPath>
+				<setRandomPartWhenCreate>true</setRandomPartWhenCreate>
+				<drawChildPartWhenOnGround>false</drawChildPartWhenOnGround>
+				<attachmentProperties>
+					<li>
+						<id>Mod_SR_Barrel</id>
+						<name>barrel</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Muzzle</UITexPath>
+						<postion>(0.18,2,0)</postion>
+						<scale>(0.6,0,0.6)</scale>
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_HeavySuppressorA</li>
+								<li>CaselessMod_Muzzle_DeviceA</li>
+								<li>CaselessMod_HeavySuppressorB</li>
+								<li>CaselessMod_Muzzle_CompensatorA</li>
+								<li>CaselessMod_Muzzle_CompensatorB</li>
+								<li>CaselessMod_Muzzle_FlashHider</li>
+								<li>CaselessMod_Muzzle_CompensatorC</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_Silencer</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleBrake</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleCompensator</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_FlashHider</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+                  		  <CaselessMod_HeavySuppressorA>1</CaselessMod_HeavySuppressorA>
+                  		  <CaselessMod_Muzzle_DeviceA>1</CaselessMod_Muzzle_DeviceA>
+						  <CaselessMod_HeavySuppressorB>1</CaselessMod_HeavySuppressorB>
+						  <CaselessMod_Muzzle_CompensatorA>1</CaselessMod_Muzzle_CompensatorA>
+						  <CaselessMod_Muzzle_CompensatorB>3</CaselessMod_Muzzle_CompensatorB>
+						  <CaselessMod_Muzzle_FlashHider>2</CaselessMod_Muzzle_FlashHider>
+						  <CaselessMod_Muzzle_CompensatorC>3</CaselessMod_Muzzle_CompensatorC>
+			      		</randomThingDefWeights>
+					</li>
+				</attachmentProperties>
+				<verbPropertiesOffseter>
+					<li>
+						<range>10</range>
+                        <warmupTime>1.0</warmupTime>
+					</li>
+				</verbPropertiesOffseter>
+                
+			</li>
+		</comps>
+	</ThingDef>
+
+    <ThingDef ParentName="CGPB_CSRB">
+		<defName>CaselessMod_SR_SmlBarrel</defName>
+		<label>Survival rifle short barrel</label>
+		<description>Short length barrel. Greater close range accuracy and faster warmup, but less range.</description>
+		<costList>
+			<Steel>35</Steel>
+		</costList>
+		<statBases>
+			<WorkToMake>350</WorkToMake>
+			<Mass>0.25</Mass>
+		</statBases>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/BarrelSml</PartTexPath>
+				<setRandomPartWhenCreate>false</setRandomPartWhenCreate>
+				<attachmentProperties>
+					<li>
+						<id>Mod_SR_Barrel</id>
+						<name>barrel</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Muzzle</UITexPath>
+						<postion>(0.025,2,0)</postion>
+						<scale>(0.6,0,0.6)</scale>
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_HeavySuppressorA</li>
+								<li>CaselessMod_Muzzle_DeviceA</li>
+								<li>CaselessMod_HeavySuppressorB</li>
+								<li>CaselessMod_Muzzle_CompensatorA</li>
+								<li>CaselessMod_Muzzle_CompensatorB</li>
+								<li>CaselessMod_Muzzle_FlashHider</li>
+								<li>CaselessMod_Muzzle_CompensatorC</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_Silencer</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleBrake</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleCompensator</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_FlashHider</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+                  		  <CaselessMod_HeavySuppressorA>1</CaselessMod_HeavySuppressorA>
+                  		  <CaselessMod_Muzzle_DeviceA>1</CaselessMod_Muzzle_DeviceA>
+						  <CaselessMod_HeavySuppressorB>1</CaselessMod_HeavySuppressorB>
+						  <CaselessMod_Muzzle_CompensatorA>1</CaselessMod_Muzzle_CompensatorA>
+						  <CaselessMod_Muzzle_CompensatorB>3</CaselessMod_Muzzle_CompensatorB>
+						  <CaselessMod_Muzzle_FlashHider>2</CaselessMod_Muzzle_FlashHider>
+						  <CaselessMod_Muzzle_CompensatorC>3</CaselessMod_Muzzle_CompensatorC>
+			      		</randomThingDefWeights>
+					</li>
+				</attachmentProperties>
+				<statMultiplier>
+                    <AccuracyTouch>1.15</AccuracyTouch>
+					<AccuracyShort>1.15</AccuracyShort>
+					<AccuracyMedium>0.9</AccuracyMedium>
+					<AccuracyLong>0.8</AccuracyLong>
+				</statMultiplier>
+				<verbPropertiesOffseter>
+					<li>
+						<range>3</range>
+					</li>
+				</verbPropertiesOffseter>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CSRBS">
+		<defName>CaselessMod_SR_SilencedBarrel</defName>
+		<label>Survival rifle suppressor barrel</label>
+		<description>Short length silenced barrel. Greater close range accuracy and faster warmup, but less range.</description>
+		<costList>
+			<Steel>45</Steel>
+		</costList>
+		<statBases>
+			<WorkToMake>750</WorkToMake>
+			<Mass>0.38</Mass>
+		</statBases>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/BarrelSilent</PartTexPath>
+				<verbPropertiesObjectPatch>
+					<li>
+						<soundCast>Shot_SilencedB</soundCast>
+						<soundCastTail IsNull="true"/>
+					</li>
+				</verbPropertiesObjectPatch>
+				<statMultiplier>
+                    <AccuracyTouch>1.24</AccuracyTouch>
+					<AccuracyShort>1.2</AccuracyShort>
+					<AccuracyMedium>0.9</AccuracyMedium>
+					<AccuracyLong>0.8</AccuracyLong>
+				</statMultiplier>
+				<verbPropertiesOffseter>
+					<li>
+						<range>-8</range>
+					</li>
+				</verbPropertiesOffseter>
+				<statOffset>
+					<RangedWeapon_Cooldown>-0.7</RangedWeapon_Cooldown>
+					<HuntingStealth>0.5</HuntingStealth>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CSRBS">
+		<defName>CaselessMod_SR_BarrelPlus</defName>
+		<label>Survival rifle Hardened barrel</label>
+		<description>The standard barrel coated and tempered. Improved accuracy without the weight.</description>
+		<costList>
+			<CaselessMod_SR_StdBarrel>1</CaselessMod_SR_StdBarrel>
+			<Silver>20</Silver>
+		</costList>
+		<statBases>
+			<WorkToMake>500</WorkToMake>
+			<Mass>0.6</Mass>
+		</statBases>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/BarrelPlus</PartTexPath>
+				<setRandomPartWhenCreate>true</setRandomPartWhenCreate>
+				<attachmentProperties>
+					<li>
+						<id>Mod_SR_Barrel</id>
+						<name>barrel</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Muzzle</UITexPath>
+						<postion>(0.18,2,0)</postion>
+						<scale>(0.6,0,0.6)</scale>
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_HeavySuppressorA</li>
+								<li>CaselessMod_Muzzle_DeviceA</li>
+								<li>CaselessMod_HeavySuppressorB</li>
+								<li>CaselessMod_Muzzle_CompensatorA</li>
+								<li>CaselessMod_Muzzle_CompensatorB</li>
+								<li>CaselessMod_Muzzle_FlashHider</li>
+								<li>CaselessMod_Muzzle_CompensatorC</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_Silencer</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleBrake</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleCompensator</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_FlashHider</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+                  		  <CaselessMod_HeavySuppressorA>1</CaselessMod_HeavySuppressorA>
+                  		  <CaselessMod_Muzzle_DeviceA>1</CaselessMod_Muzzle_DeviceA>
+						  <CaselessMod_HeavySuppressorB>1</CaselessMod_HeavySuppressorB>
+						  <CaselessMod_Muzzle_CompensatorA>1</CaselessMod_Muzzle_CompensatorA>
+						  <CaselessMod_Muzzle_CompensatorB>3</CaselessMod_Muzzle_CompensatorB>
+						  <CaselessMod_Muzzle_FlashHider>2</CaselessMod_Muzzle_FlashHider>
+						  <CaselessMod_Muzzle_CompensatorC>3</CaselessMod_Muzzle_CompensatorC>
+			      		</randomThingDefWeights>
+					</li>
+				</attachmentProperties>
+				<statMultiplier>
+                    <AccuracyTouch>1.15</AccuracyTouch>
+					<AccuracyShort>1.15</AccuracyShort>
+					<AccuracyMedium>1.20</AccuracyMedium>
+					<AccuracyLong>1.25</AccuracyLong>
+				</statMultiplier>
+				<verbPropertiesOffseter>
+					<li>
+						<range>13</range>
+                        <warmupTime>0.9</warmupTime>
+					</li>
+				</verbPropertiesOffseter>
+			</li>
+		</comps>
+	</ThingDef>
+    
+    <ThingDef ParentName="CGPB_CSRBA">
+		<defName>CaselessMod_SR_LngBarrel</defName>
+		<label>Survival rifle Long barrel</label>
+		<description>Long length barrel. Greater warmup, range and long-range accuracy.</description>
+		<costList>
+			<Steel>50</Steel>
+		</costList>
+		<statBases>
+			<WorkToMake>750</WorkToMake>
+			<Mass>0.89</Mass>
+		</statBases>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/BarrelLng</PartTexPath>
+				<setRandomPartWhenCreate>true</setRandomPartWhenCreate>
+				<attachmentProperties>
+					<li>
+						<id>Mod_SR_Barrel</id>
+						<name>barrel</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Muzzle</UITexPath>
+						<postion>(0.4,2,0)</postion>
+						<scale>(0.6,0,0.6)</scale>
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_HeavySuppressorA</li>
+								<li>CaselessMod_Muzzle_DeviceA</li>
+								<li>CaselessMod_HeavySuppressorB</li>
+								<li>CaselessMod_Muzzle_CompensatorA</li>
+								<li>CaselessMod_Muzzle_CompensatorB</li>
+								<li>CaselessMod_Muzzle_FlashHider</li>
+								<li>CaselessMod_Muzzle_CompensatorC</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_Silencer</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleBrake</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleCompensator</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_FlashHider</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+                  		  <CaselessMod_HeavySuppressorA>1</CaselessMod_HeavySuppressorA>
+                  		  <CaselessMod_Muzzle_DeviceA>1</CaselessMod_Muzzle_DeviceA>
+						  <CaselessMod_HeavySuppressorB>1</CaselessMod_HeavySuppressorB>
+						  <CaselessMod_Muzzle_CompensatorA>1</CaselessMod_Muzzle_CompensatorA>
+						  <CaselessMod_Muzzle_CompensatorB>3</CaselessMod_Muzzle_CompensatorB>
+						  <CaselessMod_Muzzle_FlashHider>2</CaselessMod_Muzzle_FlashHider>
+						  <CaselessMod_Muzzle_CompensatorC>3</CaselessMod_Muzzle_CompensatorC>
+			      		</randomThingDefWeights>
+					</li>
+				</attachmentProperties>
+				<statMultiplier>
+                    <AccuracyTouch>1.15</AccuracyTouch>
+					<AccuracyShort>1.15</AccuracyShort>
+					<AccuracyMedium>1.30</AccuracyMedium>
+					<AccuracyLong>1.40</AccuracyLong>
+				</statMultiplier>
+				<verbPropertiesOffseter>
+					<li>
+						<range>15</range>
+                        <warmupTime>1.6</warmupTime>
+					</li>
+				</verbPropertiesOffseter>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CSRBA">
+		<defName>CaselessMod_SR_MatchBarrel</defName>
+		<label>Survival rifle Long match barrel</label>
+		<description>Long length high-quality barrel. Greater warmup, range with unmatched accuracy.</description>
+		<costList>
+			<CaselessMod_SR_LngBarrel>1</CaselessMod_SR_LngBarrel>
+			<Steel>30</Steel>
+			<Silver>50</Silver>
+		</costList>
+		<statBases>
+			<WorkToMake>1200</WorkToMake>
+			<Mass>0.9</Mass>
+		</statBases>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/BarrelMatch</PartTexPath>
+				<setRandomPartWhenCreate>true</setRandomPartWhenCreate>
+				<attachmentProperties>
+					<li>
+						<id>Mod_SR_Barrel</id>
+						<name>barrel</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Muzzle</UITexPath>
+						<postion>(0.4,2,0)</postion>
+						<scale>(0.4,0,0.4)</scale>
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_HeavySuppressorA</li>
+								<li>CaselessMod_Muzzle_DeviceA</li>
+								<li>CaselessMod_HeavySuppressorB</li>
+								<li>CaselessMod_Muzzle_CompensatorA</li>
+								<li>CaselessMod_Muzzle_CompensatorB</li>
+								<li>CaselessMod_Muzzle_FlashHider</li>
+								<li>CaselessMod_Muzzle_CompensatorC</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_Silencer</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleBrake</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleCompensator</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_FlashHider</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+                  		  <CaselessMod_HeavySuppressorA>1</CaselessMod_HeavySuppressorA>
+                  		  <CaselessMod_Muzzle_DeviceA>1</CaselessMod_Muzzle_DeviceA>
+						  <CaselessMod_HeavySuppressorB>1</CaselessMod_HeavySuppressorB>
+						  <CaselessMod_Muzzle_CompensatorA>1</CaselessMod_Muzzle_CompensatorA>
+						  <CaselessMod_Muzzle_CompensatorB>3</CaselessMod_Muzzle_CompensatorB>
+						  <CaselessMod_Muzzle_FlashHider>2</CaselessMod_Muzzle_FlashHider>
+						  <CaselessMod_Muzzle_CompensatorC>3</CaselessMod_Muzzle_CompensatorC>
+			      		</randomThingDefWeights>
+					</li>
+				</attachmentProperties>
+				<statMultiplier>
+                    <AccuracyTouch>1.3</AccuracyTouch>
+					<AccuracyShort>1.3</AccuracyShort>
+					<AccuracyMedium>1.40</AccuracyMedium>
+					<AccuracyLong>1.40</AccuracyLong>
+				</statMultiplier>
+				<verbPropertiesOffseter>
+					<li>
+						<range>20</range>
+                        <warmupTime>2.5</warmupTime>
+					</li>
+				</verbPropertiesOffseter>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- ==== stocks ==== -->
+
+	<ThingDef Name="CGPB_CSRS" ParentName="CGPB_GeneralStockBase" Abstract="True">
+		<thingCategories Inherit="False">
+			<li>CSR_Stocks</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CSRS" >
+		<defName>CaselessMod_SR_Stock</defName>
+		<label>Survival rifle stock</label>
+		<description>Complete rifle stock, mostly hollow polymer and joints for folding.</description>
+        <recipeMaker>
+			<researchPrerequisite>Tier1Attachments</researchPrerequisite>
+		</recipeMaker>
+		<statBases>
+			<WorkToMake>500</WorkToMake>
+			<Mass>0.6</Mass>
+		</statBases>
+		<costList>
+			<Steel>15</Steel>
+			<Chemfuel>40</Chemfuel>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/StockStd</PartTexPath>
+                <verbPropertiesOffseter>
+					<li>
+                        <range>5</range>
+					</li>
+				</verbPropertiesOffseter>
+				<statMultiplier>
+					<AccuracyTouch>1.1</AccuracyTouch>
+					<AccuracyShort>1.1</AccuracyShort>
+				</statMultiplier>
+                <statOffset>
+					<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+    <ThingDef ParentName="CGPB_CSRS" >
+		<defName>CaselessMod_SR_WoodStock</defName>
+		<label>Survival rifle wood stock</label>
+		<description>Light wood stock, no space-saving joints but reduces recoil.</description>
+        <recipeMaker>
+			<researchPrerequisite>Tier1Attachments</researchPrerequisite>
+		</recipeMaker>
+		<statBases>
+			<WorkToMake>500</WorkToMake>
+			<Mass>1.0</Mass>
+		</statBases>
+		<costList>
+			<WoodLog>45</WoodLog>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/Stockwood</PartTexPath>
+                <verbPropertiesOffseter>
+					<li>
+                        <range>5</range>
+					</li>
+				</verbPropertiesOffseter>
+				<statMultiplier>
+					<AccuracyTouch>1.05</AccuracyTouch>
+					<AccuracyShort>1.05</AccuracyShort>
+					<AccuracyMedium>1.08</AccuracyMedium>
+					<AccuracyLong>1.12</AccuracyLong>
+				</statMultiplier>
+                <statOffset>
+					<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+    <ThingDef ParentName="CGPB_CSRS" >
+		<defName>CaselessMod_SR_HeavyWood</defName>
+		<label>Survival rifle heavy wood stock</label>
+		<description>Heavy wood stock. Improves the shooter's accuracy as well as reducing recoil.</description>
+        <recipeMaker>
+			<researchPrerequisite>Tier2Attachments</researchPrerequisite>
+		</recipeMaker>
+		<statBases>
+			<WorkToMake>740</WorkToMake>
+			<Mass>1.2</Mass>
+		</statBases>
+		<costList>
+			<WoodLog>75</WoodLog>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/HeavyWood</PartTexPath>
+                <verbPropertiesOffseter>
+					<li>
+                        <range>8</range>
+					</li>
+				</verbPropertiesOffseter>
+				<statMultiplier>
+					<AccuracyTouch>1.2</AccuracyTouch>
+					<AccuracyShort>1.2</AccuracyShort>
+					<AccuracyMedium>1.3</AccuracyMedium>
+					<AccuracyLong>1.4</AccuracyLong>
+				</statMultiplier>
+                <statOffset>
+					<RangedWeapon_Cooldown>1.4</RangedWeapon_Cooldown>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+    <ThingDef ParentName="CGPB_CSRS" >
+		<defName>CaselessMod_SR_StockErgo</defName>
+		<label>Survival rifle ergonomic stock</label>
+		<description>Light ergonomic stock. The best of a full stock without any of the weight.</description>
+        <recipeMaker>
+			<researchPrerequisite>Tier2Attachments</researchPrerequisite>
+		</recipeMaker>
+		<statBases>
+			<WorkToMake>1500</WorkToMake>
+			<Mass>0.9</Mass>
+		</statBases>
+		<costList>
+            <Steel>30</Steel>
+			<Chemfuel>50</Chemfuel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/StockErgo</PartTexPath>
+                <verbPropertiesOffseter>
+					<li>
+                        <range>8</range>
+					</li>
+				</verbPropertiesOffseter>
+				<statMultiplier>
+					<AccuracyTouch>1.1</AccuracyTouch>
+					<AccuracyShort>1.1</AccuracyShort>
+					<AccuracyMedium>1.12</AccuracyMedium>
+					<AccuracyLong>1.24</AccuracyLong>
+				</statMultiplier>
+                <statOffset>
+					<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!--====Magazines====-->
+
+	<ThingDef Name="CGPB_CSRM" ParentName="CGPB_GenAmmoBase" Abstract="True">
+		<thingCategories Inherit="False">
+			<li>CSR_Magazines</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CSRM">
+		<defName>CaselessMod_SR_MagSM</defName>
+		<label>Survival rifle small magazines</label>
+		<description>Small magazines, allows for quicker reloading but less firepower.</description>
+		<costList>
+			<Steel>10</Steel>
+		</costList>
+		<statBases>
+			<WorkToMake>100</WorkToMake>
+			<Mass>0.35</Mass>
+		</statBases>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/MagSml</PartTexPath>
+				<verbPropertiesOffseter>
+					<li>
+                        <warmupTime>-0.5</warmupTime>
+					</li>
+				</verbPropertiesOffseter>
+				<statOffset>
+					<RangedWeapon_Cooldown>-0.5</RangedWeapon_Cooldown>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CSRM">
+		<defName>CaselessMod_SR_MagMD</defName>
+		<label>Survial rifle medium magazines</label>
+		<description>Medium magazines, balanced reload and firepower.</description>
+		<costList>
+			<Steel>15</Steel>
+		</costList>
+		<statBases>
+			<WorkToMake>150</WorkToMake>
+			<Mass>0.5</Mass>
+		</statBases>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/MagMed</PartTexPath>
+                
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_AmmoBase_T2">
+		<defName>CaselessMod_SR_MagLG</defName>
+		<label>Survival rifle large magazines</label>
+		<description>Large magazines, high capacity at the cost of a longer reload.</description>
+		<costList>
+			<Steel>20</Steel>
+		</costList>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<Mass>0.8</Mass>
+		</statBases>
+		<thingCategories Inherit="False">
+			<li>CSR_Magazines</li>
+		</thingCategories>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/MagLrg</PartTexPath>
+				<verbPropertiesOffseter>
+					<li>
+                        <warmupTime>0.5</warmupTime>
+					</li>
+				</verbPropertiesOffseter>
+                <statOffset>
+					<RangedWeapon_Cooldown>0.2</RangedWeapon_Cooldown>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- ==== receivers ==== -->
+
+	<ThingDef Name="CGPB_CSRRB" ParentName="CGPB_ReceiverBase_GO" Abstract="True">
+		<thingCategories Inherit="False">
+			<li>CSR_Reciever</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef Name="CGPB_CSRRA" ParentName="CGPB_ReceiverBase_BO" Abstract="True">
+		<thingCategories Inherit="False">
+			<li>CSR_Reciever</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CSRRB">
+		<defName>CaselessMod_SR_AccurateReciever</defName>
+		<label>Survival rifle accurate reciever</label>
+		<description>Tuned reciever, better accuracy at the cost of firing speed.</description>
+		<costList>
+			<Steel>50</Steel>
+		</costList>
+		<statBases>
+			<WorkToMake>700</WorkToMake>
+			<Mass>0.8</Mass>
+		</statBases>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/RecieverA</PartTexPath>
+				<verbPropertiesOffseter>
+					<li>
+                        <warmupTime>0.5</warmupTime>
+					</li>
+				</verbPropertiesOffseter>
+                <statOffset>
+					<RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+				</statOffset>
+				<statMultiplier>
+					<AccuracyTouch>1.1</AccuracyTouch>
+					<AccuracyShort>1.1</AccuracyShort>
+					<AccuracyMedium>1.1</AccuracyMedium>
+					<AccuracyLong>1.1</AccuracyLong>
+				</statMultiplier>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CSRRA">
+		<defName>CaselessMod_SR_MarksmanReciever</defName>
+		<label>Survival rifle marksman reciever</label>
+		<description>Marksman reciever, best accuracy at the cost of firing speed.</description>
+		<costList>
+			<Steel>70</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<WorkToMake>1000</WorkToMake>
+			<Mass>0.8</Mass>
+		</statBases>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/RecieverB</PartTexPath>
+				<verbPropertiesOffseter>
+					<li>
+                        <warmupTime>0.3</warmupTime>
+					</li>
+				</verbPropertiesOffseter>
+                <statOffset>
+					<RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+				</statOffset>
+				<statMultiplier>
+					<AccuracyTouch>1.1</AccuracyTouch>
+					<AccuracyShort>1.1</AccuracyShort>
+					<AccuracyMedium>1.2</AccuracyMedium>
+					<AccuracyLong>1.3</AccuracyLong>
+				</statMultiplier>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CSRRB">
+		<defName>CaselessMod_SR_RapidReciever</defName>
+		<label>Survival rifle rapid reciever</label>
+		<description>Rapid reciever, allows for faster firing.</description>
+		<costList>
+			<Steel>55</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<WorkToMake>1000</WorkToMake>
+			<Mass>1.0</Mass>
+		</statBases>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/RecieverC</PartTexPath>
+				<verbPropertiesOffseter>
+					<li>
+                        <warmupTime>-0.1</warmupTime>
+					</li>
+				</verbPropertiesOffseter>
+                <statOffset>
+					<RangedWeapon_Cooldown>-0.8</RangedWeapon_Cooldown>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CSRRA">
+		<defName>CaselessMod_SR_StraightPull</defName>
+		<label>Survival rifle straight-pull</label>
+		<description>Straight-pull bolt, unmatched speed.</description>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<WorkToMake>1500</WorkToMake>
+			<Mass>1.2</Mass>
+		</statBases>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/Survival/RecieverD</PartTexPath>
+				<verbPropertiesOffseter>
+					<li>
+                        <warmupTime>-0.5</warmupTime>
+					</li>
+				</verbPropertiesOffseter>
+                <statOffset>
+					<RangedWeapon_Cooldown>-1.5</RangedWeapon_Cooldown>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+
+</Defs>

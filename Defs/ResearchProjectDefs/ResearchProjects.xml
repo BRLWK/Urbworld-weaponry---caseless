@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ResearchProjectDef>
+    <defName>Caseless_Weapons</defName>
+    <label>Caseless ammunition</label>
+    <tab>UrbworldTech</tab>
+    <prerequisites>
+      <li>Gunsmithing</li>
+    </prerequisites>
+    <techLevel>Industrial</techLevel>
+    <description>Despite being fragile and inaccurate these weapons are lighter and have a higher rates of fire than cased firearms. Requires plastics (chemfuel) to produce.</description>
+    <baseCost>800</baseCost>
+  <researchViewX>0.2</researchViewX>
+  <researchViewY>0.3</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

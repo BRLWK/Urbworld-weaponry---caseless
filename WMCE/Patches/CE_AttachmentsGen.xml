@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+  <mods>
+    <li>Modularization Vanilla Weapon</li>
+  </mods>
+  <match Class="PatchOperationSequence">
+    <operations>
+
+<!--Red error cleanup-->
+
+	<li Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="Gun_ModularCaseless_SMG"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModSMG_Magazine"]/filter/thingDefs/li[2]</xpath>
+	</li>
+
+	<li Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="Gun_ModularCaseless_Carbine"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModCAR_Receiver"]/filter/thingDefs/li[2]</xpath>
+	</li>
+
+	<li Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="Gun_ModularCaseless_Pistol"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModCAP_CKits"]/filter/thingDefs/li[2]</xpath>
+	</li>
+
+	<li Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="Gun_ModularCaseless_SMG"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModSMG_Magazine"]/filter/thingDefs/li[1]</xpath>
+	</li>
+	
+<!--Optics-->
+
+	<li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_SimpleTwoX"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statOffset</xpath>
+		<value>
+			<statOffset>
+			    <NightVisionEfficiency_Weapon>0.1</NightVisionEfficiency_Weapon>
+			    <RangedWeapon_Cooldown>0.1</RangedWeapon_Cooldown>
+			</statOffset>
+		</value>
+	</li>
+
+	<li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_SimpleFourX"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statOffset</xpath>
+		<value>
+			<statOffset>
+			    <NightVisionEfficiency_Weapon>0.2</NightVisionEfficiency_Weapon>
+			    <RangedWeapon_Cooldown>0.17</RangedWeapon_Cooldown>
+			</statOffset>
+		</value>
+	</li>
+
+	<li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_SimpleDigiScope"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statOffset</xpath>
+		<value>
+			<statOffset>
+			    <NightVisionEfficiency_Weapon>0.45</NightVisionEfficiency_Weapon>
+			    <RangedWeapon_Cooldown>0.25</RangedWeapon_Cooldown>
+			</statOffset>
+		</value>
+	</li>
+
+	<li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_RayDot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statOffset</xpath>
+		<value>
+			<statOffset>
+			    <NightVisionEfficiency_Weapon>0.15</NightVisionEfficiency_Weapon>
+			    <RangedWeapon_Cooldown>0.06</RangedWeapon_Cooldown>
+				<ShootingAccuracyPawn>0.6</ShootingAccuracyPawn>
+			</statOffset>
+		</value>
+	</li>
+
+	<li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_RaySight"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statOffset</xpath>
+		<value>
+			<statOffset>
+			    <NightVisionEfficiency_Weapon>0.25</NightVisionEfficiency_Weapon>
+			    <RangedWeapon_Cooldown>0.11</RangedWeapon_Cooldown>
+				<ShootingAccuracyPawn>0.8</ShootingAccuracyPawn>
+			</statOffset>
+		</value>
+	</li>
+
+	<li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_RayScope"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statOffset</xpath>
+		<value>
+			<statOffset>
+			    <NightVisionEfficiency_Weapon>0.5</NightVisionEfficiency_Weapon>
+			    <RangedWeapon_Cooldown>0.25</RangedWeapon_Cooldown>
+				<ShootingAccuracyPawn>1.0</ShootingAccuracyPawn>
+			</statOffset>
+		</value>
+	</li>
+
+	<li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_AdvA"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statOffset</xpath>
+		<value>
+			<statOffset>
+			    <NightVisionEfficiency_Weapon>0.65</NightVisionEfficiency_Weapon>
+			    <RangedWeapon_Cooldown>0.06</RangedWeapon_Cooldown>
+				<ShootingAccuracyPawn>2</ShootingAccuracyPawn>
+			</statOffset>
+		</value>
+	</li>
+
+	<li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_AdvB"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statOffset</xpath>
+		<value>
+			<statOffset>
+			    <NightVisionEfficiency_Weapon>0.75</NightVisionEfficiency_Weapon>
+			    <RangedWeapon_Cooldown>0.11</RangedWeapon_Cooldown>
+				<ShootingAccuracyPawn>3</ShootingAccuracyPawn>
+			</statOffset>
+		</value>
+	</li>
+
+	<li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_AdvC"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statOffset</xpath>
+		<value>
+			<statOffset>
+			    <NightVisionEfficiency_Weapon>0.85</NightVisionEfficiency_Weapon>
+			    <RangedWeapon_Cooldown>0.15</RangedWeapon_Cooldown>
+				<ShootingAccuracyPawn>3</ShootingAccuracyPawn>
+			</statOffset>
+		</value>
+	</li>
+
+	<!--li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_SimpleRedDot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+		  <statMultiplier>
+			<SightsEfficiency>1.1</SightsEfficiency>
+		  </statMultiplier>
+		</value>
+	</li-->
+
+	<li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_SimpleHolo"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+		  <statMultiplier>
+			<SightsEfficiency>1.15</SightsEfficiency>
+		  </statMultiplier>
+		</value>
+	</li>
+
+	<li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_SimpleTwoX"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+		  <statMultiplier>
+			<SightsEfficiency>1.25</SightsEfficiency>
+		  </statMultiplier>
+		</value>
+	</li>
+
+	<li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_SimpleFourX"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+		  <statMultiplier>
+			<SightsEfficiency>1.35</SightsEfficiency>
+		  </statMultiplier>
+		</value>
+	</li>
+
+	<li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_SimpleDigiScope"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+		  <statMultiplier>
+			<SightsEfficiency>2.2</SightsEfficiency>
+		  </statMultiplier>
+		</value>
+	</li>
+
+	<li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_SimpleScope"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+		  <statMultiplier>
+			<SightsEfficiency>1.7</SightsEfficiency>
+		  </statMultiplier>
+		</value>
+	</li>
+
+	<li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_RayDot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+			<statMultiplier>
+				<SightsEfficiency>1.15</SightsEfficiency>
+			</statMultiplier>
+		</value>
+	</li>
+
+	<li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_RaySight"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+			<statMultiplier>
+				<SightsEfficiency>1.3</SightsEfficiency>
+			</statMultiplier>
+		</value>
+	</li>
+
+	<li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_RayScope"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+			<statMultiplier>
+				<SightsEfficiency>1.45</SightsEfficiency>
+			</statMultiplier>
+		</value>
+	</li>
+
+	<li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_AdvA"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+			<statMultiplier>
+				<SightsEfficiency>1.22</SightsEfficiency>
+			</statMultiplier>
+		</value>
+	</li>
+
+	<li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_AdvB"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+			<statMultiplier>
+				<SightsEfficiency>1.44</SightsEfficiency>
+			</statMultiplier>
+		</value>
+	</li>
+
+	<li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Sight_AdvC"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+			<statMultiplier>
+				<SightsEfficiency>1.65</SightsEfficiency>
+			</statMultiplier>
+		</value>
+	</li>
+
+	<!-- grips -->
+
+	<li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_ForwardGripA" 
+						  or defName="CaselessMod_ForwardGripB" 
+						  or defName="CaselessMod_ForwardGripC"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+		  <statMultiplier>
+			<SwayFactor>0.8</SwayFactor>
+		  </statMultiplier>
+		</value>
+	</li>
+
+	<li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_ForwardGripD" 
+						  or defName="CaselessMod_ForwardGripE" 
+						  or defName="CaselessMod_ForwardGripF"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+		  <statMultiplier>
+			<SwayFactor>0.9</SwayFactor>
+		  </statMultiplier>
+		</value>
+	</li>
+
+	<li Class="PatchOperationRemove" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Muzzle_CompensatorA"
+						  or defName="CaselessMod_Muzzle_CompensatorB"
+						  or defName="CaselessMod_Muzzle_CompensatorC"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statOffset/ShootingAccuracyPawn</xpath>
+	</li>
+
+	<li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Muzzle_CompensatorA"
+						  or defName="CaselessMod_Muzzle_CompensatorB"
+						  or defName="CaselessMod_Muzzle_CompensatorC"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+		  <statMultiplier>
+			<ShotSpread>0.9</ShotSpread>
+		  </statMultiplier>
+		</value>
+		<order>Append</order>
+	</li>
+
+	<!-- Bulk: Tiny optics -->
+
+	<li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Sight_SimpleHolo"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>0.35</Bulk>
+  	  </value>
+  	</li>
+
+	<!-- Bulk: Small optics -->
+
+	<li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Sight_SimpleTwoX"
+	  						or DefName="CaselessMod_Sight_RayDot"
+							or DefName="CaselessMod_Sight_AdvA"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>0.65</Bulk>
+  	  </value>
+  	</li>
+
+	<!-- Bulk: Medium Optics -->
+
+	<li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Sight_SimpleFourX"
+	  						or DefName="CaselessMod_Sight_RaySight"
+	  						or DefName="CaselessMod_Sight_AdvB"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>0.85</Bulk>
+  	  </value>
+  	</li>
+
+	<!-- Bulk: Big optics -->
+
+	<li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Sight_SimpleDigiScope"
+	  						or DefName="CaselessMod_Sight_SimpleScope"
+	  						or DefName="CaselessMod_Sight_RayScope"
+							or DefName="CaselessMod_Sight_AdvC"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>1.25</Bulk>
+  	  </value>
+  	</li>
+
+	<!-- Bulk: Underbarrel -->
+
+	<li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_ForwardGripA"
+	  					or defName="CaselessMod_ForwardGripB"
+						or defName="CaselessMod_ForwardGripC"
+						or defName="CaselessMod_ForwardGripD"
+						or defName="CaselessMod_ForwardGripE"
+						or defName="CaselessMod_ForwardGripF"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>0.40</Bulk>
+  	  </value>
+  	</li>
+
+	<!-- Bulk: chunky suppressors -->
+
+	<li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_HeavySuppressorA"
+	  					or defName="CaselessMod_HeavySuppressorB"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>1</Bulk>
+  	  </value>
+  	</li>
+
+	<li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Muzzle_DeviceA"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>0.85</Bulk>
+  	  </value>
+  	</li>
+
+	<!-- Compensators and flash hiders -->
+
+	<li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Muzzle_CompensatorA"
+	  					or defName="CaselessMod_Muzzle_CompensatorB"
+						or defName="CaselessMod_Muzzle_CompensatorC"
+						or defName="CaselessMod_Muzzle_FlashHider"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>0.1</Bulk>
+  	  </value>
+  	</li>
+
+  </operations>
+  </match>
+</Operation>
+
+</Patch>

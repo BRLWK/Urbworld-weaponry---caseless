@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+  <mods>
+    <li>Modularization Vanilla Weapon</li>
+  </mods>
+  <match Class="PatchOperationSequence">
+    <operations>
+
+
+  <!-- ==== pistol ==== -->
+
+  <li Class="CombatExtended.PatchOperationMakeGunCECompatible" >
+    <defName>Gun_ModularCaseless_Pistol</defName>
+    <statBases>
+      <Mass>0.61</Mass>
+      <RangedWeapon_Cooldown>0.39</RangedWeapon_Cooldown>
+      <SightsEfficiency>0.7</SightsEfficiency>
+      <ShotSpread>0.17</ShotSpread>
+      <SwayFactor>0.92</SwayFactor>
+      <Bulk>2.15</Bulk>
+      <WorkToMake>13000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <Chemfuel>10</Chemfuel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <Properties>
+      <recoilAmount>2.78</recoilAmount>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_65x21mmCaseless_FMJ</defaultProjectile> <!-- Bullet_65x21mmCaseless_FMJ -->
+      <warmupTime>0.6</warmupTime>
+      <range>12</range>
+      <burstShotCount>6</burstShotCount>
+      <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+      <soundCast>Shot_kpistol</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>4</muzzleFlashScale>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>1</magazineSize>
+      <reloadTime>4</reloadTime>
+      <ammoSet>AmmoSet_65x21mmCaseless</ammoSet> <!-- AmmoSet_65x21mmCaseless -->
+    </AmmoUser>
+    <FireModes>
+      <aimedBurstShotCount>3</aimedBurstShotCount>
+  		<aiUseBurstMode>FALSE</aiUseBurstMode>
+    </FireModes>
+    <weaponTags>
+      <li>CE_Sidearm</li>
+      <li>CE_AI_BROOM</li>
+      <li>CE_OneHandedWeapon</li>
+    </weaponTags>
+    <researchPrerequisite>BlowbackOperation</researchPrerequisite>
+  </li>
+
+  <li Class="PatchOperationReplace" >
+    <xpath>Defs/ThingDef[defName="Gun_ModularCaseless_Pistol"]/tools</xpath>
+    <value>
+      <tools>
+         <li Class="CombatExtended.ToolCE">
+          <label>grip</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>2</power>
+          <cooldownTime>1.54</cooldownTime>
+          <chanceFactor>1.5</chanceFactor>
+          <armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <label>muzzle</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>2</power>
+          <cooldownTime>1.54</cooldownTime>
+          <armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </li>
+
+  <!--General-->
+  <li Class="PatchOperationAdd" >
+  <xpath>Defs/ThingDef[defName="Gun_ModularCaseless_Pistol"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+  <value>
+  	<compGetGizmosExtraAllowedCompType>
+  		<li>CombatExtended.CompAmmoUser</li>
+  		<li>CombatExtended.CompFireModes</li>
+  	</compGetGizmosExtraAllowedCompType>
+  	<compPropertiesInitializeCompType>
+  		<li>CombatExtended.CompAmmoUser</li>
+  		<li>CombatExtended.CompFireModes</li>
+  	</compPropertiesInitializeCompType>
+  	<compPropertiesCreateInstanceCompType>
+      <li>CombatExtended.CompAmmoUser</li> <!--?-->
+  		<li>CombatExtended.CompFireModes</li> <!--?-->
+  	</compPropertiesCreateInstanceCompType>
+  </value>
+  <order>Append</order>
+  </li>
+
+  <!-- ==== Magazines ==== -->
+  <!--Standard-->
+  <li Class="PatchOperationAdd" >
+  <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_StdMag"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+  <value>
+  	<compPropertiesObjectPatch>
+  		<il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+  			<magazineSize>21</magazineSize>
+  		</il>
+  	</compPropertiesObjectPatch>
+  </value>
+  <order>Append</order>
+  </li>
+
+  <li Class="PatchOperationAdd" >
+  <xpath>Defs/ThingDef[defName="Gun_ModularCaseless_Pistol"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties/li[id="ModCAP_Magazine"]</xpath>
+  <value>
+  	<verbPropertiesObjectPatchByChildPart Default="false" />
+  </value>
+  <order>Append</order>
+  </li>
+
+  <!--Extended-->
+  <li Class="PatchOperationRemove" >
+  <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_ExtMag"
+                   or defName="CaselessMod_Pistol_DrumMag"
+                   or defName="CaselessMod_Pistol_PlasMags"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/verbPropertiesOffseter</xpath>
+  </li>
+
+  <li Class="PatchOperationRemove" >
+  <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_ExtMag" 
+                        or defName="CaselessMod_Pistol_DrumMag"
+                        or defName="CaselessMod_Pistol_PlasMags"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/verbPropertiesMultiplier</xpath>
+  </li>
+
+  <li Class="PatchOperationRemove" >
+  <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_ExtMag" 
+                        or defName="CaselessMod_Pistol_DrumMag"
+                        or defName="CaselessMod_Pistol_PlasMags"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+  </li>
+
+  <li Class="PatchOperationAdd" >
+  <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_ExtMag"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+  <value>
+  	<compPropertiesObjectPatch>
+  		<il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+  			<magazineSize>42</magazineSize>
+        <reloadTime>+2</reloadTime>
+  		</il>
+  	</compPropertiesObjectPatch>
+  </value>
+  <order>Append</order>
+  </li>
+
+  <li Class="PatchOperationAdd" >
+  <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_DrumMag"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+  <value>
+  	<compPropertiesObjectPatch>
+  		<il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+  			<magazineSize>64</magazineSize>
+        <reloadTime>+4</reloadTime>
+  		</il>
+  	</compPropertiesObjectPatch>
+  </value>
+  <order>Append</order>
+  </li>
+
+  <li Class="PatchOperationAdd" >
+  <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_PlasMags"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+  <value>
+  	<compPropertiesObjectPatch>
+  		<il Reader-Class="CombatExtended.CompProperties_AmmoUser">
+  			<magazineSize>39</magazineSize>
+        <reloadTime>+0.5</reloadTime>
+  		</il>
+  	</compPropertiesObjectPatch>
+  </value>
+  <order>Append</order>
+  </li>
+
+  <!--Muzzles-->
+
+  <li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Pistol_extension"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+        <statMultiplier>
+					<ShotSpread>0.90</ShotSpread>
+				</statMultiplier>
+		</value>
+	</li>
+
+  <!--li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Pistol_Laser"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+        <statMultiplier>
+					<ShotSpread>0.90</ShotSpread>
+				</statMultiplier>
+		</value>
+	</li-->
+
+  <li Class="PatchOperationReplace" >
+		<xpath>Defs/ThingDef[defName="CaselessMod_Pistol_Grip"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+        <statMultiplier>
+					<ShotSpread>0.85</ShotSpread>
+				</statMultiplier>
+		</value>
+	</li>
+
+  <!--receivers -->
+
+  <li Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Module_CaselessPistol_Hypershot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/verbPropertiesObjectPatch/li/defaultProjectile</xpath>
+		<value>
+			<defaultProjectile>Bullet_9x18mmEC_FMJ</defaultProjectile>
+		</value>
+	</li>
+
+  <li Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Module_CaselessPistol_Hypershot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+			<compPropertiesObjectPatch>
+				<li Reader-Class="CombatExtended.CompProperties_AmmoUser">
+					<ammoSet>AmmoSet_9x18mmEC</ammoSet>
+				</li>
+			</compPropertiesObjectPatch>
+		</value>
+    <order>Append</order>
+	</li>
+
+  <li Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Module_CaselessPistol_Hypershot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]</xpath>
+		<value>
+        <statMultiplier>
+					<ShotSpread>1.25</ShotSpread>
+				</statMultiplier>
+		</value>
+    <order>Append</order>
+	</li>
+
+  <li Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Module_CaselessPistol_Hypershot"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/verbPropertiesOffseter</xpath>
+		<value>
+					<li>
+						<range>4</range>
+						<burstShotCount>4</burstShotCount>
+            <ticksBetweenBurstShots>-1</ticksBetweenBurstShots>
+					</li>
+		</value>
+    <order>Append</order>
+	</li>
+
+  <li Class="PatchOperationRemove" >
+    <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_Subsonic"]</xpath> <!--or defName="Module_CaselessPistol_Hypershot"-->
+  </li>
+
+  <!-- Stocks -->
+
+  <li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="Module_CaselessPistol_Stock_I"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+			<SwayFactor>0.875</SwayFactor>
+		</value>
+	</li>
+
+	<li Class="PatchOperationAdd" >
+		<xpath>Defs/ThingDef[defName="Module_CaselessPistol_Stock_II"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/statMultiplier</xpath>
+		<value>
+		<SwayFactor>0.75</SwayFactor>
+		</value>
+	</li>
+
+    <!-- Bulk -->
+
+		<li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_ExtMag"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>1.5</Bulk>
+  	  </value>
+  	</li>
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_DrumMag"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>2</Bulk>
+  	  </value>
+  	</li>
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_PlasMags"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>1.2</Bulk>
+  	  </value>
+  	</li>
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_MuzzleBasic" or defName="CaselessMod_Pistol_Suppressor"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>1.8</Bulk>
+  	  </value>
+  	</li>
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_extension"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>2.5</Bulk>
+  	  </value>
+  	</li>
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_Laser"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>0.6</Bulk>
+  	  </value>
+  	</li>
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="CaselessMod_Pistol_Grip"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>1.2</Bulk>
+  	  </value>
+  	</li>
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="Module_CaselessPistol_Stock_I"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>1.7</Bulk>
+  	  </value>
+  	</li>
+
+    <li Class="PatchOperationAdd">
+  	  <xpath>Defs/ThingDef[defName="Module_CaselessPistol_Stock_II"]/statBases</xpath>
+  	  <value>
+  	    <Bulk>3</Bulk>
+  	  </value>
+  	</li>
+
+
+  </operations>
+  </match>
+</Operation>
+
+</Patch>

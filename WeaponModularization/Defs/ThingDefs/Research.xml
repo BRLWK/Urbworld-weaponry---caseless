@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ResearchProjectDef>
+    <defName>Tier1Attachments</defName>
+    <label>Micro-heat printing</label>
+    <tab>UrbworldTech</tab>
+    <prerequisites>
+      <li>Gunsmithing</li>
+    </prerequisites>
+    <techLevel>Industrial</techLevel>
+    <description>Unlock basic urbworld attachments at the caseless weapons bench.</description>
+    <baseCost>200</baseCost>
+  <researchViewX>0.0</researchViewX>
+  <researchViewY>1</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>Tier2Attachments</defName>
+    <label>Plasteel subtracting</label>
+    <tab>UrbworldTech</tab>
+    <prerequisites>
+      <li>Tier1Attachments</li>
+      <li>MicroelectronicsBasics</li>
+      <li>Mortars</li>
+    </prerequisites>
+    <techLevel>Industrial</techLevel>
+    <description>Unlock intermediate urbworld attachments at the caseless weapons bench.</description>
+    <baseCost>400</baseCost>
+  <researchViewX>0.0</researchViewX>
+  <researchViewY>1.5</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>Tier3Attachments</defName>
+    <label>Plasteel harmonizing</label>
+    <tab>UrbworldTech</tab>
+    <prerequisites>
+      <li>Tier2Attachments</li>
+      <li>MultiAnalyzer</li>
+      <li>PrecisionRifling</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <techLevel>Spacer</techLevel>
+    <description>Unlock advanced urbworld attachments at the caseless weapons bench.</description>
+    <baseCost>800</baseCost>
+  <researchViewX>0.0</researchViewX>
+  <researchViewY>2</researchViewY>
+  </ResearchProjectDef>
+
+  <!--optics-->
+
+  <ResearchProjectDef>
+    <defName>Tier1Optics</defName>
+    <label>Basic rayfinder</label>
+    <tab>UrbworldTech</tab>
+    <prerequisites>
+      <li>Tier1Attachments</li>
+      <li>MicroelectronicsBasics</li>
+    </prerequisites>
+    <techLevel>Industrial</techLevel>
+    <description>Unlock basic urbworld optics at the caseless weapons bench.</description>
+    <baseCost>200</baseCost>
+  <researchViewX>1</researchViewX>
+  <researchViewY>1</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>Tier2Optics</defName>
+    <label>Squad classifier network</label>
+    <tab>UrbworldTech</tab>
+    <prerequisites>
+      <li>Tier1Optics</li>
+      <li>MultiAnalyzer</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <techLevel>Industrial</techLevel>
+    <description>Unlock intermediate urbworld optics at the caseless weapons bench.</description>
+    <baseCost>400</baseCost>
+  <researchViewX>1</researchViewX>
+  <researchViewY>1.5</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>Tier3Optics</defName>
+    <label>Dissecting wide-area rayfinder</label>
+    <tab>UrbworldTech</tab>
+    <prerequisites>
+      <li>Tier2Optics</li>
+      <li>Fabrication</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+    <techLevel>Spacer</techLevel>
+    <description>Unlock advanced urbworld optics at the caseless weapons bench.</description>
+    <baseCost>800</baseCost>
+  <researchViewX>1</researchViewX>
+  <researchViewY>2</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

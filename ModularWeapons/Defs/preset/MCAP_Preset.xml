@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Basics - No research -->
+
+    <!-- Basic Pistol -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCAP_Basic_Pistol</defName>
+    <customName>basic pistol</customName>
+    <weapon>Caseless_ModPistol</weapon>
+    <weaponTags>
+        <li>Gun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCAP_Grip_Standard</li>
+      <li>MCAP_Frame_Standard</li>
+      <li>MCAP_Magazine_Standard</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCAP_Grip_Ergonomic</li>
+      <li>MCAP_Frame_Heavy</li>
+      <li>MCAP_Muzzle_Compensator</li>
+      <li>MCAP_Muzzle_Laser</li>
+      <li>MCAP_Muzzle_Flashlight</li>
+      <li>MCAP_Muzzle_Suppressor</li>
+      <li>MCAP_Optic_Reddot</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+    <!-- Basic Carbine -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCAP_Basic_Carbine</defName>
+    <customName>basic pistol carbine</customName>
+    <weapon>Caseless_ModPistol</weapon>
+    <weaponTags>
+        <li>Gun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCAP_Grip_Stock</li>
+      <li>MCAP_Frame_Heavy</li>
+      <li>MCAP_Magazine_Standard</li>
+      <li>MCAP_Muzzle_Extension</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCAP_Magazine_Extended</li>
+      <li>MCAP_Optic_Reddot</li>
+      <li>MCAP_Muzzle_Light</li>
+      <li>MCAP_Muzzle_Bayonet</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+    <!-- Basic MP -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCAP_Basic_MP</defName>
+    <customName>basic machine pistol</customName>
+    <weapon>Caseless_ModPistol</weapon>
+    <weaponTags>
+        <li>Gun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCAP_Grip_Wire</li>
+      <li>MCAP_Frame_Standard</li>
+      <li>MCAP_Magazine_Extended</li>
+      <li>MCAP_Muzzle_Compensator</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCAP_Magazine_Drum</li>
+      <li>MCAP_Muzzle_Laser</li>
+      <li>MCAP_Muzzle_Flashlight</li>
+      <li>MCAP_Muzzle_Suppressor</li>
+      <li>MCAP_Optic_Reddot</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Customs - Industrial research, IGA-->
+
+    <!-- Custom pistol -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCAP_Custom_Pistol</defName>
+    <customName>custom pistol</customName>
+    <weapon>Caseless_ModPistol</weapon>
+    <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCAP_Grip_Standard</li>
+      <li>MCAP_Frame_Heavy</li>
+      <li>MCAP_Magazine_Extended</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCAP_Magazine_Drum</li>
+      <li>MCAP_Optic_Reddot</li>
+      <li>MCAP_Sight_Holo</li>
+      <li>MCAP_Muzzle_Compensator</li>
+      <li>MCAP_Muzzle_Laser</li>
+      <li>MCAP_Muzzle_Flashlight</li>
+      <li>MCAP_Muzzle_Suppressor</li>
+      <li>MCAP_Grip_Ergonomic</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+    <!-- custom carbine -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCAP_Custom_Carbine</defName>
+    <customName>custom pistol carbine</customName>
+    <weapon>Caseless_ModPistol</weapon>
+    <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCAP_Grip_Stock</li>
+      <li>MCAP_Frame_Heavy</li>
+      <li>MCAP_Magazine_Standard</li>
+      <li>MCAP_Muzzle_Extension</li>
+    </requiredParts>
+    <optionalPartsCount>1</optionalPartsCount>
+    <optionalParts>
+      <li>MCAP_Magazine_Drum</li>
+      <li>MCAP_Magazine_Extended</li>
+      <li>MCAP_Optic_Reddot</li>
+      <li>MCAP_Sight_Holo</li>
+      <li>MCAP_Grip_Enforcer</li>
+      <li>MCAP_Muzzle_Light</li>
+      <li>MCAP_Muzzle_Enforcer</li>
+      <li>MCAP_Muzzle_Bayonet</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+    <!-- custom machine pistol -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCAP_Custom_MP</defName>
+    <customName>custom machine pistol</customName>
+    <weapon>Caseless_ModPistol</weapon>
+    <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCAP_Frame_MP</li>
+      <li>MCAP_Magazine_Extended</li>
+      <li>MCAP_Optic_Reddot</li>
+      <li>MCAP_Muzzle_Compensator</li>
+      <li>MCAP_Grip_Wire</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCAP_Grip_Stock</li>
+      <li>MCAP_Magazine_Drum</li>
+      <li>MCAP_Muzzle_Laser</li>
+      <li>MCAP_Muzzle_Flashlight</li>
+      <li>MCAP_Muzzle_Suppressor</li>
+      <li>MCAP_Sight_Holo</li>
+      <li>MCAP_Grip_Enforcer</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+  <!-- Spacer - Spacer -->
+
+    <!-- Spacer custom pistol -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCAP_Spacer_Pistol</defName>
+    <customName>urbworld pistol</customName>
+    <weapon>Caseless_ModPistol</weapon>
+    <weaponTags>
+        <li>SpacerGun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCAP_Grip_Ergonomic</li>
+      <li>MCAP_Frame_EC</li>
+      <li>MCAP_Magazine_Standard</li>
+      <li>MCAP_Muzzle_Compensator</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCAP_Magazine_Drum</li>
+      <li>MCAP_Magazine_Extended</li>
+      <li>MCAP_Optic_SmartDot</li>
+      <li>MCAP_Optic_sHolo</li>
+      <li>MCAP_Optic_Glitter</li>
+      <li>MCAP_Muzzle_Laser</li>
+      <li>MCAP_Muzzle_Flashlight</li>
+      <li>MCAP_Muzzle_Suppressor</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+    <!-- Spacer custom carbine -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCAP_Spacer_Carbine</defName>
+    <customName>urbworld pistol carbine</customName>
+    <weapon>Caseless_ModPistol</weapon>
+    <weaponTags>
+        <li>SpacerGun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCAP_Frame_EC</li>
+      <li>MCAP_Magazine_Standard</li>
+      <li>MCAP_Sight_Holo</li>
+      <li>MCAP_Grip_Stock</li>
+      <li>MCAP_Muzzle_Extension</li>
+    </requiredParts>
+    <optionalPartsCount>3</optionalPartsCount>
+    <optionalParts>
+      <li>MCAP_Magazine_Drum</li>
+      <li>MCAP_Magazine_Extended</li>
+      <li>MCAP_Optic_SmartDot</li>
+      <li>MCAP_Optic_sHolo</li>
+      <li>MCAP_Optic_Glitter</li>
+      <li>MCAP_Muzzle_Accelerator</li>
+      <li>MCAP_Grip_Enforcer</li>
+      <li>MCAP_Muzzle_Light</li>
+      <li>MCAP_Muzzle_Enforcer</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+    <!-- Spacer custom machine pistol -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>MCAP_Spacer_MP</defName>
+    <customName>urbworld machine pistol</customName>
+    <weapon>Caseless_ModPistol</weapon>
+    <weaponTags>
+        <li>SpacerGun</li>
+    </weaponTags>
+    <requiredParts>
+      <li>MCAP_Grip_Wire</li>
+      <li>MCAP_Frame_MPEC</li>
+      <li>MCAP_Magazine_Drum</li>
+      <li>MCAP_Sight_Holo</li>
+      <li>MCAP_Muzzle_Compensator</li>
+    </requiredParts>
+    <optionalPartsCount>2</optionalPartsCount>
+    <optionalParts>
+      <li>MCAP_Optic_SmartDot</li>
+      <li>MCAP_Optic_sHolo</li>
+      <li>MCAP_Optic_Glitter</li>
+      <li>MCAP_Muzzle_Accelerator</li>
+      <li>MCAP_Grip_Stock</li>
+      <li>MCAP_Grip_Enforcer</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+
+</Defs>

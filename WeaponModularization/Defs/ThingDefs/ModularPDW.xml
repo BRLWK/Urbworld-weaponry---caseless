@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- ==== CSK-8 ==== -->
+  
+    <ThingDef ParentName="CaselessGunMMeleeBase" >
+		<defName>Gun_ModularCaseless_SMG</defName>
+		<label>Modular caseless PDW</label>
+		<description>The Sradi CSK-8 features high rate of fire, armor piercing ammunition and a compact lightweight design. A standard issue firearm of unagumented beat cops and lobby corpsec.</description>
+		<graphicData>
+			<texPath>Things/CaselessWep/SMG/Attachments/csg_new</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_CPistol</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>GasOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags>
+      <li>ShortShots</li>
+      <li>UWPC_SMG</li>
+      <li>ammo_caseless/50</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+      <li>ShortShots</li>
+    </weaponClasses>
+		<statBases>
+			<WorkToMake>23000</WorkToMake>
+			<Mass>2.29</Mass>
+			<AccuracyTouch>0.69</AccuracyTouch> <!--0.77-->
+			<AccuracyShort>0.56</AccuracyShort> <!--0.62-->
+			<AccuracyMedium>0.25</AccuracyMedium> <!--0.27-->
+			<AccuracyLong>0.14</AccuracyLong> <!--0.15-->
+			<RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown> <!--1.8-->
+		</statBases>
+		<costList>
+            <Chemfuel>45</Chemfuel>
+			<Steel>20</Steel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+        <verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_CSG</defaultProjectile>
+				<warmupTime>0.7</warmupTime> <!--0.7-->
+				<range>9.9</range> <!--14.9-->
+				<burstShotCount>5</burstShotCount> <!--7-->
+				<ticksBetweenBurstShots>5</ticksBetweenBurstShots> <!--5-->
+				<soundCast>Shot_CSG</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>7</muzzleFlashScale>
+			</li>
+		</verbs>
+
+        <comps>
+			<li Class="RW_NodeTree.CompProperties_ChildNodeProccesser">
+				<TextureSizeFactor>256</TextureSizeFactor>
+				<TextureFilterMode>Point</TextureFilterMode>
+				<ExceedanceFactor>2</ExceedanceFactor>
+				<ExceedanceOffset>1</ExceedanceOffset>
+				<!--ForceNodeIdControl>true</ForceNodeIdControl-->
+			</li>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<setRandomPartWhenCreate>true</setRandomPartWhenCreate>
+				<attachmentProperties>
+					<li>
+						<id>ModSMG_Reciever</id>
+						<name>reciever</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Receiver</UITexPath>
+						<postion>(0.0,3,0.0)</postion>
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>Module_CaselessSMG_RecieverI</li>
+								<li>Module_CaselessSMG_RapidReciever</li>
+								<li>Module_CaselessSMG_RecieverII</li>
+								<li MayRequire="CETeam.CombatExtended">Module_CE_CaselessSMG_Hypershot</li>
+							</thingDefs>
+						</filter>
+					</li>
+					<li>
+						<id>ModSMG_Magazine</id>
+						<name>magazine</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Mag</UITexPath>
+						<postion>(0.0,2,0.0)</postion>
+                        <defultThing>CaselessMod_SMG_AmmoHVAP</defultThing>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_SMG_AmmoFMJ</li>
+								<li>CaselessMod_SMG_AmmoHP</li>
+								<li>CaselessMod_SMG_AmmoHVAP</li>
+							</thingDefs>
+						</filter>
+					</li>
+					<li>
+						<id>ModSMG_Sight</id>
+						<name>sight</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Scope</UITexPath>
+						<postion>(0.14,3,0.05)</postion>
+						<scale>(0.5,0,0.5)</scale>
+						<defultThing>CaselessMod_SMG_IronSights</defultThing>
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_Sight_SimpleTwoX</li>
+								<li>CaselessMod_Sight_SimpleFourX</li>
+								<li>CaselessMod_Sight_SimpleDigiScope</li>
+								<li>CaselessMod_SMG_IronSights</li>
+                                <li>CaselessMod_SMG_AdvSight</li>
+								<li>CaselessMod_Sight_SimpleHolo</li>
+								<li>CaselessMod_Sight_SimpleScope</li>
+								<li>CaselessMod_Sight_AdvA</li>
+								<li>CaselessMod_Sight_AdvB</li>
+								<li>CaselessMod_Sight_AdvC</li>
+                                <li MayRequire="RWNodeTree.RWWeaponModularization">Module_ACOG</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_HoloSight</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_RedDotSight</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_SniperScope</li>
+								<li>CaselessMod_Sight_RayDot</li>
+								<li>CaselessMod_Sight_RaySight</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+						  <CaselessMod_SMG_IronSights>5</CaselessMod_SMG_IronSights>
+						  <CaselessMod_SMG_AdvSight>1</CaselessMod_SMG_AdvSight>
+                  		  <CaselessMod_Sight_SimpleTwoX>2</CaselessMod_Sight_SimpleTwoX>
+                  		  <CaselessMod_Sight_SimpleFourX>3</CaselessMod_Sight_SimpleFourX>
+						  <CaselessMod_Sight_SimpleDigiScope>1</CaselessMod_Sight_SimpleDigiScope>
+						  <CaselessMod_Sight_SimpleHolo>2</CaselessMod_Sight_SimpleHolo>
+						  <CaselessMod_Sight_SimpleScope>1</CaselessMod_Sight_SimpleScope>
+						  <CaselessMod_Sight_RayDot>2</CaselessMod_Sight_RayDot>
+                  		  <CaselessMod_Sight_RaySight>2</CaselessMod_Sight_RaySight>
+						  <CaselessMod_Sight_AdvA>1</CaselessMod_Sight_AdvA>
+						  <CaselessMod_Sight_AdvB>1</CaselessMod_Sight_AdvB>
+						  <CaselessMod_Sight_AdvC>1</CaselessMod_Sight_AdvC>
+                  		  <Module_ACOG MayRequire="RWNodeTree.RWWeaponModularization">4</Module_ACOG>
+						  <Module_HoloSight MayRequire="RWNodeTree.RWWeaponModularization">4</Module_HoloSight>
+						  <Module_RedDotSight MayRequire="RWNodeTree.RWWeaponModularization">4</Module_RedDotSight>
+						  <Module_SniperScope MayRequire="RWNodeTree.RWWeaponModularization">2</Module_SniperScope>
+			      		</randomThingDefWeights>
+					</li>
+					<li>
+						<id>ModSMG_Muzzle</id>
+						<name>muzzle</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Muzzle</UITexPath>
+						<postion>(0.245,4,0.0345)</postion>
+                        <scale>(0.5,0,0.5)</scale>
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_HeavySuppressorA</li>
+                                <li>CaselessMod_SMG_Suppressor</li>
+								<li>CaselessMod_Muzzle_DeviceA</li>
+								<li>CaselessMod_HeavySuppressorB</li>
+								<li>CaselessMod_Muzzle_CompensatorA</li>
+								<li>CaselessMod_Muzzle_CompensatorB</li>
+								<li>CaselessMod_Muzzle_FlashHider</li>
+								<li>CaselessMod_Muzzle_CompensatorC</li>
+								<li>CaselessMod_SMG_LongBarrel</li>
+								<li>CaselessMod_SMG_LongBarrelTwo</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_Silencer</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleBrake</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleCompensator</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_FlashHider</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+                  		  <CaselessMod_HeavySuppressorA>1</CaselessMod_HeavySuppressorA>
+                  		  <CaselessMod_Muzzle_DeviceA>1</CaselessMod_Muzzle_DeviceA>
+						  <CaselessMod_HeavySuppressorB>1</CaselessMod_HeavySuppressorB>
+						  <CaselessMod_Muzzle_CompensatorA>1</CaselessMod_Muzzle_CompensatorA>
+						  <CaselessMod_Muzzle_CompensatorB>3</CaselessMod_Muzzle_CompensatorB>
+						  <CaselessMod_Muzzle_FlashHider>2</CaselessMod_Muzzle_FlashHider>
+						  <CaselessMod_Muzzle_CompensatorC>3</CaselessMod_Muzzle_CompensatorC>
+						  <CaselessMod_SMG_Suppressor>2</CaselessMod_SMG_Suppressor>
+						  <CaselessMod_SMG_LongBarrel>1</CaselessMod_SMG_LongBarrel>
+						  <CaselessMod_SMG_LongBarrelTwo>1</CaselessMod_SMG_LongBarrelTwo>
+			      		</randomThingDefWeights>
+					</li>
+					<li>
+						<id>ModSMG_Furniture</id>
+						<name>furniture</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Stock</UITexPath>
+						<postion>(0.0,1,0.0)</postion>
+                        <defultThing>CaselessMod_PDW_FurnitureStock</defultThing>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_PDW_FurnitureDark</li>
+								<li>CaselessMod_PDW_FurnitureOD</li>
+								<li>CaselessMod_PDW_FurnitureSnow</li>
+								<li>CaselessMod_PDW_FurnitureStock</li>
+								<li>CaselessMod_PDW_FurnitureTan</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+                  		  <CaselessMod_PDW_FurnitureDark>1</CaselessMod_PDW_FurnitureDark>
+                  		  <CaselessMod_PDW_FurnitureStock>2</CaselessMod_PDW_FurnitureStock>
+						  <CaselessMod_PDW_FurnitureTan>1</CaselessMod_PDW_FurnitureTan>
+			      		</randomThingDefWeights>
+					</li>
+				</attachmentProperties>
+			</li>
+		</comps>
+
+    </ThingDef>
+
+	<ThingCategoryDef >
+		<defName>CPDW_Parts</defName>
+		<label>PDW parts</label>
+		<parent>ThingCategory_CaselssGunParts</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef >
+		<defName>CPDW_Optics</defName>
+		<label>PDW sights and optics</label>
+		<parent>CPDW_Parts</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef >
+		<defName>CPDW_Barrel</defName>
+		<label>PDW barrels</label>
+		<parent>CPDW_Parts</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef >
+		<defName>CPDW_Reciever</defName>
+		<label>PDW reciever</label>
+		<parent>CPDW_Parts</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef >
+		<defName>CPDW_Mags</defName>
+		<label>PDW ammunition</label>
+		<parent>CPDW_Parts</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef >
+		<defName>CPDW_Furniture</defName>
+		<label>PDW furniture</label>
+		<parent>CPDW_Parts</parent>
+	</ThingCategoryDef>
+
+	<!-- ==== Ammo ==== -->
+
+	<ThingDef Name="CGPB_CPDWAB" ParentName="CGPB_GenAmmoBase" Abstract="True">
+		<thingCategories Inherit="False">
+			<li>CPDW_Mags</li>
+		</thingCategories>
+		<statBases>
+			<Mass>0.35</Mass>
+			<WorkToMake>250</WorkToMake>
+		</statBases>
+		<costList>
+			<Steel>50</Steel>
+            <Chemfuel>80</Chemfuel>
+		</costList>
+	</ThingDef>
+
+
+	<ThingDef ParentName="CGPB_CPDWAB" >
+		<defName>CaselessMod_SMG_AmmoFMJ</defName>
+		<label>Caseless PDW FMJ Ammo</label>
+		<description>A magazine loaded with FMJ ammunition, a good balance between armor piercing and damage.</description>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/SMG/Attachments/FMJ</PartTexPath>
+                <verbPropertiesObjectPatch>
+					<li>
+						<defaultProjectile>Bullet_CSG_FMJ</defaultProjectile>
+                    </li>
+				</verbPropertiesObjectPatch>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CPDWAB" >
+		<defName>CaselessMod_SMG_AmmoHP</defName>
+		<label>Caseless PDW HP Ammo</label>
+		<description>A magazine loaded with hollow-point ammunition. The bullet blooms on impact which is good against flesh but is ineffective against armor.</description>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/SMG/Attachments/HP</PartTexPath>
+                <verbPropertiesObjectPatch>
+					<li>
+						<defaultProjectile>Bullet_CSG_HP</defaultProjectile>
+                    </li>
+				</verbPropertiesObjectPatch>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CPDWAB" >
+		<defName>CaselessMod_SMG_AmmoHVAP</defName>
+		<label>Caseless PDW HVAP Ammo</label>
+		<description>A magazine loaded with high velocity armor piercing ammunition; goes through body armor and bone, but does little damage.</description>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/SMG/Attachments/HVAP</PartTexPath>
+                <verbPropertiesObjectPatch>
+					<li>
+						<defaultProjectile>Bullet_CSG</defaultProjectile>
+                    </li>
+				</verbPropertiesObjectPatch>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- ==== Optics ==== -->
+
+	<ThingDef ParentName="CGPB_GenOpticsSimpleBase" >
+		<defName>CaselessMod_SMG_IronSights</defName>
+		<label>Caseless PDW Ironsights</label>
+		<description>Flip-up ironsights for the caseless SMG.</description>
+		<statBases>
+			<WorkToMake>100</WorkToMake>
+			<Mass>0.09</Mass>
+		</statBases>
+		<costList>
+            <Chemfuel>10</Chemfuel>
+			<Steel>5</Steel>
+		</costList>
+		<thingCategories Inherit="False">
+			<li>CPDW_Optics</li>
+		</thingCategories>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/SMG/Attachments/Irons</PartTexPath>
+				<statMultiplier>
+					<AccuracyTouch>1.12</AccuracyTouch>
+					<AccuracyShort>1.12</AccuracyShort>
+					<AccuracyMedium>1.12</AccuracyMedium>
+                    <AccuracyLong>1.12</AccuracyLong>
+				</statMultiplier>
+				<verbPropertiesOffseter>
+					<li>
+						<range>5</range>
+					</li>
+				</verbPropertiesOffseter>
+			</li>
+		</comps>
+	</ThingDef>
+
+    <ThingDef ParentName="CGPB_GenOpticsAdvancedBase" >
+		<defName>CaselessMod_SMG_AdvSight</defName>
+		<label>Caseless PDW HoloPro C</label>
+		<description>The HoloPro C is a wide-angle projector that outlines targets. Expensive, bulky but useful at all ranges.</description>
+		<costList>
+			<Plasteel>35</Plasteel>
+            <Chemfuel>30</Chemfuel>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<statBases>
+			<WorkToMake>750</WorkToMake>
+			<Mass>0.38</Mass>
+		</statBases>
+		<thingCategories Inherit="False">
+			<li>CPDW_Optics</li>
+		</thingCategories>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/SMG/Attachments/Holosight</PartTexPath>
+                <verbPropertiesOffseter>
+					<li>
+						<warmupTime>-0.15</warmupTime>
+						<range>8</range>
+					</li>
+				</verbPropertiesOffseter>
+				<statMultiplier>
+					<AccuracyTouch>1.2</AccuracyTouch>
+					<AccuracyShort>1.25</AccuracyShort>
+					<AccuracyMedium>1.3</AccuracyMedium>
+                    <AccuracyLong>1.33</AccuracyLong>
+				</statMultiplier>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- ==== Barrels & attachments ==== -->
+
+	<ThingDef Name="CGPB_CPDWBB" ParentName="CGPB_BarrelAdv_Base" Abstract="True">
+		<thingCategories Inherit="False">
+			<li>CPDW_Barrel</li>
+		</thingCategories>
+	</ThingDef>
+
+    <ThingDef ParentName="CGPB_MuzzleBase" >
+		<defName>CaselessMod_SMG_Suppressor</defName>
+		<label>Caseless PDW Heavy suppressor</label>
+		<description>A heavy suppressor, lowers the report but has bulk.</description>
+		<statBases>
+			<WorkToMake>250</WorkToMake>
+			<Mass>0.18</Mass>
+		</statBases>
+		<costList>
+			<Steel>15</Steel>
+            <Chemfuel>10</Chemfuel>
+		</costList>
+		<thingCategories Inherit="False">
+			<li>CPDW_Barrel</li>
+		</thingCategories>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/SMG/Attachments/BoxSuppressor</PartTexPath>
+				<verbPropertiesObjectPatch>
+					<li>
+						<soundCast>Shot_SilencedA</soundCast>
+						<soundCastTail IsNull="true"/>
+					</li>
+				</verbPropertiesObjectPatch>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="CGPB_CPDWBB" >
+		<defName>CaselessMod_SMG_LongBarrel</defName>
+		<label>Caseless PDW Shrouded long barrel</label>
+		<description>A barrel extension and handguard. Bulky, heavy but improves this weapon's long range accuracy.</description>
+		<statBases>
+			<WorkToMake>500</WorkToMake>
+			<Mass>1.2</Mass>
+		</statBases>
+		<costList>
+			<Steel>30</Steel>
+			<Chemfuel>25</Chemfuel>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/SMG/Attachments/ShroudA</PartTexPath>
+				<setRandomPartWhenCreate>true</setRandomPartWhenCreate>
+				<verbPropertiesOffseter>
+					<li>
+						<warmupTime>0.2</warmupTime>
+						<range>3</range>
+					</li>
+				</verbPropertiesOffseter>
+				<statMultiplier>
+					<AccuracyMedium>1.1</AccuracyMedium>
+					<AccuracyLong>1.1</AccuracyLong>
+					<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+				</statMultiplier>
+				<attachmentProperties>
+					<li>
+						<id>ModCSGLong_Barrel</id>
+						<name>muzzle</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Muzzle</UITexPath>
+						<postion>(0.22,3,0.005)</postion>
+						<scale>(0.85,0,0.85)</scale>
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_HeavySuppressorA</li>
+                                <li>CaselessMod_SMG_Suppressor</li>
+								<li>CaselessMod_Muzzle_DeviceA</li>
+								<li>CaselessMod_HeavySuppressorB</li>
+								<li>CaselessMod_Muzzle_CompensatorA</li>
+								<li>CaselessMod_Muzzle_CompensatorB</li>
+								<li>CaselessMod_Muzzle_FlashHider</li>
+								<li>CaselessMod_Muzzle_CompensatorC</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_Silencer</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleBrake</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleCompensator</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_FlashHider</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+                  		  <CaselessMod_HeavySuppressorA>1</CaselessMod_HeavySuppressorA>
+                  		  <CaselessMod_Muzzle_DeviceA>1</CaselessMod_Muzzle_DeviceA>
+						  <CaselessMod_HeavySuppressorB>1</CaselessMod_HeavySuppressorB>
+						  <CaselessMod_Muzzle_CompensatorA>1</CaselessMod_Muzzle_CompensatorA>
+						  <CaselessMod_Muzzle_CompensatorB>3</CaselessMod_Muzzle_CompensatorB>
+						  <CaselessMod_Muzzle_FlashHider>2</CaselessMod_Muzzle_FlashHider>
+						  <CaselessMod_Muzzle_CompensatorC>3</CaselessMod_Muzzle_CompensatorC>
+						  <CaselessMod_SMG_Suppressor>1</CaselessMod_SMG_Suppressor>
+			      		</randomThingDefWeights>
+					</li>
+				</attachmentProperties>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CPDWBB" >
+		<defName>CaselessMod_SMG_LongBarrelTwo</defName>
+		<label>Caseless PDW light long barrel</label>
+		<description>A barrel extension for underbarrel modules.</description>
+		<statBases>
+			<WorkToMake>750</WorkToMake>
+			<Mass>0.9</Mass>
+		</statBases>
+		<costList>
+			<Steel>20</Steel>
+			<Plasteel>10</Plasteel>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/SMG/Attachments/ShroudB</PartTexPath>
+				<setRandomPartWhenCreate>true</setRandomPartWhenCreate>
+				<verbPropertiesOffseter>
+					<li>
+						<warmupTime>0.2</warmupTime>
+						<range>3</range>
+					</li>
+				</verbPropertiesOffseter>
+				<statMultiplier>
+					<AccuracyMedium>1.1</AccuracyMedium>
+					<AccuracyLong>1.1</AccuracyLong>
+					<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+				</statMultiplier>
+				<attachmentProperties>
+					<li>
+						<id>ModCSGLong_Barrel</id>
+						<name>muzzle</name>
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Muzzle</UITexPath>
+						<postion>(0.22,3,0.005)</postion>
+						<scale>(0.85,0,0.85)</scale>
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_HeavySuppressorA</li>
+                                <li>CaselessMod_SMG_Suppressor</li>
+								<li>CaselessMod_Muzzle_DeviceA</li>
+								<li>CaselessMod_HeavySuppressorB</li>
+								<li>CaselessMod_Muzzle_CompensatorA</li>
+								<li>CaselessMod_Muzzle_CompensatorB</li>
+								<li>CaselessMod_Muzzle_FlashHider</li>
+								<li>CaselessMod_Muzzle_CompensatorC</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_Silencer</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleBrake</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_MuzzleCompensator</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_FlashHider</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+                  		  <CaselessMod_HeavySuppressorA>1</CaselessMod_HeavySuppressorA>
+                  		  <CaselessMod_Muzzle_DeviceA>1</CaselessMod_Muzzle_DeviceA>
+						  <CaselessMod_HeavySuppressorB>1</CaselessMod_HeavySuppressorB>
+						  <CaselessMod_Muzzle_CompensatorA>1</CaselessMod_Muzzle_CompensatorA>
+						  <CaselessMod_Muzzle_CompensatorB>3</CaselessMod_Muzzle_CompensatorB>
+						  <CaselessMod_Muzzle_FlashHider>2</CaselessMod_Muzzle_FlashHider>
+						  <CaselessMod_Muzzle_CompensatorC>3</CaselessMod_Muzzle_CompensatorC>
+						  <CaselessMod_SMG_Suppressor>1</CaselessMod_SMG_Suppressor>
+			      		</randomThingDefWeights>
+					</li>
+					<li>
+						<id>ModCSG_UnderBarrel</id>
+						<name>underbarrel</name>
+						<verbPropertiesObjectPatchByChildPart Default="false" />
+						<UITexPath>ui/icons/AttachmentIcon/AttachmentIcon_Underbarrel</UITexPath>
+						<postion>(-0.24,1,-0.001)</postion>
+						<scale>(1,0,1)</scale>
+						<allowEmpty>true</allowEmpty>
+						<filter>
+							<thingDefs>
+								<li>CaselessMod_ForwardGripA</li>
+								<li>CaselessMod_ForwardGripB</li>
+								<li>CaselessMod_ForwardGripC</li>
+								<li>CaselessMod_ForwardGripD</li>
+								<li>CaselessMod_ForwardGripE</li>
+								<li>CaselessMod_ForwardGripF</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_VerticalGrip</li>
+								<li MayRequire="RWNodeTree.RWWeaponModularization">Module_AngledGrip</li>
+							</thingDefs>
+						</filter>
+						<randomThingDefWeights>
+                  		  <CaselessMod_ForwardGripA>8</CaselessMod_ForwardGripA>
+                  		  <CaselessMod_ForwardGripB>8</CaselessMod_ForwardGripB>
+						  <CaselessMod_ForwardGripC>8</CaselessMod_ForwardGripC>
+						  <CaselessMod_ForwardGripD>3</CaselessMod_ForwardGripD>
+						  <CaselessMod_ForwardGripE>3</CaselessMod_ForwardGripE>
+						  <CaselessMod_ForwardGripF>3</CaselessMod_ForwardGripF>
+						  <Module_VerticalGrip MayRequire="RWNodeTree.RWWeaponModularization">5</Module_VerticalGrip>
+						  <Module_AngledGrip MayRequire="RWNodeTree.RWWeaponModularization">5</Module_AngledGrip>
+			      		</randomThingDefWeights>
+					</li>
+				</attachmentProperties>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- ==== receivers ==== -->
+
+	<ThingDef Name="CGPB_CPDWRB" ParentName="CGPB_ReceiverBase_BO" Abstract="True">
+		<thingCategories Inherit="False">
+			<li>CPDW_Reciever</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_ReceiverBase_GO" >
+		<defName>Module_CaselessSMG_RapidReciever</defName>
+		<label>Caseless PDW rapid reciever</label>
+		<description>Increases ROF and weapon cooldown/warmup.</description>
+		<statBases>
+			<WorkToMake>300</WorkToMake>
+			<Mass>0.5</Mass>
+		</statBases>
+		<costList>
+			<Steel>35</Steel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<thingCategories Inherit="False">
+			<li>CPDW_Reciever</li>
+		</thingCategories>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/SMG/Attachments/RapidReciever</PartTexPath>
+                <verbPropertiesOffseter>
+					<li>
+						<warmupTime>0.2</warmupTime>
+						<burstShotCount>4</burstShotCount>
+                        <ticksBetweenBurstShots>-2</ticksBetweenBurstShots>
+					</li>
+				</verbPropertiesOffseter>
+				<statOffset>
+					<RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CPDWRB" >
+		<defName>Module_CaselessSMG_RecieverI</defName>
+		<label>Caseless PDW hardened reciever</label>
+		<description>Lowers ROF but increases medium range accuracy.</description>
+		<statBases>
+			<WorkToMake>450</WorkToMake>
+			<Mass>0.9</Mass>
+		</statBases>
+		<costList>
+			<Steel>50</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/SMG/Attachments/HardenedReciever</PartTexPath>
+				<statMultiplier>
+					<AccuracyTouch>1.2</AccuracyTouch>
+					<AccuracyShort>1.25</AccuracyShort>
+					<AccuracyMedium>1.25</AccuracyMedium>
+                    <AccuracyLong>1.1</AccuracyLong>
+				</statMultiplier>
+                <verbPropertiesOffseter>
+					<li>
+						<warmupTime>0.35</warmupTime>
+						<burstShotCount>-2</burstShotCount>
+                        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+					</li>
+				</verbPropertiesOffseter>
+				<statOffset>
+					<RangedWeapon_Cooldown>1.1</RangedWeapon_Cooldown>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CPDWRB" >
+		<defName>Module_CaselessSMG_RecieverII</defName>
+		<label>Caseless PDW tuned reciever</label>
+		<description>Lowers ROF but increases medium range accuracy.</description>
+		<statBases>
+			<WorkToMake>500</WorkToMake>
+			<Mass>0.7</Mass>
+		</statBases>
+		<costList>
+			<Steel>35</Steel>
+			<Plasteel>10</Plasteel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+				<PartTexPath>Things/CaselessWep/SMG/Attachments/TunedReciever</PartTexPath>
+				<statMultiplier>
+					<AccuracyTouch>1.25</AccuracyTouch>
+					<AccuracyShort>1.3</AccuracyShort>
+					<AccuracyMedium>1.3</AccuracyMedium>
+                    <AccuracyLong>1.15</AccuracyLong>
+				</statMultiplier>
+                <verbPropertiesOffseter>
+					<li>
+						<warmupTime>0.2</warmupTime>
+						<burstShotCount>-1</burstShotCount>
+                        <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+					</li>
+				</verbPropertiesOffseter>
+				<statOffset>
+					<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+				</statOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!--====Furniture====-->
+
+	<ThingDef Name="CGPB_CPDWF" ParentName="CGPB_BurstFurnitureBase" Abstract="True">
+		<thingCategories Inherit="False">
+			<li>CPDW_Furniture</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CPDWF" >
+	  <defName>CaselessMod_PDW_FurnitureDark</defName>
+	  <label>PDW dark furniture</label>
+	  <description>Dark furniture for the PDW.</description>
+	  <comps>
+	  	<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+	  		<PartTexPath>Things/CaselessWep/SMG/Attachments/Furn_Dark</PartTexPath>
+	  	</li>
+	  </comps>
+  	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CPDWF" >
+	  <defName>CaselessMod_PDW_FurnitureOD</defName>
+	  <label>PDW OD furniture</label>
+	  <description>Olive drab furniture for the PDW.</description>
+	  <comps>
+	  	<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+	  		<PartTexPath>Things/CaselessWep/SMG/Attachments/Furn_OD</PartTexPath>
+	  	</li>
+	  </comps>
+  	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CPDWF" >
+	  <defName>CaselessMod_PDW_FurnitureSnow</defName>
+	  <label>PDW snow furniture</label>
+	  <description>Snow furniture for the PDW.</description>
+	  <comps>
+	  	<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+	  		<PartTexPath>Things/CaselessWep/SMG/Attachments/Furn_Snow</PartTexPath>
+	  	</li>
+	  </comps>
+  	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CPDWF" >
+	  <defName>CaselessMod_PDW_FurnitureStock</defName>
+	  <label>PDW standard furniture</label>
+	  <description>Standard furniture for the PDW.</description>
+	  <comps>
+	  	<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+	  		<PartTexPath>Things/CaselessWep/SMG/Attachments/Furn_Stock</PartTexPath>
+	  	</li>
+	  </comps>
+  	</ThingDef>
+
+	<ThingDef ParentName="CGPB_CPDWF" >
+	  <defName>CaselessMod_PDW_FurnitureTan</defName>
+	  <label>PDW tan furniture</label>
+	  <description>Tan furniture for the PDW.</description>
+	  <comps>
+	  	<li Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon">
+	  		<PartTexPath>Things/CaselessWep/SMG/Attachments/Furn_Tan</PartTexPath>
+	  	</li>
+	  </comps>
+  	</ThingDef>
+
+	
+
+</Defs>

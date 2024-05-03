@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+	<mods>
+		<li>Modularization Vanilla Weapon</li>
+	</mods>
+	<match Class="PatchOperationSequence">
+		<operations>
+
+		<li Class="PatchOperationRemove">
+			<xpath>Defs/ThingDef[defName="Module_CaselessCarbine_BaseGL" 
+							  or defName="Module_CaselessCarbine_KnightGL"
+							  or defName="CaselessModule_RevolverGL"
+							  or defName="CaselessModule_PlasteelGL"]/comps/li[@Class="RW_ModularizationWeapon.CompProperties_ModularizationWeapon"]/attachmentProperties</xpath>
+		</li>
+
+
+        <!-- launchers -->
+
+		<li Class='CombatExtended.PatchOperationMakeGunCECompatible'>
+		<defName>Module_CaselessCarbine_BaseGL</defName>
+		<statBases>
+			<WorkToMake>3000</WorkToMake>
+			<SightsEfficiency>1</SightsEfficiency>
+			<ShotSpread>0.1</ShotSpread>
+			<SwayFactor>1.5</SwayFactor>
+			<Bulk>6.1</Bulk>
+			<Mass>5</Mass>
+			<RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+		</statBases>
+		<Properties>
+			<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+			<hasStandardCommand>True</hasStandardCommand>
+			<defaultProjectile>Bullet_20x42mmGrenade_HE</defaultProjectile>
+			<warmupTime>1</warmupTime>
+			<range>40.9</range>
+			<minRange>5</minRange>
+			<soundCast>Shot_GLA</soundCast>
+			<soundCastTail>GunTail_Light</soundCastTail>
+			<muzzleFlashScale>3</muzzleFlashScale>
+			<recoilAmount>0.89</recoilAmount>
+			<ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+		</Properties>
+		<AmmoUser>
+			<magazineSize>1</magazineSize>
+			<reloadTime>1.6</reloadTime>
+			<ammoSet>AmmoSet_20x42mmGrenade</ammoSet>
+		</AmmoUser>
+		<FireModes>
+			<aiUseBurstMode>False</aiUseBurstMode>
+			<aiAimMode>SuppressFire</aiAimMode>
+		</FireModes>
+		<researchPrerequisite>CE_Launchers</researchPrerequisite>
+	    </li>
+
+
+		<li Class='CombatExtended.PatchOperationMakeGunCECompatible'>
+		<defName>Module_CaselessCarbine_KnightGL</defName>
+		<statBases>
+			<WorkToMake>9000</WorkToMake>
+			<SightsEfficiency>2.48</SightsEfficiency>
+			<ShotSpread>0.06</ShotSpread>
+			<SwayFactor>1.5</SwayFactor>
+			<Bulk>6.47</Bulk>
+			<Mass>7.74</Mass>
+			<RangedWeapon_Cooldown>0.89</RangedWeapon_Cooldown>
+		</statBases>
+		<Properties>
+			<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+			<hasStandardCommand>True</hasStandardCommand>
+			<defaultProjectile>Bullet_20x42mmGrenade_HE</defaultProjectile>
+			<warmupTime>1.5</warmupTime>
+			<range>54.9</range>
+			<minRange>5</minRange>
+			<soundCast>Shot_GLA</soundCast>
+			<soundCastTail>GunTail_Light</soundCastTail>
+			<muzzleFlashScale>3</muzzleFlashScale>
+			<recoilAmount>0.89</recoilAmount>
+			<ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+		</Properties>
+		<AmmoUser>
+			<magazineSize>1</magazineSize>
+			<reloadTime>1.6</reloadTime>
+			<ammoSet>AmmoSet_20x42mmGrenade</ammoSet>
+		</AmmoUser>
+		<FireModes>
+			<aiUseBurstMode>False</aiUseBurstMode>
+			<aiAimMode>SuppressFire</aiAimMode>
+		</FireModes>
+		<researchPrerequisite>CE_Launchers</researchPrerequisite>
+	    </li>
+
+		<li Class='CombatExtended.PatchOperationMakeGunCECompatible'>
+		<defName>CaselessModule_RevolverGL</defName>
+		<statBases>
+			<WorkToMake>15500</WorkToMake>
+			<SightsEfficiency>0.7</SightsEfficiency>
+			<ShotSpread>0.16</ShotSpread>
+			<SwayFactor>0.74</SwayFactor>
+			<Bulk>3.6</Bulk>
+			<Mass>3.8</Mass>
+			<RangedWeapon_Cooldown>0.35</RangedWeapon_Cooldown>
+		</statBases>
+		<Properties>
+			<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+			<hasStandardCommand>True</hasStandardCommand>
+			<defaultProjectile>Bullet_20x42mmGrenade_HE</defaultProjectile>
+			<warmupTime>1.1</warmupTime>
+			<range>31</range>
+			<soundCast>Shot_GLA</soundCast>
+			<soundCastTail>GunTail_Light</soundCastTail>
+			<muzzleFlashScale>4</muzzleFlashScale>
+			<recoilAmount>0.14</recoilAmount>
+			<ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+		</Properties>
+		<costList>
+   		   <Steel>20</Steel>
+		   <Plasteel>20</Plasteel>
+		   <Chemfuel>5</Chemfuel>
+   		   <ComponentIndustrial>4</ComponentIndustrial>
+   		 </costList>
+		<AmmoUser>
+			<magazineSize>3</magazineSize>
+			<reloadTime>4.5</reloadTime>
+			<ammoSet>AmmoSet_20x42mmGrenade</ammoSet>
+		</AmmoUser>
+		<FireModes>
+			<aiUseBurstMode>False</aiUseBurstMode>
+			<aiAimMode>SuppressFire</aiAimMode>
+		</FireModes>
+		<researchPrerequisite>CE_Launchers</researchPrerequisite>
+	    </li>
+
+		<li Class='CombatExtended.PatchOperationMakeGunCECompatible'>
+		<defName>CaselessModule_PlasteelGL</defName>
+		<statBases>
+			<WorkToMake>34500</WorkToMake>
+			<SightsEfficiency>1</SightsEfficiency>
+			<ShotSpread>0.12</ShotSpread>
+			<SwayFactor>0.76</SwayFactor>
+			<Bulk>3.8</Bulk>
+			<Mass>3.8</Mass>
+			<RangedWeapon_Cooldown>0.89</RangedWeapon_Cooldown>
+		</statBases>
+		<Properties>
+			<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+			<hasStandardCommand>True</hasStandardCommand>
+			<defaultProjectile>Bullet_40x46mmGrenade_HE</defaultProjectile>
+			<warmupTime>1</warmupTime>
+			<range>34.9</range>
+			<minRange>5</minRange>
+			<soundCast>Shot_GLA</soundCast>
+			<soundCastTail>GunTail_Light</soundCastTail>
+			<muzzleFlashScale>3</muzzleFlashScale>
+			<recoilAmount>2.84</recoilAmount>
+			<ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+		</Properties>
+		<AmmoUser>
+			<magazineSize>1</magazineSize>
+			<reloadTime>1.35</reloadTime>
+			<ammoSet>AmmoSet_40x46mmGrenade</ammoSet>
+		</AmmoUser>
+		<FireModes>
+			<aiUseBurstMode>False</aiUseBurstMode>
+			<aiAimMode>SuppressFire</aiAimMode>
+		</FireModes>
+		<researchPrerequisite>CE_Launchers</researchPrerequisite>
+	    </li>
+
+		
+
+
+        </operations>
+	</match>
+</Operation>
+
+
+</Patch>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Combat Extended</li>
+    </mods>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs</xpath>
+      <value>
+
+	<ThingCategoryDef>
+		<defName>Ammo8mmChemrail</defName>
+		<label>8mm Chemrail</label>
+		<parent>AmmoAdvanced</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberRailgunRifle</iconPath>
+	</ThingCategoryDef>
+
+	<!-- ==================== AmmoSet ========================== -->
+
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_8mmChemrail</defName>
+		<label>8mm Chemrail</label>
+		<ammoTypes>
+			<Ammo_8mmChemrail_Sabot>Bullet_8mmChemrail_Sabot</Ammo_8mmChemrail_Sabot>
+            <Ammo_8mmChemrail_Triplex>Bullet_8mmChemrail_Triplex</Ammo_8mmChemrail_Triplex>
+            <Ammo_8mmChemrail_Scatter>Bullet_8mmChemrail_Scatter</Ammo_8mmChemrail_Scatter>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ==================== Ammo ========================== -->
+
+	<ThingDef Name="8mmChemrailBase" Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase" Abstract="True">
+		<statBases>
+			<Mass>0.01</Mass>
+			<Bulk>0.01</Bulk>
+			<MarketValue>0.07</MarketValue>
+		</statBases>
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+			<li>CE_AutoEnableCrafting_FabricationBench</li>
+			<li>CE_AutoEnableCrafting_TableMachining</li>
+		</tradeTags>
+		<thingCategories>
+			<li>Ammo8mmChemrail</li>
+		</thingCategories>
+		<graphicData>
+			<texPath>Things/Ammo/Railgun/Rifle</texPath>
+			<graphicClass>CombatExtended.Graphic_StackCountRanged</graphicClass>
+		</graphicData>
+		<stackLimit>5000</stackLimit>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="8mmChemrailBase">
+		<description>Fin-stabilized tungsten carbide penetrator with chemical starter, designed for accelerator rifle kits.</description>
+		<defName>Ammo_8mmChemrail_Sabot</defName>
+		<label>8mm Chemrail (sabot)</label>
+		<statBases>
+			<MarketValue>0.6</MarketValue>
+		</statBases>
+		<ammoClass>RailgunSabot</ammoClass>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="8mmChemrailBase">
+		<defName>Ammo_8mmChemrail_Triplex</defName>
+		<label>8mm Chemrail (triplex)</label>
+		<description>Tungsten rod that seperates into 3 fin-stabilized projectiles. Utilizes a chemical starter, designed for accelerator rifle kits.</description>
+		<statBases>
+			<MarketValue>0.4</MarketValue>
+		</statBases>
+		<ammoClass>Triplex</ammoClass>
+        <generateAllowChance>0.6</generateAllowChance>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="8mmChemrailBase">
+		<defName>Ammo_8mmChemrail_Scatter</defName>
+		<label>8mm Chemrail (scatter)</label>
+		<description>Frangible tungsten rod that scatters into 7 pellets. Utilizes a chemical starter, designed for accelerator rifle kits.</description>
+		<ammoClass>Scatter</ammoClass>
+        <generateAllowChance>0.3</generateAllowChance>
+	</ThingDef>
+
+	<!-- ================== Projectiles ================== -->
+
+    <ThingDef Class="CombatExtended.AmmoDef" Name="Base8mmChemrailBullet" ParentName="BaseBulletCE" Abstract="true">
+		<thingClass>CombatExtended.BulletCE</thingClass>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<speed>340</speed>
+			<dropsCasings>false</dropsCasings>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Base8mmChemrailBullet">
+		<defName>Bullet_8mmChemrail_Sabot</defName>
+		<label>8mm Chemrail bullet (Sabot)</label>
+        <graphicData>
+			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>29</damageAmountBase>
+			<armorPenetrationSharp>40</armorPenetrationSharp>
+			<armorPenetrationBlunt>260.1</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base8mmChemrailBullet">
+		<defName>Bullet_8mmChemrail_Triplex</defName>
+		<label>8mm Chemrail bullet (Triplex)</label>
+        <graphicData>
+			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.5,1.2)</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+			<armorPenetrationSharp>10</armorPenetrationSharp>
+			<armorPenetrationBlunt>86.7</armorPenetrationBlunt>
+            <gravityFactor>30</gravityFactor> <!-- resistance? -->
+            <pelletCount>3</pelletCount>
+            <spreadMult>8.9</spreadMult>
+		</projectile>
+	</ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base8mmChemrailBullet">
+		<defName>Bullet_8mmChemrail_Scatter</defName>
+		<label>8mm Chemrail pellet (Scatter)</label>
+        <graphicData>
+			<texPath>Things/Projectile/Shotgun_Pellet</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+			<armorPenetrationSharp>5</armorPenetrationSharp>
+			<armorPenetrationBlunt>44.5</armorPenetrationBlunt>
+            <gravityFactor>40</gravityFactor> <!-- resistance? -->
+            <pelletCount>7</pelletCount>
+            <spreadMult>17.8</spreadMult>
+		</projectile>
+	</ThingDef>
+
+	<!-- ==================== Recipes ========================== -->
+
+	<RecipeDef Name="8mmChemrailRecipeBase" ParentName="AmmoRecipeBase" Abstract="True">
+		<researchPrerequisite>ECOPA</researchPrerequisite>
+		<workAmount>1200</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Uranium</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>Uranium</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+	</RecipeDef>
+
+    <RecipeDef ParentName="8mmChemrailRecipeBase">
+		<defName>MakeAmmo_8mmChemrail_Sabot</defName>
+		<label>make 8mm Chemrail cartridge (Sabot) x500</label>
+		<description>Craft 500 8mm Chemrail (Sabot) cartridges.</description>
+		<jobString>Making 8mm Chemrail (Sabot) cartridges.</jobString>
+		<products>
+			<Ammo_8mmChemrail_Sabot>500</Ammo_8mmChemrail_Sabot>
+		</products>
+	</RecipeDef>
+
+    <RecipeDef ParentName="8mmChemrailRecipeBase">
+		<defName>MakeAmmo_8mmChemrail_Scatter</defName>
+		<label>make 8mm Chemrail cartridge (Scatter) x500</label>
+		<description>Craft 500 8mm Chemrail (Scatter) cartridges.</description>
+		<jobString>Making 8mm Chemrail (Scatter) cartridges.</jobString>
+		<products>
+			<Ammo_8mmChemrail_Scatter>500</Ammo_8mmChemrail_Scatter>
+		</products>
+	</RecipeDef>
+
+    <RecipeDef ParentName="8mmChemrailRecipeBase">
+		<defName>MakeAmmo_8mmChemrail_Triplex</defName>
+		<label>make 8mm Chemrail cartridge (Triplex) x500</label>
+		<description>Craft 500 8mm Chemrail (Triplex) cartridges.</description>
+		<jobString>Making 8mm Chemrail (Triplex) cartridges.</jobString>
+		<products>
+			<Ammo_8mmChemrail_Triplex>500</Ammo_8mmChemrail_Triplex>
+		</products>
+	</RecipeDef>
+
+      </value>
+    </match>
+  </Operation>
+
+</Patch>
